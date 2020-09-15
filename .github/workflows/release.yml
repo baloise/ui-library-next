@@ -1,0 +1,59 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: "0"
+
+      - name: Git Identity
+        run: |
+          git config --global user.name 'hirsch88'
+          git config --global user.email 'gery.hirschfeld@w3tec.ch'
+          git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Fetch all Tags and Pull
+        run: |
+          git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+          git pull
+
+      - name: Authenticate with Registry
+        run: |
+          yarn logout
+          echo "registry=http://registry.npmjs.org/" > .npmrc
+          echo //registry.npmjs.org/:_authToken=$NPM_TOKEN >> .npmrc
+          npm whoami
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Clean install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Git Status
+        run: git status
+
+      - name: Builded libaries are pushed
+        run: git diff-index --quiet HEAD --
+
+      - name: Publish to NPM
+        run: "npm run publish"
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
