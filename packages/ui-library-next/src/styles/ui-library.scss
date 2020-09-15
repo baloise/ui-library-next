@@ -1,0 +1,22 @@
+.bal-app {
+  position: relative;
+
+  * {
+    box-sizing: border-box;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+  }
+
+  @import "./ui-library.utilities";
+  @import "node_modules/bulma/sass/grid/_all.sass";
+  @import "./base/all";
+  @import "node_modules/bulma/sass/elements/_all.sass";
+  @import "node_modules/bulma/sass/form/_all.sass";
+  @import "node_modules/bulma/sass/components/_all.sass";
+  @import "node_modules/bulma/sass/grid/_all.sass";
+  @import "node_modules/bulma/sass/helpers/_all.sass";
+  @import "node_modules/bulma/sass/layout/_all.sass";
+
+}
