@@ -1,0 +1,30 @@
+{
+  "name": "@baloise/ui-library-next-vue",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "build": "npm run clean && npm run compile",
+    "clean": "rm -rf dist",
+    "compile": "npm run tsc",
+    "tsc": "tsc -p ."
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@baloise/ui-library-next": "^0.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.2",
+    "vue": "^2.6.12"
+  },
+  "peerDependencies": {
+    "vue": "^2.6.12"
+  },
+  "gitHead": "32435151008b97cf83ea0a6a3819b874cd4a6660"
+}
