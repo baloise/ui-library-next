@@ -6,7 +6,7 @@ import { applyPolyfills, defineCustomElements } from '@baloise/ui-library-next/l
 
 Vue.config.productionTip = false
 
-Vue.config.ignoredElements = [/my-\w*/]
+Vue.config.ignoredElements = [/bal-\w*/]
 applyPolyfills().then(() => {
   defineCustomElements().then(() => {
   })

@@ -22,6 +22,29 @@ export const config: Config = {
       type: 'www',
       dir: 'www',
       serviceWorker: null, // disable service workers
+      copy: [
+        {
+          src: '**/*.md',
+        },
+        {
+          src: 'docs/**/*.css',
+        },
+        {
+          src: 'docs/assets/**/*.svg',
+        },
+        {
+          src: 'docs/assets/**/*.png',
+        },
+        {
+          src: 'docs/assets/**/*.ico',
+        },
+        {
+          src: 'docs/**/*.js',
+        },
+        {
+          src: 'components.d.ts',
+        },
+      ],
     },
     vueOutputTarget({
       componentCorePackage: '@baloise/ui-library-next',

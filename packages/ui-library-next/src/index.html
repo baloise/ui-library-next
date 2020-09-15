@@ -1,14 +1,63 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-    <title>Stencil Component Starter</title>
+<html dir="ltr"
+      lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"/>
+  <meta http-equiv="X-UA-Compatible"
+        content="IE=edge,chrome=1"/>
+  <meta name="description"
+        content="UI-Libary is an open source library for building amazing web applications that follow the Baloise corporate style guidelines. No design skills required."/>
 
-    <script type="module" src="/build/ui-library-next.esm.js"></script>
-    <script nomodule src="/build/ui-library-next.js"></script>
-  </head>
-  <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
-  </body>
+  <title>Baloise UI-Library</title>
+
+  <link rel="stylesheet"
+        href="/docs/assets/styles/styles.css"/>
+  <link rel="stylesheet"
+        href="/docs/assets/styles/vue.css"/>
+  <link rel="stylesheet"
+        href="/build/ui-library-next.css"/>
+
+  <script type="module"
+          src="/build/ui-library-next.esm.js"></script>
+  <script nomodule
+          src="/build/ui-library-next.js"></script>
+</head>
+<body class="sticky">
+<div id="app">Loading ...</div>
+<script>
+  window.$docsify = {
+    name: 'Baloise UI-Library',
+    repo: 'https://github.com/baloise/ui-library',
+    coverpage: true,
+    loadSidebar: true,
+    mergeNavbar: true,
+    formatUpdated: '{DD}.{MM} {HH}:{mm}',
+    alias: {
+      '/.*/_sidebar.md': '/_sidebar.md',
+    },
+    subMaxLevel: 1,
+    auto2top: true,
+    homepage: 'home.md',
+    executeScript: true,
+    pagination: {
+      crossChapter: true,
+      crossChapterText: true,
+    },
+  }
+</script>
+<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/external-script.min.js"></script>
+<script src="//unpkg.com/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-typescript.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-scss.min.js"></script>
+<script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+
+<script src="/docs/assets/plugins/snippet.plugin.js"></script>
+<script src="/docs/assets/plugins/props.plugin.js"></script>
+<script src="/docs/assets/plugins/stencil.plugin.js"></script>
+<script src="/docs/assets/plugins/github.plugin.js"></script>
+</body>
 </html>

@@ -6,56 +6,155 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    interface BalButton {
         /**
-          * The first name
+          * If `true` the bottom corners get rounded
          */
-        "first": string;
+        "bottemRounded": boolean;
         /**
-          * The last name
+          * If `true` the button is dense
          */
-        "last": string;
+        "dense": boolean;
         /**
-          * The middle name
+          * If `true` the button is disabled
          */
-        "middle": string;
+        "disabled": boolean;
+        /**
+          * If `true` the button has a full width
+         */
+        "expanded": boolean;
+        /**
+          * If `true` the button is inverted
+         */
+        "inverted": boolean;
+        /**
+          * If `true` the button has a active theme
+         */
+        "isActive": boolean;
+        /**
+          * If `true` the width of the buttons is limited
+         */
+        "isSquare": boolean;
+        /**
+          * If `true` the button has a light color
+         */
+        "light": boolean;
+        /**
+          * If `true` the label is hidden and a loading spinner is shown instead.
+         */
+        "loading": boolean;
+        /**
+          * If `true` the button is outlined
+         */
+        "outlined": boolean;
+        /**
+          * Size of the button
+         */
+        "size": 'is-small' | '';
+        /**
+          * The theme type of the button. Given by bulma our css framework.
+         */
+        "type": | 'is-primary'
+    | 'is-info'
+    | 'is-success'
+    | 'is-warning'
+    | 'is-danger'
+    | 'is-link';
+    }
+    interface BalSpinner {
+        "inverted": boolean;
+        "small": boolean;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLBalButtonElement extends Components.BalButton, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLBalButtonElement: {
+        prototype: HTMLBalButtonElement;
+        new (): HTMLBalButtonElement;
+    };
+    interface HTMLBalSpinnerElement extends Components.BalSpinner, HTMLStencilElement {
+    }
+    var HTMLBalSpinnerElement: {
+        prototype: HTMLBalSpinnerElement;
+        new (): HTMLBalSpinnerElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "bal-button": HTMLBalButtonElement;
+        "bal-spinner": HTMLBalSpinnerElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    interface BalButton {
         /**
-          * The first name
+          * If `true` the bottom corners get rounded
          */
-        "first"?: string;
+        "bottemRounded"?: boolean;
         /**
-          * The last name
+          * If `true` the button is dense
          */
-        "last"?: string;
+        "dense"?: boolean;
         /**
-          * The middle name
+          * If `true` the button is disabled
          */
-        "middle"?: string;
+        "disabled"?: boolean;
+        /**
+          * If `true` the button has a full width
+         */
+        "expanded"?: boolean;
+        /**
+          * If `true` the button is inverted
+         */
+        "inverted"?: boolean;
+        /**
+          * If `true` the button has a active theme
+         */
+        "isActive"?: boolean;
+        /**
+          * If `true` the width of the buttons is limited
+         */
+        "isSquare"?: boolean;
+        /**
+          * If `true` the button has a light color
+         */
+        "light"?: boolean;
+        /**
+          * If `true` the label is hidden and a loading spinner is shown instead.
+         */
+        "loading"?: boolean;
+        /**
+          * If `true` the button is outlined
+         */
+        "outlined"?: boolean;
+        /**
+          * Size of the button
+         */
+        "size"?: 'is-small' | '';
+        /**
+          * The theme type of the button. Given by bulma our css framework.
+         */
+        "type"?: | 'is-primary'
+    | 'is-info'
+    | 'is-success'
+    | 'is-warning'
+    | 'is-danger'
+    | 'is-link';
+    }
+    interface BalSpinner {
+        "inverted"?: boolean;
+        "small"?: boolean;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "bal-button": BalButton;
+        "bal-spinner": BalSpinner;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "bal-button": LocalJSX.BalButton & JSXBase.HTMLAttributes<HTMLBalButtonElement>;
+            "bal-spinner": LocalJSX.BalSpinner & JSXBase.HTMLAttributes<HTMLBalSpinnerElement>;
         }
     }
 }

@@ -3,19 +3,18 @@
        class="bal-app">
     <img alt="Vue logo"
          src="./assets/logo.png">
-    <h1 class="title">Title</h1>
-    <MyComponent first="Stencil"
-                 last="'Don't call me a framework' JS"></MyComponent>
+    <h1 class="title is-1">Title</h1>
+    <BalButton>Button</BalButton>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { MyComponent } from '@baloise/ui-library-next-vue'
+import { BalButton } from '@baloise/ui-library-next-vue'
 
 export default Vue.extend({
   name: 'App',
-  components: { MyComponent },
+  components: { BalButton },
 })
 </script>
 
