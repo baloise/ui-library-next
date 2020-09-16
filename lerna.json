@@ -7,7 +7,7 @@
     "publish": {
       "conventionalCommits": true,
       "ignoreChanges": [
-        "packages/example-*"
+        "packages/examples/*"
       ],
       "message": "chore(): release"
     },

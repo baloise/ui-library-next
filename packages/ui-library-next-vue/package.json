@@ -2,6 +2,9 @@
   "name": "@baloise/ui-library-next-vue",
   "version": "0.0.5",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "npm run compile",
     "compile": "npm run tsc",
@@ -24,6 +27,5 @@
   },
   "peerDependencies": {
     "vue": "^2.6.12"
-  },
-  "gitHead": "b5c31d5e54ea544b264adc8098e624c9ea3fbfe0"
+  }
 }

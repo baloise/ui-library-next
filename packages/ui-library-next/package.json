@@ -2,6 +2,9 @@
   "name": "@baloise/ui-library-next",
   "version": "0.0.5",
   "description": "Stencil Component Starter",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -32,6 +35,5 @@
     "@stencil/vue-output-target": "0.0.3",
     "@types/autoprefixer": "^9.7.2",
     "autoprefixer": "^9.8.6"
-  },
-  "gitHead": "b5c31d5e54ea544b264adc8098e624c9ea3fbfe0"
+  }
 }
