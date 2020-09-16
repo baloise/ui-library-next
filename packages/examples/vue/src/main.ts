@@ -4,7 +4,7 @@ import '@baloise/ui-library-next/dist/ui-library-next/ui-library-next.css'
 
 import Vue from 'vue'
 import App from './App.vue'
-import { applyPolyfills, defineCustomElements } from '../../packages/ui-library-next/loader'
+import { applyPolyfills, defineCustomElements } from '@baloise/ui-library-next/loader'
 
 Vue.config.productionTip = false
 
