@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.4](https://github.com/baloise/ui-library-next/compare/@baloise/ui-library-next@0.0.3...@baloise/ui-library-next@0.0.4) (2020-09-16)
+
+
+### Bug Fixes
+
+* **button:** add test class ([0afbd51](https://github.com/baloise/ui-library-next/commit/0afbd510e5036074c427e86ca68f0bc0bb072052))
+
+
+
+
+
 ## [0.0.3](https://github.com/baloise/ui-library-next/compare/@baloise/ui-library-next@0.0.2...@baloise/ui-library-next@0.0.3) (2020-09-16)
 
 
