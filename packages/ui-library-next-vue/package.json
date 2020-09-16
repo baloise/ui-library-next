@@ -1,6 +1,6 @@
 {
   "name": "@baloise/ui-library-next-vue",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "",
   "scripts": {
     "build": "npm run compile",
@@ -16,7 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@baloise/ui-library-next": "^0.0.4"
+    "@baloise/ui-library-next": "^0.0.5"
   },
   "devDependencies": {
     "typescript": "^4.0.2",
