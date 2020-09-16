@@ -2,6 +2,9 @@
   "name": "@baloise/ui-library-next-vue",
   "version": "0.0.7",
   "description": "",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "npm run compile",
     "compile": "npm run tsc",
@@ -14,7 +17,7 @@
     "dist/"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@baloise/ui-library-next": "^0.0.7"
   },
@@ -25,5 +28,5 @@
   "peerDependencies": {
     "vue": "^2.6.12"
   },
-  "gitHead": "27c197fff4582cd1a99b2910c76e1594e9fbd502"
+  "gitHead": "b167aad662bd9c34eb0b5d894b350c69370759a2"
 }
