@@ -5,6 +5,9 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { CardStepOptions } from "./components/card-step/card-step";
+import { CardStepOptions as CardStepOptions1 } from "./components/card-step/card-step";
+import { Option } from "./components/dropdown-option/dropdown-option.types";
 export namespace Components {
     interface BalButton {
         /**
@@ -61,6 +64,207 @@ export namespace Components {
     | 'is-danger'
     | 'is-link';
     }
+    interface BalCard {
+        /**
+          * If `true` a light blue border is added to the card.
+         */
+        "border": boolean;
+        /**
+          * If `true` the card loses its shadow.
+         */
+        "flat": boolean;
+        /**
+          * If `true` the card background color becomes blue.
+         */
+        "inverted": boolean;
+        /**
+          * If `true` the card loses its border radius.
+         */
+        "square": boolean;
+    }
+    interface BalCardStep {
+        /**
+          * Tell's if the step is active and the content is visible.
+         */
+        "active": boolean;
+        /**
+          * If `true` the step is disabled.
+         */
+        "disabled": boolean;
+        /**
+          * If `true` the step is done.
+         */
+        "done": boolean;
+        /**
+          * Options of the step like label, value etc.
+         */
+        "getOptions": () => Promise<CardStepOptions>;
+        /**
+          * If `true` the step is hidden in the steps navigation.
+         */
+        "hidden": boolean;
+        /**
+          * Label for the step.
+         */
+        "label": string;
+        /**
+          * Sets the step active.
+         */
+        "setActive": (active: boolean) => Promise<void>;
+        /**
+          * This is the key of the step.
+         */
+        "value": string;
+    }
+    interface BalCardSteps {
+        /**
+          * If `true` the steps navigation is hidden.
+         */
+        "hidden": boolean;
+        /**
+          * If `true` a the style is ready for a dark background.
+         */
+        "inverted": boolean;
+        /**
+          * Select a step.
+         */
+        "select": (value: string) => Promise<void>;
+    }
+    interface BalDropdown {
+        /**
+          * Closes the dropdown menu.
+         */
+        "close": () => Promise<void>;
+        /**
+          * If `true`, the user cannot interact with the input.
+         */
+        "disabled": boolean;
+        /**
+          * If `true` the dropdown shows the empty message
+         */
+        "empty": boolean;
+        /**
+          * If `true`, the component uses the whole width.
+         */
+        "expanded": boolean;
+        /**
+          * If `true`, the height of the dropdown content is fixed.
+         */
+        "fixed": boolean;
+        /**
+          * Returns the value of the dropdown.
+         */
+        "getSelected": () => Promise<Option<any> | Option<any>[]>;
+        /**
+          * If `true` the dropdown can be used on blue background.
+         */
+        "inverted": boolean;
+        /**
+          * If `true` the dropdown allows multiple selection
+         */
+        "multiSelect": boolean;
+        /**
+          * Open the dropdown menu.
+         */
+        "open": () => Promise<void>;
+        /**
+          * Instructional text that shows before the input has a value.
+         */
+        "placeholder": string;
+        /**
+          * If `true`, the user cannot interact with the input.
+         */
+        "readonly": boolean;
+        /**
+          * Selects an option.
+         */
+        "select": (option: Option<any>) => Promise<void>;
+        /**
+          * Open & closes the dropdown.
+         */
+        "toggle": () => Promise<void>;
+        /**
+          * Defines the trigger icon on the right site.
+         */
+        "triggerIcon": string;
+        /**
+          * If `true`, the use can search for the option.
+         */
+        "typeahead": boolean;
+        /**
+          * The value of the selected dropdown item.
+         */
+        "value": Option<any> | Option<any>[];
+    }
+    interface BalDropdownOption {
+        /**
+          * Use checkbox for multi-select
+         */
+        "checkbox": boolean;
+        /**
+          * If `true` the option is focused
+         */
+        "focused": boolean;
+        /**
+          * Tells witch part of the label should be highlighted
+         */
+        "highlight": string;
+        /**
+          * Baloise icon as a prefix
+         */
+        "icon": string;
+        "isHidden": () => Promise<boolean>;
+        /**
+          * The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element.
+         */
+        "label": string;
+        /**
+          * If `true` the option is selected
+         */
+        "selected": boolean;
+        /**
+          * The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element.
+         */
+        "value": string | boolean | number | any;
+    }
+    interface BalField {
+        /**
+          * Baloise icon for the left side of the input
+         */
+        "iconLeft": string;
+        /**
+          * Baloise icon for the right side of the input
+         */
+        "iconRight": string;
+        /**
+          * If `true` the field can be used on blue background.
+         */
+        "inverted": boolean;
+        /**
+          * Label text
+         */
+        "label": string;
+        /**
+          * If `true` a asterix (*) is added to the label text
+         */
+        "required": boolean;
+        /**
+          * Validation message text
+         */
+        "validationMessage": string;
+    }
+    interface BalIcon {
+        "isLeft": boolean;
+        "isRight": boolean;
+        /**
+          * The name of the icon without the bal-icon prefix.
+         */
+        "name": string;
+        /**
+          * Defines the size of the icon.
+         */
+        "size": 'small' | 'medium' | 'large' | '';
+    }
     interface BalSpinner {
         "inverted": boolean;
         "small": boolean;
@@ -73,6 +277,48 @@ declare global {
         prototype: HTMLBalButtonElement;
         new (): HTMLBalButtonElement;
     };
+    interface HTMLBalCardElement extends Components.BalCard, HTMLStencilElement {
+    }
+    var HTMLBalCardElement: {
+        prototype: HTMLBalCardElement;
+        new (): HTMLBalCardElement;
+    };
+    interface HTMLBalCardStepElement extends Components.BalCardStep, HTMLStencilElement {
+    }
+    var HTMLBalCardStepElement: {
+        prototype: HTMLBalCardStepElement;
+        new (): HTMLBalCardStepElement;
+    };
+    interface HTMLBalCardStepsElement extends Components.BalCardSteps, HTMLStencilElement {
+    }
+    var HTMLBalCardStepsElement: {
+        prototype: HTMLBalCardStepsElement;
+        new (): HTMLBalCardStepsElement;
+    };
+    interface HTMLBalDropdownElement extends Components.BalDropdown, HTMLStencilElement {
+    }
+    var HTMLBalDropdownElement: {
+        prototype: HTMLBalDropdownElement;
+        new (): HTMLBalDropdownElement;
+    };
+    interface HTMLBalDropdownOptionElement extends Components.BalDropdownOption, HTMLStencilElement {
+    }
+    var HTMLBalDropdownOptionElement: {
+        prototype: HTMLBalDropdownOptionElement;
+        new (): HTMLBalDropdownOptionElement;
+    };
+    interface HTMLBalFieldElement extends Components.BalField, HTMLStencilElement {
+    }
+    var HTMLBalFieldElement: {
+        prototype: HTMLBalFieldElement;
+        new (): HTMLBalFieldElement;
+    };
+    interface HTMLBalIconElement extends Components.BalIcon, HTMLStencilElement {
+    }
+    var HTMLBalIconElement: {
+        prototype: HTMLBalIconElement;
+        new (): HTMLBalIconElement;
+    };
     interface HTMLBalSpinnerElement extends Components.BalSpinner, HTMLStencilElement {
     }
     var HTMLBalSpinnerElement: {
@@ -81,6 +327,13 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "bal-button": HTMLBalButtonElement;
+        "bal-card": HTMLBalCardElement;
+        "bal-card-step": HTMLBalCardStepElement;
+        "bal-card-steps": HTMLBalCardStepsElement;
+        "bal-dropdown": HTMLBalDropdownElement;
+        "bal-dropdown-option": HTMLBalDropdownOptionElement;
+        "bal-field": HTMLBalFieldElement;
+        "bal-icon": HTMLBalIconElement;
         "bal-spinner": HTMLBalSpinnerElement;
     }
 }
@@ -140,12 +393,211 @@ declare namespace LocalJSX {
     | 'is-danger'
     | 'is-link';
     }
+    interface BalCard {
+        /**
+          * If `true` a light blue border is added to the card.
+         */
+        "border"?: boolean;
+        /**
+          * If `true` the card loses its shadow.
+         */
+        "flat"?: boolean;
+        /**
+          * If `true` the card background color becomes blue.
+         */
+        "inverted"?: boolean;
+        /**
+          * If `true` the card loses its border radius.
+         */
+        "square"?: boolean;
+    }
+    interface BalCardStep {
+        /**
+          * Tell's if the step is active and the content is visible.
+         */
+        "active"?: boolean;
+        /**
+          * If `true` the step is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true` the step is done.
+         */
+        "done"?: boolean;
+        /**
+          * If `true` the step is hidden in the steps navigation.
+         */
+        "hidden"?: boolean;
+        /**
+          * Label for the step.
+         */
+        "label"?: string;
+        /**
+          * Emitted when the steps get rendered.
+         */
+        "onBalCardStepChanged"?: (event: CustomEvent<any>) => void;
+        /**
+          * This is the key of the step.
+         */
+        "value"?: string;
+    }
+    interface BalCardSteps {
+        /**
+          * If `true` the steps navigation is hidden.
+         */
+        "hidden"?: boolean;
+        /**
+          * If `true` a the style is ready for a dark background.
+         */
+        "inverted"?: boolean;
+        /**
+          * Emitted when the changes has finished.
+         */
+        "onBalCardStepsDidChange"?: (event: CustomEvent<CardStepOptions>) => void;
+    }
+    interface BalDropdown {
+        /**
+          * If `true`, the user cannot interact with the input.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true` the dropdown shows the empty message
+         */
+        "empty"?: boolean;
+        /**
+          * If `true`, the component uses the whole width.
+         */
+        "expanded"?: boolean;
+        /**
+          * If `true`, the height of the dropdown content is fixed.
+         */
+        "fixed"?: boolean;
+        /**
+          * If `true` the dropdown can be used on blue background.
+         */
+        "inverted"?: boolean;
+        /**
+          * If `true` the dropdown allows multiple selection
+         */
+        "multiSelect"?: boolean;
+        /**
+          * Emitted when the toggle loses focus.
+         */
+        "onBalBlur"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the checked property has changed.
+         */
+        "onBalChange"?: (event: CustomEvent<Option<any>>) => void;
+        /**
+          * Emitted when the toggle has focus..
+         */
+        "onBalFocus"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when containing input field raises an input event.
+         */
+        "onBalInput"?: (event: CustomEvent<string>) => void;
+        /**
+          * Instructional text that shows before the input has a value.
+         */
+        "placeholder"?: string;
+        /**
+          * If `true`, the user cannot interact with the input.
+         */
+        "readonly"?: boolean;
+        /**
+          * Defines the trigger icon on the right site.
+         */
+        "triggerIcon"?: string;
+        /**
+          * If `true`, the use can search for the option.
+         */
+        "typeahead"?: boolean;
+        /**
+          * The value of the selected dropdown item.
+         */
+        "value"?: Option<any> | Option<any>[];
+    }
+    interface BalDropdownOption {
+        /**
+          * Use checkbox for multi-select
+         */
+        "checkbox"?: boolean;
+        /**
+          * If `true` the option is focused
+         */
+        "focused"?: boolean;
+        /**
+          * Tells witch part of the label should be highlighted
+         */
+        "highlight"?: string;
+        /**
+          * Baloise icon as a prefix
+         */
+        "icon"?: string;
+        /**
+          * The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element.
+         */
+        "label"?: string;
+        /**
+          * If `true` the option is selected
+         */
+        "selected"?: boolean;
+        /**
+          * The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element.
+         */
+        "value"?: string | boolean | number | any;
+    }
+    interface BalField {
+        /**
+          * Baloise icon for the left side of the input
+         */
+        "iconLeft"?: string;
+        /**
+          * Baloise icon for the right side of the input
+         */
+        "iconRight"?: string;
+        /**
+          * If `true` the field can be used on blue background.
+         */
+        "inverted"?: boolean;
+        /**
+          * Label text
+         */
+        "label"?: string;
+        /**
+          * If `true` a asterix (*) is added to the label text
+         */
+        "required"?: boolean;
+        /**
+          * Validation message text
+         */
+        "validationMessage"?: string;
+    }
+    interface BalIcon {
+        "isLeft"?: boolean;
+        "isRight"?: boolean;
+        /**
+          * The name of the icon without the bal-icon prefix.
+         */
+        "name"?: string;
+        /**
+          * Defines the size of the icon.
+         */
+        "size"?: 'small' | 'medium' | 'large' | '';
+    }
     interface BalSpinner {
         "inverted"?: boolean;
         "small"?: boolean;
     }
     interface IntrinsicElements {
         "bal-button": BalButton;
+        "bal-card": BalCard;
+        "bal-card-step": BalCardStep;
+        "bal-card-steps": BalCardSteps;
+        "bal-dropdown": BalDropdown;
+        "bal-dropdown-option": BalDropdownOption;
+        "bal-field": BalField;
+        "bal-icon": BalIcon;
         "bal-spinner": BalSpinner;
     }
 }
@@ -154,6 +606,13 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "bal-button": LocalJSX.BalButton & JSXBase.HTMLAttributes<HTMLBalButtonElement>;
+            "bal-card": LocalJSX.BalCard & JSXBase.HTMLAttributes<HTMLBalCardElement>;
+            "bal-card-step": LocalJSX.BalCardStep & JSXBase.HTMLAttributes<HTMLBalCardStepElement>;
+            "bal-card-steps": LocalJSX.BalCardSteps & JSXBase.HTMLAttributes<HTMLBalCardStepsElement>;
+            "bal-dropdown": LocalJSX.BalDropdown & JSXBase.HTMLAttributes<HTMLBalDropdownElement>;
+            "bal-dropdown-option": LocalJSX.BalDropdownOption & JSXBase.HTMLAttributes<HTMLBalDropdownOptionElement>;
+            "bal-field": LocalJSX.BalField & JSXBase.HTMLAttributes<HTMLBalFieldElement>;
+            "bal-icon": LocalJSX.BalIcon & JSXBase.HTMLAttributes<HTMLBalIconElement>;
             "bal-spinner": LocalJSX.BalSpinner & JSXBase.HTMLAttributes<HTMLBalSpinnerElement>;
         }
     }

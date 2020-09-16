@@ -1,0 +1,13 @@
+bal-card-step {
+  display: block;
+  position: static;
+}
+
+.card-step-content {
+  display: flex;
+  flex: 1;
+}
+
+.is-hidden {
+  display: none !important;
+}

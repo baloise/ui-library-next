@@ -1,5 +1,11 @@
+body.bal-app {
+  margin: 0;
+  padding: 0;
+}
+
 .bal-app {
   position: relative;
+
 
   * {
     box-sizing: border-box;
@@ -10,8 +16,8 @@
   }
 
   @import "./ui-library.utilities";
-  @import "node_modules/bulma/sass/grid/_all.sass";
   @import "./base/all";
+  @import "./elements/all";
   @import "node_modules/bulma/sass/grid/_all.sass";
   @import "node_modules/bulma/sass/helpers/_all.sass";
   @import "node_modules/bulma/sass/layout/_all.sass";

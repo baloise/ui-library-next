@@ -1,0 +1,94 @@
+@import "dropdown.vars";
+@import "../../styles/elements/input";
+@import "node_modules/bulma/sass/components/dropdown.sass";
+@import "node_modules/bulma/sass/form/all";
+
+bal-dropdown {
+  display: block;
+
+  .dropdown {
+    .dropdown-trigger i.icon-caret-down {
+      transition-duration: 0.5s;
+    }
+
+    &.is-active .dropdown-trigger i.icon-caret-down {
+      transform: rotate(180deg);
+    }
+
+    &.is-fixed .dropdown-content {
+      overflow-y: hidden;
+      padding: 0;
+    }
+
+    &.is-typeahead.is-multi-select .dropdown-content {
+      max-height: 220px + 77.5px !important;
+    }
+
+    .dropdown-menu {
+      padding-top: 0;
+    }
+
+    .dropdown-trigger > .control > input {
+      font-family: $family-primary;
+      padding-right: 0 !important;
+    }
+
+    .dropdown-content-search {
+      padding: 10px 20px 0 20px;
+    }
+
+    .dropdown-content-options {
+      overflow-y: auto;
+      max-height: 220px;
+      padding: 0;
+    }
+
+    &:not(.is-typeahead) {
+      .dropdown-trigger {
+        .input {
+          cursor: pointer;
+        }
+      }
+    }
+
+    &.is-fullwidth,
+    &.is-fullwidth .dropdown-trigger {
+      width: 100%;
+    }
+
+
+    &.is-inverted {
+      .icon > i {
+        color: $blue-line;
+      }
+
+      ::-webkit-input-placeholder {
+        color: $blue-light-line;
+      }
+
+      .dropdown-trigger > .control > .input {
+        color: $white;
+        border-bottom-color: $blue-line;
+
+        &:focus,
+        &.is-focused {
+          border-width: 2px;
+          border-bottom-color: $white;
+        }
+
+        &:disabled {
+          background-color: $blue-dark;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    .is-empty, .no-search-results {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+}

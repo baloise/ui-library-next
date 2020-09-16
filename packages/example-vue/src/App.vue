@@ -1,20 +1,32 @@
 <template>
-  <div id="app"
-       class="bal-app">
-    <img alt="Vue logo"
-         src="./assets/logo.png">
-    <h1 class="title is-1">Title</h1>
-    <BalButton>Button</BalButton>
+  <div id="app">
+    <BalCard inverted>
+      <BalCardSteps inverted>
+        <BalCardStep active
+                     value="1">
+          <h1 class="title is-1 has-text-white">Title</h1>
+          <BalButton>Button</BalButton>
+        </BalCardStep>
+        <BalCardStep value="2">
+          <h1 class="title is-1 has-text-white">Title 2</h1>
+          <BalButton>Button</BalButton>
+        </BalCardStep>
+        <BalCardStep value="3">
+          <h1 class="title is-1 has-text-white">Title 3</h1>
+          <BalButton>Button</BalButton>
+        </BalCardStep>
+      </BalCardSteps>
+    </BalCard>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { BalButton } from '@baloise/ui-library-next-vue'
+import { BalButton, BalCard, BalCardStep, BalCardSteps } from '@baloise/ui-library-next-vue'
 
 export default Vue.extend({
   name: 'App',
-  components: { BalButton },
+  components: { BalButton, BalCardSteps, BalCardStep, BalCard },
 })
 </script>
 
