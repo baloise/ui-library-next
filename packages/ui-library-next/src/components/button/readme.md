@@ -97,7 +97,7 @@ The classic button, in different colors, sizes, and states
 
 | Property        | Attribute        | Description                                                           | Type                                                                                    | Default        |
 | --------------- | ---------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | -------------- |
-| `bottemRounded` | `bottem-rounded` | If `true` the bottom corners get rounded                              | `boolean`                                                                               | `false`        |
+| `bottomRounded` | `bottom-rounded` | If `true` the bottom corners get rounded                              | `boolean`                                                                               | `false`        |
 | `dense`         | `dense`          | If `true` the button is dense                                         | `boolean`                                                                               | `undefined`    |
 | `disabled`      | `disabled`       | If `true` the button is disabled                                      | `boolean`                                                                               | `undefined`    |
 | `expanded`      | `expanded`       | If `true` the button has a full width                                 | `boolean`                                                                               | `undefined`    |

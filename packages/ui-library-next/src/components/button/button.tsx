@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core'
+import {Component, h, Prop} from '@stencil/core'
 
 @Component({
   tag: 'bal-button',
@@ -71,11 +71,10 @@ export class Button {
   /**
    * If `true` the bottom corners get rounded
    */
-  @Prop() bottemRounded = false
+  @Prop() bottomRounded = false
 
   render() {
     return (
-      // <Host class={this.expanded ? 'is-fullwidth' : ''}>
       <button
         class={[
           'button',
@@ -89,16 +88,15 @@ export class Button {
           this.loading ? 'is-loading' : '',
           this.isSquare ? 'is-square' : '',
           this.dense ? 'is-dense' : '',
-          this.bottemRounded ? 'has-round-bottom-corners' : '',
+          this.bottomRounded ? 'has-round-bottom-corners' : '',
         ].join(' ')}
         disabled={this.disabled}
       >
         {this.loading ? <bal-spinner class="is-small is-inverted"/> : ''}
-        <span style={{ display: this.loading ? 'none' : 'flex' }}>
+        <span style={{display: this.loading ? 'none' : 'flex'}}>
             <slot/>
           </span>
       </button>
-      // </Host>
     )
   }
 }

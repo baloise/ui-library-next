@@ -37,7 +37,7 @@ export const BalButton = /*@__PURE__*/ Vue.extend({
     inverted: {} as PropOptions<Components.BalButton['inverted']>,
     dense: {} as PropOptions<Components.BalButton['dense']>,
     loading: {} as PropOptions<Components.BalButton['loading']>,
-    bottemRounded: {} as PropOptions<Components.BalButton['bottemRounded']>,
+    bottomRounded: {} as PropOptions<Components.BalButton['bottomRounded']>,
   },
 
 

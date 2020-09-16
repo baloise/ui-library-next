@@ -13,7 +13,7 @@ export namespace Components {
         /**
           * If `true` the bottom corners get rounded
          */
-        "bottemRounded": boolean;
+        "bottomRounded": boolean;
         /**
           * If `true` the button is dense
          */
@@ -342,7 +342,7 @@ declare namespace LocalJSX {
         /**
           * If `true` the bottom corners get rounded
          */
-        "bottemRounded"?: boolean;
+        "bottomRounded"?: boolean;
         /**
           * If `true` the button is dense
          */
