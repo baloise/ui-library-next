@@ -78,7 +78,6 @@ export class Button {
       <button
         class={[
           'button',
-          'bubu',
           this.type,
           this.size,
           this.light ? 'is-light' : '',

@@ -8,7 +8,8 @@
       "conventionalCommits": true,
       "ignoreChanges": [
         "packages/example-*"
-      ]
+      ],
+      "message": "chore(): release"
     },
     "version": {
       "message": "chore(release): release"
