@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.7](https://github.com/baloise/ui-library-next/compare/@baloise/ui-library-next-vue@0.0.6...@baloise/ui-library-next-vue@0.0.7) (2020-09-16)
+
+
+### Bug Fixes
+
+* **button:** test ([4f154ed](https://github.com/baloise/ui-library-next/commit/4f154ed36c495d3f0a9f664733db6658d3091cbb))
+
+
+
+
+
 ## [0.0.6](https://github.com/baloise/ui-library-next/compare/@baloise/ui-library-next-vue@0.0.5...@baloise/ui-library-next-vue@0.0.6) (2020-09-16)
 
 **Note:** Version bump only for package @baloise/ui-library-next-vue
