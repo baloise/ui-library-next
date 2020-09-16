@@ -17,7 +17,7 @@ jobs:
       - name: Git Identity
         run: |
           git config --global user.name 'hirsch88'
-          git config --global user.email 'gery.hirschfeld@w3tec.ch'
+          git config --global user.email 'gerhard.hirschfeld@baloise.ch'
           git remote set-url origin https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -29,7 +29,6 @@ jobs:
 
       - name: Authenticate with Registry
         run: |
-          yarn logout
           echo "registry=http://registry.npmjs.org/" > .npmrc
           echo //registry.npmjs.org/:_authToken=$NPM_TOKEN >> .npmrc
           npm whoami
