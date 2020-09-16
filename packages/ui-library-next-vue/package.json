@@ -19,7 +19,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@baloise/ui-library-next": "^0.0.8"
+    "@baloise/ui-library-next": "0.0.8"
   },
   "devDependencies": {
     "typescript": "^4.0.2",
