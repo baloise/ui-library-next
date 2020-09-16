@@ -8,18 +8,32 @@
   "license": "ISC",
   "main": "",
   "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+    "src": "src"
   },
   "files": [
-    "lib"
+    "dist"
   ],
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@baloise/ui-library-next": "^0.0.5",
+    "@baloise/ui-library-next-vue": "^0.0.5",
+    "babel-polyfill": "^6.26.0",
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "typescript": "~3.9.3",
+    "vue-template-compiler": "^2.6.11"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/baloise/ui-library-next.git"
-  },
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/baloise/ui-library-next/issues"
