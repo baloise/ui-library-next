@@ -24,5 +24,6 @@
   },
   "peerDependencies": {
     "vue": "^2.6.12"
-  }
+  },
+  "gitHead": "27c197fff4582cd1a99b2910c76e1594e9fbd502"
 }
