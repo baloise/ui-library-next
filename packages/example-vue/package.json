@@ -1,14 +1,14 @@
 {
   "name": "example-vue",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@baloise/ui-library-next-vue": "^0.0.1",
-    "@baloise/ui-library-next": "^0.0.1",
+    "@baloise/ui-library-next": "^0.0.2",
+    "@baloise/ui-library-next-vue": "^0.0.2",
     "babel-polyfill": "^6.26.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
