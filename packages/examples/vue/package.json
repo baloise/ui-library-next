@@ -2,6 +2,9 @@
   "name": "@baloise/ui-library-next-example-vue",
   "version": "1.0.0",
   "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "> TODO: description",
   "author": "hirsch <gery.hirschfeld@w3tec.ch>",
   "homepage": "https://github.com/baloise/ui-library-next#readme",
