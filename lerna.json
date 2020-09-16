@@ -5,7 +5,10 @@
   "version": "independent",
   "command": {
     "publish": {
-      "conventionalCommits": true
+      "conventionalCommits": true,
+      "ignoreChanges": [
+        "packages/example-*"
+      ]
     },
     "version": {
       "message": "chore(release): release"
