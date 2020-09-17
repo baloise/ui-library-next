@@ -15,6 +15,7 @@
   "unpkg": "dist/ui-library-next/ui-library-next.js",
   "files": [
     "dist/",
+    "src/styles/",
     "loader/"
   ],
   "scripts": {
