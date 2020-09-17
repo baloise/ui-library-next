@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.10](https://github.com/baloise/ui-library-next/compare/@baloise/ui-library-next@0.0.9...@baloise/ui-library-next@0.0.10) (2020-09-17)
+
+
+### Bug Fixes
+
+* **button:** test ([9e4072c](https://github.com/baloise/ui-library-next/commit/9e4072c62f3bb50e780a72268214a2b145dd90f5))
+* **styles:** publish sass files too ([1ed2b74](https://github.com/baloise/ui-library-next/commit/1ed2b74e152e2faebabfd8f63ff8fae969b364a8))
+
+
+
+
+
 ## [0.0.9](https://github.com/baloise/ui-library-next/compare/@baloise/ui-library-next@0.0.8...@baloise/ui-library-next@0.0.9) (2020-09-16)
 
 
