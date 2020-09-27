@@ -13,7 +13,7 @@ export interface CardStepOptions {
   tag: 'bal-card-step',
   styleUrl: 'card-step.scss',
   shadow: false,
-  scoped: false,
+  scoped: true,
 })
 export class CardStep {
   @State() isContentHidden = true

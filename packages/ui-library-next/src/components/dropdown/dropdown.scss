@@ -3,7 +3,7 @@
 @import "node_modules/bulma/sass/components/dropdown.sass";
 @import "node_modules/bulma/sass/form/all";
 
-bal-dropdown {
+:host {
   display: block;
 
   .dropdown {

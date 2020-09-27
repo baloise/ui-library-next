@@ -1,7 +1,7 @@
 @import "./card-steps.vars";
 @import "node_modules/bulma/sass/components/tabs.sass";
 
-bal-card-steps {
+:host {
   display: block;
   position: static;
   padding-top: 20px;

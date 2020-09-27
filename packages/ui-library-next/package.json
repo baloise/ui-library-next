@@ -19,13 +19,15 @@
     "loader/"
   ],
   "scripts": {
-    "build": "stencil build --docs",
-    "serve": "stencil build --dev --watch --serve",
+    "build": "stencil build --docs --es5",
+    "serve": "stencil build -docs --dev --watch --serve",
+    "serve:ie": "stencil build --es5 --dev --watch --serve",
     "test": "stencil test --spec --e2e --passWithNoTests",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate"
   },
   "dependencies": {
+    "@baloise/ui-library-next-vue": "^0.0.10",
     "@stencil/core": "^2.0.1",
     "bulma": "^0.9.0"
   },

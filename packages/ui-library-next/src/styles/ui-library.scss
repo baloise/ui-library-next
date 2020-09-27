@@ -16,6 +16,7 @@ body.bal-app {
   }
 
   @import "./ui-library.utilities";
+  @import "./utilities/helpers.scss";
   @import "./base/all";
   @import "./elements/all";
   @import "node_modules/bulma/sass/grid/_all.sass";

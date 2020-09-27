@@ -12,13 +12,20 @@ import type { Components } from '@baloise/ui-library-next';
 const customElementTags: string[] = [
  'bal-button',
  'bal-card',
+ 'bal-card-actions',
+ 'bal-card-button',
+ 'bal-card-content',
+ 'bal-card-heading',
  'bal-card-step',
  'bal-card-steps',
+ 'bal-card-subtitle',
+ 'bal-card-title',
  'bal-dropdown',
  'bal-dropdown-option',
  'bal-field',
  'bal-icon',
  'bal-spinner',
+ 'bal-text',
 ];
 Vue.config.ignoredElements = [...Vue.config.ignoredElements, ...customElementTags];
 
@@ -38,6 +45,7 @@ export const BalButton = /*@__PURE__*/ Vue.extend({
     dense: {} as PropOptions<Components.BalButton['dense']>,
     loading: {} as PropOptions<Components.BalButton['loading']>,
     bottomRounded: {} as PropOptions<Components.BalButton['bottomRounded']>,
+    icon: {} as PropOptions<Components.BalButton['icon']>,
   },
 
 
@@ -56,6 +64,47 @@ export const BalCard = /*@__PURE__*/ Vue.extend({
 
 
   render: createCommonRender('bal-card', []),
+});
+
+
+export const BalCardActions = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    right: {} as PropOptions<Components.BalCardActions['right']>,
+  },
+
+
+  render: createCommonRender('bal-card-actions', []),
+});
+
+
+export const BalCardButton = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    icon: {} as PropOptions<Components.BalCardButton['icon']>,
+  },
+
+
+  render: createCommonRender('bal-card-button', []),
+});
+
+
+export const BalCardContent = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    inverted: {} as PropOptions<Components.BalCardContent['inverted']>,
+  },
+
+
+  render: createCommonRender('bal-card-content', []),
+});
+
+
+export const BalCardHeading = /*@__PURE__*/ Vue.extend({
+
+
+
+  render: createCommonRender('bal-card-heading', []),
 });
 
 
@@ -91,6 +140,28 @@ export const BalCardSteps = /*@__PURE__*/ Vue.extend({
     select: createCommonMethod('select') as Components.BalCardSteps['select'],
   },
   render: createCommonRender('bal-card-steps', ['balCardStepsDidChange']),
+});
+
+
+export const BalCardSubtitle = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    inverted: {} as PropOptions<Components.BalCardSubtitle['inverted']>,
+  },
+
+
+  render: createCommonRender('bal-card-subtitle', []),
+});
+
+
+export const BalCardTitle = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    inverted: {} as PropOptions<Components.BalCardTitle['inverted']>,
+  },
+
+
+  render: createCommonRender('bal-card-title', []),
 });
 
 
@@ -181,5 +252,13 @@ export const BalSpinner = /*@__PURE__*/ Vue.extend({
 
 
   render: createCommonRender('bal-spinner', []),
+});
+
+
+export const BalText = /*@__PURE__*/ Vue.extend({
+
+
+
+  render: createCommonRender('bal-text', []),
 });
 

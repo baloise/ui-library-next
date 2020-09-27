@@ -59,26 +59,15 @@ The classic button, in different colors, sizes, and states
 ### With icons
 
 ```html
-<bal-button type="is-info" outlined>
-  <bal-icon class="icon" name="edit"></bal-icon>
-  <span>Edit</span>
-</bal-button>
-
-<bal-button inverted light>
-  <bal-icon class="icon" name="edit"></bal-icon>
-  <span>Edit</span>
-</bal-button>
+<bal-button type="is-info" outlined icon="edit">Edit</bal-button>
+<bal-button inverted light icon="edit">Edit</span></bal-button>
 ```
 
 ### Small buttons
 
 ```html
-<bal-button type="is-primary" size="is-small">
-  Primary
-</bal-button>
-<bal-button type="is-info" size="is-small">
-  Info
-</bal-button>
+<bal-button type="is-primary" size="is-small"> Primary </bal-button> 
+<bal-button type="is-info" size="is-small"> Info </bal-button>
 ```
 
 ```html
@@ -101,6 +90,7 @@ The classic button, in different colors, sizes, and states
 | `dense`         | `dense`          | If `true` the button is dense                                         | `boolean`                                                                               | `undefined`    |
 | `disabled`      | `disabled`       | If `true` the button is disabled                                      | `boolean`                                                                               | `undefined`    |
 | `expanded`      | `expanded`       | If `true` the button has a full width                                 | `boolean`                                                                               | `undefined`    |
+| `icon`          | `icon`           | Name of the button icon                                               | `string`                                                                                | `''`           |
 | `inverted`      | `inverted`       | If `true` the button is inverted                                      | `boolean`                                                                               | `undefined`    |
 | `isActive`      | `is-active`      | If `true` the button has a active theme                               | `boolean`                                                                               | `false`        |
 | `isSquare`      | `is-square`      | If `true` the width of the buttons is limited                         | `boolean`                                                                               | `undefined`    |
@@ -113,14 +103,23 @@ The classic button, in different colors, sizes, and states
 
 ## Dependencies
 
+### Used by
+
+ - [bal-card-button](../card-button)
+
 ### Depends on
 
 - [bal-spinner](../spinner)
+- [bal-icon](../icon)
+- [bal-text](../text)
 
 ### Graph
 ```mermaid
 graph TD;
   bal-button --> bal-spinner
+  bal-button --> bal-icon
+  bal-button --> bal-text
+  bal-card-button --> bal-button
   style bal-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -27,6 +27,10 @@ export namespace Components {
          */
         "expanded": boolean;
         /**
+          * Name of the button icon
+         */
+        "icon": string;
+        /**
           * If `true` the button is inverted
          */
         "inverted": boolean;
@@ -57,12 +61,7 @@ export namespace Components {
         /**
           * The theme type of the button. Given by bulma our css framework.
          */
-        "type": | 'is-primary'
-    | 'is-info'
-    | 'is-success'
-    | 'is-warning'
-    | 'is-danger'
-    | 'is-link';
+        "type": 'is-primary' | 'is-info' | 'is-success' | 'is-warning' | 'is-danger' | 'is-link';
     }
     interface BalCard {
         /**
@@ -81,6 +80,26 @@ export namespace Components {
           * If `true` the card loses its border radius.
          */
         "square": boolean;
+    }
+    interface BalCardActions {
+        /**
+          * If `true` the buttons start form right to left.
+         */
+        "right": boolean;
+    }
+    interface BalCardButton {
+        /**
+          * Name of the icon like `edit`.
+         */
+        "icon": string;
+    }
+    interface BalCardContent {
+        /**
+          * If `true` the card text color becomes white.
+         */
+        "inverted": boolean;
+    }
+    interface BalCardHeading {
     }
     interface BalCardStep {
         /**
@@ -129,6 +148,18 @@ export namespace Components {
           * Select a step.
          */
         "select": (value: string) => Promise<void>;
+    }
+    interface BalCardSubtitle {
+        /**
+          * If `true` the card text color becomes white.
+         */
+        "inverted": boolean;
+    }
+    interface BalCardTitle {
+        /**
+          * If `true` the card text color becomes white.
+         */
+        "inverted": boolean;
     }
     interface BalDropdown {
         /**
@@ -269,6 +300,8 @@ export namespace Components {
         "inverted": boolean;
         "small": boolean;
     }
+    interface BalText {
+    }
 }
 declare global {
     interface HTMLBalButtonElement extends Components.BalButton, HTMLStencilElement {
@@ -283,6 +316,30 @@ declare global {
         prototype: HTMLBalCardElement;
         new (): HTMLBalCardElement;
     };
+    interface HTMLBalCardActionsElement extends Components.BalCardActions, HTMLStencilElement {
+    }
+    var HTMLBalCardActionsElement: {
+        prototype: HTMLBalCardActionsElement;
+        new (): HTMLBalCardActionsElement;
+    };
+    interface HTMLBalCardButtonElement extends Components.BalCardButton, HTMLStencilElement {
+    }
+    var HTMLBalCardButtonElement: {
+        prototype: HTMLBalCardButtonElement;
+        new (): HTMLBalCardButtonElement;
+    };
+    interface HTMLBalCardContentElement extends Components.BalCardContent, HTMLStencilElement {
+    }
+    var HTMLBalCardContentElement: {
+        prototype: HTMLBalCardContentElement;
+        new (): HTMLBalCardContentElement;
+    };
+    interface HTMLBalCardHeadingElement extends Components.BalCardHeading, HTMLStencilElement {
+    }
+    var HTMLBalCardHeadingElement: {
+        prototype: HTMLBalCardHeadingElement;
+        new (): HTMLBalCardHeadingElement;
+    };
     interface HTMLBalCardStepElement extends Components.BalCardStep, HTMLStencilElement {
     }
     var HTMLBalCardStepElement: {
@@ -294,6 +351,18 @@ declare global {
     var HTMLBalCardStepsElement: {
         prototype: HTMLBalCardStepsElement;
         new (): HTMLBalCardStepsElement;
+    };
+    interface HTMLBalCardSubtitleElement extends Components.BalCardSubtitle, HTMLStencilElement {
+    }
+    var HTMLBalCardSubtitleElement: {
+        prototype: HTMLBalCardSubtitleElement;
+        new (): HTMLBalCardSubtitleElement;
+    };
+    interface HTMLBalCardTitleElement extends Components.BalCardTitle, HTMLStencilElement {
+    }
+    var HTMLBalCardTitleElement: {
+        prototype: HTMLBalCardTitleElement;
+        new (): HTMLBalCardTitleElement;
     };
     interface HTMLBalDropdownElement extends Components.BalDropdown, HTMLStencilElement {
     }
@@ -325,16 +394,29 @@ declare global {
         prototype: HTMLBalSpinnerElement;
         new (): HTMLBalSpinnerElement;
     };
+    interface HTMLBalTextElement extends Components.BalText, HTMLStencilElement {
+    }
+    var HTMLBalTextElement: {
+        prototype: HTMLBalTextElement;
+        new (): HTMLBalTextElement;
+    };
     interface HTMLElementTagNameMap {
         "bal-button": HTMLBalButtonElement;
         "bal-card": HTMLBalCardElement;
+        "bal-card-actions": HTMLBalCardActionsElement;
+        "bal-card-button": HTMLBalCardButtonElement;
+        "bal-card-content": HTMLBalCardContentElement;
+        "bal-card-heading": HTMLBalCardHeadingElement;
         "bal-card-step": HTMLBalCardStepElement;
         "bal-card-steps": HTMLBalCardStepsElement;
+        "bal-card-subtitle": HTMLBalCardSubtitleElement;
+        "bal-card-title": HTMLBalCardTitleElement;
         "bal-dropdown": HTMLBalDropdownElement;
         "bal-dropdown-option": HTMLBalDropdownOptionElement;
         "bal-field": HTMLBalFieldElement;
         "bal-icon": HTMLBalIconElement;
         "bal-spinner": HTMLBalSpinnerElement;
+        "bal-text": HTMLBalTextElement;
     }
 }
 declare namespace LocalJSX {
@@ -355,6 +437,10 @@ declare namespace LocalJSX {
           * If `true` the button has a full width
          */
         "expanded"?: boolean;
+        /**
+          * Name of the button icon
+         */
+        "icon"?: string;
         /**
           * If `true` the button is inverted
          */
@@ -386,12 +472,7 @@ declare namespace LocalJSX {
         /**
           * The theme type of the button. Given by bulma our css framework.
          */
-        "type"?: | 'is-primary'
-    | 'is-info'
-    | 'is-success'
-    | 'is-warning'
-    | 'is-danger'
-    | 'is-link';
+        "type"?: 'is-primary' | 'is-info' | 'is-success' | 'is-warning' | 'is-danger' | 'is-link';
     }
     interface BalCard {
         /**
@@ -410,6 +491,26 @@ declare namespace LocalJSX {
           * If `true` the card loses its border radius.
          */
         "square"?: boolean;
+    }
+    interface BalCardActions {
+        /**
+          * If `true` the buttons start form right to left.
+         */
+        "right"?: boolean;
+    }
+    interface BalCardButton {
+        /**
+          * Name of the icon like `edit`.
+         */
+        "icon"?: string;
+    }
+    interface BalCardContent {
+        /**
+          * If `true` the card text color becomes white.
+         */
+        "inverted"?: boolean;
+    }
+    interface BalCardHeading {
     }
     interface BalCardStep {
         /**
@@ -454,6 +555,18 @@ declare namespace LocalJSX {
           * Emitted when the changes has finished.
          */
         "onBalCardStepsDidChange"?: (event: CustomEvent<CardStepOptions>) => void;
+    }
+    interface BalCardSubtitle {
+        /**
+          * If `true` the card text color becomes white.
+         */
+        "inverted"?: boolean;
+    }
+    interface BalCardTitle {
+        /**
+          * If `true` the card text color becomes white.
+         */
+        "inverted"?: boolean;
     }
     interface BalDropdown {
         /**
@@ -589,16 +702,25 @@ declare namespace LocalJSX {
         "inverted"?: boolean;
         "small"?: boolean;
     }
+    interface BalText {
+    }
     interface IntrinsicElements {
         "bal-button": BalButton;
         "bal-card": BalCard;
+        "bal-card-actions": BalCardActions;
+        "bal-card-button": BalCardButton;
+        "bal-card-content": BalCardContent;
+        "bal-card-heading": BalCardHeading;
         "bal-card-step": BalCardStep;
         "bal-card-steps": BalCardSteps;
+        "bal-card-subtitle": BalCardSubtitle;
+        "bal-card-title": BalCardTitle;
         "bal-dropdown": BalDropdown;
         "bal-dropdown-option": BalDropdownOption;
         "bal-field": BalField;
         "bal-icon": BalIcon;
         "bal-spinner": BalSpinner;
+        "bal-text": BalText;
     }
 }
 export { LocalJSX as JSX };
@@ -607,13 +729,20 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "bal-button": LocalJSX.BalButton & JSXBase.HTMLAttributes<HTMLBalButtonElement>;
             "bal-card": LocalJSX.BalCard & JSXBase.HTMLAttributes<HTMLBalCardElement>;
+            "bal-card-actions": LocalJSX.BalCardActions & JSXBase.HTMLAttributes<HTMLBalCardActionsElement>;
+            "bal-card-button": LocalJSX.BalCardButton & JSXBase.HTMLAttributes<HTMLBalCardButtonElement>;
+            "bal-card-content": LocalJSX.BalCardContent & JSXBase.HTMLAttributes<HTMLBalCardContentElement>;
+            "bal-card-heading": LocalJSX.BalCardHeading & JSXBase.HTMLAttributes<HTMLBalCardHeadingElement>;
             "bal-card-step": LocalJSX.BalCardStep & JSXBase.HTMLAttributes<HTMLBalCardStepElement>;
             "bal-card-steps": LocalJSX.BalCardSteps & JSXBase.HTMLAttributes<HTMLBalCardStepsElement>;
+            "bal-card-subtitle": LocalJSX.BalCardSubtitle & JSXBase.HTMLAttributes<HTMLBalCardSubtitleElement>;
+            "bal-card-title": LocalJSX.BalCardTitle & JSXBase.HTMLAttributes<HTMLBalCardTitleElement>;
             "bal-dropdown": LocalJSX.BalDropdown & JSXBase.HTMLAttributes<HTMLBalDropdownElement>;
             "bal-dropdown-option": LocalJSX.BalDropdownOption & JSXBase.HTMLAttributes<HTMLBalDropdownOptionElement>;
             "bal-field": LocalJSX.BalField & JSXBase.HTMLAttributes<HTMLBalFieldElement>;
             "bal-icon": LocalJSX.BalIcon & JSXBase.HTMLAttributes<HTMLBalIconElement>;
             "bal-spinner": LocalJSX.BalSpinner & JSXBase.HTMLAttributes<HTMLBalSpinnerElement>;
+            "bal-text": LocalJSX.BalText & JSXBase.HTMLAttributes<HTMLBalTextElement>;
         }
     }
 }

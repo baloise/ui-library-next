@@ -4,7 +4,7 @@ import { Component, h, Host, Prop } from '@stencil/core'
   tag: 'bal-field',
   styleUrl: 'field.scss',
   shadow: false,
-  scoped: false,
+  scoped: true,
 })
 export class Field {
   /**

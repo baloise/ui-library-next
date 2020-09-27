@@ -90,11 +90,13 @@ Type: `Promise<boolean>`
 ### Depends on
 
 - [bal-icon](../icon)
+- [bal-text](../text)
 
 ### Graph
 ```mermaid
 graph TD;
   bal-dropdown-option --> bal-icon
+  bal-dropdown-option --> bal-text
   style bal-dropdown-option fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

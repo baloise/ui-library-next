@@ -1,13 +1,9 @@
-@import "../dropdown/dropdown.vars";
-@import "../../styles/ui-library.utilities";
-@import "node_modules/bulma/sass/components/dropdown.sass";
+@import '../dropdown/dropdown.vars';
+@import '../../styles/ui-library.utilities';
+@import 'node_modules/bulma/sass/components/dropdown.sass';
 
-bal-dropdown-option {
+:host {
   display: block;
-
-  .highlight {
-    font-weight: $weight-bold;
-  }
 
   a.dropdown-item,
   button.dropdown-item {
@@ -23,13 +19,15 @@ bal-dropdown-option {
     }
 
     &.has-icon {
-      span.label {
+      bal-text.title,
+      span.title {
         margin-left: 32px;
       }
     }
 
     &.has-checkbox {
-      span.label {
+      bal-text.title,
+      span.title {
         margin-left: 35px;
       }
     }
@@ -39,7 +37,8 @@ bal-dropdown-option {
         margin-left: 25px;
       }
 
-      span.label {
+      bal-text.title,
+      span.title {
         margin-left: 75px;
       }
     }
@@ -74,7 +73,8 @@ bal-dropdown-option {
       font-size: $size-small;
     }
 
-    span.label {
+    bal-text.title,
+    span.title {
       font-weight: $weight-normal;
       font-size: $size-small;
     }
@@ -87,9 +87,9 @@ bal-dropdown-option {
     &.is-selected {
       background: $dropdown-item-hover-background-color;
 
-      span.label {
+      bal-text.title,
+      span.title {
         font-weight: $weight-bold;
-
       }
     }
 

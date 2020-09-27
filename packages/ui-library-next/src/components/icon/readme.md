@@ -110,6 +110,7 @@ Here is how you can change the color:
 
 ### Used by
 
+ - [bal-button](../button)
  - [bal-dropdown](../dropdown)
  - [bal-dropdown-option](../dropdown-option)
  - [bal-field](../field)
@@ -117,6 +118,7 @@ Here is how you can change the color:
 ### Graph
 ```mermaid
 graph TD;
+  bal-button --> bal-icon
   bal-dropdown --> bal-icon
   bal-dropdown-option --> bal-icon
   bal-field --> bal-icon

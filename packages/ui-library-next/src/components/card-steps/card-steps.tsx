@@ -5,7 +5,7 @@ import { CardStepOptions } from '../card-step/card-step'
   tag: 'bal-card-steps',
   styleUrl: 'card-steps.scss',
   shadow: false,
-  scoped: false,
+  scoped: true,
 })
 export class CardSteps {
   @Element() element!: HTMLElement

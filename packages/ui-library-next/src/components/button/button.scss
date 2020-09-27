@@ -1,15 +1,29 @@
-@import "button.vars";
-@import "node_modules/bulma/sass/elements/button.sass";
+@import 'button.vars';
+@import 'node_modules/bulma/sass/elements/button.sass';
 
-bal-button {
+:host {
   display: inline-flex;
   position: static;
 
+  &.is-fullwidth {
+    display: flex;
+    width: 100%;
+  }
+
   .button {
+    margin: 0;
     transition: 0.2s ease-in-out;
     outline: none !important;
     user-select: none;
     min-height: 50px;
+
+    .icon {
+      font-size: 30px;
+    }
+
+    span.icon {
+      height: 1.2rem !important;
+    }
 
     &.is-fullwidth {
       width: 100%;
@@ -28,7 +42,7 @@ bal-button {
 
     &.is-square {
       width: 38px;
-      padding: 4px 0 0 0;
+      padding: 0;
     }
 
     &.is-success,
@@ -54,7 +68,7 @@ bal-button {
     &:focus {
       &::before {
         position: absolute;
-        content: "";
+        content: '';
         top: 2px;
         left: 2px;
         right: 2px;

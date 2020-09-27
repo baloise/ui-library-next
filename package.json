@@ -10,13 +10,17 @@
     "build": "lerna run build",
     "lint": "lerna run lint",
     "test": "lerna run test",
-    "publish": "lerna publish --yes"
+    "publish": "lerna publish --yes",
+    "vue:serve": "npm --prefix packages/examples/vue run serve",
+    "lib:build": "npm --prefix packages/ui-library-next run build",
+    "lib:serve": "npm --prefix packages/ui-library-next run serve",
+    "lib:serve:ie": "npm --prefix packages/ui-library-next run serve:ie"
   },
   "devDependencies": {
-    "lerna": "^3.22.1",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
-    "husky": "^4.3.0"
+    "husky": "^4.3.0",
+    "lerna": "^3.22.1"
   },
   "husky": {
     "hooks": {

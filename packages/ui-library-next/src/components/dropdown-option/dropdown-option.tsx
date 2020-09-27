@@ -1,104 +1,102 @@
-import { Component, Element, h, Host, Method, Prop, State, Watch } from '@stencil/core'
-import { Components } from '../../components'
-import { Option } from './dropdown-option.types'
+import { Component, Element, h, Host, Method, Prop, State, Watch } from '@stencil/core';
+import { Components } from '../../components';
+import { Option } from './dropdown-option.types';
 
 @Component({
   tag: 'bal-dropdown-option',
   styleUrl: 'dropdown-option.scss',
   shadow: false,
-  scoped: false,
+  scoped: true,
 })
 export class DropdownOption {
-  @Element() element!: HTMLElement
-  labelElement!: HTMLSpanElement
+  @Element() element!: HTMLElement;
+  labelElement!: HTMLSpanElement;
 
-  @State() hidden = false
-
-  /**
-   * The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element.
-   */
-  @Prop() value: string | boolean | number | any = false
+  @State() hidden = false;
 
   /**
    * The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element.
    */
-  @Prop() label = ''
+  @Prop() value: string | boolean | number | any = false;
+
+  /**
+   * The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element.
+   */
+  @Prop() label = '';
 
   /**
    * Baloise icon as a prefix
    */
-  @Prop() icon = ''
+  @Prop() icon = '';
 
   /**
    * Use checkbox for multi-select
    */
-  @Prop() checkbox = false
+  @Prop() checkbox = false;
 
   /**
    * If `true` the option is focused
    */
-  @Prop() focused = false
+  @Prop() focused = false;
 
   /**
    * If `true` the option is selected
    */
-  @Prop() selected = false
+  @Prop() selected = false;
 
   /**
    * Tells witch part of the label should be highlighted
    */
-  @Prop() highlight = ''
+  @Prop() highlight = '';
 
   @Watch('highlight')
   highlightChanged() {
-    this.updateLabel()
+    this.updateLabel();
   }
 
   @Method()
   async isHidden(): Promise<boolean> {
-    return this.hidden
+    return this.hidden;
   }
 
   componentDidLoad() {
-    this.updateLabel()
+    this.updateLabel();
   }
 
   get parent(): Components.BalDropdown {
     if ((this.element.parentNode as any).tagName === 'DIV') {
       // IE11 doesn't allow shadowing so we have tho navigate the dom up to the parent element.
       try {
-        return this.element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode as any
+        return this.element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode as any;
       } catch (e) {
         // Do nothing
       }
     }
-    return this.element.parentNode as any
+    return this.element.parentNode as any;
   }
 
   updateLabel() {
     if (this.highlight.length > 0) {
-      const index = this.label
-        .toLowerCase()
-        .indexOf(this.highlight.toLowerCase())
-      this.hidden = index < 0
+      const index = this.label.toLowerCase().indexOf(this.highlight.toLowerCase());
+      this.hidden = index < 0;
       if (index >= 0) {
         this.setLabelHtml(
           this.label.substring(0, index) +
-          '<span class=\'highlight\'>' +
-          this.label.substring(index, index + this.highlight.length) +
-          '</span>' +
-          this.label.substring(index + this.highlight.length, this.label.length),
-        )
+            '<b>' +
+            this.label.substring(index, index + this.highlight.length) +
+            '</b>' +
+            this.label.substring(index + this.highlight.length, this.label.length),
+        );
       }
     } else {
-      this.hidden = false
-      this.setLabelHtml(this.label)
+      this.hidden = false;
+      this.setLabelHtml(this.label);
     }
   }
 
   private setLabelHtml(content: string) {
     if (this.labelElement && this.labelElement.innerHTML !== undefined) {
-      this.labelElement.innerHTML = content
+      this.labelElement.innerHTML = content;
     }
   }
 
@@ -106,8 +104,8 @@ export class DropdownOption {
     const option: Option<any> = {
       label: this.label,
       value: this.value,
-    }
-    await this.parent.select(option)
+    };
+    await this.parent.select(option);
   }
 
   render() {
@@ -125,34 +123,20 @@ export class DropdownOption {
           tabIndex={-1}
           onClick={this.select.bind(this)}
         >
-          <span
-            class="checkbox"
-            style={{ display: this.checkbox ? 'flex' : 'none' }}
-          >
+          <span class="checkbox" style={{ display: this.checkbox ? 'flex' : 'none' }}>
             <div class="bal-checkbox">
-              <input
-                type="checkbox"
-                checked={this.selected}
-                tabIndex={-1}
-              />
+              <input type="checkbox" checked={this.selected} tabIndex={-1} />
               <label></label>
             </div>
           </span>
-          <span
-            class="icon"
-            style={{ display: this.icon.length === 0 ? 'none' : 'flex' }}
-          >
-            <bal-icon name={this.icon}
-                      size="medium"></bal-icon>
+          <span class="icon" style={{ display: this.icon.length === 0 ? 'none' : 'flex' }}>
+            <bal-icon name={this.icon} size="medium"></bal-icon>
           </span>
-          <span
-            class="label"
-            ref={(el) => (this.labelElement = el as HTMLSpanElement)}
-          >
-            <slot/>
-          </span>
+          <bal-text class="title" ref={el => (this.labelElement = el as HTMLSpanElement)}>
+            <slot />
+          </bal-text>
         </button>
       </Host>
-    )
+    );
   }
 }

@@ -12,6 +12,7 @@
 
 - **Components**
 
+  - [Card](components/card/readme.md)
   - [Dropdown](components/dropdown/readme.md)
     - [Dropdown Option](components/dropdown-option/readme.md)
   - [Field](components/field/readme.md)

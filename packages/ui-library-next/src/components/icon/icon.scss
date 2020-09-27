@@ -1,7 +1,7 @@
-@import "../../styles/ui-library.utilities";
-@import "node_modules/bulma/sass/elements/icon.sass";
-@import "bal-icons";
-@import "bal-icons-font";
+@import '../../styles/ui-library.utilities';
+@import 'node_modules/bulma/sass/elements/icon.sass';
+@import 'bal-icons';
+@import 'bal-icons-font';
 
 bal-icon {
   display: inline-block;
@@ -23,7 +23,7 @@ bal-icon {
     }
 
     i.font {
-      font-family: "bal-ui-library";
+      font-family: 'bal-ui-library';
       font-style: normal;
       font-weight: normal;
       text-align: center;
@@ -35,6 +35,7 @@ bal-icon {
     }
   }
 
+  &.is-inverted .icon i.font {
+    color: $blue-line;
+  }
 }
-
-

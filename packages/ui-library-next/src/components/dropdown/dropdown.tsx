@@ -5,7 +5,7 @@ import { Option } from '../dropdown-option/dropdown-option.types'
   tag: 'bal-dropdown',
   styleUrl: 'dropdown.scss',
   shadow: false,
-  scoped: false,
+  scoped: true,
 })
 export class Dropdown {
   public static MIN_DISTANCE_TO_BROWSER_BORDER = 30
