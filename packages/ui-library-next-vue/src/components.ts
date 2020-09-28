@@ -20,10 +20,12 @@ const customElementTags: string[] = [
  'bal-card-steps',
  'bal-card-subtitle',
  'bal-card-title',
+ 'bal-checkbox',
  'bal-dropdown',
  'bal-dropdown-option',
  'bal-field',
  'bal-icon',
+ 'bal-input',
  'bal-spinner',
  'bal-text',
 ];
@@ -165,6 +167,29 @@ export const BalCardTitle = /*@__PURE__*/ Vue.extend({
 });
 
 
+export const BalCheckbox = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    name: {} as PropOptions<Components.BalCheckbox['name']>,
+    label: {} as PropOptions<Components.BalCheckbox['label']>,
+    value: {} as PropOptions<Components.BalCheckbox['value']>,
+    checked: {} as PropOptions<Components.BalCheckbox['checked']>,
+    disabled: {} as PropOptions<Components.BalCheckbox['disabled']>,
+    inverted: {} as PropOptions<Components.BalCheckbox['inverted']>,
+  },
+
+  model: {
+    prop: 'checked',
+    event: 'balChange'
+  },
+
+  methods: {
+    setFocus: createCommonMethod('setFocus') as Components.BalCheckbox['setFocus'],
+  },
+  render: createCommonRender('bal-checkbox', ['balChange', 'balFocus', 'balBlur']),
+});
+
+
 export const BalDropdown = /*@__PURE__*/ Vue.extend({
 
   props: {
@@ -240,6 +265,23 @@ export const BalIcon = /*@__PURE__*/ Vue.extend({
 
 
   render: createCommonRender('bal-icon', []),
+});
+
+
+export const BalInput = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    name: {} as PropOptions<Components.BalInput['name']>,
+    label: {} as PropOptions<Components.BalInput['label']>,
+    value: {} as PropOptions<Components.BalInput['value']>,
+  },
+
+  model: {
+    prop: 'value',
+    event: 'balChange'
+  },
+
+  render: createCommonRender('bal-input', ['balChange']),
 });
 
 

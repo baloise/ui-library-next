@@ -161,6 +161,33 @@ export namespace Components {
          */
         "inverted": boolean;
     }
+    interface BalCheckbox {
+        /**
+          * If `true`, the checkbox is selected.
+         */
+        "checked": boolean;
+        /**
+          * If `true`, the user cannot interact with the checkbox.
+         */
+        "disabled": boolean;
+        /**
+          * If `true`, the control works on dark background.
+         */
+        "inverted": boolean;
+        /**
+          * The label of the control.
+         */
+        "label": string;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name": string;
+        "setFocus": () => Promise<void>;
+        /**
+          * The value of the control.
+         */
+        "value": string;
+    }
     interface BalDropdown {
         /**
           * Closes the dropdown menu.
@@ -296,6 +323,20 @@ export namespace Components {
          */
         "size": 'small' | 'medium' | 'large' | '';
     }
+    interface BalInput {
+        /**
+          * The label of the control.
+         */
+        "label": string;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name": string;
+        /**
+          * The value of the control.
+         */
+        "value": string;
+    }
     interface BalSpinner {
         "inverted": boolean;
         "small": boolean;
@@ -364,6 +405,12 @@ declare global {
         prototype: HTMLBalCardTitleElement;
         new (): HTMLBalCardTitleElement;
     };
+    interface HTMLBalCheckboxElement extends Components.BalCheckbox, HTMLStencilElement {
+    }
+    var HTMLBalCheckboxElement: {
+        prototype: HTMLBalCheckboxElement;
+        new (): HTMLBalCheckboxElement;
+    };
     interface HTMLBalDropdownElement extends Components.BalDropdown, HTMLStencilElement {
     }
     var HTMLBalDropdownElement: {
@@ -388,6 +435,12 @@ declare global {
         prototype: HTMLBalIconElement;
         new (): HTMLBalIconElement;
     };
+    interface HTMLBalInputElement extends Components.BalInput, HTMLStencilElement {
+    }
+    var HTMLBalInputElement: {
+        prototype: HTMLBalInputElement;
+        new (): HTMLBalInputElement;
+    };
     interface HTMLBalSpinnerElement extends Components.BalSpinner, HTMLStencilElement {
     }
     var HTMLBalSpinnerElement: {
@@ -411,10 +464,12 @@ declare global {
         "bal-card-steps": HTMLBalCardStepsElement;
         "bal-card-subtitle": HTMLBalCardSubtitleElement;
         "bal-card-title": HTMLBalCardTitleElement;
+        "bal-checkbox": HTMLBalCheckboxElement;
         "bal-dropdown": HTMLBalDropdownElement;
         "bal-dropdown-option": HTMLBalDropdownOptionElement;
         "bal-field": HTMLBalFieldElement;
         "bal-icon": HTMLBalIconElement;
+        "bal-input": HTMLBalInputElement;
         "bal-spinner": HTMLBalSpinnerElement;
         "bal-text": HTMLBalTextElement;
     }
@@ -568,6 +623,44 @@ declare namespace LocalJSX {
          */
         "inverted"?: boolean;
     }
+    interface BalCheckbox {
+        /**
+          * If `true`, the checkbox is selected.
+         */
+        "checked"?: boolean;
+        /**
+          * If `true`, the user cannot interact with the checkbox.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the control works on dark background.
+         */
+        "inverted"?: boolean;
+        /**
+          * The label of the control.
+         */
+        "label"?: string;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the toggle loses focus.
+         */
+        "onBalBlur"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the checked property has changed.
+         */
+        "onBalChange"?: (event: CustomEvent<boolean>) => void;
+        /**
+          * Emitted when the toggle has focus.
+         */
+        "onBalFocus"?: (event: CustomEvent<void>) => void;
+        /**
+          * The value of the control.
+         */
+        "value"?: string;
+    }
     interface BalDropdown {
         /**
           * If `true`, the user cannot interact with the input.
@@ -698,6 +791,24 @@ declare namespace LocalJSX {
          */
         "size"?: 'small' | 'medium' | 'large' | '';
     }
+    interface BalInput {
+        /**
+          * The label of the control.
+         */
+        "label"?: string;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the checked property has changed.
+         */
+        "onBalChange"?: (event: CustomEvent<string>) => void;
+        /**
+          * The value of the control.
+         */
+        "value"?: string;
+    }
     interface BalSpinner {
         "inverted"?: boolean;
         "small"?: boolean;
@@ -715,10 +826,12 @@ declare namespace LocalJSX {
         "bal-card-steps": BalCardSteps;
         "bal-card-subtitle": BalCardSubtitle;
         "bal-card-title": BalCardTitle;
+        "bal-checkbox": BalCheckbox;
         "bal-dropdown": BalDropdown;
         "bal-dropdown-option": BalDropdownOption;
         "bal-field": BalField;
         "bal-icon": BalIcon;
+        "bal-input": BalInput;
         "bal-spinner": BalSpinner;
         "bal-text": BalText;
     }
@@ -737,10 +850,12 @@ declare module "@stencil/core" {
             "bal-card-steps": LocalJSX.BalCardSteps & JSXBase.HTMLAttributes<HTMLBalCardStepsElement>;
             "bal-card-subtitle": LocalJSX.BalCardSubtitle & JSXBase.HTMLAttributes<HTMLBalCardSubtitleElement>;
             "bal-card-title": LocalJSX.BalCardTitle & JSXBase.HTMLAttributes<HTMLBalCardTitleElement>;
+            "bal-checkbox": LocalJSX.BalCheckbox & JSXBase.HTMLAttributes<HTMLBalCheckboxElement>;
             "bal-dropdown": LocalJSX.BalDropdown & JSXBase.HTMLAttributes<HTMLBalDropdownElement>;
             "bal-dropdown-option": LocalJSX.BalDropdownOption & JSXBase.HTMLAttributes<HTMLBalDropdownOptionElement>;
             "bal-field": LocalJSX.BalField & JSXBase.HTMLAttributes<HTMLBalFieldElement>;
             "bal-icon": LocalJSX.BalIcon & JSXBase.HTMLAttributes<HTMLBalIconElement>;
+            "bal-input": LocalJSX.BalInput & JSXBase.HTMLAttributes<HTMLBalInputElement>;
             "bal-spinner": LocalJSX.BalSpinner & JSXBase.HTMLAttributes<HTMLBalSpinnerElement>;
             "bal-text": LocalJSX.BalText & JSXBase.HTMLAttributes<HTMLBalTextElement>;
         }

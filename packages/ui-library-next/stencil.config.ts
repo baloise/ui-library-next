@@ -2,8 +2,27 @@ import { Config } from '@stencil/core'
 import { sass } from '@stencil/sass'
 import { postcss } from '@stencil/postcss'
 import autoprefixer from 'autoprefixer'
-import { vueOutputTarget } from '@stencil/vue-output-target'
+import { ComponentModelConfig, vueOutputTarget } from '@stencil/vue-output-target'
 
+/**
+ * Vue Component Models
+ */
+const vueComponentModels: ComponentModelConfig[] = [
+  {
+    elements: ['bal-checkbox'],
+    event: 'balChange',
+    targetAttr: 'checked',
+  },
+  {
+    elements: ['bal-input'],
+    event: 'balChange',
+    targetAttr: 'value',
+  },
+]
+
+/**
+ * Stencil Configurations
+ */
 export const config: Config = {
   namespace: 'ui-library-next',
   globalStyle: 'src/styles/ui-library.scss',
@@ -49,6 +68,7 @@ export const config: Config = {
     vueOutputTarget({
       componentCorePackage: '@baloise/ui-library-next',
       proxiesFile: '../ui-library-next-vue/src/components.ts',
+      componentModels: vueComponentModels,
     }),
   ],
   plugins: [
