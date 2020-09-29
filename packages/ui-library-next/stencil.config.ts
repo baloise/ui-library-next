@@ -3,6 +3,7 @@ import { sass } from '@stencil/sass'
 import { postcss } from '@stencil/postcss'
 import autoprefixer from 'autoprefixer'
 import { ComponentModelConfig, vueOutputTarget } from '@stencil/vue-output-target'
+import { JsonDocs } from '@stencil/core/internal'
 
 /**
  * Vue Component Models
@@ -32,6 +33,15 @@ export const config: Config = {
       esmLoaderPath: '../loader',
     },
     {
+      type: 'docs-custom',
+      strict: true,
+      generator: (docs: JsonDocs) => {
+        // Custom logic goes here
+        console.log('asdfadsf')
+        console.log(docs)
+      },
+    },
+    {
       type: 'dist-custom-elements-bundle',
     },
     {
@@ -44,6 +54,9 @@ export const config: Config = {
       copy: [
         {
           src: '**/*.md',
+        },
+        {
+          src: '**/*.html',
         },
         {
           src: 'docs/**/*.css',

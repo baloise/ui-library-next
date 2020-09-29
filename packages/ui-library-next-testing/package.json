@@ -1,0 +1,22 @@
+{
+  "name": "@baloise/ui-library-next-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-server": "http-server ../ui-library-next/www -p 3333 -c-1 --silent",
+    "test": "cypress run",
+    "ci": "start-server-and-test start-server http://localhost:3333 test",
+    "serve": "cypress open"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.2.12",
+    "@types/jquery": "^3.5.1",
+    "cypress": "^5.2.0",
+    "http-server": "^0.12.3",
+    "start-server-and-test": "^1.11.4",
+    "typescript": "^4.0.3"
+  }
+}

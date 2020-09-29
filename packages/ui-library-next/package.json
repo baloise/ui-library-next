@@ -20,7 +20,7 @@
   ],
   "scripts": {
     "build": "stencil build --docs --es5",
-    "serve": "stencil build -docs --dev --watch --serve",
+    "serve": "stencil build -docs --dev --watch --serve --docs-json www/components.json",
     "serve:ie": "stencil build --es5 --dev --watch --serve",
     "test": "stencil test --spec --e2e --passWithNoTests",
     "test.watch": "stencil test --spec --e2e --watchAll",

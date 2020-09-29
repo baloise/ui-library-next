@@ -92,17 +92,23 @@ export class Checkbox {
         }}>
         <input
           type="checkbox"
+          role="checkbox"
           id={inputId}
           name={this.name}
           value={this.value}
           checked={this.checked}
+          aria-checked={this.checked ? 'true' : 'false'}
+          aria-label={label}
           disabled={this.disabled}
+          aria-disabled={this.disabled ? 'true' : 'false'}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
           onInput={this.onInput}
           ref={inputEl => (this.inputEl = inputEl)}
         />
-        <label htmlFor={inputId}>{label}</label>
+        <label htmlFor={inputId}>
+          <bal-text>{label}</bal-text>
+        </label>
       </Host>
     )
   }

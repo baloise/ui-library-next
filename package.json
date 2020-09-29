@@ -16,7 +16,10 @@
     "lib:vue:build": "npm --prefix packages/ui-library-next-vue run build",
     "lib:vue:clean": "rimraf packages/ui-library-next-vue/node_modules",
     "lib:serve": "npm --prefix packages/ui-library-next run serve",
-    "lib:serve:ie": "npm --prefix packages/ui-library-next run serve:ie"
+    "lib:serve:ie": "npm --prefix packages/ui-library-next run serve:ie",
+    "testing:run": "npm --prefix packages/ui-library-next-testing run ci",
+    "testing:serve": "npm --prefix packages/ui-library-next-testing run serve",
+    "testing:server": "npm --prefix packages/ui-library-next-testing run start-server"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
@@ -35,5 +38,7 @@
       "@commitlint/config-conventional"
     ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "cypress": "^5.2.0"
+  }
 }

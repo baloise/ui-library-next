@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="/build/ui-library-next.css" />
+    <script type="module" src="/build/ui-library-next.esm.js"></script>
+    <script nomodule src="/build/ui-library-next.js"></script>
+  </head>
+  <body class="bal-app">
+    <div class="container">
+      <h1 class="title is-size-1">Checkbox</h1>
+      <h2 class="title is-size-2">Basic</h2>
+      <bal-checkbox label="Label" data-test-id="checkbox-normal"></bal-checkbox>
+      <bal-checkbox label="Checked" checked></bal-checkbox>
+      <bal-checkbox label="Disabled" disabled data-test-id="checkbox-disabled"></bal-checkbox>
+      <h2 class="title is-size-2">Inverted</h2>
+      <div class="has-background-info is-padded">
+        <bal-checkbox label="Label" inverted></bal-checkbox>
+        <bal-checkbox label="Checked" inverted checked></bal-checkbox>
+        <bal-checkbox label="Disabled" inverted disabled></bal-checkbox>
+      </div>
+      <h2 class="title is-size-2">Events</h2>
+      <h3 class="title is-size-3">Listen on Changes</h3>
+      <bal-checkbox id="checkbox-1" label="Listen on changes"></bal-checkbox>
+      <span id="checkbox-1-result">false</span>
+      <script>
+        var checkbox = document.getElementById('checkbox-1')
+        var checkboxResult = document.getElementById('checkbox-1-result')
+        checkbox.addEventListener('balChange', function (event) {
+          checkboxResult.innerHTML = event.detail
+        })
+      </script>
+      <h3 class="title is-size-3">Change value</h3>
+      <bal-checkbox id="checkbox-2" label="Value"></bal-checkbox>
+      <button id="checkbox-2-trigger-1">Set to true</button>
+      <button id="checkbox-2-trigger-2">Set to false</button>
+      <script>
+        var checkbox = document.getElementById('checkbox-2')
+        var checkboxTrigger1 = document.getElementById('checkbox-2-trigger-1')
+        var checkboxTrigger2 = document.getElementById('checkbox-2-trigger-2')
+        checkboxTrigger1.addEventListener('click', function (event) {
+          checkbox.checked = true
+        })
+        checkboxTrigger2.addEventListener('click', function (event) {
+          checkbox.checked = false
+        })
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,3 +1,5 @@
+@import "base/fonts.scss";
+
 body.bal-app {
   margin: 0;
   padding: 0;
@@ -19,6 +21,9 @@ body.bal-app {
   @import "./utilities/helpers.scss";
   @import "./base/all";
   @import "./elements/all";
+  @import "node_modules/bulma/sass/elements/container.sass";
+  @import "node_modules/bulma/sass/elements/title.sass";
+  @import "node_modules/bulma/sass/elements/other.sass";
   @import "node_modules/bulma/sass/grid/_all.sass";
   @import "node_modules/bulma/sass/helpers/_all.sass";
   @import "node_modules/bulma/sass/layout/_all.sass";
