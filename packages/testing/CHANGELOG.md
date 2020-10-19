@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/baloise/ui-library-next/compare/@baloise/ui-library-next-testing@1.0.2...@baloise/ui-library-next-testing@1.0.3) (2020-10-19)
+
+
+### Bug Fixes
+
+* remove deps ([8d2008f](https://github.com/baloise/ui-library-next/commit/8d2008f5f89ee7525958d192e683f246c0c8736a))
+* testing build ([048c85c](https://github.com/baloise/ui-library-next/commit/048c85c5f5341811d55dc740a327ef6413ff29f4))
+* testing build ([7ecf45a](https://github.com/baloise/ui-library-next/commit/7ecf45a14af1478bf6c0635bdcc93f695426c9e6))
+* update deps ([46f98c0](https://github.com/baloise/ui-library-next/commit/46f98c04ea284e03e5573fabea2bc1392db6742e))
+
+
+
+
+
 ## [1.0.2](https://github.com/baloise/ui-library-next/compare/@baloise/ui-library-next-testing@1.0.1...@baloise/ui-library-next-testing@1.0.2) (2020-10-19)
 
 
