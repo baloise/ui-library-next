@@ -21,6 +21,10 @@
       font-size: 30px;
     }
 
+    bal-text {
+      min-height: 25px;
+    }
+
     span.icon {
       height: 1.2rem !important;
     }
@@ -38,6 +42,10 @@
       min-height: 38px;
       min-width: 38px;
       padding: 17px 20px 19px 20px;
+
+      bal-text {
+        min-height: 19px;
+      }
     }
 
     &.is-square {

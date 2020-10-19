@@ -36,11 +36,6 @@ textarea.textarea {
     box-shadow: none;
   }
 
-  &:disabled {
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-
   &.is-inverted {
     color: $white;
     border-bottom-color: $blue-line;
@@ -75,4 +70,10 @@ textarea.textarea {
 
 label.label bal-hint {
   margin-left: 8px;
+}
+
+.control {
+  input + bal-icon {
+    display: block;
+  }
 }

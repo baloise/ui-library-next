@@ -1,4 +1,4 @@
-@import "base/fonts.scss";
+@import 'base/fonts.scss';
 
 body.bal-app {
   margin: 0;
@@ -8,7 +8,6 @@ body.bal-app {
 .bal-app {
   position: relative;
 
-
   * {
     box-sizing: border-box;
     -moz-osx-font-smoothing: grayscale;
@@ -17,15 +16,26 @@ body.bal-app {
     -moz-text-size-adjust: 100%;
   }
 
-  @import "./ui-library.utilities";
-  @import "./utilities/helpers.scss";
-  @import "./base/all";
-  @import "./elements/all";
-  @import "node_modules/bulma/sass/elements/container.sass";
-  @import "node_modules/bulma/sass/elements/title.sass";
-  @import "node_modules/bulma/sass/elements/other.sass";
-  @import "node_modules/bulma/sass/grid/_all.sass";
-  @import "node_modules/bulma/sass/helpers/_all.sass";
-  @import "node_modules/bulma/sass/layout/_all.sass";
+  @import './ui-library.utilities';
+  @import './utilities/helpers.scss';
+  @import './utilities/animations.scss';
+  @import './base/all';
+  @import './elements/all';
+  @import 'node_modules/bulma/sass/elements/container.sass';
+  @import 'node_modules/bulma/sass/elements/title.sass';
+  @import 'node_modules/bulma/sass/elements/other.sass';
+  @import 'node_modules/bulma/sass/grid/_all.sass';
+  @import 'node_modules/bulma/sass/helpers/_all.sass';
+  @import 'node_modules/bulma/sass/layout/_all.sass';
 
+  span,
+  b,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 strong {
+    font-family: $family-primary;
+  }
 }

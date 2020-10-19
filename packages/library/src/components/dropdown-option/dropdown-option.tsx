@@ -1,6 +1,4 @@
-import { Component, Element, h, Host, Method, Prop, State, Watch } from '@stencil/core';
-import { Components } from '../../components';
-import { Option } from './dropdown-option.types';
+import { Component, Element, h, Host, Prop, Event, EventEmitter, Listen } from '@stencil/core'
 
 @Component({
   tag: 'bal-dropdown-option',
@@ -9,103 +7,40 @@ import { Option } from './dropdown-option.types';
   scoped: true,
 })
 export class DropdownOption {
-  @Element() element!: HTMLElement;
-  labelElement!: HTMLSpanElement;
-
-  @State() hidden = false;
+  @Element() element!: HTMLElement
+  labelElement!: HTMLSpanElement
 
   /**
    * The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element.
    */
-  @Prop() value: string | boolean | number | any = false;
-
-  /**
-   * The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element.
-   */
-  @Prop() label = '';
+  @Prop() value: string | boolean | number | any = false
 
   /**
    * Baloise icon as a prefix
    */
-  @Prop() icon = '';
-
-  /**
-   * Use checkbox for multi-select
-   */
-  @Prop() checkbox = false;
+  @Prop() icon = ''
 
   /**
    * If `true` the option is focused
    */
-  @Prop() focused = false;
+  @Prop() focused = false
 
   /**
    * If `true` the option is selected
    */
-  @Prop() selected = false;
+  @Prop() selected = false
 
-  /**
-   * Tells witch part of the label should be highlighted
-   */
-  @Prop() highlight = '';
+  @Event() balDropdownOptionSelect: EventEmitter<string | boolean | number | any>
 
-  @Watch('highlight')
-  highlightChanged() {
-    this.updateLabel();
+  @Listen('balDropdownChanged')
+  async dropdownChanged(event: CustomEvent<any>) {
+    event.preventDefault()
+    event.stopPropagation()
+    this.selected = this.value === event.detail
   }
 
-  @Method()
-  async isHidden(): Promise<boolean> {
-    return this.hidden;
-  }
-
-  componentDidLoad() {
-    this.updateLabel();
-  }
-
-  get parent(): Components.BalDropdown {
-    if ((this.element.parentNode as any).tagName === 'DIV') {
-      // IE11 doesn't allow shadowing so we have tho navigate the dom up to the parent element.
-      try {
-        return this.element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode as any;
-      } catch (e) {
-        // Do nothing
-      }
-    }
-    return this.element.parentNode as any;
-  }
-
-  updateLabel() {
-    if (this.highlight.length > 0) {
-      const index = this.label.toLowerCase().indexOf(this.highlight.toLowerCase());
-      this.hidden = index < 0;
-      if (index >= 0) {
-        this.setLabelHtml(
-          this.label.substring(0, index) +
-            '<b>' +
-            this.label.substring(index, index + this.highlight.length) +
-            '</b>' +
-            this.label.substring(index + this.highlight.length, this.label.length),
-        );
-      }
-    } else {
-      this.hidden = false;
-      this.setLabelHtml(this.label);
-    }
-  }
-
-  private setLabelHtml(content: string) {
-    if (this.labelElement && this.labelElement.innerHTML !== undefined) {
-      this.labelElement.innerHTML = content;
-    }
-  }
-
-  async select() {
-    const option: Option<any> = {
-      label: this.label,
-      value: this.value,
-    };
-    await this.parent.select(option);
+  async onClick() {
+    this.balDropdownOptionSelect.emit(this.value)
   }
 
   render() {
@@ -116,19 +51,10 @@ export class DropdownOption {
             'dropdown-item',
             this.selected ? 'is-selected' : '',
             this.focused ? 'is-focused' : '',
-            this.hidden ? 'is-hidden' : '',
             this.icon ? 'has-icon' : '',
-            this.checkbox ? 'has-checkbox' : '',
           ].join(' ')}
           tabIndex={-1}
-          onClick={this.select.bind(this)}
-        >
-          <span class="checkbox" style={{ display: this.checkbox ? 'flex' : 'none' }}>
-            <div class="bal-checkbox">
-              <input type="checkbox" checked={this.selected} tabIndex={-1} />
-              <label></label>
-            </div>
-          </span>
+          onClick={this.onClick.bind(this)}>
           <span class="icon" style={{ display: this.icon.length === 0 ? 'none' : 'flex' }}>
             <bal-icon name={this.icon} size="medium"></bal-icon>
           </span>
@@ -137,6 +63,6 @@ export class DropdownOption {
           </bal-text>
         </button>
       </Host>
-    );
+    )
   }
 }

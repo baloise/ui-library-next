@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { CardStepOptions } from "./components/card-step/card-step";
 import { CardStepOptions as CardStepOptions1 } from "./components/card-step/card-step";
-import { Option } from "./components/dropdown-option/dropdown-option.types";
+import { BalOptionValue } from "./components/select-option/select-option.type";
 export namespace Components {
     interface BalButton {
         /**
@@ -27,9 +27,13 @@ export namespace Components {
          */
         "expanded": boolean;
         /**
-          * Name of the button icon
+          * Name of the left button icon
          */
         "icon": string;
+        /**
+          * Name of the right button icon
+         */
+        "iconRight": string;
         /**
           * If `true` the button is inverted
          */
@@ -193,89 +197,27 @@ export namespace Components {
           * Closes the dropdown menu.
          */
         "close": () => Promise<void>;
-        /**
-          * If `true`, the user cannot interact with the input.
-         */
-        "disabled": boolean;
-        /**
-          * If `true` the dropdown shows the empty message
-         */
-        "empty": boolean;
-        /**
-          * If `true`, the component uses the whole width.
-         */
-        "expanded": boolean;
-        /**
-          * If `true`, the height of the dropdown content is fixed.
-         */
-        "fixed": boolean;
-        /**
-          * Returns the value of the dropdown.
-         */
-        "getSelected": () => Promise<Option<any> | Option<any>[]>;
-        /**
-          * If `true` the dropdown can be used on blue background.
-         */
-        "inverted": boolean;
-        /**
-          * If `true` the dropdown allows multiple selection
-         */
-        "multiSelect": boolean;
+        "isActive": boolean;
         /**
           * Open the dropdown menu.
          */
         "open": () => Promise<void>;
-        /**
-          * Instructional text that shows before the input has a value.
-         */
-        "placeholder": string;
-        /**
-          * If `true`, the user cannot interact with the input.
-         */
-        "readonly": boolean;
-        /**
-          * Selects an option.
-         */
-        "select": (option: Option<any>) => Promise<void>;
+        "scrollable": boolean;
         /**
           * Open & closes the dropdown.
          */
         "toggle": () => Promise<void>;
-        /**
-          * Defines the trigger icon on the right site.
-         */
-        "triggerIcon": string;
-        /**
-          * If `true`, the use can search for the option.
-         */
-        "typeahead": boolean;
-        /**
-          * The value of the selected dropdown item.
-         */
-        "value": Option<any> | Option<any>[];
+        "value": any;
     }
     interface BalDropdownOption {
-        /**
-          * Use checkbox for multi-select
-         */
-        "checkbox": boolean;
         /**
           * If `true` the option is focused
          */
         "focused": boolean;
         /**
-          * Tells witch part of the label should be highlighted
-         */
-        "highlight": string;
-        /**
           * Baloise icon as a prefix
          */
         "icon": string;
-        "isHidden": () => Promise<boolean>;
-        /**
-          * The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element.
-         */
-        "label": string;
         /**
           * If `true` the option is selected
          */
@@ -318,6 +260,7 @@ export namespace Components {
           * The name of the icon without the bal-icon prefix.
          */
         "name": string;
+        "rotate": boolean;
         /**
           * Defines the size of the icon.
          */
@@ -336,6 +279,38 @@ export namespace Components {
           * The value of the control.
          */
         "value": string;
+    }
+    interface BalSelect {
+        "disabled": boolean;
+        "loading": boolean;
+        "options": BalOptionValue<any>[];
+        "placeholder": string;
+        "remote": boolean;
+        "typeahead": boolean;
+        "value": BalOptionValue<any>;
+    }
+    interface BalSelectOption {
+        /**
+          * If `true` the option is focused
+         */
+        "checkbox": boolean;
+        /**
+          * If `true` the option is focused
+         */
+        "focused": boolean;
+        "hidden": boolean;
+        /**
+          * Baloise icon as a prefix
+         */
+        "icon": string;
+        /**
+          * If `true` the option is selected
+         */
+        "selected": boolean;
+        /**
+          * The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element.
+         */
+        "value": BalOptionValue<any>;
     }
     interface BalSpinner {
         "inverted": boolean;
@@ -441,6 +416,18 @@ declare global {
         prototype: HTMLBalInputElement;
         new (): HTMLBalInputElement;
     };
+    interface HTMLBalSelectElement extends Components.BalSelect, HTMLStencilElement {
+    }
+    var HTMLBalSelectElement: {
+        prototype: HTMLBalSelectElement;
+        new (): HTMLBalSelectElement;
+    };
+    interface HTMLBalSelectOptionElement extends Components.BalSelectOption, HTMLStencilElement {
+    }
+    var HTMLBalSelectOptionElement: {
+        prototype: HTMLBalSelectOptionElement;
+        new (): HTMLBalSelectOptionElement;
+    };
     interface HTMLBalSpinnerElement extends Components.BalSpinner, HTMLStencilElement {
     }
     var HTMLBalSpinnerElement: {
@@ -470,6 +457,8 @@ declare global {
         "bal-field": HTMLBalFieldElement;
         "bal-icon": HTMLBalIconElement;
         "bal-input": HTMLBalInputElement;
+        "bal-select": HTMLBalSelectElement;
+        "bal-select-option": HTMLBalSelectOptionElement;
         "bal-spinner": HTMLBalSpinnerElement;
         "bal-text": HTMLBalTextElement;
     }
@@ -493,9 +482,13 @@ declare namespace LocalJSX {
          */
         "expanded"?: boolean;
         /**
-          * Name of the button icon
+          * Name of the left button icon
          */
         "icon"?: string;
+        /**
+          * Name of the right button icon
+         */
+        "iconRight"?: string;
         /**
           * If `true` the button is inverted
          */
@@ -662,88 +655,21 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface BalDropdown {
-        /**
-          * If `true`, the user cannot interact with the input.
-         */
-        "disabled"?: boolean;
-        /**
-          * If `true` the dropdown shows the empty message
-         */
-        "empty"?: boolean;
-        /**
-          * If `true`, the component uses the whole width.
-         */
-        "expanded"?: boolean;
-        /**
-          * If `true`, the height of the dropdown content is fixed.
-         */
-        "fixed"?: boolean;
-        /**
-          * If `true` the dropdown can be used on blue background.
-         */
-        "inverted"?: boolean;
-        /**
-          * If `true` the dropdown allows multiple selection
-         */
-        "multiSelect"?: boolean;
-        /**
-          * Emitted when the toggle loses focus.
-         */
-        "onBalBlur"?: (event: CustomEvent<void>) => void;
-        /**
-          * Emitted when the checked property has changed.
-         */
-        "onBalChange"?: (event: CustomEvent<Option<any>>) => void;
-        /**
-          * Emitted when the toggle has focus..
-         */
-        "onBalFocus"?: (event: CustomEvent<void>) => void;
-        /**
-          * Emitted when containing input field raises an input event.
-         */
-        "onBalInput"?: (event: CustomEvent<string>) => void;
-        /**
-          * Instructional text that shows before the input has a value.
-         */
-        "placeholder"?: string;
-        /**
-          * If `true`, the user cannot interact with the input.
-         */
-        "readonly"?: boolean;
-        /**
-          * Defines the trigger icon on the right site.
-         */
-        "triggerIcon"?: string;
-        /**
-          * If `true`, the use can search for the option.
-         */
-        "typeahead"?: boolean;
-        /**
-          * The value of the selected dropdown item.
-         */
-        "value"?: Option<any> | Option<any>[];
+        "isActive"?: boolean;
+        "onBalChange"?: (event: CustomEvent<string>) => void;
+        "scrollable"?: boolean;
+        "value"?: any;
     }
     interface BalDropdownOption {
-        /**
-          * Use checkbox for multi-select
-         */
-        "checkbox"?: boolean;
         /**
           * If `true` the option is focused
          */
         "focused"?: boolean;
         /**
-          * Tells witch part of the label should be highlighted
-         */
-        "highlight"?: string;
-        /**
           * Baloise icon as a prefix
          */
         "icon"?: string;
-        /**
-          * The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element.
-         */
-        "label"?: string;
+        "onBalDropdownOptionSelect"?: (event: CustomEvent<string | boolean | number | any>) => void;
         /**
           * If `true` the option is selected
          */
@@ -786,6 +712,7 @@ declare namespace LocalJSX {
           * The name of the icon without the bal-icon prefix.
          */
         "name"?: string;
+        "rotate"?: boolean;
         /**
           * Defines the size of the icon.
          */
@@ -808,6 +735,52 @@ declare namespace LocalJSX {
           * The value of the control.
          */
         "value"?: string;
+    }
+    interface BalSelect {
+        "disabled"?: boolean;
+        "loading"?: boolean;
+        /**
+          * Emitted when the toggle loses focus.
+         */
+        "onBalBlur"?: (event: CustomEvent<void>) => void;
+        "onBalChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the toggle has focus..
+         */
+        "onBalFocus"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when containing input field raises an input event.
+         */
+        "onBalInput"?: (event: CustomEvent<string>) => void;
+        "options"?: BalOptionValue<any>[];
+        "placeholder"?: string;
+        "remote"?: boolean;
+        "typeahead"?: boolean;
+        "value"?: BalOptionValue<any>;
+    }
+    interface BalSelectOption {
+        /**
+          * If `true` the option is focused
+         */
+        "checkbox"?: boolean;
+        /**
+          * If `true` the option is focused
+         */
+        "focused"?: boolean;
+        "hidden"?: boolean;
+        /**
+          * Baloise icon as a prefix
+         */
+        "icon"?: string;
+        "onBalOptionSelect"?: (event: CustomEvent<string | boolean | number | any>) => void;
+        /**
+          * If `true` the option is selected
+         */
+        "selected"?: boolean;
+        /**
+          * The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element.
+         */
+        "value"?: BalOptionValue<any>;
     }
     interface BalSpinner {
         "inverted"?: boolean;
@@ -832,6 +805,8 @@ declare namespace LocalJSX {
         "bal-field": BalField;
         "bal-icon": BalIcon;
         "bal-input": BalInput;
+        "bal-select": BalSelect;
+        "bal-select-option": BalSelectOption;
         "bal-spinner": BalSpinner;
         "bal-text": BalText;
     }
@@ -856,6 +831,8 @@ declare module "@stencil/core" {
             "bal-field": LocalJSX.BalField & JSXBase.HTMLAttributes<HTMLBalFieldElement>;
             "bal-icon": LocalJSX.BalIcon & JSXBase.HTMLAttributes<HTMLBalIconElement>;
             "bal-input": LocalJSX.BalInput & JSXBase.HTMLAttributes<HTMLBalInputElement>;
+            "bal-select": LocalJSX.BalSelect & JSXBase.HTMLAttributes<HTMLBalSelectElement>;
+            "bal-select-option": LocalJSX.BalSelectOption & JSXBase.HTMLAttributes<HTMLBalSelectOptionElement>;
             "bal-spinner": LocalJSX.BalSpinner & JSXBase.HTMLAttributes<HTMLBalSpinnerElement>;
             "bal-text": LocalJSX.BalText & JSXBase.HTMLAttributes<HTMLBalTextElement>;
         }
