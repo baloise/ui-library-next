@@ -61,28 +61,19 @@ A basic dropdown option.
 
 ## Properties
 
-| Property    | Attribute   | Description                                                                                       | Type      | Default |
-| ----------- | ----------- | ------------------------------------------------------------------------------------------------- | --------- | ------- |
-| `checkbox`  | `checkbox`  | Use checkbox for multi-select                                                                     | `boolean` | `false` |
-| `focused`   | `focused`   | If `true` the option is focused                                                                   | `boolean` | `false` |
-| `highlight` | `highlight` | Tells witch part of the label should be highlighted                                               | `string`  | `''`    |
-| `icon`      | `icon`      | Baloise icon as a prefix                                                                          | `string`  | `''`    |
-| `label`     | `label`     | The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element. | `string`  | `''`    |
-| `selected`  | `selected`  | If `true` the option is selected                                                                  | `boolean` | `false` |
-| `value`     | `value`     | The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element. | `any`     | `false` |
+| Property   | Attribute  | Description                                                                                       | Type      | Default |
+| ---------- | ---------- | ------------------------------------------------------------------------------------------------- | --------- | ------- |
+| `focused`  | `focused`  | If `true` the option is focused                                                                   | `boolean` | `false` |
+| `icon`     | `icon`     | Baloise icon as a prefix                                                                          | `string`  | `''`    |
+| `selected` | `selected` | If `true` the option is selected                                                                  | `boolean` | `false` |
+| `value`    | `value`    | The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element. | `any`     | `false` |
 
 
-## Methods
+## Events
 
-### `isHidden() => Promise<boolean>`
-
-
-
-#### Returns
-
-Type: `Promise<boolean>`
-
-
+| Event                     | Description | Type               |
+| ------------------------- | ----------- | ------------------ |
+| `balDropdownOptionSelect` |             | `CustomEvent<any>` |
 
 
 ## Dependencies

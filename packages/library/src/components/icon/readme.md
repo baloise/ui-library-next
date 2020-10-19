@@ -103,6 +103,7 @@ Here is how you can change the color:
 | `isLeft`  | `is-left`  |                                                   | `boolean`                              | `false` |
 | `isRight` | `is-right` |                                                   | `boolean`                              | `false` |
 | `name`    | `name`     | The name of the icon without the bal-icon prefix. | `string`                               | `''`    |
+| `rotate`  | `rotate`   |                                                   | `boolean`                              | `false` |
 | `size`    | `size`     | Defines the size of the icon.                     | `"" \| "large" \| "medium" \| "small"` | `''`    |
 
 
@@ -111,17 +112,17 @@ Here is how you can change the color:
 ### Used by
 
  - [bal-button](../button)
- - [bal-dropdown](../dropdown)
  - [bal-dropdown-option](../dropdown-option)
  - [bal-field](../field)
+ - [bal-select](../select)
 
 ### Graph
 ```mermaid
 graph TD;
   bal-button --> bal-icon
-  bal-dropdown --> bal-icon
   bal-dropdown-option --> bal-icon
   bal-field --> bal-icon
+  bal-select --> bal-icon
   style bal-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -67,6 +67,19 @@ Type: `Promise<void>`
 
 
 
+## Dependencies
+
+### Depends on
+
+- [bal-text](../text)
+
+### Graph
+```mermaid
+graph TD;
+  bal-checkbox --> bal-text
+  style bal-checkbox fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

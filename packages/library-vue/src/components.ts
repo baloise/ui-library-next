@@ -26,6 +26,8 @@ const customElementTags: string[] = [
  'bal-field',
  'bal-icon',
  'bal-input',
+ 'bal-select',
+ 'bal-select-option',
  'bal-spinner',
  'bal-text',
 ];
@@ -48,6 +50,7 @@ export const BalButton = /*@__PURE__*/ Vue.extend({
     loading: {} as PropOptions<Components.BalButton['loading']>,
     bottomRounded: {} as PropOptions<Components.BalButton['bottomRounded']>,
     icon: {} as PropOptions<Components.BalButton['icon']>,
+    iconRight: {} as PropOptions<Components.BalButton['iconRight']>,
   },
 
 
@@ -193,28 +196,18 @@ export const BalCheckbox = /*@__PURE__*/ Vue.extend({
 export const BalDropdown = /*@__PURE__*/ Vue.extend({
 
   props: {
+    scrollable: {} as PropOptions<Components.BalDropdown['scrollable']>,
+    isActive: {} as PropOptions<Components.BalDropdown['isActive']>,
     value: {} as PropOptions<Components.BalDropdown['value']>,
-    placeholder: {} as PropOptions<Components.BalDropdown['placeholder']>,
-    readonly: {} as PropOptions<Components.BalDropdown['readonly']>,
-    disabled: {} as PropOptions<Components.BalDropdown['disabled']>,
-    inverted: {} as PropOptions<Components.BalDropdown['inverted']>,
-    fixed: {} as PropOptions<Components.BalDropdown['fixed']>,
-    expanded: {} as PropOptions<Components.BalDropdown['expanded']>,
-    triggerIcon: {} as PropOptions<Components.BalDropdown['triggerIcon']>,
-    empty: {} as PropOptions<Components.BalDropdown['empty']>,
-    multiSelect: {} as PropOptions<Components.BalDropdown['multiSelect']>,
-    typeahead: {} as PropOptions<Components.BalDropdown['typeahead']>,
   },
 
 
   methods: {
-    select: createCommonMethod('select') as Components.BalDropdown['select'],
-    getSelected: createCommonMethod('getSelected') as Components.BalDropdown['getSelected'],
-    toggle: createCommonMethod('toggle') as Components.BalDropdown['toggle'],
     open: createCommonMethod('open') as Components.BalDropdown['open'],
     close: createCommonMethod('close') as Components.BalDropdown['close'],
+    toggle: createCommonMethod('toggle') as Components.BalDropdown['toggle'],
   },
-  render: createCommonRender('bal-dropdown', ['balInput', 'balChange', 'balBlur', 'balFocus']),
+  render: createCommonRender('bal-dropdown', ['balChange']),
 });
 
 
@@ -222,19 +215,13 @@ export const BalDropdownOption = /*@__PURE__*/ Vue.extend({
 
   props: {
     value: {} as PropOptions<Components.BalDropdownOption['value']>,
-    label: {} as PropOptions<Components.BalDropdownOption['label']>,
     icon: {} as PropOptions<Components.BalDropdownOption['icon']>,
-    checkbox: {} as PropOptions<Components.BalDropdownOption['checkbox']>,
     focused: {} as PropOptions<Components.BalDropdownOption['focused']>,
     selected: {} as PropOptions<Components.BalDropdownOption['selected']>,
-    highlight: {} as PropOptions<Components.BalDropdownOption['highlight']>,
   },
 
 
-  methods: {
-    isHidden: createCommonMethod('isHidden') as Components.BalDropdownOption['isHidden'],
-  },
-  render: createCommonRender('bal-dropdown-option', []),
+  render: createCommonRender('bal-dropdown-option', ['balDropdownOptionSelect']),
 });
 
 
@@ -261,6 +248,7 @@ export const BalIcon = /*@__PURE__*/ Vue.extend({
     size: {} as PropOptions<Components.BalIcon['size']>,
     isRight: {} as PropOptions<Components.BalIcon['isRight']>,
     isLeft: {} as PropOptions<Components.BalIcon['isLeft']>,
+    rotate: {} as PropOptions<Components.BalIcon['rotate']>,
   },
 
 
@@ -282,6 +270,39 @@ export const BalInput = /*@__PURE__*/ Vue.extend({
   },
 
   render: createCommonRender('bal-input', ['balChange']),
+});
+
+
+export const BalSelect = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    value: {} as PropOptions<Components.BalSelect['value']>,
+    options: {} as PropOptions<Components.BalSelect['options']>,
+    remote: {} as PropOptions<Components.BalSelect['remote']>,
+    disabled: {} as PropOptions<Components.BalSelect['disabled']>,
+    typeahead: {} as PropOptions<Components.BalSelect['typeahead']>,
+    loading: {} as PropOptions<Components.BalSelect['loading']>,
+    placeholder: {} as PropOptions<Components.BalSelect['placeholder']>,
+  },
+
+
+  render: createCommonRender('bal-select', ['balChange', 'balInput', 'balBlur', 'balFocus']),
+});
+
+
+export const BalSelectOption = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    hidden: {} as PropOptions<Components.BalSelectOption['hidden']>,
+    value: {} as PropOptions<Components.BalSelectOption['value']>,
+    icon: {} as PropOptions<Components.BalSelectOption['icon']>,
+    checkbox: {} as PropOptions<Components.BalSelectOption['checkbox']>,
+    focused: {} as PropOptions<Components.BalSelectOption['focused']>,
+    selected: {} as PropOptions<Components.BalSelectOption['selected']>,
+  },
+
+
+  render: createCommonRender('bal-select-option', ['balOptionSelect']),
 });
 
 

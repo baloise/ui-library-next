@@ -137,29 +137,18 @@ It can also deal with large content:
 
 ## Properties
 
-| Property      | Attribute      | Description                                                 | Type                           | Default        |
-| ------------- | -------------- | ----------------------------------------------------------- | ------------------------------ | -------------- |
-| `disabled`    | `disabled`     | If `true`, the user cannot interact with the input.         | `boolean`                      | `false`        |
-| `empty`       | `empty`        | If `true` the dropdown shows the empty message              | `boolean`                      | `false`        |
-| `expanded`    | `expanded`     | If `true`, the component uses the whole width.              | `boolean`                      | `false`        |
-| `fixed`       | `fixed`        | If `true`, the height of the dropdown content is fixed.     | `boolean`                      | `true`         |
-| `inverted`    | `inverted`     | If `true` the dropdown can be used on blue background.      | `boolean`                      | `false`        |
-| `multiSelect` | `multi-select` | If `true` the dropdown allows multiple selection            | `boolean`                      | `false`        |
-| `placeholder` | `placeholder`  | Instructional text that shows before the input has a value. | `string`                       | `''`           |
-| `readonly`    | `readonly`     | If `true`, the user cannot interact with the input.         | `boolean`                      | `false`        |
-| `triggerIcon` | `trigger-icon` | Defines the trigger icon on the right site.                 | `string`                       | `'caret-down'` |
-| `typeahead`   | `typeahead`    | If `true`, the use can search for the option.               | `boolean`                      | `false`        |
-| `value`       | --             | The value of the selected dropdown item.                    | `Option<any> \| Option<any>[]` | `null`         |
+| Property     | Attribute    | Description | Type      | Default     |
+| ------------ | ------------ | ----------- | --------- | ----------- |
+| `isActive`   | `is-active`  |             | `boolean` | `false`     |
+| `scrollable` | `scrollable` |             | `boolean` | `false`     |
+| `value`      | `value`      |             | `any`     | `undefined` |
 
 
 ## Events
 
-| Event       | Description                                                | Type                       |
-| ----------- | ---------------------------------------------------------- | -------------------------- |
-| `balBlur`   | Emitted when the toggle loses focus.                       | `CustomEvent<void>`        |
-| `balChange` | Emitted when the checked property has changed.             | `CustomEvent<Option<any>>` |
-| `balFocus`  | Emitted when the toggle has focus..                        | `CustomEvent<void>`        |
-| `balInput`  | Emitted when containing input field raises an input event. | `CustomEvent<string>`      |
+| Event       | Description | Type                  |
+| ----------- | ----------- | --------------------- |
+| `balChange` |             | `CustomEvent<string>` |
 
 
 ## Methods
@@ -174,29 +163,9 @@ Type: `Promise<void>`
 
 
 
-### `getSelected() => Promise<Option<any> | Option<any>[]>`
-
-Returns the value of the dropdown.
-
-#### Returns
-
-Type: `Promise<Option<any> | Option<any>[]>`
-
-
-
 ### `open() => Promise<void>`
 
 Open the dropdown menu.
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-### `select(option: Option<any>) => Promise<void>`
-
-Selects an option.
 
 #### Returns
 
@@ -215,27 +184,16 @@ Type: `Promise<void>`
 
 
 
-## Shadow Parts
-
-| Part                | Description |
-| ------------------- | ----------- |
-| `"content-options"` |             |
-| `"input"`           |             |
-
-
 ## Dependencies
 
-### Depends on
+### Used by
 
-- [bal-icon](../icon)
-- [bal-field](../field)
+ - [bal-select](../select)
 
 ### Graph
 ```mermaid
 graph TD;
-  bal-dropdown --> bal-icon
-  bal-dropdown --> bal-field
-  bal-field --> bal-icon
+  bal-select --> bal-dropdown
   style bal-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

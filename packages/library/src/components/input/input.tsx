@@ -39,7 +39,6 @@ export class Input {
   @Event() balChange!: EventEmitter<string>
 
   private onInput = (ev: any) => {
-    console.log('onInput', ev.target.value)
     let val = ev.target && ev.target.value
     this.value = val
     this.balChange.emit(this.value)

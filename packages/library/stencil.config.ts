@@ -32,15 +32,13 @@ export const config: Config = {
       type: 'dist',
       esmLoaderPath: '../loader',
     },
-    {
-      type: 'docs-custom',
-      strict: true,
-      generator: (docs: JsonDocs) => {
-        // Custom logic goes here
-        console.log('asdfadsf')
-        console.log(docs)
-      },
-    },
+    // {
+    //   type: 'docs-custom',
+    //   strict: true,
+    //   generator: (docs: JsonDocs) => {
+    //     // Custom logic goes here
+    //   },
+    // },
     {
       type: 'dist-custom-elements-bundle',
     },
@@ -80,7 +78,7 @@ export const config: Config = {
     },
     vueOutputTarget({
       componentCorePackage: '@baloise/ui-library-next',
-      proxiesFile: '../ui-library-next-vue/src/components.ts',
+      proxiesFile: '../library-vue/src/components.ts',
       componentModels: vueComponentModels,
     }),
   ],
