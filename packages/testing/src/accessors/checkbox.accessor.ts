@@ -1,13 +1,22 @@
 /// <reference types="cypress" />
-import { Checkable } from './mixins/checkable'
-import { Clickable } from './mixins/clickable'
-import { Containable } from './mixins/containable'
-import { Disableable } from './mixins/disableable'
-import { Existable, ExistableMixin } from './mixins/existable'
-import { Accessor, createAccessor, Mixin, MixinContext } from './mixins/mixins'
-import { NthSelectable, NthSelectableMixin } from './mixins/nthSelectable'
-import { Shouldable, ShouldableMixin } from './mixins/shouldable'
-import { Visible, VisibleMixin } from './mixins/visible'
+import {
+  Accessor,
+  createAccessor,
+  Mixin,
+  MixinContext,
+  Checkable,
+  Clickable,
+  Containable,
+  Disableable,
+  Existable,
+  ExistableMixin,
+  NthSelectable,
+  NthSelectableMixin,
+  Shouldable,
+  ShouldableMixin,
+  Visible,
+  VisibleMixin,
+} from '../mixins'
 
 interface CheckboxAccessorType
   extends Clickable<CheckboxAccessorType>,

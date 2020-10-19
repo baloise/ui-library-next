@@ -1,5 +1,4 @@
-import { CheckboxAccessor } from '../../../src/checkbox.accessor'
-import { dataTestSelector } from '../../../src/selectors'
+import { dataTestSelector, CheckboxAccessor } from '../../../src/'
 
 export class CheckboxPage {
   normalCheckboxElement = CheckboxAccessor(dataTestSelector('checkbox-normal'))
@@ -8,5 +7,4 @@ export class CheckboxPage {
   open() {
     cy.visit('/components/checkbox')
   }
-
 }
