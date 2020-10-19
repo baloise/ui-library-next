@@ -9,7 +9,6 @@
     "bootstrap": "lerna bootstrap",
     "build": "npm run lib:build && npm run lib:vue:build",
     "lint": "lerna run lint",
-    "test": "lerna run test",
     "publish": "lerna publish --yes",
     "lib:build": "npm --prefix packages/library run build",
     "lib:serve": "npm --prefix packages/library run serve",
