@@ -1,6 +1,6 @@
 {
   "name": "@baloise/ui-library-next",
-  "version": "0.0.10",
+  "version": "0.1.0",
   "publishConfig": {
     "access": "public"
   },
@@ -27,7 +27,7 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@baloise/ui-library-next-vue": "^0.0.10",
+    "@baloise/ui-library-next-vue": "^0.0.11",
     "@stencil/core": "^2.0.1",
     "bulma": "^0.9.0"
   },

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.11](https://github.com/baloise/ui-library-next/compare/@baloise/ui-library-next-vue@0.0.10...@baloise/ui-library-next-vue@0.0.11) (2020-10-19)
+
+
+### Bug Fixes
+
+* stencil build ([ffa80df](https://github.com/baloise/ui-library-next/commit/ffa80df4d3a9f7e8dc30dff97567682e29b9b6d7))
+
+
+
+
+
 ## [0.0.10](https://github.com/baloise/ui-library-next/compare/@baloise/ui-library-next-vue@0.0.9...@baloise/ui-library-next-vue@0.0.10) (2020-09-17)
 
 **Note:** Version bump only for package @baloise/ui-library-next-vue
