@@ -14,18 +14,36 @@
 | `options`     | --            |             | `BalOptionValue<any>[]` | `[]`        |
 | `placeholder` | `placeholder` |             | `string`                | `''`        |
 | `remote`      | `remote`      |             | `boolean`               | `false`     |
+| `scrollable`  | `scrollable`  |             | `number`                | `250`       |
 | `typeahead`   | `typeahead`   |             | `boolean`               | `false`     |
 | `value`       | --            |             | `BalOptionValue<any>`   | `undefined` |
 
 
 ## Events
 
-| Event       | Description                                                | Type                  |
-| ----------- | ---------------------------------------------------------- | --------------------- |
-| `balBlur`   | Emitted when the toggle loses focus.                       | `CustomEvent<void>`   |
-| `balChange` |                                                            | `CustomEvent<any>`    |
-| `balFocus`  | Emitted when the toggle has focus..                        | `CustomEvent<void>`   |
-| `balInput`  | Emitted when containing input field raises an input event. | `CustomEvent<string>` |
+| Event         | Description | Type                               |
+| ------------- | ----------- | ---------------------------------- |
+| `balBlur`     |             | `CustomEvent<FocusEvent>`          |
+| `balChange`   |             | `CustomEvent<BalOptionValue<any>>` |
+| `balClick`    |             | `CustomEvent<MouseEvent>`          |
+| `balFocus`    |             | `CustomEvent<FocusEvent>`          |
+| `balInput`    |             | `CustomEvent<string>`              |
+| `balKeyDown`  |             | `CustomEvent<KeyboardEvent>`       |
+| `balKeyPress` |             | `CustomEvent<KeyboardEvent>`       |
+| `balKeyUp`    |             | `CustomEvent<KeyboardEvent>`       |
+
+
+## Methods
+
+### `clear() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ## Dependencies

@@ -48,6 +48,7 @@ All generic form field, designed for consistency
 | `iconRight`         | `icon-right`         | Baloise icon for the right side of the input        | `string`  | `''`    |
 | `inverted`          | `inverted`           | If `true` the field can be used on blue background. | `boolean` | `false` |
 | `label`             | `label`              | Label text                                          | `string`  | `''`    |
+| `loading`           | `loading`            |                                                     | `boolean` | `false` |
 | `required`          | `required`           | If `true` a asterix (*) is added to the label text  | `boolean` | `false` |
 | `validationMessage` | `validation-message` | Validation message text                             | `string`  | `''`    |
 

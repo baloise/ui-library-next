@@ -206,6 +206,8 @@ export const BalDropdown = /*@__PURE__*/ Vue.extend({
     open: createCommonMethod('open') as Components.BalDropdown['open'],
     close: createCommonMethod('close') as Components.BalDropdown['close'],
     toggle: createCommonMethod('toggle') as Components.BalDropdown['toggle'],
+    getMenuElement: createCommonMethod('getMenuElement') as Components.BalDropdown['getMenuElement'],
+    getContentElement: createCommonMethod('getContentElement') as Components.BalDropdown['getContentElement'],
   },
   render: createCommonRender('bal-dropdown', ['balChange']),
 });
@@ -234,6 +236,7 @@ export const BalField = /*@__PURE__*/ Vue.extend({
     iconRight: {} as PropOptions<Components.BalField['iconRight']>,
     iconLeft: {} as PropOptions<Components.BalField['iconLeft']>,
     inverted: {} as PropOptions<Components.BalField['inverted']>,
+    loading: {} as PropOptions<Components.BalField['loading']>,
   },
 
 
@@ -260,7 +263,11 @@ export const BalInput = /*@__PURE__*/ Vue.extend({
 
   props: {
     name: {} as PropOptions<Components.BalInput['name']>,
-    label: {} as PropOptions<Components.BalInput['label']>,
+    type: {} as PropOptions<Components.BalInput['type']>,
+    placeholder: {} as PropOptions<Components.BalInput['placeholder']>,
+    inverted: {} as PropOptions<Components.BalInput['inverted']>,
+    readonly: {} as PropOptions<Components.BalInput['readonly']>,
+    disabled: {} as PropOptions<Components.BalInput['disabled']>,
     value: {} as PropOptions<Components.BalInput['value']>,
   },
 
@@ -269,24 +276,31 @@ export const BalInput = /*@__PURE__*/ Vue.extend({
     event: 'balChange'
   },
 
-  render: createCommonRender('bal-input', ['balChange']),
+  methods: {
+    setFocus: createCommonMethod('setFocus') as Components.BalInput['setFocus'],
+  },
+  render: createCommonRender('bal-input', ['balInput', 'balBlur', 'balClick', 'balKeyDown', 'balKeyPress', 'balKeyUp', 'balFocus']),
 });
 
 
 export const BalSelect = /*@__PURE__*/ Vue.extend({
 
   props: {
-    value: {} as PropOptions<Components.BalSelect['value']>,
-    options: {} as PropOptions<Components.BalSelect['options']>,
     remote: {} as PropOptions<Components.BalSelect['remote']>,
     disabled: {} as PropOptions<Components.BalSelect['disabled']>,
     typeahead: {} as PropOptions<Components.BalSelect['typeahead']>,
     loading: {} as PropOptions<Components.BalSelect['loading']>,
     placeholder: {} as PropOptions<Components.BalSelect['placeholder']>,
+    scrollable: {} as PropOptions<Components.BalSelect['scrollable']>,
+    value: {} as PropOptions<Components.BalSelect['value']>,
+    options: {} as PropOptions<Components.BalSelect['options']>,
   },
 
 
-  render: createCommonRender('bal-select', ['balChange', 'balInput', 'balBlur', 'balFocus']),
+  methods: {
+    clear: createCommonMethod('clear') as Components.BalSelect['clear'],
+  },
+  render: createCommonRender('bal-select', ['balChange', 'balInput', 'balBlur', 'balFocus', 'balClick', 'balKeyDown', 'balKeyPress', 'balKeyUp']),
 });
 
 

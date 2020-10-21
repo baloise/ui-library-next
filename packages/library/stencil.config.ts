@@ -32,13 +32,6 @@ export const config: Config = {
       type: 'dist',
       esmLoaderPath: '../loader',
     },
-    // {
-    //   type: 'docs-custom',
-    //   strict: true,
-    //   generator: (docs: JsonDocs) => {
-    //     // Custom logic goes here
-    //   },
-    // },
     {
       type: 'dist-custom-elements-bundle',
     },
@@ -51,25 +44,23 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
       copy: [
         {
-          src: '**/*.md',
+          src: '**/*.html',
         },
+        {
+          src: 'components.d.ts',
+        },
+      ],
+    },
+    {
+      type: 'www',
+      dir: '../docs/lib',
+      serviceWorker: null, // disable service workers
+      copy: [
         {
           src: '**/*.html',
         },
         {
-          src: 'docs/**/*.css',
-        },
-        {
-          src: 'docs/assets/**/*.svg',
-        },
-        {
-          src: 'docs/assets/**/*.png',
-        },
-        {
-          src: 'docs/assets/**/*.ico',
-        },
-        {
-          src: 'docs/**/*.js',
+          src: '**/*.md',
         },
         {
           src: 'components.d.ts',

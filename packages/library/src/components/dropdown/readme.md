@@ -140,7 +140,7 @@ It can also deal with large content:
 | Property     | Attribute    | Description | Type      | Default     |
 | ------------ | ------------ | ----------- | --------- | ----------- |
 | `isActive`   | `is-active`  |             | `boolean` | `false`     |
-| `scrollable` | `scrollable` |             | `boolean` | `false`     |
+| `scrollable` | `scrollable` |             | `number`  | `0`         |
 | `value`      | `value`      |             | `any`     | `undefined` |
 
 
@@ -163,6 +163,26 @@ Type: `Promise<void>`
 
 
 
+### `getContentElement() => Promise<HTMLDivElement>`
+
+
+
+#### Returns
+
+Type: `Promise<HTMLDivElement>`
+
+
+
+### `getMenuElement() => Promise<HTMLDivElement>`
+
+
+
+#### Returns
+
+Type: `Promise<HTMLDivElement>`
+
+
+
 ### `open() => Promise<void>`
 
 Open the dropdown menu.
@@ -175,7 +195,7 @@ Type: `Promise<void>`
 
 ### `toggle() => Promise<void>`
 
-Open & closes the dropdown.
+Open or closes the dropdown.
 
 #### Returns
 
