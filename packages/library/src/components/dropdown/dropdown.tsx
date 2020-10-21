@@ -8,8 +8,10 @@ import { Component, h, Host, Listen, Method, Prop, Element, Event, EventEmitter,
 })
 export class Dropdown {
   @Element() element!: HTMLElement
+  contentElement!: HTMLDivElement
+  menuElement!: HTMLDivElement
 
-  @Prop() scrollable: boolean = false
+  @Prop() scrollable: number = 0
 
   @Prop({ mutable: true, reflect: true }) isActive = false
 
@@ -43,11 +45,21 @@ export class Dropdown {
   }
 
   /**
-   * Open & closes the dropdown.
+   * Open or closes the dropdown.
    */
   @Method()
   async toggle() {
     this.isActive = !this.isActive
+  }
+
+  @Method()
+  async getMenuElement(): Promise<HTMLDivElement> {
+    return this.menuElement
+  }
+
+  @Method()
+  async getContentElement(): Promise<HTMLDivElement> {
+    return this.contentElement
   }
 
   @Event() balChange!: EventEmitter<string>
@@ -75,10 +87,10 @@ export class Dropdown {
   }
 
   get contentStyle() {
-    if (this.scrollable === false) {
+    if (this.scrollable === 0) {
       return {}
     } else {
-      const maxHeight = this.scrollable === true ? '200px' : `${this.scrollable}px`
+      const maxHeight = `${this.scrollable}px`
       return {
         'max-height': maxHeight,
         'overflow': 'auto',
@@ -97,8 +109,15 @@ export class Dropdown {
           <div class="dropdown-trigger">
             <slot name="trigger" />
           </div>
-          <div class="dropdown-menu" id="dropdown-menu" role="menu">
-            <div class="dropdown-content" style={this.contentStyle}>
+          <div
+            class="dropdown-menu"
+            id="dropdown-menu"
+            role="menu"
+            ref={el => (this.menuElement = el as HTMLDivElement)}>
+            <div
+              class="dropdown-content"
+              style={this.contentStyle}
+              ref={el => (this.contentElement = el as HTMLDivElement)}>
               <slot></slot>
             </div>
           </div>

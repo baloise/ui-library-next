@@ -1,7 +1,17 @@
-@import "../../styles/ui-library.utilities";
+@import '../../styles/ui-library.utilities';
+@import '../input/input.scss';
+@import 'node_modules/bulma/sass/elements/icon.sass';
 
 :host {
   display: block;
+}
+
+.control.is-loading::after,
+.select.is-loading::after {
+  border-top-color: $cyan !important;
+  border-right-color: $cyan !important;
+  border-left-color: transparent !important;
+  border-bottom-color: transparent !important;
 }
 
 .form > .label {
@@ -25,33 +35,10 @@ p.help {
   &.is-inverted {
     .label {
       color: $white;
-
-    }
-
-    .control {
-      .input {
-        color: $white;
-        border-bottom-color: $blue-line;
-
-        &:focus,
-        &.is-focused {
-          border-bottom-color: $white;
-        }
-      }
-
-      .input::-webkit-input-placeholder {
-        color: $blue-light-line;
-      }
-
     }
 
     p.help:not(.is-danger) {
       color: $blue-line;
     }
-
-    .sc-bal-icon-h > .icon > .font {
-      color: $blue-line;
-    }
-
   }
 }

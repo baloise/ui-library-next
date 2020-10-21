@@ -40,10 +40,11 @@ export class SelectOption {
   @Event() balOptionSelect: EventEmitter<string | boolean | number | any>
 
   @Listen('balSelectChanged')
-  async selectChanged(event: CustomEvent<BalOptionValue<any>>) {
+  async selectChanged(event: CustomEvent<BalOptionValue<any> | null>) {
     event.preventDefault()
     event.stopPropagation()
-    this.selected = this.value.value === event.detail.value
+    this.selected = event.detail === null ? false : this.value.value === event.detail.value
+    console.log('this.selected', this.selected)
   }
 
   @Listen('balSelectInput')

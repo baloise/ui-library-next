@@ -11,54 +11,56 @@
   <body class="bal-app">
     <div class="container">
       <h1 class="title is-size-1">Dropdown</h1>
-      <h2 class="title is-size-2">Basic</h2>
-      <bal-dropdown id="bal-dropdown" scrollable is-active="false">
-        <bal-button
-          id="bal-dropdown-trigger"
-          slot="trigger"
-          aria-haspopup="true"
-          aria-controls="dropdown-menu"
-          type="is-info"
-          outlined
-          icon-right="caret-down"
-        >
-          <span id="bal-dropdown-trigger-label">Trigger</span>
-        </bal-button>
-      </bal-dropdown>
-      <script>
-        var dropdown = document.getElementById('bal-dropdown')
-        var trigger = document.getElementById('bal-dropdown-trigger')
-        var triggerLabel = document.getElementById('bal-dropdown-trigger-label')
+      <section>
+        <h2 class="title is-size-2">Basic</h2>
+        <bal-dropdown id="bal-dropdown" scrollable="200" is-active="false">
+          <bal-button
+            id="bal-dropdown-trigger"
+            slot="trigger"
+            aria-haspopup="true"
+            aria-controls="dropdown-menu"
+            type="is-info"
+            outlined
+            icon-right="caret-down"
+          >
+            <span id="bal-dropdown-trigger-label">Trigger</span>
+          </bal-button>
+        </bal-dropdown>
+        <script>
+          var dropdown = document.getElementById('bal-dropdown')
+          var trigger = document.getElementById('bal-dropdown-trigger')
+          var triggerLabel = document.getElementById('bal-dropdown-trigger-label')
 
-        var options = [
-          { text: 'Ant-Man', value: 1 },
-          { text: 'Spider-Man', value: 2 },
-        ]
-        for (let index = 0; index < options.length; index++) {
-          var option = options[index]
-          var el = document.createElement('bal-dropdown-option')
-          var label = document.createElement('span')
-          label.innerHTML = option.text
-          el.value = option
-          el.appendChild(label)
-          dropdown.appendChild(el)
-          el.addEventListener('click', function () {
-            dropdown.setAttribute('is-active', false)
+          var options = [
+            { text: 'Ant-Man', value: 1 },
+            { text: 'Spider-Man', value: 2 },
+          ]
+          for (let index = 0; index < options.length; index++) {
+            var option = options[index]
+            var el = document.createElement('bal-dropdown-option')
+            var label = document.createElement('span')
+            label.innerHTML = option.text
+            el.value = option
+            el.appendChild(label)
+            dropdown.appendChild(el)
+            el.addEventListener('click', function () {
+              dropdown.setAttribute('is-active', false)
+            })
+          }
+
+          dropdown.addEventListener('balChange', function (evnet) {
+            triggerLabel.innerHTML = evnet.detail.text
           })
-        }
 
-        dropdown.addEventListener('balChange', function (evnet) {
-          triggerLabel.innerHTML = evnet.detail.text
-        })
-
-        trigger.addEventListener('click', function (event) {
-          var isActive = dropdown.getAttribute('is-active') == 'true'
-          dropdown.setAttribute('is-active', !isActive)
-        })
-      </script>
+          trigger.addEventListener('click', function (event) {
+            var isActive = dropdown.getAttribute('is-active') == 'true'
+            dropdown.setAttribute('is-active', !isActive)
+          })
+        </script>
+      </section>
 
       <h2 class="title is-size-2">With an input</h2>
-      <bal-dropdown id="bal-dropdown-2" scrollable is-active="false">
+      <bal-dropdown id="bal-dropdown-2" scrollable="200" is-active="false">
         <div class="control has-icons-right" slot="trigger">
           <input id="bal-dropdown-trigger-2" class="input clickable" readonly />
           <bal-icon size="medium" name="caret-down" is-right />

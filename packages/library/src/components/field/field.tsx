@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop } from '@stencil/core'
+import { Component, h, Host, Prop, Element } from '@stencil/core'
 
 @Component({
   tag: 'bal-field',
@@ -7,6 +7,8 @@ import { Component, h, Host, Prop } from '@stencil/core'
   scoped: true,
 })
 export class Field {
+  @Element() element!: HTMLElement
+
   /**
    * Label text
    */
@@ -36,21 +38,18 @@ export class Field {
    * If `true` the field can be used on blue background.
    */
   @Prop() inverted: boolean = false
+  @Prop() loading: boolean = false
 
   get buildIconLeftTemplate() {
     if (this.iconLeft) {
-      return <bal-icon name={this.iconLeft}
-                       isLeft={true}
-                       size="medium"/>
+      return <bal-icon name={this.iconLeft} isLeft={true} size="medium" />
     }
     return ''
   }
 
   get buildIconRightTemplate() {
     if (this.iconRight) {
-      return <bal-icon name={this.iconRight}
-                       isRight={true}
-                       size="medium"/>
+      return <bal-icon name={this.iconRight} isRight={true} size="medium" />
     }
     return ''
   }
@@ -58,22 +57,19 @@ export class Field {
   render() {
     return (
       <Host>
-        <div class=
-               {['form',
-                 this.inverted ? 'is-inverted' : '',
-               ].join(' ')}>
-          <label class="label">
+        <div class={['form', this.inverted ? 'is-inverted' : ''].join(' ')}>
+          <label class="label" htmlFor={this.findInputId()}>
             {this.label}
             {this.required === true ? '*' : ''}
-            <slot name="hint"/>
+            <slot name="hint" />
           </label>
           <div
-            class={
-              'control' +
-              (this.iconLeft ? ' has-icons-left' : '') +
-              (this.iconRight ? ' has-icons-right' : '')
-            }
-          >
+            class={{
+              'control': true,
+              'has-icons-left': !!this.iconLeft,
+              'has-icons-right': !!this.iconRight,
+              'is-loading': this.loading,
+            }}>
             <slot></slot>
             {this.buildIconLeftTemplate}
             {this.buildIconRightTemplate}
@@ -82,5 +78,10 @@ export class Field {
         </div>
       </Host>
     )
+  }
+
+  private findInputId(): string {
+    const inputElement = this.element.querySelector('input.input')
+    return inputElement && inputElement.id ? inputElement.id : ''
   }
 }

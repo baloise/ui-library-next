@@ -197,14 +197,16 @@ export namespace Components {
           * Closes the dropdown menu.
          */
         "close": () => Promise<void>;
+        "getContentElement": () => Promise<HTMLDivElement>;
+        "getMenuElement": () => Promise<HTMLDivElement>;
         "isActive": boolean;
         /**
           * Open the dropdown menu.
          */
         "open": () => Promise<void>;
-        "scrollable": boolean;
+        "scrollable": number;
         /**
-          * Open & closes the dropdown.
+          * Open or closes the dropdown.
          */
         "toggle": () => Promise<void>;
         "value": any;
@@ -244,6 +246,7 @@ export namespace Components {
           * Label text
          */
         "label": string;
+        "loading": boolean;
         /**
           * If `true` a asterix (*) is added to the label text
          */
@@ -267,25 +270,29 @@ export namespace Components {
         "size": 'small' | 'medium' | 'large' | '';
     }
     interface BalInput {
-        /**
-          * The label of the control.
-         */
-        "label": string;
+        "disabled": boolean;
+        "inverted": boolean;
         /**
           * The name of the control, which is submitted with the form data.
          */
         "name": string;
+        "placeholder": string;
+        "readonly": boolean;
+        "setFocus": () => Promise<void>;
+        "type": string;
         /**
           * The value of the control.
          */
         "value": string;
     }
     interface BalSelect {
+        "clear": () => Promise<void>;
         "disabled": boolean;
         "loading": boolean;
         "options": BalOptionValue<any>[];
         "placeholder": string;
         "remote": boolean;
+        "scrollable": number;
         "typeahead": boolean;
         "value": BalOptionValue<any>;
     }
@@ -657,7 +664,7 @@ declare namespace LocalJSX {
     interface BalDropdown {
         "isActive"?: boolean;
         "onBalChange"?: (event: CustomEvent<string>) => void;
-        "scrollable"?: boolean;
+        "scrollable"?: number;
         "value"?: any;
     }
     interface BalDropdownOption {
@@ -696,6 +703,7 @@ declare namespace LocalJSX {
           * Label text
          */
         "label"?: string;
+        "loading"?: boolean;
         /**
           * If `true` a asterix (*) is added to the label text
          */
@@ -719,18 +727,22 @@ declare namespace LocalJSX {
         "size"?: 'small' | 'medium' | 'large' | '';
     }
     interface BalInput {
-        /**
-          * The label of the control.
-         */
-        "label"?: string;
+        "disabled"?: boolean;
+        "inverted"?: boolean;
         /**
           * The name of the control, which is submitted with the form data.
          */
         "name"?: string;
-        /**
-          * Emitted when the checked property has changed.
-         */
-        "onBalChange"?: (event: CustomEvent<string>) => void;
+        "onBalBlur"?: (event: CustomEvent<FocusEvent>) => void;
+        "onBalClick"?: (event: CustomEvent<MouseEvent>) => void;
+        "onBalFocus"?: (event: CustomEvent<FocusEvent>) => void;
+        "onBalInput"?: (event: CustomEvent<string>) => void;
+        "onBalKeyDown"?: (event: CustomEvent<KeyboardEvent>) => void;
+        "onBalKeyPress"?: (event: CustomEvent<KeyboardEvent>) => void;
+        "onBalKeyUp"?: (event: CustomEvent<KeyboardEvent>) => void;
+        "placeholder"?: string;
+        "readonly"?: boolean;
+        "type"?: string;
         /**
           * The value of the control.
          */
@@ -739,22 +751,18 @@ declare namespace LocalJSX {
     interface BalSelect {
         "disabled"?: boolean;
         "loading"?: boolean;
-        /**
-          * Emitted when the toggle loses focus.
-         */
-        "onBalBlur"?: (event: CustomEvent<void>) => void;
-        "onBalChange"?: (event: CustomEvent<any>) => void;
-        /**
-          * Emitted when the toggle has focus..
-         */
-        "onBalFocus"?: (event: CustomEvent<void>) => void;
-        /**
-          * Emitted when containing input field raises an input event.
-         */
+        "onBalBlur"?: (event: CustomEvent<FocusEvent>) => void;
+        "onBalChange"?: (event: CustomEvent<BalOptionValue<any>>) => void;
+        "onBalClick"?: (event: CustomEvent<MouseEvent>) => void;
+        "onBalFocus"?: (event: CustomEvent<FocusEvent>) => void;
         "onBalInput"?: (event: CustomEvent<string>) => void;
+        "onBalKeyDown"?: (event: CustomEvent<KeyboardEvent>) => void;
+        "onBalKeyPress"?: (event: CustomEvent<KeyboardEvent>) => void;
+        "onBalKeyUp"?: (event: CustomEvent<KeyboardEvent>) => void;
         "options"?: BalOptionValue<any>[];
         "placeholder"?: string;
         "remote"?: boolean;
+        "scrollable"?: number;
         "typeahead"?: boolean;
         "value"?: BalOptionValue<any>;
     }

@@ -1,4 +1,4 @@
-import { Component, h, Host, Element, Event, EventEmitter, Prop, Listen, State, Watch } from '@stencil/core'
+import { Component, h, Host, Element, Event, EventEmitter, Prop, Listen, State, Watch, Method } from '@stencil/core'
 import { BalOptionValue } from '../select-option/select-option.type'
 
 @Component({
@@ -11,11 +11,20 @@ export class Select {
   @Element() element!: HTMLElement
   inputElement!: HTMLInputElement
   dropdownElement!: HTMLBalDropdownElement
+  optionElements = new Map<string, HTMLBalSelectOptionElement>()
 
+  clearScrollToValue: NodeJS.Timeout
+
+  @State() textToScrollTo: string = ''
   @State() label = ''
 
+  @Prop() remote = false
+  @Prop() disabled = false
+  @Prop() typeahead = false
+  @Prop() loading = false
+  @Prop() placeholder = ''
+  @Prop() scrollable: number = 250
   @Prop({ mutable: true }) value: BalOptionValue<any>
-
   @Prop() options: BalOptionValue<any>[] = []
   @Watch('options')
   optionsChanged() {
@@ -24,28 +33,14 @@ export class Select {
     }
   }
 
-  @Prop() remote = false
-  @Prop() disabled = false
-  @Prop() typeahead = false
-  @Prop() loading = false
-  @Prop() placeholder = ''
-
-  @Event() balChange!: EventEmitter<any>
-
-  /**
-   * Emitted when containing input field raises an input event.
-   */
+  @Event() balChange!: EventEmitter<BalOptionValue<any>>
   @Event() balInput!: EventEmitter<string>
-
-  /**
-   * Emitted when the toggle loses focus.
-   */
-  @Event() balBlur!: EventEmitter<void>
-
-  /**
-   * Emitted when the toggle has focus..
-   */
-  @Event() balFocus!: EventEmitter<void>
+  @Event() balBlur!: EventEmitter<FocusEvent>
+  @Event() balFocus!: EventEmitter<FocusEvent>
+  @Event() balClick!: EventEmitter<MouseEvent>
+  @Event() balKeyDown!: EventEmitter<KeyboardEvent>
+  @Event() balKeyPress!: EventEmitter<KeyboardEvent>
+  @Event() balKeyUp!: EventEmitter<KeyboardEvent>
 
   @Listen('balOptionSelect')
   async optionSelect(event: CustomEvent<BalOptionValue<any>>) {
@@ -58,18 +53,18 @@ export class Select {
     this.inputElement.value = this.value?.text
   }
 
-  async onInputClick() {
+  @Method()
+  async clear() {
+    this.value = null
+    this.inputElement.value = ''
+    this.dispatchEventToOptions(this.buildCustomEvent('balSelectChanged', this.value))
+  }
+
+  async onInputClick(event: MouseEvent) {
+    this.balClick.emit(event)
     if (!this.typeahead) {
       await this.dropdownElement?.toggle()
     }
-  }
-
-  onInputFocus() {
-    this.balFocus.emit()
-  }
-
-  onInputBlur() {
-    this.balBlur.emit()
   }
 
   onInput(event: InputEvent) {
@@ -83,10 +78,24 @@ export class Select {
     }
   }
 
+  onKeyPress(event: KeyboardEvent) {
+    this.balKeyPress.emit(event)
+    if (!this.typeahead) {
+      this.textToScrollTo = this.textToScrollTo + event.key
+
+      clearTimeout(this.clearScrollToValue)
+      this.clearScrollToValue = setTimeout(() => {
+        this.scrollToText(this.textToScrollTo)
+        this.textToScrollTo = ''
+      }, 600)
+    }
+  }
+
   render() {
+    this.optionElements.clear()
     return (
       <Host>
-        <bal-dropdown scrollable ref={el => (this.dropdownElement = el as HTMLBalDropdownElement)}>
+        <bal-dropdown scrollable={this.scrollable} ref={el => (this.dropdownElement = el as HTMLBalDropdownElement)}>
           <div class="control has-icons-right" slot="trigger">
             <input
               class="input clickable"
@@ -95,10 +104,13 @@ export class Select {
               placeholder={this.placeholder}
               autoComplete="off"
               value={this.value?.text}
-              onInput={this.onInput.bind(this)}
-              onClick={this.onInputClick.bind(this)}
-              onBlur={this.onInputBlur.bind(this)}
-              onFocus={this.onInputFocus.bind(this)}
+              onInput={e => this.onInput(e as any)}
+              onBlur={e => this.balBlur.emit(e)}
+              onClick={e => this.onInputClick(e)}
+              onKeyDown={e => this.balKeyDown.emit(e)}
+              onKeyPress={e => this.onKeyPress(e)}
+              onKeyUp={e => this.balKeyUp.emit(e)}
+              onFocus={e => this.balFocus.emit(e)}
               ref={el => (this.inputElement = el as HTMLInputElement)}
             />
             <bal-icon
@@ -108,12 +120,19 @@ export class Select {
               is-right
             />
           </div>
-          {this.options.map(o => (
-            <bal-select-option value={o}></bal-select-option>
+          {this.options.map(option => (
+            <bal-select-option ref={el => this.optionElements.set(option.value, el)} value={option}></bal-select-option>
           ))}
         </bal-dropdown>
       </Host>
     )
+  }
+
+  private async scrollToText(text: string) {
+    const dropdownContentElement = await this.dropdownElement.getContentElement()
+    const option = this.options.find(option => option.text.startsWith(text))
+    const optionElement = this.optionElements.get(option.value)
+    dropdownContentElement.scrollTop = optionElement.offsetTop
   }
 
   private dispatchEventToOptions(event: CustomEvent) {
