@@ -1,0 +1,24 @@
+{
+  "name": "@baloise/ui-library-next-example-docs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "> TODO: description",
+  "author": "hirsch <gery.hirschfeld@w3tec.ch>",
+  "homepage": "https://github.com/baloise/ui-library-next#readme",
+  "license": "ISC",
+  "main": "index.html",
+  "scripts": {
+    "serve": "docsify serve ./"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "docsify": "^4.11.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baloise/ui-library-next.git"
+  },
+  "bugs": {
+    "url": "https://github.com/baloise/ui-library-next/issues"
+  }
+}
