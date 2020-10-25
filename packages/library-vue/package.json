@@ -1,6 +1,6 @@
 {
   "name": "@baloise/ui-library-next-vue",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "",
   "publishConfig": {
     "access": "public"
@@ -19,7 +19,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@baloise/ui-library-next": "^0.1.1"
+    "@baloise/ui-library-next": "^0.1.2"
   },
   "devDependencies": {
     "typescript": "^4.0.2",
