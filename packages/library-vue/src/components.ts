@@ -10,6 +10,7 @@ import type { Components } from '@baloise/ui-library-next';
 
 
 const customElementTags: string[] = [
+ 'bal-bubu',
  'bal-button',
  'bal-card',
  'bal-card-actions',
@@ -32,6 +33,14 @@ const customElementTags: string[] = [
  'bal-text',
 ];
 Vue.config.ignoredElements = [...Vue.config.ignoredElements, ...customElementTags];
+
+
+export const BalBubu = /*@__PURE__*/ Vue.extend({
+
+
+
+  render: createCommonRender('bal-bubu', []),
+});
 
 
 export const BalButton = /*@__PURE__*/ Vue.extend({

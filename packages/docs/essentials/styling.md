@@ -28,6 +28,12 @@ To use the helpers and elements add the css class `bal-app` to the body element 
 
 [Go to the Bulma documentation](https://bulma.io/documentation/modifiers/color-helpers/).
 
+<div class="bal-app">
+  <div class="has-background-info is-padded">
+    <p class="has-text-white">Hello World!</p>
+  </div>
+</div>
+
 ```html
 <div class="has-background-info is-padded">
   <p class="has-text-white">Hello World!</p>
@@ -37,6 +43,14 @@ To use the helpers and elements add the css class `bal-app` to the body element 
 ## Typography helpers
 
 [Go to the Bulma documentation](https://bulma.io/documentation/modifiers/typography-helpers/).
+
+<div class="bal-app">
+  <div class="has-background-light is-padded">
+    <p class="is-size-1 has-text-centered">
+      a big centered text
+    </p>
+  </div>
+</div>
 
 ```html
 <div class="has-background-light is-padded">

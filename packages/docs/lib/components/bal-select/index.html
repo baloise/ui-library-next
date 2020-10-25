@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="/build/ui-library-next.css" />
+    <script type="module" src="/build/ui-library-next.esm.js"></script>
+    <script nomodule src="/build/ui-library-next.js"></script>
+  </head>
+  <body class="bal-app">
+    <div class="container">
+      <h2 class="title is-size-2">Basic</h2>
+      <section>
+        <bal-select id="bal-select-year" placeholder="select a year"></bal-select>
+        <bal-select id="bal-select-year-disabled" disabled placeholder="disabled"></bal-select>
+
+        <bal-button id="bal-select-year-clear">Clear</bal-button>
+      </section>
+      <script>
+        var selectYear = document.getElementById('bal-select-year')
+        var buttonYear = document.getElementById('bal-select-year-clear')
+        var optionsYear = []
+        for (var index = 1990; index < 2020; index++) {
+          optionsYear.push({ text: `${index}`, value: index })
+        }
+        selectYear.options = optionsYear
+        buttonYear.addEventListener('click', function () {
+          selectYear.clear()
+        })
+      </script>
+
+      <h2 class="title is-size-2">Custom Option Style</h2>
+      <section>
+        <bal-select id="bal-select-custom" placeholder="select a hero"></bal-select>
+      </section>
+      <script>
+        var selectCustom = document.getElementById('bal-select-custom')
+        var renderCustom = function (data) {
+          return '<b>' + data.text + '</b></br><span>' + data.location + '</span>'
+        }
+        selectCustom.options = [
+          { text: 'Ant-Man', value: 1, location: 'San Francisco', render: renderCustom },
+          { text: 'Spider-Man', value: 2, location: 'Queens', render: renderCustom },
+          { text: 'Iron Man', value: 3, location: 'Malibu', render: renderCustom },
+        ]
+      </script>
+
+      <h2 class="title is-size-2">Typeahead</h2>
+      <section>
+        <bal-select id="bal-select-typeahead" typeahead placeholder="start typing"></bal-select>
+      </section>
+      <script>
+        var selectTypeahead = document.getElementById('bal-select-typeahead')
+        selectTypeahead.options = [
+          { text: 'Ant-Man', value: 1, location: 'San Francisco', render: renderCustom },
+          { text: 'Spider-Man', value: 2, location: 'Queens', render: renderCustom },
+          { text: 'Iron Man', value: 3, location: 'Malibu', render: renderCustom },
+          { text: 'Black Panter', value: 4, location: 'Wakanda', render: renderCustom },
+          { text: 'Black Widow', value: 5, location: 'Russia', render: renderCustom },
+          { text: 'Captain America', value: 6, location: 'Brooklyn', render: renderCustom },
+          { text: 'Captain Marvel', value: 7, location: 'Somewhere', render: renderCustom },
+          { text: 'Vision', value: 8, location: 'Scotland', render: renderCustom },
+          { text: 'Falcon', value: 9, location: 'Washington', render: renderCustom },
+          { text: 'Thor', value: 10, location: 'Asgard', render: renderCustom },
+          { text: 'Hulk', value: 11, location: 'Hidden', render: renderCustom },
+          { text: 'Hawkeye', value: 12, location: 'Shield', render: renderCustom },
+          { text: 'Doctor Strange', value: 13, location: 'Manhatten', render: renderCustom },
+          { text: 'Wasp', value: 14, location: 'San Francisco', render: renderCustom },
+        ]
+      </script>
+
+      <h3 class="title is-size-3">Remote</h3>
+      <section>
+        <bal-select id="bal-select-typeahead-remote" typeahead remote placeholder="start typing"></bal-select>
+      </section>
+      <script>
+        var selectTypeaheadRemote = document.getElementById('bal-select-typeahead-remote')
+        selectTypeaheadRemote.options = []
+        selectTypeaheadRemote.addEventListener('balInput', function (event) {
+          var search = event.detail
+          selectTypeaheadRemote.loading = true
+          fetch('https://swapi.dev/api/people/?search=' + search)
+            .then(res => res.json())
+            .then(data => {
+              selectTypeaheadRemote.options = data.results.map((person, index) => ({
+                value: index,
+                text: person.name,
+              }))
+              selectTypeaheadRemote.loading = false
+            })
+        })
+      </script>
+    </div>
+  </body>
+</html>

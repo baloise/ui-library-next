@@ -1,4 +1,4 @@
-![Baloise UI-Library Logo](docs/assets/images/icon.svg ':size=180')
+![Baloise UI-Library Logo](assets/images/icon.svg ':size=180')
 
 # Baloise UI-Libary
 

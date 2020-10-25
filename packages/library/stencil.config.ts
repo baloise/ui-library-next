@@ -3,7 +3,6 @@ import { sass } from '@stencil/sass'
 import { postcss } from '@stencil/postcss'
 import autoprefixer from 'autoprefixer'
 import { ComponentModelConfig, vueOutputTarget } from '@stencil/vue-output-target'
-import { JsonDocs } from '@stencil/core/internal'
 
 /**
  * Vue Component Models
@@ -45,22 +44,6 @@ export const config: Config = {
       copy: [
         {
           src: '**/*.html',
-        },
-        {
-          src: 'components.d.ts',
-        },
-      ],
-    },
-    {
-      type: 'www',
-      dir: '../docs/lib',
-      serviceWorker: null, // disable service workers
-      copy: [
-        {
-          src: '**/*.html',
-        },
-        {
-          src: '**/*.md',
         },
         {
           src: 'components.d.ts',

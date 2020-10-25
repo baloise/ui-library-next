@@ -1,2 +1,2 @@
 export { Components, JSX } from './components'
-export { BalOptionValue } from './components/select-option/select-option.type'
+export { BalOptionValue } from './components/bal-select-option/bal-select-option.type'

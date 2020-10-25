@@ -1,0 +1,1 @@
+import{r as s,h as r,H as t}from"./p-561c15f0.js";const a=class{constructor(r){s(this,r),this.right=!1}render(){return r(t,{class:["bal-card-actions",this.right?"is-right":""].join(" ")},r("slot",null))}};export{a as bal_card_actions}

@@ -21,9 +21,7 @@ body.bal-app {
   @import './utilities/animations.scss';
   @import './base/all';
   @import './elements/all';
-  @import 'node_modules/bulma/sass/elements/container.sass';
-  @import 'node_modules/bulma/sass/elements/title.sass';
-  @import 'node_modules/bulma/sass/elements/other.sass';
+  @import 'node_modules/bulma/sass/form/_all.sass';
   @import 'node_modules/bulma/sass/grid/_all.sass';
   @import 'node_modules/bulma/sass/helpers/_all.sass';
   @import 'node_modules/bulma/sass/layout/_all.sass';
