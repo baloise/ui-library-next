@@ -2,9 +2,16 @@ const fs = require('fs')
 const glob = require('glob')
 const { printNotFound, printError } = require('./log.util')
 
-const readFile = (filepath, done) => fs.readFile(filepath, 'utf8', (err, content) => err
-    ? printNotFound(filepath)
-    : done(content))
+const readFile = (filepath, showError = true) => {
+    try {
+        return fs.readFileSync(filepath, 'utf8')
+    } catch (err) {
+        if (showError) {
+            printNotFound(filepath)
+        }
+        return null
+    }
+}
 
 const forEachComponent = (files, done) => files.forEach(f => done(f))
 
@@ -13,10 +20,15 @@ const findComponents = (done) =>
         ? printError('Could not find any components', err)
         : done(files))
 
-const writeFile = (filepath, content, done) =>
-    fs.writeFile(filepath, content, (err) => err
-        ? printError(`Could not write file "${filepath}"`, err)
-        : done())
+const writeFile = (filepath, content) => {
+    try {
+        fs.writeFileSync(filepath, content)
+        return null
+    } catch (err) {
+        printError(`Could not write file "${filepath}"`, err)
+        return err
+    }
+}
 
 module.exports = {
     readFile,

@@ -10,7 +10,6 @@ import type { Components } from '@baloise/ui-library-next';
 
 
 const customElementTags: string[] = [
- 'bal-bubu',
  'bal-button',
  'bal-card',
  'bal-card-actions',
@@ -33,14 +32,6 @@ const customElementTags: string[] = [
  'bal-text',
 ];
 Vue.config.ignoredElements = [...Vue.config.ignoredElements, ...customElementTags];
-
-
-export const BalBubu = /*@__PURE__*/ Vue.extend({
-
-
-
-  render: createCommonRender('bal-bubu', []),
-});
 
 
 export const BalButton = /*@__PURE__*/ Vue.extend({
@@ -277,6 +268,7 @@ export const BalInput = /*@__PURE__*/ Vue.extend({
     inverted: {} as PropOptions<Components.BalInput['inverted']>,
     readonly: {} as PropOptions<Components.BalInput['readonly']>,
     disabled: {} as PropOptions<Components.BalInput['disabled']>,
+    clickable: {} as PropOptions<Components.BalInput['clickable']>,
     value: {} as PropOptions<Components.BalInput['value']>,
   },
 

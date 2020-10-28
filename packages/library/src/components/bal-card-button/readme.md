@@ -1,3 +1,5 @@
+<!-- docs:child of bal-card -->
+
 # bal-card-button
 
 

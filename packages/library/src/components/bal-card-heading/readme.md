@@ -1,4 +1,6 @@
-# bal-card-title
+<!-- docs:child of bal-card -->
+
+# bal-card-heading
 
 
 

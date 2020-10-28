@@ -8,9 +8,7 @@
   "license": "ISC",
   "main": "index.html",
   "scripts": {
-    "build": "npm run build:examples && npm run build:sidebar",
-    "build:examples": "node ./build/examples.build.js",
-    "build:sidebar": "node ./build/sidebar.build.js",
+    "build": "node ./build/main.build.js",
     "serve": "docsify serve ./"
   },
   "dependencies": {},
