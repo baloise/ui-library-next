@@ -1,3 +1,5 @@
+<!-- docs:child of bal-select -->
+
 # bal-select-option
 
 

@@ -1,16 +1,6 @@
+<!-- docs:child of bal-card-steps -->
+
 # bal-card-step
-
-## Usage
-
-```html
-<bal-card-step value="item-a" label="Item A">Hidden Content</bal-card-step>
-```
-
-### Activated
-
-```html
-<bal-card-step value="item-a" label="Item A" active>Visible Content</bal-card-step>
-```
 
 
 <!-- Auto Generated Below -->

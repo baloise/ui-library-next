@@ -1,3 +1,5 @@
+<!-- docs:child of bal-dropdown -->
+
 # bal-dropdown-option
 
 A basic dropdown option.

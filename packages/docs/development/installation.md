@@ -6,11 +6,11 @@ To work with this project a recent LTS version of NodeJS and npm is required. Ma
 
 !> Note that you will need to use npm 6 or higher.
 
-## Sematic Release
+## Release
 
-It is important to follow the git commit message rules of the [sematic-release](https://semantic-release.gitbook.io) project. This tool will autogenerate the changelog from our git commit messages.
+It is important to follow the git commit message rules of the sematic versioning.
 
-!> Note that the semantic-release uses the commit messages to determine the type of changes in the codebase.
+!> Note that the lerna release uses the commit messages to determine the type of changes in the codebase.
 
 The CLI [semantic-git-commit-cli](https://github.com/JPeer264/node-semantic-git-commit-cli) can be used to help enforce valid commit messages.
 
@@ -47,17 +47,4 @@ and run:
 
 ```bash
 npm install
-npm run serve
-```
-
-To build the component for production, run:
-
-```bash
-npm run build
-```
-
-To run the unit tests for the components, run:
-
-```bash
-npm test
 ```

@@ -1,6 +1,6 @@
 const htmlParser = require('node-html-parser')
 const { findComponents, readFile, writeFile } = require("./file.util")
-const { printSuccess } = require('./log.util')
+const { printSuccess, printWarning } = require('./log.util')
 const {
     NEWLINE,
     DOCS_CHILD_REGEX,
@@ -95,7 +95,11 @@ const findSubComponents = (component) => {
             .trim()
         component.parent = parent
         parentComponent = components.get(parent)
-        parentComponent.subComponents.push(component.tag)
+        if (parentComponent) {
+            parentComponent.subComponents.push(component.tag)
+        } else {
+            printWarning(`We could not find any parent component with the tag=${parent}`)
+        }
     }
 }
 
@@ -232,7 +236,11 @@ const generateSidebar = () => {
     const sidebarContent = readFile(SIDEBAR_TEMPLATE_FILEPATH)
     const newContent = [getSidebarStart(sidebarContent)]
     newContent.push(NEWLINE + '- **Components**' + NEWLINE)
-    components.forEach(c => newContent.push(`  - [${c.tag}](${c.path.readme})`))
+    components.forEach(c => {
+        if (c.parent === null) {
+            newContent.push(`  - [${c.tag}](${c.path.readme})`)
+        }
+    })
     newContent.push(getSidebarEnd(sidebarContent))
     const err = writeFile(SIDEBAR_FILEPATH, newContent.join(NEWLINE))
     if (err === null) {

@@ -1,23 +1,27 @@
 - **Introduction**
 
   - [Overview](home.md)
+  - [Quick Start](introduction/quick-start.md)
   - [Why UI-Library](introduction/why.md)
   - [Architecture](introduction/architecture.md)
-  - [Quick Start](introduction/quick-start.md)
 
 - **Essentials**
 
   - [Styling](essentials/styling.md)
   - [Colors](essentials/colors.md)
-
-- **Components**
+  - [Typography](essentials/typography.md)
 
 <!-- Auto Generated Sidebar Start -->
 <!-- Auto Generated Sidebar End -->
 
+- **Testing**
+
+  - [Installation](testing/installation.md)
+
 - **Development**
 
   - [Installation](development/installation.md)
+  - [Commands](development/commands.md)
   - [Write your own Component](development/component.md)
   - [Write your own Controller](development/controller.md)
 

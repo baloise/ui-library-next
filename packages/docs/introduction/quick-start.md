@@ -8,43 +8,75 @@ This project is published to the npm registry. Just run the below command inside
 npm install @baloise/ui-library --save
 ```
 
-### Integration
+### Vue.js
 
-To add the components to your project you can follow this [Guide](https://stenciljs.com/docs/overview).
+After installing the core library `@baloise/ui-library` install the vue wrapper library.
 
-#### Vue.js
+```bash
+npm install @baloise/ui-library-vue --save
+```
 
-Follow this [Guide](https://stenciljs.com/docs/vue)
+#### Configure
 
-#### Angular
+Add the css styles, apply polyfills and define the custom web components.
+
+```typescript
+// main.ts
+import 'babel-polyfill'
+import '@baloise/ui-library-next/dist/ui-library-next/ui-library-next.css'
+
+import Vue from 'vue'
+import App from './App.vue'
+import { applyPolyfills, defineCustomElements } from '@baloise/ui-library-next/loader'
+
+Vue.config.productionTip = false
+
+Vue.config.ignoredElements = [/bal-\w*/]
+applyPolyfills().then(() => {
+  defineCustomElements()
+})
+
+new Vue({
+  render: h => h(App),
+}).$mount('#app')
+```
+
+#### Usage
+
+Just import the bal-components and use it in your templates.
+
+```vue
+<template>
+  <div id="app">
+    <BalCheckbox v-model="checkbox"></BalCheckbox>
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from 'vue'
+import { BalCheckbox } from '@baloise/ui-library-vue'
+
+export default Vue.extend({
+  name: 'App',
+  components: { BalCheckbox },
+  data() {
+    const checkbox = true
+    return { checkbox }
+  },
+})
+</script>
+```
+
+### Angular
 
 Follow this [Guide](https://stenciljs.com/docs/angular)
 
-#### Styles
+### Styles
 
 Just put the below import into your main sass file.
 
 ```scss
-@import "node_modules/ui-library/src/scss/ui-library.scss";
+@import 'node_modules/ui-library/src/styles/ui-library.scss';
 ```
 
-> Use the variables of the UI-Library for your own project components by using the `node_modules/ui-library/src/scss/utilities/all.scss` file.
-
-#### Direct Integration
-
-Put the below script tag in the head of your index.html.
-Then you can use the element anywhere in your template, JSX, html etc
-
-<!-- The snippet.plugin looks for the html lang, so to avoid that we use xml here -->
-
-```xml
-<script src="https://baloise-ui-library.now.sh/build/ui-library.js"></script>
-```
-
-Put the below style reference in the head of your index.html.
-
-<!-- The snippet.plugin looks for the html lang, so to avoid that we use xml here -->
-
-```xml
-<link rel="stylesheet" href="https://baloise-ui-library.now.sh/build/ui-library.css" />
-```
+> Use the variables of the UI-Library for your own project components by using the `node_modules/ui-library/src/styles/ui-library.utilities.scss` file.

@@ -16,13 +16,14 @@
     outline: none !important;
     user-select: none;
     min-height: 50px;
+    line-height: 2;
 
     .icon {
       font-size: 30px;
     }
 
     bal-text {
-      min-height: 25px;
+      min-height: 22px;
     }
 
     span.icon {
