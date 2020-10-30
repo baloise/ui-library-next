@@ -14,6 +14,10 @@ export const config: Config = {
       type: 'docs-readme',
     },
     {
+      type: 'docs-json',
+      file: '../docs/lib/components.json',
+    },
+    {
       type: 'www',
       dir: '../docs/lib',
       serviceWorker: null, // disable service workers

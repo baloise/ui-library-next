@@ -3,7 +3,13 @@
 import { Mixin } from './mixins'
 
 export interface Checkable<T> {
+  /**
+   * Check element
+   */
   check(options?: Partial<Cypress.CheckOptions>): T
+  /**
+   * Assert if the the element is checked
+   */
   assertIsChecked(shouldBeChecked?: boolean): T
 }
 

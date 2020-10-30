@@ -1,5 +1,10 @@
 const chalk = require('chalk')
 
+const banner = (title) => {
+    console.log('📘 ', title)
+    console.log(' ')
+}
+
 const printError = (message, error) => {
     console.log('❌ ', chalk.red(message))
     if (error) {
@@ -24,6 +29,7 @@ const printNotFound = (filepath) => {
 }
 
 module.exports = {
+    banner,
     printError,
     printWarning,
     printSuccess,

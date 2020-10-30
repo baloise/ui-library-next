@@ -29,26 +29,41 @@ interface CheckboxAccessorType
     Shouldable<CheckboxAccessorType> {}
 
 export const CheckboxClickableMixin: Mixin = <T>({ element, creator }: MixinContext<T>) => ({
+  /**
+   * Clicks the checkbox and set checked to true
+   */
   click: (options?: Partial<Cypress.ClickOptions>) => {
     const checkbox = element.find('label')
     checkbox.click(options)
     return creator()
   },
+  /**
+   * Clicks the checkbox and set checked to true
+   */
   check: (options?: Partial<Cypress.CheckOptions>) => {
-    const checkbox = element.find('label')
+    const checkbox = element.find('label' + name)
     checkbox.click(options)
     return creator()
   },
+  /**
+   * Assert if the checkbox is checked
+   */
   assertIsChecked: (shouldBeChecked: boolean = true) => {
     const checkbox = element.find('input')
     checkbox.should('have.attr', 'aria-checked', `${shouldBeChecked}`)
     return creator()
   },
+  /**
+   * Assert if the checkbox is disabled
+   */
   assertIsDisabled: () => {
     const checkbox = element.find('input')
     checkbox.should('have.attr', 'aria-disabled', `true`)
     return creator()
   },
+  /**
+   * Assert if the checkbox is enabled and not disabled
+   */
   assertIsEnabled: () => {
     const checkbox = element.find('input')
     checkbox.should('have.attr', 'aria-disabled', `false`)
@@ -57,6 +72,9 @@ export const CheckboxClickableMixin: Mixin = <T>({ element, creator }: MixinCont
 })
 
 export const CheckboxContainableMixin: Mixin = <T>({ element, creator }: MixinContext<T>) => ({
+  /**
+   * Check the content of the label element
+   */
   contains: (content: string) => {
     const item = element.find('label bal-text')
     item.contains(content)
@@ -64,6 +82,10 @@ export const CheckboxContainableMixin: Mixin = <T>({ element, creator }: MixinCo
   },
 })
 
+/**
+ * CheckboxAccessor is a helper object for E-2-E testing.
+ * It maps the checkbox behaviour to the `bal-checkbox` ui component.
+ */
 export const CheckboxAccessor: Accessor<CheckboxAccessorType> = createAccessor<CheckboxAccessorType>(
   CheckboxClickableMixin,
   CheckboxContainableMixin,

@@ -8,7 +8,10 @@ export interface Existable<T> {
 }
 
 export const ExistableMixin: Mixin = ({ element, creator }) => ({
-  assertExists: () => {
+  /**
+   * Description
+   */
+  assertExists: (someArgument: string) => {
     element.should('exist')
     return creator()
   },

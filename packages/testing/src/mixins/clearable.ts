@@ -3,6 +3,9 @@
 import { Mixin } from './mixins'
 
 export interface Clearable<T> {
+  /**
+   * Clears the value of the element
+   */
   clear(options?: Partial<Cypress.TypeOptions>): T
 }
 

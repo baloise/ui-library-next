@@ -11,7 +11,7 @@
     "lint": "lerna run lint",
     "publish": "lerna publish --yes",
     "docs:serve": "npm --prefix packages/docs run serve",
-    "docs:build": "npm --prefix packages/library run build:docs && npm --prefix packages/docs run build",
+    "docs:build": "npm --prefix packages/library run build:docs && npm --prefix packages/testing run build:docs && npm --prefix packages/docs run build",
     "lib:build": "npm --prefix packages/library run build",
     "lib:serve": "npm --prefix packages/library run serve",
     "lib:serve:ie": "npm --prefix packages/library run serve:ie",

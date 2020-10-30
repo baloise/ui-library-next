@@ -22,14 +22,14 @@
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-size: 100%;
+  font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0;
   color: var(--text-color-base);
 }
 
 #graph,
-pre[data-lang="mermaid"] {
+pre[data-lang='mermaid'] {
   display: none;
 }
 
@@ -222,7 +222,7 @@ aside.sidebar {
 .app-name {
   color: white;
   background-color: #039;
-  background-image: url("/assets/images/icon.svg");
+  background-image: url('/assets/images/icon.svg');
   background-position: 89.5px 15px;
   background-size: 120px;
   background-repeat: no-repeat;
@@ -309,7 +309,7 @@ aside.sidebar {
 }
 
 .app-sub-sidebar li:before {
-  content: "-";
+  content: '-';
   padding-right: 4px;
   float: left;
 }
@@ -417,6 +417,63 @@ div.docs-contributors > .docs-contributor:last-child {
   margin-right: 0;
 }
 
-.has-background-info {
-  background: #039;
+.markdown-section table {
+  display: inline-table !important;
+  width: 100%;
+}
+
+p.docs-content {
+  margin: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 12px !important;
+}
+
+p.docs-content strong {
+  color: #7188b8 !important;
+  font-size: 0.8rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.3px;
+}
+
+ul.docs-content {
+  margin: 0 !important;
+  padding: 0 !important;
+  margin-bottom: 40px !important;
+}
+
+ul.docs-content li {
+  list-style-type: none !important;
+  margin: 0 !important;
+  margin-bottom: 2px !important;
+}
+
+ul.docs-content a {
+  color: #7188b8 !important;
+  font-weight: 400 !important;
+}
+
+.markdown-section h1 {
+  font-size: 4rem !important;
+}
+.markdown-section h2 {
+  font-size: 2.2rem !important;
+}
+.markdown-section h3 {
+  font-size: 2rem !important;
+}
+.markdown-section h4 {
+  font-size: 1.5rem !important;
+}
+.markdown-section h5 {
+  font-size: 1.25rem !important;
+}
+.markdown-section h6 {
+  font-size: 1rem !important;
+}
+
+.markdown-section span code,
+.markdown-section td code,
+.markdown-section strong code {
+  background-color: #ebf6fa !important;
+  color: #039 !important;
 }

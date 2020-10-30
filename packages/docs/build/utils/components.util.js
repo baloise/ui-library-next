@@ -1,0 +1,49 @@
+const componentsJson = require("../../lib/components.json")
+const { readFile } = require("../utils/file.util")
+const { NEWLINE, DOCS_CHILD_REGEX } = require("../constants")
+
+const components = new Map()
+
+const addChildInformation = (component) => {
+    component.parent = null
+    component.isChild = false
+    component.childComponents = []
+
+    const lines = component.readme.split(NEWLINE)
+    const firstLine = lines[0]
+    const parentTag = firstLine.match(DOCS_CHILD_REGEX)
+
+    if (parentTag !== null && parentTag.length > 0) {
+        const parent = parentTag[0].replace('<!-- docs:child of', '').replace('-->', '').trim()
+        component.parent = parent
+        component.isChild = true
+    }
+    return component
+}
+
+const addExamples = (component) => {
+    component.examples = readFile(`lib/components/${component.tag}/index.html`)
+    return component
+}
+
+const addToMap = (component) => {
+    components.set(component.tag, component)
+    return component
+}
+
+const addChildToParrent = (childComponent) => {
+    const parent = components.get(childComponent.parent)
+    parent.childComponents.push(childComponent.tag)
+    components.set(parent.tag, parent)
+}
+
+componentsJson.components
+    .map(addChildInformation)
+    .map(addExamples)
+    .map(addToMap)
+    .filter(c => c.isChild)
+    .forEach(addChildToParrent)
+
+module.exports = {
+    components,
+}
