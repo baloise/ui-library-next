@@ -1,5 +1,5 @@
-@import "./bal-card-steps.vars";
-@import "node_modules/bulma/sass/components/tabs.sass";
+@import './bal-card-steps.vars';
+@import 'node_modules/bulma/sass/components/tabs.sass';
 
 :host {
   display: block;
@@ -47,7 +47,12 @@
         opacity: 50%;
       }
 
-      span.step-label, span.step-index span {
+      span.step-index > span {
+        margin-top: -1px;
+      }
+
+      span.step-label,
+      span.step-index span {
         display: none;
       }
     }
@@ -121,7 +126,6 @@
           display: flex;
           font-size: $size-5;
         }
-
       }
 
       &.is-done > a span.step-index {
@@ -136,7 +140,7 @@
           background-position: center;
           background-repeat: no-repeat;
           background-size: 24px 24px;
-          content: "";
+          content: '';
           top: 8px;
           width: 4px;
           height: 10px;
@@ -150,7 +154,6 @@
           -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
         }
-
       }
 
       &.is-active > a span.step-index {
@@ -165,7 +168,6 @@
         &::after {
           content: none;
         }
-
       }
 
       &.is-disabled > a,
@@ -189,7 +191,6 @@
             border: 1px solid $white;
             color: $white;
           }
-
         }
 
         &.is-done > a span.step-index {
@@ -199,7 +200,6 @@
             border-bottom: 2px solid $blue;
             border-right: 2px solid $blue;
           }
-
         }
 
         &.is-active > a span.step-index {
@@ -221,5 +221,3 @@
     }
   }
 }
-
-

@@ -3,6 +3,10 @@
 import { Mixin } from './mixins'
 
 export interface Shouldable<T> {
+  /**
+   * Creates an assertion.
+   * Find more information here [link](https://docs.cypress.io/api/commands/should.html#Syntax)
+   */
   should(chainers: string, attribute?: string, content?: string): T
 }
 

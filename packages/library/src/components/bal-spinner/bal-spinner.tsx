@@ -7,12 +7,15 @@ import { Component, h, Host, Prop } from '@stencil/core'
   scoped: true,
 })
 export class Spinner {
+  /**
+   * If `true` the component can be used on dark background
+   */
+  @Prop() inverted = false
 
-  @Prop()
-  inverted = false
-
-  @Prop()
-  small = false
+  /**
+   * If `true` the component is smaller
+   */
+  @Prop() small = false
 
   render() {
     return (

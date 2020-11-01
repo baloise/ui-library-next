@@ -57,7 +57,7 @@ components.forEach(component => {
         lines.push(``)
     }
 
-    component.docs.split(NEWLINE).forEach(line => lines.push(line));
+    component.readme.split(NEWLINE).forEach(line => lines.push(line));
 
     lines.push(examplesContent)
     lines.push(apiContent)

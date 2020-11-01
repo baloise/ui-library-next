@@ -425,20 +425,20 @@ div.docs-contributors > .docs-contributor:last-child {
 p.docs-content {
   margin: 0 !important;
   padding: 0 !important;
-  margin-bottom: 12px !important;
+  margin-bottom: 5px !important;
 }
 
 p.docs-content strong {
-  color: #7188b8 !important;
-  font-size: 0.8rem !important;
-  font-weight: 800 !important;
-  letter-spacing: 1.3px;
+  line-height: 1 !important;
+  font-size: 1em !important;
+  text-transform: uppercase !important;
+  opacity: 0.3 !important;
 }
 
 ul.docs-content {
   margin: 0 !important;
   padding: 0 !important;
-  margin-bottom: 40px !important;
+  margin-bottom: 30px !important;
 }
 
 ul.docs-content li {
@@ -448,8 +448,10 @@ ul.docs-content li {
 }
 
 ul.docs-content a {
-  color: #7188b8 !important;
-  font-weight: 400 !important;
+  color: #2c3e50 !important;
+  font-weight: 800 !important;
+  font-size: 1.2em !important;
+  opacity: 0.8 !important;
 }
 
 .markdown-section h1 {
@@ -473,6 +475,7 @@ ul.docs-content a {
 
 .markdown-section span code,
 .markdown-section td code,
+.markdown-section p code,
 .markdown-section strong code {
   background-color: #ebf6fa !important;
   color: #039 !important;

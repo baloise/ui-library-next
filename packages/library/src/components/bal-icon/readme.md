@@ -70,13 +70,13 @@ The proprocessing step for each SVG icon included: (done in Adobe Illustrator, b
 
 ## Properties
 
-| Property  | Attribute  | Description                                       | Type                                   | Default |
-| --------- | ---------- | ------------------------------------------------- | -------------------------------------- | ------- |
-| `isLeft`  | `is-left`  |                                                   | `boolean`                              | `false` |
-| `isRight` | `is-right` |                                                   | `boolean`                              | `false` |
-| `name`    | `name`     | The name of the icon without the bal-icon prefix. | `string`                               | `''`    |
-| `rotate`  | `rotate`   |                                                   | `boolean`                              | `false` |
-| `size`    | `size`     | Defines the size of the icon.                     | `"" \| "large" \| "medium" \| "small"` | `''`    |
+| Property  | Attribute  | Description                                                                 | Type                                   | Default |
+| --------- | ---------- | --------------------------------------------------------------------------- | -------------------------------------- | ------- |
+| `isLeft`  | `is-left`  | If `true` the icon can be positioned ot the left side of another component  | `boolean`                              | `false` |
+| `isRight` | `is-right` | If `true` the icon can be positioned ot the right side of another component | `boolean`                              | `false` |
+| `name`    | `name`     | The name of the icon without the bal-icon prefix.                           | `string`                               | `''`    |
+| `rotate`  | `rotate`   | If `true` the icon rotates like for a loading spinner                       | `boolean`                              | `false` |
+| `size`    | `size`     | Defines the size of the icon.                                               | `"" \| "large" \| "medium" \| "small"` | `''`    |
 
 
 ## Dependencies

@@ -2,7 +2,7 @@
 
 # bal-card-actions
 
-
+`bal-card-actions` is a child component of `bal-card` that sets the buttons to the right place.
 
 <!-- Auto Generated Below -->
 

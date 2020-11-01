@@ -10,7 +10,7 @@ export class Field {
   @Element() element!: HTMLElement
 
   /**
-   * Label text
+   * Text of the inputs label
    */
   @Prop() label: string = ''
 
@@ -38,6 +38,10 @@ export class Field {
    * If `true` the field can be used on blue background.
    */
   @Prop() inverted: boolean = false
+
+  /**
+   * If `true` a loading spinner is visible at the end of the input
+   */
   @Prop() loading: boolean = false
 
   get buildIconLeftTemplate() {

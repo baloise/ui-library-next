@@ -9,8 +9,8 @@ const printComponent = (component) => {
     lines.push(`### ${printCode(component.tag)}`)
     lines.push('')
 
-    if (component.isChild && component.docs) {
-        component.docs.split(NEWLINE).forEach(line => lines.push(line));
+    if (component.isChild && component.readme) {
+        component.readme.split(NEWLINE).forEach(line => lines.push(line));
     }
 
     if (component.props && component.props.length > 0) {

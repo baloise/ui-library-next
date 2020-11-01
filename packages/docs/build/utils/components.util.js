@@ -14,10 +14,16 @@ const addChildInformation = (component) => {
     const parentTag = firstLine.match(DOCS_CHILD_REGEX)
 
     if (parentTag !== null && parentTag.length > 0) {
+        lines.shift()
         const parent = parentTag[0].replace('<!-- docs:child of', '').replace('-->', '').trim()
         component.parent = parent
         component.isChild = true
     }
+
+    while (lines.length > 0 && lines[0] && lines[0].length === 0) {
+        lines.shift()
+    }
+    component.readme = lines.join(NEWLINE)
     return component
 }
 

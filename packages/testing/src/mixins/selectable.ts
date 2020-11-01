@@ -3,7 +3,13 @@
 import { Mixin } from './mixins'
 
 export interface Selectable<T> {
+  /**
+   * Selects the option at the given index or indexes
+   */
   select(indexes: number[] | number | string): T
+  /**
+   * Asserts that the option with the given index is selected
+   */
   assertIsSelected(indexes: number[] | number | string): T
 }
 

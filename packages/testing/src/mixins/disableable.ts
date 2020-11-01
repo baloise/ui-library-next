@@ -3,7 +3,13 @@
 import { Mixin } from './mixins'
 
 export interface Disableable<T> {
+  /**
+   * Asserts that the element is disabled
+   */
   assertIsDisabled(): T
+  /**
+   * Asserts that the element is enabled and can be used
+   */
   assertIsEnabled(): T
 }
 

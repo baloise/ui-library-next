@@ -3,6 +3,9 @@
 import { Mixin } from './mixins'
 
 export interface NthSelectable<T> {
+  /**
+   * Selects the option at the given index
+   */
   selectNth(index: number): T
 }
 

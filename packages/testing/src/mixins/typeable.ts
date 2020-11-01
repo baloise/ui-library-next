@@ -3,6 +3,9 @@
 import { Mixin } from './mixins'
 
 export interface Typeable<T> {
+  /**
+   * Type into the component
+   */
   type(text: string, options?: Partial<Cypress.TypeOptions>): T
 }
 

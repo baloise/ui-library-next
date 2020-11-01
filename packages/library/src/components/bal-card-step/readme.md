@@ -2,6 +2,7 @@
 
 # bal-card-step
 
+`bal-card-step` is a child component of bal-card-steps. This component represents a step.
 
 <!-- Auto Generated Below -->
 

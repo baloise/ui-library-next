@@ -17,10 +17,19 @@ export class Icon {
    */
   @Prop() size: 'small' | 'medium' | 'large' | '' = ''
 
+  /**
+   * If `true` the icon can be positioned ot the right side of another component
+   */
   @Prop() isRight = false
 
+  /**
+   * If `true` the icon can be positioned ot the left side of another component
+   */
   @Prop() isLeft = false
 
+  /**
+   * If `true` the icon rotates like for a loading spinner
+   */
   @Prop() rotate = false
 
   get sizeCssClass() {

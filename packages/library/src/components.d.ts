@@ -243,9 +243,12 @@ export namespace Components {
          */
         "inverted": boolean;
         /**
-          * Label text
+          * Text of the inputs label
          */
         "label": string;
+        /**
+          * If `true` a loading spinner is visible at the end of the input
+         */
         "loading": boolean;
         /**
           * If `true` a asterix (*) is added to the label text
@@ -257,12 +260,21 @@ export namespace Components {
         "validationMessage": string;
     }
     interface BalIcon {
+        /**
+          * If `true` the icon can be positioned ot the left side of another component
+         */
         "isLeft": boolean;
+        /**
+          * If `true` the icon can be positioned ot the right side of another component
+         */
         "isRight": boolean;
         /**
           * The name of the icon without the bal-icon prefix.
          */
         "name": string;
+        /**
+          * If `true` the icon rotates like for a loading spinner
+         */
         "rotate": boolean;
         /**
           * Defines the size of the icon.
@@ -321,7 +333,13 @@ export namespace Components {
         "value": BalOptionValue<any>;
     }
     interface BalSpinner {
+        /**
+          * If `true` the component can be used on dark background
+         */
         "inverted": boolean;
+        /**
+          * If `true` the component is smaller
+         */
         "small": boolean;
     }
     interface BalText {
@@ -701,9 +719,12 @@ declare namespace LocalJSX {
          */
         "inverted"?: boolean;
         /**
-          * Label text
+          * Text of the inputs label
          */
         "label"?: string;
+        /**
+          * If `true` a loading spinner is visible at the end of the input
+         */
         "loading"?: boolean;
         /**
           * If `true` a asterix (*) is added to the label text
@@ -715,12 +736,21 @@ declare namespace LocalJSX {
         "validationMessage"?: string;
     }
     interface BalIcon {
+        /**
+          * If `true` the icon can be positioned ot the left side of another component
+         */
         "isLeft"?: boolean;
+        /**
+          * If `true` the icon can be positioned ot the right side of another component
+         */
         "isRight"?: boolean;
         /**
           * The name of the icon without the bal-icon prefix.
          */
         "name"?: string;
+        /**
+          * If `true` the icon rotates like for a loading spinner
+         */
         "rotate"?: boolean;
         /**
           * Defines the size of the icon.
@@ -793,7 +823,13 @@ declare namespace LocalJSX {
         "value"?: BalOptionValue<any>;
     }
     interface BalSpinner {
+        /**
+          * If `true` the component can be used on dark background
+         */
         "inverted"?: boolean;
+        /**
+          * If `true` the component is smaller
+         */
         "small"?: boolean;
     }
     interface BalText {

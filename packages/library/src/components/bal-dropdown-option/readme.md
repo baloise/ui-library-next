@@ -2,8 +2,7 @@
 
 # bal-dropdown-option
 
-A basic dropdown option.
-
+`bal-dropdown-option` is a child component of `bal-dropdown`.
 
 <!-- Auto Generated Below -->
 

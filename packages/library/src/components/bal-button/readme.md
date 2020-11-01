@@ -1,6 +1,6 @@
 # bal-button
 
-The classic button, in different colors, sizes, and states
+The classic button, in different colors, sizes, and states.
 
 
 
