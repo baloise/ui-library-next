@@ -32,7 +32,7 @@ Checkboxes allow the selection of multiple options from a set of options. They a
 
 ### `setFocus() => Promise<void>`
 
-
+Sets the focus on the checkbox input element.
 
 #### Returns
 

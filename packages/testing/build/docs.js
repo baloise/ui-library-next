@@ -41,8 +41,8 @@ const parseMethodComment = (node, sourceFile) => node.getFullText(sourceFile)
     .map(l => l.trim())
     .filter(l => l)
     .filter(l => l !== '/**' && l !== '*/')
-    .map(l => l.startsWith('*') ? l.substring(1).trim() : l)
-    .join(' ')
+    .map(l => l.startsWith('*') ? l.substring(1) : l)
+    .join('\n')
 
 const parseAccessor = (filepath, mixins) => {
     const fileContent = fs.readFileSync(filepath, 'utf8')

@@ -48,15 +48,15 @@ h4.subtitle.is-size-4 {
 p, a {
   margin: 0;
   font-family: $family-primary !important;
-  font-size: $pixel_14 !important;
-  line-height: $pixel_20 !important;
+  font-size: $pixel_14;
+  line-height: $pixel_20;
 }
 
 // Small Text
 p.is-small,
 a.is-small {
-  font-size: $pixel_12 !important;
-  line-height: $pixel_16 !important;
+  font-size: $pixel_12;
+  line-height: $pixel_16;
 }
 
 p.is-bold,
@@ -101,14 +101,14 @@ a.is-bold {
 
   // paragraph
   p, a {
-    font-size: $pixel_18 !important;
-    line-height: $pixel_26 !important;
+    font-size: $pixel_18;
+    line-height: $pixel_26;
   }
 
   // Small Text
   p.is-small,
   a.is-small {
-    font-size: $pixel_15 !important;
-    line-height: $pixel_20 !important;
+    font-size: $pixel_15;
+    line-height: $pixel_20;
   }
 }

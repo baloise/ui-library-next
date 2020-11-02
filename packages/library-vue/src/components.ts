@@ -22,7 +22,6 @@ const customElementTags: string[] = [
  'bal-card-title',
  'bal-checkbox',
  'bal-dropdown',
- 'bal-dropdown-option',
  'bal-field',
  'bal-icon',
  'bal-input',
@@ -199,7 +198,6 @@ export const BalDropdown = /*@__PURE__*/ Vue.extend({
   props: {
     scrollable: {} as PropOptions<Components.BalDropdown['scrollable']>,
     isActive: {} as PropOptions<Components.BalDropdown['isActive']>,
-    value: {} as PropOptions<Components.BalDropdown['value']>,
   },
 
 
@@ -211,20 +209,6 @@ export const BalDropdown = /*@__PURE__*/ Vue.extend({
     getContentElement: createCommonMethod('getContentElement') as Components.BalDropdown['getContentElement'],
   },
   render: createCommonRender('bal-dropdown', ['balChange']),
-});
-
-
-export const BalDropdownOption = /*@__PURE__*/ Vue.extend({
-
-  props: {
-    value: {} as PropOptions<Components.BalDropdownOption['value']>,
-    icon: {} as PropOptions<Components.BalDropdownOption['icon']>,
-    focused: {} as PropOptions<Components.BalDropdownOption['focused']>,
-    selected: {} as PropOptions<Components.BalDropdownOption['selected']>,
-  },
-
-
-  render: createCommonRender('bal-dropdown-option', ['balDropdownOptionSelect']),
 });
 
 

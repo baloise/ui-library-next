@@ -85,6 +85,19 @@ export const CheckboxContainableMixin: Mixin = <T>({ element, creator }: MixinCo
 /**
  * CheckboxAccessor is a helper object for E-2-E testing.
  * It maps the checkbox behaviour to the `bal-checkbox` ui component.
+ *
+ * ```typescript
+ * import { dataTestSelector, CheckboxAccessor } from '@baloise/ui-library-testing'
+ *
+ * describe('Checkbox', () => {
+ *   it('should ...', () => {
+ *      const checkbox = CheckboxAccessor(dataTestSelector('checkbox-id')).get()
+ *      checkbox.click()
+ *      checkbox.assertIsChecked()
+ *      checkbox.contains('Label')
+ *  })
+ * })
+ * ```
  */
 export const CheckboxAccessor: Accessor<CheckboxAccessorType> = createAccessor<CheckboxAccessorType>(
   CheckboxClickableMixin,

@@ -480,3 +480,8 @@ ul.docs-content a {
   background-color: #ebf6fa !important;
   color: #039 !important;
 }
+
+.markdown-section blockquote p {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}

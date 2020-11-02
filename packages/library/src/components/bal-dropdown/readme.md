@@ -7,18 +7,17 @@
 
 ## Properties
 
-| Property     | Attribute    | Description | Type      | Default     |
-| ------------ | ------------ | ----------- | --------- | ----------- |
-| `isActive`   | `is-active`  |             | `boolean` | `false`     |
-| `scrollable` | `scrollable` |             | `number`  | `0`         |
-| `value`      | `value`      |             | `any`     | `undefined` |
+| Property     | Attribute    | Description                                                         | Type      | Default |
+| ------------ | ------------ | ------------------------------------------------------------------- | --------- | ------- |
+| `isActive`   | `is-active`  | If `true` the dropdown content is open.                             | `boolean` | `false` |
+| `scrollable` | `scrollable` | Limit the height of the dropdown content. Pass the amount of pixel. | `number`  | `0`     |
 
 
 ## Events
 
-| Event       | Description | Type                  |
-| ----------- | ----------- | --------------------- |
-| `balChange` |             | `CustomEvent<string>` |
+| Event       | Description                                                                     | Type                   |
+| ----------- | ------------------------------------------------------------------------------- | ---------------------- |
+| `balChange` | Listen when the dropdown opens or closes. Returns the current `isActive` value. | `CustomEvent<boolean>` |
 
 
 ## Methods
@@ -35,7 +34,7 @@ Type: `Promise<void>`
 
 ### `getContentElement() => Promise<HTMLDivElement>`
 
-
+Returns the `HTMLDivElement` of the content element
 
 #### Returns
 
@@ -45,7 +44,7 @@ Type: `Promise<HTMLDivElement>`
 
 ### `getMenuElement() => Promise<HTMLDivElement>`
 
-
+Returns the `HTMLDivElement` of the menu element
 
 #### Returns
 

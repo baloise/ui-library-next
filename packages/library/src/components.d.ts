@@ -190,6 +190,9 @@ export namespace Components {
           * The name of the control, which is submitted with the form data.
          */
         "name": string;
+        /**
+          * Sets the focus on the checkbox input element.
+         */
         "setFocus": () => Promise<void>;
         /**
           * The value of the control.
@@ -201,37 +204,30 @@ export namespace Components {
           * Closes the dropdown menu.
          */
         "close": () => Promise<void>;
+        /**
+          * Returns the `HTMLDivElement` of the content element
+         */
         "getContentElement": () => Promise<HTMLDivElement>;
+        /**
+          * Returns the `HTMLDivElement` of the menu element
+         */
         "getMenuElement": () => Promise<HTMLDivElement>;
+        /**
+          * If `true` the dropdown content is open.
+         */
         "isActive": boolean;
         /**
           * Open the dropdown menu.
          */
         "open": () => Promise<void>;
+        /**
+          * Limit the height of the dropdown content. Pass the amount of pixel.
+         */
         "scrollable": number;
         /**
           * Open or closes the dropdown.
          */
         "toggle": () => Promise<void>;
-        "value": any;
-    }
-    interface BalDropdownOption {
-        /**
-          * If `true` the option is focused
-         */
-        "focused": boolean;
-        /**
-          * Baloise icon as a prefix
-         */
-        "icon": string;
-        /**
-          * If `true` the option is selected
-         */
-        "selected": boolean;
-        /**
-          * The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element.
-         */
-        "value": string | boolean | number | any;
     }
     interface BalField {
         /**
@@ -422,12 +418,6 @@ declare global {
         prototype: HTMLBalDropdownElement;
         new (): HTMLBalDropdownElement;
     };
-    interface HTMLBalDropdownOptionElement extends Components.BalDropdownOption, HTMLStencilElement {
-    }
-    var HTMLBalDropdownOptionElement: {
-        prototype: HTMLBalDropdownOptionElement;
-        new (): HTMLBalDropdownOptionElement;
-    };
     interface HTMLBalFieldElement extends Components.BalField, HTMLStencilElement {
     }
     var HTMLBalFieldElement: {
@@ -483,7 +473,6 @@ declare global {
         "bal-card-title": HTMLBalCardTitleElement;
         "bal-checkbox": HTMLBalCheckboxElement;
         "bal-dropdown": HTMLBalDropdownElement;
-        "bal-dropdown-option": HTMLBalDropdownOptionElement;
         "bal-field": HTMLBalFieldElement;
         "bal-icon": HTMLBalIconElement;
         "bal-input": HTMLBalInputElement;
@@ -689,29 +678,18 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface BalDropdown {
+        /**
+          * If `true` the dropdown content is open.
+         */
         "isActive"?: boolean;
-        "onBalChange"?: (event: CustomEvent<string>) => void;
+        /**
+          * Listen when the dropdown opens or closes. Returns the current `isActive` value.
+         */
+        "onBalChange"?: (event: CustomEvent<boolean>) => void;
+        /**
+          * Limit the height of the dropdown content. Pass the amount of pixel.
+         */
         "scrollable"?: number;
-        "value"?: any;
-    }
-    interface BalDropdownOption {
-        /**
-          * If `true` the option is focused
-         */
-        "focused"?: boolean;
-        /**
-          * Baloise icon as a prefix
-         */
-        "icon"?: string;
-        "onBalDropdownOptionSelect"?: (event: CustomEvent<string | boolean | number | any>) => void;
-        /**
-          * If `true` the option is selected
-         */
-        "selected"?: boolean;
-        /**
-          * The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element.
-         */
-        "value"?: string | boolean | number | any;
     }
     interface BalField {
         /**
@@ -855,7 +833,6 @@ declare namespace LocalJSX {
         "bal-card-title": BalCardTitle;
         "bal-checkbox": BalCheckbox;
         "bal-dropdown": BalDropdown;
-        "bal-dropdown-option": BalDropdownOption;
         "bal-field": BalField;
         "bal-icon": BalIcon;
         "bal-input": BalInput;
@@ -881,7 +858,6 @@ declare module "@stencil/core" {
             "bal-card-title": LocalJSX.BalCardTitle & JSXBase.HTMLAttributes<HTMLBalCardTitleElement>;
             "bal-checkbox": LocalJSX.BalCheckbox & JSXBase.HTMLAttributes<HTMLBalCheckboxElement>;
             "bal-dropdown": LocalJSX.BalDropdown & JSXBase.HTMLAttributes<HTMLBalDropdownElement>;
-            "bal-dropdown-option": LocalJSX.BalDropdownOption & JSXBase.HTMLAttributes<HTMLBalDropdownOptionElement>;
             "bal-field": LocalJSX.BalField & JSXBase.HTMLAttributes<HTMLBalFieldElement>;
             "bal-icon": LocalJSX.BalIcon & JSXBase.HTMLAttributes<HTMLBalIconElement>;
             "bal-input": LocalJSX.BalInput & JSXBase.HTMLAttributes<HTMLBalInputElement>;

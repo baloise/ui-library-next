@@ -63,6 +63,9 @@ export class Checkbox {
    */
   @Event() balBlur!: EventEmitter<void>
 
+  /**
+   * Sets the focus on the checkbox input element.
+   */
   @Method()
   async setFocus() {
     if (this.inputEl) {

@@ -10,6 +10,8 @@
   - [Styling](essentials/styling.md)
   - [Colors](essentials/colors.md)
   - [Typography](essentials/typography.md)
+  - [Responsiveness](essentials/responsiveness.md)
+  - [Grid](essentials/grid.md)
 
 <!-- Auto Generated Sidebar Start -->
 <!-- Auto Generated Sidebar End -->

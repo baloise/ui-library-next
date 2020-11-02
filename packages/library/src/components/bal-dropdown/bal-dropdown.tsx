@@ -1,4 +1,4 @@
-import { Component, h, Host, Listen, Method, Prop, Element, Event, EventEmitter, Watch } from '@stencil/core'
+import { Component, h, Host, Listen, Method, Prop, Element, Event, EventEmitter } from '@stencil/core'
 
 @Component({
   tag: 'bal-dropdown',
@@ -11,22 +11,15 @@ export class Dropdown {
   contentElement!: HTMLDivElement
   menuElement!: HTMLDivElement
 
+  /**
+   * Limit the height of the dropdown content. Pass the amount of pixel.
+   */
   @Prop() scrollable: number = 0
 
+  /**
+   * If `true` the dropdown content is open.
+   */
   @Prop({ mutable: true, reflect: true }) isActive = false
-
-  @Prop({ mutable: true }) value: any = undefined
-  @Watch('value')
-  async valueChanged() {
-    const options = this.element.querySelectorAll('bal-dropdown-option')
-    options.forEach(o =>
-      o.dispatchEvent(
-        new CustomEvent<any>('balDropdownChanged', {
-          detail: this.value,
-        }),
-      ),
-    )
-  }
 
   /**
    * Open the dropdown menu.
@@ -34,6 +27,7 @@ export class Dropdown {
   @Method()
   async open() {
     this.isActive = true
+    this.balChange.emit(this.isActive)
   }
 
   /**
@@ -42,6 +36,7 @@ export class Dropdown {
   @Method()
   async close() {
     this.isActive = false
+    this.balChange.emit(this.isActive)
   }
 
   /**
@@ -50,19 +45,29 @@ export class Dropdown {
   @Method()
   async toggle() {
     this.isActive = !this.isActive
+    this.balChange.emit(this.isActive)
   }
 
+  /**
+   * Returns the `HTMLDivElement` of the menu element
+   */
   @Method()
   async getMenuElement(): Promise<HTMLDivElement> {
     return this.menuElement
   }
 
+  /**
+   * Returns the `HTMLDivElement` of the content element
+   */
   @Method()
   async getContentElement(): Promise<HTMLDivElement> {
     return this.contentElement
   }
 
-  @Event() balChange!: EventEmitter<string>
+  /**
+   * Listen when the dropdown opens or closes. Returns the current `isActive` value.
+   */
+  @Event() balChange!: EventEmitter<boolean>
 
   @Listen('keyup', { target: 'document' })
   async tabOutside(event: KeyboardEvent) {
@@ -76,14 +81,6 @@ export class Dropdown {
     if (!this.element.contains(event.target as any) && this.isActive) {
       await this.toggle()
     }
-  }
-
-  @Listen('balDropdownOptionSelect')
-  async dropdownOptionSelect(event: CustomEvent<any>) {
-    event.preventDefault()
-    event.stopPropagation()
-    this.value = event.detail
-    this.balChange.emit(event.detail)
   }
 
   get contentStyle() {

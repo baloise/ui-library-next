@@ -11,7 +11,6 @@
 
  - [bal-button](../bal-button)
  - [bal-checkbox](../bal-checkbox)
- - [bal-dropdown-option](../bal-dropdown-option)
  - [bal-select-option](../bal-select-option)
 
 ### Graph
@@ -19,7 +18,6 @@
 graph TD;
   bal-button --> bal-text
   bal-checkbox --> bal-text
-  bal-dropdown-option --> bal-text
   bal-select-option --> bal-text
   style bal-text fill:#f9f,stroke:#333,stroke-width:4px
 ```

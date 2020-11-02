@@ -84,7 +84,6 @@ The proprocessing step for each SVG icon included: (done in Adobe Illustrator, b
 ### Used by
 
  - [bal-button](../bal-button)
- - [bal-dropdown-option](../bal-dropdown-option)
  - [bal-field](../bal-field)
  - [bal-select](../bal-select)
 
@@ -92,7 +91,6 @@ The proprocessing step for each SVG icon included: (done in Adobe Illustrator, b
 ```mermaid
 graph TD;
   bal-button --> bal-icon
-  bal-dropdown-option --> bal-icon
   bal-field --> bal-icon
   bal-select --> bal-icon
   style bal-icon fill:#f9f,stroke:#333,stroke-width:4px

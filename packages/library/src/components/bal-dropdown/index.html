@@ -24,75 +24,25 @@
           >
             <span id="bal-dropdown-1-trigger-label">Trigger</span>
           </bal-button>
+
+          <div style="padding: 0 15px 15px">
+            <h5 class="title is-size-3" style="margin-top: 0px">Title</h5>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia nihil dolore nesciunt sed minus doloremque
+              error quae excepturi molestiae molestias amet ab, explicabo dolor aperiam perferendis mollitia facilis
+              harum vero. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia nihil dolore nesciunt sed minus doloremque
+              error quae excepturi molestiae molestias amet ab, explicabo dolor aperiam perferendis mollitia facilis
+              harum vero.
+            </p>
+          </div>
         </bal-dropdown>
       </section>
       <script>
         var dropdown = document.getElementById('bal-dropdown-1')
         var trigger = document.getElementById('bal-dropdown-1-trigger')
-        var triggerLabel = document.getElementById('bal-dropdown-1-trigger-label')
-
-        var options = [
-          { text: 'Ant-Man', value: 1 },
-          { text: 'Spider-Man', value: 2 },
-          { text: 'Iron-Man', value: 3 },
-        ]
-        for (let index = 0; index < options.length; index++) {
-          var option = options[index]
-          var el = document.createElement('bal-dropdown-option')
-          var label = document.createElement('span')
-          label.innerHTML = option.text
-          el.value = option
-          el.appendChild(label)
-          dropdown.appendChild(el)
-          el.addEventListener('click', function () {
-            dropdown.setAttribute('is-active', false)
-          })
-        }
-
-        dropdown.addEventListener('balChange', function (evnet) {
-          triggerLabel.innerHTML = evnet.detail.text
-        })
 
         trigger.addEventListener('click', function (event) {
-          var isActive = dropdown.getAttribute('is-active') == 'true'
-          dropdown.setAttribute('is-active', !isActive)
-        })
-      </script>
-
-      <h2 class="title is-size-2">With an input</h2>
-      <section>
-        <bal-dropdown id="bal-dropdown-2" scrollable="200" is-active="false">
-          <div class="control has-icons-right" slot="trigger">
-            <bal-input id="bal-dropdown-trigger-2" clickable readonly />
-            <bal-icon size="medium" name="caret-down" is-right />
-            <bal-icon size="medium" name="caret-down" is-right />
-          </div>
-        </bal-dropdown>
-      </section>
-      <script>
-        var dropdown2 = document.getElementById('bal-dropdown-2')
-        var trigger2 = document.getElementById('bal-dropdown-trigger-2')
-
-        for (let index = 0; index < options.length; index++) {
-          var option = options[index]
-          var el = document.createElement('bal-dropdown-option')
-          var label = document.createElement('span')
-          label.innerHTML = option.text
-          el.value = option
-          el.appendChild(label)
-          dropdown2.appendChild(el)
-          el.addEventListener('click', function () {
-            dropdown2.setAttribute('is-active', false)
-          })
-        }
-
-        dropdown2.addEventListener('balChange', function (evnet) {
-          trigger2.value = evnet.detail.text
-        })
-
-        trigger2.addEventListener('click', function (event) {
-          var isActive = dropdown2.getAttribute('is-active') == 'true'
-          dropdown2.setAttribute('is-active', !isActive)
+          dropdown.toggle()
         })
       </script>
     </div>
