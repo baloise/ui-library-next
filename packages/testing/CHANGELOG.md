@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/baloise/ui-library-next/compare/@baloise/ui-library-next-testing@1.0.6...@baloise/ui-library-next-testing@1.0.7) (2020-11-02)
+
+**Note:** Version bump only for package @baloise/ui-library-next-testing
+
+
+
+
+
 ## [1.0.6](https://github.com/baloise/ui-library-next/compare/@baloise/ui-library-next-testing@1.0.5...@baloise/ui-library-next-testing@1.0.6) (2020-11-02)
 
 
