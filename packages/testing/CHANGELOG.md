@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/baloise/ui-library-next/compare/@baloise/ui-library-next-testing@1.0.5...@baloise/ui-library-next-testing@1.0.6) (2020-11-02)
+
+
+### Bug Fixes
+
+* **testing:** remove invalid types ([3f796e1](https://github.com/baloise/ui-library-next/commit/3f796e1a909f4a8aefa58723b6cb1806293b4839))
+
+
+
+
+
 ## [1.0.5](https://github.com/baloise/ui-library-next/compare/@baloise/ui-library-next-testing@1.0.4...@baloise/ui-library-next-testing@1.0.5) (2020-10-28)
 
 **Note:** Version bump only for package @baloise/ui-library-next-testing
