@@ -8,4 +8,5 @@ module.exports = {
     EXAMPLES_SEPERATOR: '<!-- Auto Generated Examples -->',
     API_SEPERATOR: '<!-- Auto Generated Below -->',
     DOCS_CHILD_REGEX: /<!-- docs:child of (bal-[a-z-]*) -->/g,
+    DOCS_HEADING_REGEX: /# (bal-[a-z-]*)/g,
 }

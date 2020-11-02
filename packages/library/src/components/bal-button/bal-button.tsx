@@ -96,12 +96,13 @@ export class Button {
             this.bottomRounded ? 'has-round-bottom-corners' : '',
           ].join(' ')}
           disabled={this.disabled}>
+          <span>{/* Empty span to get the correct text height */}</span>
           {this.loading ? <bal-spinner class="is-small is-inverted" /> : ''}
-          {this.icon ? <bal-icon name={this.icon} /> : ''}
-          <bal-text style={{ display: this.loading ? 'none' : 'flex' }}>
+          {this.icon ? <bal-icon class="icon-left" name={this.icon} /> : ''}
+          <bal-text style={{ display: this.loading ? 'none' : 'inline' }}>
             <slot />
           </bal-text>
-          {this.iconRight ? <bal-icon name={this.iconRight} /> : ''}
+          {this.iconRight ? <bal-icon class="icon-right" name={this.iconRight} /> : ''}
         </button>
       </Host>
     )

@@ -1,6 +1,6 @@
 const componentsJson = require("../../lib/components.json")
 const { readFile } = require("../utils/file.util")
-const { NEWLINE, DOCS_CHILD_REGEX } = require("../constants")
+const { NEWLINE, DOCS_CHILD_REGEX, DOCS_HEADING_REGEX } = require("../constants")
 
 const components = new Map()
 
@@ -10,6 +10,7 @@ const addChildInformation = (component) => {
     component.childComponents = []
 
     const lines = component.readme.split(NEWLINE)
+        .filter(line => line.match(DOCS_HEADING_REGEX) === null)
     const firstLine = lines[0]
     const parentTag = firstLine.match(DOCS_CHILD_REGEX)
 

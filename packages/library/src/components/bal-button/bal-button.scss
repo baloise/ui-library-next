@@ -16,18 +16,24 @@
     outline: none !important;
     user-select: none;
     min-height: 50px;
-    line-height: 2;
 
-    .icon {
-      font-size: 30px;
+    .icon-left,
+    .icon-right {
+      align-items: center;
+      display: inline-flex;
+      justify-content: center;
+      height: 1.5rem;
+      width: 1.5rem;
     }
 
-    bal-text {
-      min-height: 22px;
+    .icon-left {
+      margin-left: -18px;
+      margin-right: 6px;
     }
 
-    span.icon {
-      height: 1.2rem !important;
+    .icon-right {
+      margin-right: -18px;
+      margin-left: 6px;
     }
 
     &.is-fullwidth {
@@ -294,11 +300,6 @@
           background: transparent;
         }
       }
-    }
-
-    span {
-      line-height: 1.25rem;
-      font-weight: 500;
     }
 
     &.is-dense {
