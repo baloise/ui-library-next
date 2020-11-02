@@ -10,35 +10,39 @@ export class BalCard {
   /**
    * If `true` a light blue border is added to the card.
    */
-  @Prop()
-  border = false
+  @Prop() border = false
+
   /**
    * If `true` the card loses its shadow.
    */
-  @Prop()
-  flat = false
+  @Prop() flat = false
+
   /**
    * If `true` the card loses its border radius.
    */
-  @Prop()
-  square = false
+  @Prop() square = false
+
   /**
    * If `true` the card background color becomes blue.
    */
-  @Prop()
-  inverted = false
+  @Prop() inverted = false
+
+  /**
+   * If `true` the card has a limited width on desktop.
+   */
+  @Prop() teaser = false
 
   render() {
     return (
       <Host
         class={[
           'bal-card',
+          this.teaser ? 'is-teaser' : '',
           this.square ? 'is-square' : '',
           this.border ? 'has-border' : '',
           this.flat ? 'is-flat' : '',
           this.inverted ? 'is-inverted' : '',
-        ].join(' ')}
-      >
+        ].join(' ')}>
         <slot></slot>
       </Host>
     )

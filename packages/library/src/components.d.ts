@@ -84,6 +84,10 @@ export namespace Components {
           * If `true` the card loses its border radius.
          */
         "square": boolean;
+        /**
+          * If `true` the card has a limited width on desktop.
+         */
+        "teaser": boolean;
     }
     interface BalCardActions {
         /**
@@ -565,6 +569,10 @@ declare namespace LocalJSX {
           * If `true` the card loses its border radius.
          */
         "square"?: boolean;
+        /**
+          * If `true` the card has a limited width on desktop.
+         */
+        "teaser"?: boolean;
     }
     interface BalCardActions {
         /**

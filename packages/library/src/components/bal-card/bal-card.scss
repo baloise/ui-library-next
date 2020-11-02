@@ -1,4 +1,4 @@
-@import "../../styles/ui-library.utilities";
+@import '../../styles/ui-library.utilities';
 
 .bal-card {
   display: block;
@@ -39,6 +39,9 @@
     background-color: $bal_brand_blue;
   }
 
+  &.is-teaser {
+  }
+
   .bal-card-heading,
   .bal-card-title,
   .bal-card-subtitle,
@@ -76,7 +79,7 @@
     color: $blue;
   }
 
-  .bal-card-title.inverted{
+  .bal-card-title.inverted {
     color: $white;
   }
 
@@ -86,7 +89,7 @@
     color: $blue-light-text;
   }
 
-  .bal-card-subtitle.inverted{
+  .bal-card-subtitle.inverted {
     color: $white;
   }
 
@@ -96,7 +99,7 @@
     font-family: $body-family;
   }
 
-  .bal-card-content.inverted{
+  .bal-card-content.inverted {
     color: $white;
   }
 
@@ -116,5 +119,18 @@
     &.is-right {
       flex-direction: row-reverse;
     }
+  }
+}
+
+@include tablet() {
+  .bal-card.is-teaser {
+    width: 380px;
+  }
+}
+
+@include desktop() {
+  .bal-card.is-teaser {
+    min-height: 470px;
+    width: 570px;
   }
 }
