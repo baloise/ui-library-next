@@ -65,6 +65,7 @@ export const BalCard = /*@__PURE__*/ Vue.extend({
     flat: {} as PropOptions<Components.BalCard['flat']>,
     square: {} as PropOptions<Components.BalCard['square']>,
     inverted: {} as PropOptions<Components.BalCard['inverted']>,
+    teaser: {} as PropOptions<Components.BalCard['teaser']>,
   },
 
 
