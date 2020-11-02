@@ -11,6 +11,8 @@ const parseTesting = (component) => {
         lines.push(``)
         lines.push(`### ${printCode(accessor.name)}`)
         lines.push('')
+        lines.push(`${accessor.description}`)
+        lines.push('')
 
         if (accessor.methods && accessor.methods.length > 0) {
             lines.push(`#### Methods`)
