@@ -4,16 +4,19 @@
 // The order of the imports is important to override the variables of the css framework bulma
 //
 
-@import "input.scss";
-@import "node_modules/bulma/sass/form/_all.sass";
-@import "node_modules/bulma/sass/elements/icon.sass";
-@import "node_modules/bulma/sass/elements/box";
 @import 'node_modules/bulma/sass/elements/container.sass';
-@import 'node_modules/bulma/sass/elements/title.sass';
 @import 'node_modules/bulma/sass/elements/other.sass';
-@import 'node_modules/bulma/sass/elements/image.sass';
-@import 'node_modules/bulma/sass/elements/title.sass';
 @import 'node_modules/bulma/sass/elements/notification.sass';
 
-@import "form";
-@import "box";
+@import 'box';
+@import 'title';
+
+
+
+// @import "node_modules/bulma/sass/form/_all.sass";
+// @import "node_modules/bulma/sass/elements/icon.sass";
+// @import "node_modules/bulma/sass/elements/box";
+// @import 'node_modules/bulma/sass/elements/container.sass';
+// @import 'node_modules/bulma/sass/elements/title.sass';
+
+// @import 'node_modules/bulma/sass/elements/image.sass';

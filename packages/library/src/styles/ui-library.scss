@@ -1,11 +1,14 @@
 @import 'base/fonts.scss';
 
-body.bal-app {
-  margin: 0;
-  padding: 0;
-}
-
 .bal-app {
+  @import './ui-library.utilities';
+  @import './utilities/helpers';
+  @import './utilities/animations';
+  @import './base/all';
+  @import './form/all';
+  @import './elements/all';
+  @import "node_modules/bulma/sass/grid/all.sass";
+
   position: relative;
 
   * {
@@ -16,16 +19,6 @@ body.bal-app {
     -moz-text-size-adjust: 100%;
   }
 
-  @import './ui-library.utilities';
-  @import './utilities/helpers.scss';
-  @import './utilities/animations.scss';
-  @import './base/all';
-  @import './elements/all';
-  @import 'node_modules/bulma/sass/form/_all.sass';
-  @import 'node_modules/bulma/sass/grid/_all.sass';
-  @import 'node_modules/bulma/sass/helpers/_all.sass';
-  @import 'node_modules/bulma/sass/layout/_all.sass';
-
   span,
   b,
   p,
@@ -33,7 +26,13 @@ body.bal-app {
   h2,
   h3,
   h4,
-  h5 strong {
+  h5,
+  strong {
     font-family: $family-primary;
   }
+}
+
+body.bal-app {
+  margin: 0;
+  padding: 0;
 }
