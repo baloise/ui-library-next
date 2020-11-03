@@ -33,15 +33,15 @@ jobs:
       - name: Builded libaries are pushed
         run: git diff-index --quiet HEAD --
 
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v1
+  # test:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Repository
+  #       uses: actions/checkout@v1
 
-      - name: Clean install dependencies
-        run: npm ci
+  #     - name: Clean install dependencies
+  #       run: npm ci
 
-      - name: Test
-        run: npm run test
+  #     - name: Test
+  #       run: npm run test
 
