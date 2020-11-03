@@ -6,9 +6,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "npm run compile",
-    "compile": "npm run tsc",
-    "tsc": "tsc -p ."
+    "build": "ng-packagr -p package.json"
   },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -16,33 +14,35 @@
   "files": [
     "dist/"
   ],
+  "$schema": "./node_modules/ng-packagr/package.schema.json",
+  "ngPackage": {
+    "lib": {
+      "entryFile": "src/index.ts"
+    },
+    "whitelistedNonPeerDependencies": [
+      "@baloise/ui-library-next",
+      "@angular/common",
+      "@angular/core"
+    ]
+  },
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@baloise/ui-library-next": "^0.3.2"
-  },
-  "devDependencies": {
+    "@baloise/ui-library-next": "^0.3.2",
     "@angular/common": "~10.2.0",
-    "@angular/compiler": "~10.2.0",
     "@angular/core": "~10.2.0",
-    "@angular/forms": "~10.2.0",
-    "@angular/platform-browser": "~10.2.0",
-    "@angular/platform-browser-dynamic": "~10.2.0",
-    "rxjs": "~6.6.0",
-    "tslib": "^2.0.0",
-    "typescript": "^4.0.2",
-    "zone.js": "~0.10.2"
+    "tslib": "^2.0.0"
   },
   "peerDependencies": {
+    "@baloise/ui-library-next": "^0.3.2",
     "@angular/common": "~10.2.0",
-    "@angular/compiler": "~10.2.0",
-    "@angular/core": "~10.2.0",
-    "@angular/forms": "~10.2.0",
-    "@angular/platform-browser": "~10.2.0",
-    "@angular/platform-browser-dynamic": "~10.2.0",
-    "rxjs": "~6.6.0",
-    "tslib": "^2.0.0",
-    "zone.js": "~0.10.2"
+    "@angular/core": "~10.2.0"
   },
-  "gitHead": "b167aad662bd9c34eb0b5d894b350c69370759a2"
+  "gitHead": "b167aad662bd9c34eb0b5d894b350c69370759a2",
+  "devDependencies": {
+    "@angular/compiler-cli": "~10.2.0",
+    "@angular/compiler": "~10.2.0",
+    "ng-packagr": "^10.1.2",
+    "typescript": "^4.0.5"
+  }
 }
