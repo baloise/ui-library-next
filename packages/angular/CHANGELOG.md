@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/baloise/ui-library-next/compare/v1.3.16...v1.4.0) (2020-11-03)
+
+
+### Features
+
+* **angular:** add two-way binding ([f6e1957](https://github.com/baloise/ui-library-next/commit/f6e19577777a4180ce2cf38e9cd31c592e1957eb))
+
+
+
+
+
 ## [1.3.16](https://github.com/baloise/ui-library-next/compare/v1.3.15...v1.3.16) (2020-11-03)
 
 
