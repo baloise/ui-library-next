@@ -21,6 +21,8 @@
     "@angular/platform-browser": "~10.2.0",
     "@angular/platform-browser-dynamic": "~10.2.0",
     "@angular/router": "~10.2.0",
+    "@baloise/ui-library-next": "^0.3.2",
+    "@baloise/ui-library-next-angular": "^0.1.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
