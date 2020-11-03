@@ -17,7 +17,8 @@
     "whitelistedNonPeerDependencies": [
       "@baloise/ui-library-next",
       "@angular/common",
-      "@angular/core"
+      "@angular/core",
+      "@angular/forms"
     ]
   },
   "author": "",
@@ -25,12 +26,14 @@
   "dependencies": {
     "@angular/common": "~10.2.0",
     "@angular/core": "~10.2.0",
+    "@angular/forms": "~10.2.0",
     "@baloise/ui-library-next": "^1.4.0",
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
     "@angular/common": "~10.2.0",
     "@angular/core": "~10.2.0",
+    "@angular/forms": "~10.2.0",
     "@baloise/ui-library-next": "^0.3.2"
   },
   "gitHead": "722ef389df9b49212894042493cb203eb8fd8f09",
