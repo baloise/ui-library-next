@@ -6,7 +6,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "ng-packagr -p package.json",
+    "build": "npm run clean && ng-packagr -p package.json",
+    "clean": "rimraf dist",
     "publish": "cd dist && npm publish"
   },
   "$schema": "./node_modules/ng-packagr/package.schema.json",
@@ -33,11 +34,12 @@
     "@angular/core": "~10.2.0",
     "@baloise/ui-library-next": "^0.3.2"
   },
-  "gitHead": "1e1274f89984859060376ddb3cacee32a72ffbf7",
+  "gitHead": "d7813bac1cc817422adb47d78a319df6cae304d8",
   "devDependencies": {
     "@angular/compiler": "~10.2.0",
     "@angular/compiler-cli": "~10.2.0",
     "ng-packagr": "^10.1.2",
+    "rimraf": "^3.0.2",
     "typescript": "^4.0.5"
   }
 }
