@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {  } from '@baloise/ui-library-next-angular';
+import { BalUiLibraryModule } from '@baloise/ui-library-next-angular/dist';
 
 import { AppComponent } from './app.component';
 

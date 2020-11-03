@@ -38,5 +38,15 @@
     "@angular/compiler-cli": "~10.2.0",
     "ng-packagr": "^10.1.2",
     "typescript": "^4.0.5"
-  }
+  },
+  "main": "dist/bundles/baloise-ui-library-next-angular.umd.js",
+  "module": "dist/fesm2015/baloise-ui-library-next-angular.js",
+  "es2015": "dist/fesm2015/baloise-ui-library-next-angular.js",
+  "esm2015": "dist/esm2015/baloise-ui-library-next-angular.js",
+  "fesm2015": "dist/fesm2015/baloise-ui-library-next-angular.js",
+  "typings": "dist/baloise-ui-library-next-angular.d.ts",
+  "metadata": "dist/baloise-ui-library-next-angular.metadata.json",
+  "files": [
+    "dist/"
+  ]
 }
