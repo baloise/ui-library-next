@@ -1,6 +1,6 @@
 {
   "name": "@baloise/ui-library-next-angular",
-  "version": "1.3.7",
+  "version": "1.3.8",
   "description": "",
   "publishConfig": {
     "access": "public"
@@ -24,7 +24,7 @@
   "dependencies": {
     "@angular/common": "~10.2.0",
     "@angular/core": "~10.2.0",
-    "@baloise/ui-library-next": "^1.3.7",
+    "@baloise/ui-library-next": "^1.3.8",
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
