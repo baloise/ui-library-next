@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.15](https://github.com/baloise/ui-library-next/compare/v1.3.14...v1.3.15) (2020-11-03)
+
+
+### Bug Fixes
+
+* **angular:** fix path configs ([5e0b371](https://github.com/baloise/ui-library-next/commit/5e0b371d2134ab47386c0b7249ef475a691558ff))
+
+
+
+
+
 ## [1.3.14](https://github.com/baloise/ui-library-next/compare/v1.3.13...v1.3.14) (2020-11-03)
 
 
