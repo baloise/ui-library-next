@@ -125,7 +125,7 @@ glob('src/mixins/**.ts', (err, mixinFilepaths) => {
         }
 
         const accessors = accessorFilepaths.map(a => parseAccessor(a, mixins))
-        fs.writeFileSync('../docs/lib/accessors.json', JSON.stringify(accessors))
+        fs.writeFileSync('../../docs/lib/accessors.json', JSON.stringify(accessors))
     })
 })
 

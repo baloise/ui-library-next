@@ -15,11 +15,11 @@ export const config: Config = {
     },
     {
       type: 'docs-json',
-      file: '../docs/lib/components.json',
+      file: '../../docs/lib/components.json',
     },
     {
       type: 'www',
-      dir: '../docs/lib',
+      dir: '../../docs/lib',
       serviceWorker: null, // disable service workers
       copy: [
         {

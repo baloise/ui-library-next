@@ -1,14 +1,14 @@
 {
   "packages": [
-    "packages/*",
-    "packages/examples/*"
+    "packages/*"
   ],
   "version": "independent",
   "command": {
     "publish": {
       "conventionalCommits": true,
       "ignoreChanges": [
-        "packages/examples/**"
+        "docs/**",
+        "examples/**"
       ],
       "message": "chore(): release"
     },
