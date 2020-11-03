@@ -7,8 +7,7 @@
   },
   "scripts": {
     "build": "npm run clean && ng-packagr -p package.json",
-    "clean": "rimraf dist",
-    "publish": "npm --prefix dist publish"
+    "clean": "rimraf dist"
   },
   "$schema": "./node_modules/ng-packagr/package.schema.json",
   "ngPackage": {
@@ -34,7 +33,7 @@
     "@angular/core": "~10.2.0",
     "@baloise/ui-library-next": "^0.3.2"
   },
-  "gitHead": "a9105ecb34be747cfab9807acf0ba44eb4f7b102",
+  "gitHead": "722ef389df9b49212894042493cb203eb8fd8f09",
   "devDependencies": {
     "@angular/compiler": "~10.2.0",
     "@angular/compiler-cli": "~10.2.0",
