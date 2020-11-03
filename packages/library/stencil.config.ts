@@ -3,6 +3,7 @@ import { sass } from '@stencil/sass'
 import { postcss } from '@stencil/postcss'
 import autoprefixer from 'autoprefixer'
 import { ComponentModelConfig, vueOutputTarget } from '@stencil/vue-output-target'
+import { angularOutputTarget } from '@stencil/angular-output-target'
 
 /**
  * Vue Component Models
@@ -52,8 +53,13 @@ export const config: Config = {
     },
     vueOutputTarget({
       componentCorePackage: '@baloise/ui-library-next',
-      proxiesFile: '../library-vue/src/components.ts',
+      proxiesFile: '../vue/src/components.ts',
       componentModels: vueComponentModels,
+    }),
+    angularOutputTarget({
+      componentCorePackage: '@baloise/ui-library-next',
+      directivesProxyFile: '../angular/src/directives/proxies.ts',
+      directivesArrayFile: '../angular/src/directives/proxies-list.ts',
     }),
   ],
   plugins: [

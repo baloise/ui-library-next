@@ -7,7 +7,7 @@
   "scripts": {
     "postinstall": "npm run bootstrap",
     "bootstrap": "lerna bootstrap",
-    "build": "npm run lib:build && npm run lib:vue:build && npm run testing:build",
+    "build": "npm run lib:build && npm run lib:vue:build && npm run lib:angular:build && npm run testing:build",
     "lint": "lerna run lint",
     "publish": "lerna publish --yes",
     "docs:install": "npm --prefix docs install",
@@ -16,14 +16,18 @@
     "lib:build": "npm --prefix packages/library run build",
     "lib:serve": "npm --prefix packages/library run serve",
     "lib:serve:ie": "npm --prefix packages/library run serve:ie",
-    "lib:vue:clean": "rimraf packages/library-vue/node_modules",
-    "lib:vue:build": "npm --prefix packages/library-vue run build",
+    "lib:vue:clean": "rimraf packages/vue/node_modules",
+    "lib:vue:build": "npm --prefix packages/vue run build",
+    "lib:angular:clean": "rimraf packages/angular/node_modules",
+    "lib:angular:build": "npm --prefix packages/angular run build",
     "testing:run": "npm --prefix packages/testing run ci",
     "testing:serve": "npm --prefix packages/testing run serve",
     "testing:server": "npm --prefix packages/testing run start-server",
     "testing:build": "npm --prefix packages/testing run build",
     "vue:install": "npm --prefix examples/vue install",
-    "vue:serve": "npm --prefix examples/vue run serve"
+    "vue:serve": "npm --prefix examples/vue run serve",
+    "angular:install": "npm --prefix examples/angular install",
+    "angular:serve": "npm --prefix examples/angular run start"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
