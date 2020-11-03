@@ -16,9 +16,9 @@ The steps list is useful for tracking progress in multi steps forms or wizards.
 
 ## Events
 
-| Event                   | Description                            | Type                           |
-| ----------------------- | -------------------------------------- | ------------------------------ |
-| `balCardStepsDidChange` | Emitted when the changes has finished. | `CustomEvent<CardStepOptions>` |
+| Event                   | Description                            | Type                              |
+| ----------------------- | -------------------------------------- | --------------------------------- |
+| `balCardStepsDidChange` | Emitted when the changes has finished. | `CustomEvent<BalCardStepOptions>` |
 
 
 ## Methods

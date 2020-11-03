@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State } from '@stencil/core'
-import { CardStepOptions } from '../bal-card-step/bal-card-step'
+import { BalCardStepOptions } from '../bal-card-step/bal-card-step.type'
 
 @Component({
   tag: 'bal-card-steps',
@@ -10,7 +10,7 @@ import { CardStepOptions } from '../bal-card-step/bal-card-step'
 export class CardSteps {
   @Element() element!: HTMLElement
 
-  @State() stepOptions: CardStepOptions[] = []
+  @State() stepOptions: BalCardStepOptions[] = []
 
   /**
    * If `true` a the style is ready for a dark background.
@@ -25,7 +25,7 @@ export class CardSteps {
   /**
    * Emitted when the changes has finished.
    */
-  @Event({ eventName: 'balCardStepsDidChange' }) stepsDidChange: EventEmitter<CardStepOptions>
+  @Event({ eventName: 'balCardStepsDidChange' }) stepsDidChange: EventEmitter<BalCardStepOptions>
 
   /**
    * Select a step.
@@ -57,7 +57,7 @@ export class CardSteps {
     )
   }
 
-  private async onSelectStep(step: CardStepOptions): Promise<void> {
+  private async onSelectStep(step: BalCardStepOptions): Promise<void> {
     if (!step.disabled) {
       await this.select(step.value)
       this.stepsDidChange.emit(step)

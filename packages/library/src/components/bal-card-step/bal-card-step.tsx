@@ -1,13 +1,5 @@
 import { Component, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core'
-
-export interface CardStepOptions {
-  value: string
-  label: string
-  active: boolean
-  done: boolean
-  disabled: boolean
-  hidden: boolean
-}
+import { BalCardStepOptions } from './bal-card-step.type'
 
 @Component({
   tag: 'bal-card-step',
@@ -73,7 +65,7 @@ export class CardStep {
    * Options of the step like label, value etc.
    */
   @Method()
-  async getOptions(): Promise<CardStepOptions> {
+  async getOptions(): Promise<BalCardStepOptions> {
     return this.options
   }
 

@@ -5,8 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { CardStepOptions } from "./components/bal-card-step/bal-card-step";
-import { CardStepOptions as CardStepOptions1 } from "./components/bal-card-step/bal-card-step";
+import { BalCardStepOptions } from "./components/bal-card-step/bal-card-step.type";
 import { BalOptionValue } from "./components/bal-select-option/bal-select-option.type";
 export namespace Components {
     interface BalButton {
@@ -125,7 +124,7 @@ export namespace Components {
         /**
           * Options of the step like label, value etc.
          */
-        "getOptions": () => Promise<CardStepOptions>;
+        "getOptions": () => Promise<BalCardStepOptions>;
         /**
           * If `true` the step is hidden in the steps navigation.
          */
@@ -625,7 +624,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the changes has finished.
          */
-        "onBalCardStepsDidChange"?: (event: CustomEvent<CardStepOptions>) => void;
+        "onBalCardStepsDidChange"?: (event: CustomEvent<BalCardStepOptions>) => void;
     }
     interface BalCardSubtitle {
         /**

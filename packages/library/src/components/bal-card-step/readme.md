@@ -28,13 +28,13 @@
 
 ## Methods
 
-### `getOptions() => Promise<CardStepOptions>`
+### `getOptions() => Promise<BalCardStepOptions>`
 
 Options of the step like label, value etc.
 
 #### Returns
 
-Type: `Promise<CardStepOptions>`
+Type: `Promise<BalCardStepOptions>`
 
 
 

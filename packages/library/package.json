@@ -4,12 +4,12 @@
   "publishConfig": {
     "access": "public"
   },
-  "description": "Stencil Component Starter",
+  "description": "The UI-Libary is an open source project for styling awesome web applications that follow the Baloise corporate styling guidelines.",
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
   "es2015": "dist/esm/index.mjs",
   "es2017": "dist/esm/index.mjs",
-  "types": "dist/custom-elements/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/ui-library-next/ui-library-next.js",
@@ -23,8 +23,6 @@
     "build:docs": "stencil build --docs --es5 --config stencil.docs.config.ts",
     "serve": "stencil build -docs --dev --watch --serve --docs-json www/components.json",
     "serve:ie": "stencil build --es5 --dev --watch --serve",
-    "test": "stencil test --spec --e2e --passWithNoTests",
-    "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate"
   },
   "dependencies": {
@@ -37,12 +35,7 @@
     "@stencil/sass": "^1.3.2",
     "@stencil/vue-output-target": "0.0.3",
     "@types/autoprefixer": "^9.7.2",
-    "@types/jest": "^26.0.12",
-    "@types/puppeteer": "^3.0.1",
-    "autoprefixer": "^9.8.6",
-    "jest": "^26.4.2",
-    "jest-cli": "^26.4.2",
-    "puppeteer": "^5.2.1"
+    "autoprefixer": "^10.0.1"
   },
   "gitHead": "b167aad662bd9c34eb0b5d894b350c69370759a2"
 }
