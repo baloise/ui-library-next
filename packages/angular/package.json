@@ -8,7 +8,7 @@
   "scripts": {
     "build": "npm run clean && ng-packagr -p package.json",
     "clean": "rimraf dist",
-    "publish": "cd dist && npm publish"
+    "publish": "npm --prefix dist publish"
   },
   "$schema": "./node_modules/ng-packagr/package.schema.json",
   "ngPackage": {
@@ -34,7 +34,7 @@
     "@angular/core": "~10.2.0",
     "@baloise/ui-library-next": "^0.3.2"
   },
-  "gitHead": "d7813bac1cc817422adb47d78a319df6cae304d8",
+  "gitHead": "eb374b98903faac8487209d0dd995def9cc11ae4",
   "devDependencies": {
     "@angular/compiler": "~10.2.0",
     "@angular/compiler-cli": "~10.2.0",
