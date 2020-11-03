@@ -45,8 +45,5 @@
   "esm2015": "dist/esm2015/baloise-ui-library-next-angular.js",
   "fesm2015": "dist/fesm2015/baloise-ui-library-next-angular.js",
   "typings": "dist/baloise-ui-library-next-angular.d.ts",
-  "metadata": "dist/baloise-ui-library-next-angular.metadata.json",
-  "files": [
-    "dist/"
-  ]
+  "metadata": "dist/baloise-ui-library-next-angular.metadata.json"
 }
