@@ -1,18 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { BalUiLibraryModule } from '@baloise/ui-library-next-angular/dist';
+import { BrowserModule } from '@angular/platform-browser'
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core'
+import { BalUiLibraryModule } from '@baloise/ui-library-next-angular/dist'
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './app.component'
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    BalUiLibraryModule,
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, BalUiLibraryModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}
