@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/baloise/ui-library-next/compare/@baloise/ui-library-next@0.2.0...@baloise/ui-library-next@0.3.0) (2020-11-03)
+
+
+### Features
+
+* **dropdown:** simplify usage and improve docs ([9583004](https://github.com/baloise/ui-library-next/commit/958300485c8720831bdd2f4a0ec3850b10f55ab5))
+
+
+
+
+
 # [0.2.0](https://github.com/baloise/ui-library-next/compare/@baloise/ui-library-next@0.1.5...@baloise/ui-library-next@0.2.0) (2020-11-02)
 
 
