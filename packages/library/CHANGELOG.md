@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.3.0 (2020-11-03)
+
+
+### Bug Fixes
+
+* **button:** adjust icon position ([7f58491](https://github.com/baloise/ui-library-next/commit/7f58491801ef5a5c5cdd6d441716a99ffa033d8c))
+* **styles:** improve style ordering ([cdf09f8](https://github.com/baloise/ui-library-next/commit/cdf09f8ddfae57a3e228375ea130476dd6bc4cde))
+* stencil build ([ffa80df](https://github.com/baloise/ui-library-next/commit/ffa80df4d3a9f7e8dc30dff97567682e29b9b6d7))
+* update deps ([46f98c0](https://github.com/baloise/ui-library-next/commit/46f98c04ea284e03e5573fabea2bc1392db6742e))
+
+
+### Features
+
+* **card:** add teaser theme ([4ddfb14](https://github.com/baloise/ui-library-next/commit/4ddfb141633b36bfc79b9ff2c7cdd52bf19b1e2c))
+* **dropdown:** simplify usage and improve docs ([9583004](https://github.com/baloise/ui-library-next/commit/958300485c8720831bdd2f4a0ec3850b10f55ab5))
+* **select:** add select ([5d11e06](https://github.com/baloise/ui-library-next/commit/5d11e06a1b4294f4732cce13bd8f8305541deac2))
+
+
+
+
+
 ## [0.3.2](https://github.com/baloise/ui-library-next/compare/@baloise/ui-library-next@0.3.1...@baloise/ui-library-next@0.3.2) (2020-11-03)
 
 **Note:** Version bump only for package @baloise/ui-library-next
