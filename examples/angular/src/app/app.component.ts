@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular';
+
+  onChange(event: CustomEvent<boolean>) {
+    console.log('on change', event.detail)
+  }
 }

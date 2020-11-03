@@ -259,7 +259,7 @@ export const BalInput = /*@__PURE__*/ Vue.extend({
 
   model: {
     prop: 'value',
-    event: 'balChange'
+    event: 'balInput'
   },
 
   methods: {
