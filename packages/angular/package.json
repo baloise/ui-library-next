@@ -33,7 +33,7 @@
     "@angular/core": "~10.2.0",
     "@baloise/ui-library-next": "^0.3.2"
   },
-  "gitHead": "b167aad662bd9c34eb0b5d894b350c69370759a2",
+  "gitHead": "1e1274f89984859060376ddb3cacee32a72ffbf7",
   "devDependencies": {
     "@angular/compiler": "~10.2.0",
     "@angular/compiler-cli": "~10.2.0",
