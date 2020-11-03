@@ -1,6 +1,6 @@
 {
   "name": "@baloise/ui-library-next-angular",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
   "publishConfig": {
     "access": "public"
@@ -28,20 +28,20 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@baloise/ui-library-next": "^0.3.2",
     "@angular/common": "~10.2.0",
     "@angular/core": "~10.2.0",
+    "@baloise/ui-library-next": "^0.3.2",
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
-    "@baloise/ui-library-next": "^0.3.2",
     "@angular/common": "~10.2.0",
-    "@angular/core": "~10.2.0"
+    "@angular/core": "~10.2.0",
+    "@baloise/ui-library-next": "^0.3.2"
   },
   "gitHead": "b167aad662bd9c34eb0b5d894b350c69370759a2",
   "devDependencies": {
-    "@angular/compiler-cli": "~10.2.0",
     "@angular/compiler": "~10.2.0",
+    "@angular/compiler-cli": "~10.2.0",
     "ng-packagr": "^10.1.2",
     "typescript": "^4.0.5"
   }
