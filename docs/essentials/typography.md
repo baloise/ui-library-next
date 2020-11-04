@@ -1,4 +1,4 @@
-# Typography 
+# Typography
 
 ## Headline
 
@@ -31,7 +31,7 @@
 ```html
 <p class="is-bold">Paragraph MetaPro Normal</p>
 <p>Paragraph MetaPro Normal</p>
-<a href="">Link cyan</a>
+<a class="is-link" href="">Link cyan</a>
 ```
 
 ## Small Text
@@ -39,5 +39,5 @@
 ```html
 <p class="is-small is-bold">Paragraph MetaPro Normal</p>
 <p class="is-small">Paragraph MetaPro Normal</p>
-<a class="is-small" href="">Link cyan</a>
+<a class="is-link is-small" href="">Link cyan</a>
 ```
