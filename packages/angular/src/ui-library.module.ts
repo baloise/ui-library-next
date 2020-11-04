@@ -5,6 +5,7 @@ import { defineCustomElements } from '@baloise/ui-library-next/loader'
 import { DIRECTIVES } from './directives/proxies-list'
 import { BooleanValueAccessor } from './directives/boolean-value-accessor'
 import { TextValueAccessor } from './directives/text-value-accessor'
+import { FormsModule } from '@angular/forms'
 
 defineCustomElements(window)
 
@@ -20,7 +21,7 @@ const DECLARATIONS = [
 @NgModule({
   declarations: [DECLARATIONS],
   exports: [DECLARATIONS],
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   providers: [],
 })
 export class BalUiLibraryModule {}
