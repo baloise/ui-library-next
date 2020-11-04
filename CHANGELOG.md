@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/baloise/ui-library-next/compare/v1.6.0...v1.6.1) (2020-11-04)
+
+
+### Bug Fixes
+
+* **input:** make inverted disabled look darker ([1457e0f](https://github.com/baloise/ui-library-next/commit/1457e0f91525a4135e061e685d4193753f121758))
+
+
+
+
+
 # [1.6.0](https://github.com/baloise/ui-library-next/compare/v1.5.0...v1.6.0) (2020-11-04)
 
 
