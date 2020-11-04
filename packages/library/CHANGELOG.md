@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/baloise/ui-library-next/compare/v1.7.0...v1.7.1) (2020-11-04)
+
+
+### Bug Fixes
+
+* **field:** add disabled look ([5fff008](https://github.com/baloise/ui-library-next/commit/5fff008bc50bab2a506067838c9870e1a479ef63))
+
+
+
+
+
 # [1.7.0](https://github.com/baloise/ui-library-next/compare/v1.6.1...v1.7.0) (2020-11-04)
 
 
