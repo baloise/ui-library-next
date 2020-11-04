@@ -69,6 +69,11 @@ export class Select {
     }
   }
 
+  onDropdownChange(event: CustomEvent<boolean>) {
+    event.stopPropagation()
+    event.preventDefault()
+  }
+
   onInput(event: InputEvent) {
     const inputValue = (event.target as HTMLInputElement).value
     this.balInput.emit(inputValue)
@@ -100,6 +105,7 @@ export class Select {
         <bal-dropdown
           expanded={this.expanded}
           scrollable={this.scrollable}
+          onBalChange={e => this.onDropdownChange(e)}
           ref={el => (this.dropdownElement = el as HTMLBalDropdownElement)}>
           <div class="control has-icons-right" slot="trigger">
             <input

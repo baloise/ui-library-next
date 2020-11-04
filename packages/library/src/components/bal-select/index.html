@@ -25,6 +25,9 @@
           optionsYear.push({ text: `${index}`, value: index })
         }
         selectYear.options = optionsYear
+        selectYear.addEventListener('balChange', function (evt) {
+          console.log(evt)
+        })
         buttonYear.addEventListener('click', function () {
           selectYear.clear()
         })
