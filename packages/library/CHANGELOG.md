@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/baloise/ui-library-next/compare/v1.8.1...v1.8.2) (2020-11-04)
+
+
+### Bug Fixes
+
+* **select:** remove console.log and add some helpers ([7ee1137](https://github.com/baloise/ui-library-next/commit/7ee113730d2579ab42d45b7c1630e8db5252d8e3))
+
+
+
+
+
 ## [1.8.1](https://github.com/baloise/ui-library-next/compare/v1.8.0...v1.8.1) (2020-11-04)
 
 
