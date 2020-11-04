@@ -22,7 +22,7 @@ The steps list is useful for tracking progress in multi steps forms or wizards.
 | -------------- | ---------------------------------------- | --------------------------------- |
 | `balBackClick` | Emitted when the back button is clicked. | `CustomEvent<void>`               |
 | `balChange`    | Emitted when the changes has finished.   | `CustomEvent<BalCardStepOptions>` |
-| `balStepClick` | Emitted when the step circle is clicked. | `CustomEvent<number>`             |
+| `balStepClick` | Emitted when the step circle is clicked. | `CustomEvent<BalCardStepOptions>` |
 
 
 ## Methods

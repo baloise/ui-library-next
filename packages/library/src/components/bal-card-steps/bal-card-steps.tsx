@@ -45,7 +45,7 @@ export class CardSteps {
   /**
    * Emitted when the step circle is clicked.
    */
-  @Event() balStepClick: EventEmitter<number>
+  @Event() balStepClick: EventEmitter<BalCardStepOptions>
 
   /**
    * Select a step.
@@ -77,12 +77,12 @@ export class CardSteps {
     )
   }
 
-  private async onSelectStep(step: BalCardStepOptions, index: number): Promise<void> {
+  private async onSelectStep(step: BalCardStepOptions): Promise<void> {
     if (!step.disabled) {
       await this.select(step.value)
       this.balChange.emit(step)
     }
-    this.balStepClick.emit(index)
+    this.balStepClick.emit(step)
   }
 
   private getPreviousStepIndex() {
@@ -122,7 +122,7 @@ export class CardSteps {
                     step.done ? 'is-done' : '',
                   ].join(' ')}
                 >
-                  <a onClick={() => this.onSelectStep(step, index)}
+                  <a onClick={() => this.onSelectStep(step)}
                     title={step.label}>
                     <span class="step-index"><span>{index + 1}</span></span>
                   </a>

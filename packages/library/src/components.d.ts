@@ -652,7 +652,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the step circle is clicked.
          */
-        "onBalStepClick"?: (event: CustomEvent<number>) => void;
+        "onBalStepClick"?: (event: CustomEvent<BalCardStepOptions>) => void;
     }
     interface BalCardSubtitle {
         /**
