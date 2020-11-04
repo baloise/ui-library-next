@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/baloise/ui-library-next/compare/v1.9.0...v1.9.1) (2020-11-04)
+
+
+### Bug Fixes
+
+* **select:** catch dropdown change events ([e9796d2](https://github.com/baloise/ui-library-next/commit/e9796d2663646f6da2d72b136687bc18762c4af2))
+
+
+
+
+
 # [1.9.0](https://github.com/baloise/ui-library-next/compare/v1.8.3...v1.9.0) (2020-11-04)
 
 
