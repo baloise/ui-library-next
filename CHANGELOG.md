@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.3](https://github.com/baloise/ui-library-next/compare/v1.8.2...v1.8.3) (2020-11-04)
+
+
+### Bug Fixes
+
+* **select:** add inverted and expanded style ([9e6232a](https://github.com/baloise/ui-library-next/commit/9e6232ae7deb2875568a5de6f1994cb01f0483a8))
+
+
+
+
+
 ## [1.8.2](https://github.com/baloise/ui-library-next/compare/v1.8.1...v1.8.2) (2020-11-04)
 
 
