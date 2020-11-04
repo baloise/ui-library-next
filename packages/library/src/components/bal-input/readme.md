@@ -12,7 +12,10 @@
 | `clickable`   | `clickable`   |                                                                 | `boolean` | `false`        |
 | `disabled`    | `disabled`    |                                                                 | `boolean` | `false`        |
 | `inverted`    | `inverted`    |                                                                 | `boolean` | `false`        |
+| `maxLength`   | `max-length`  |                                                                 | `number`  | `undefined`    |
+| `minLength`   | `min-length`  |                                                                 | `number`  | `undefined`    |
 | `name`        | `name`        | The name of the control, which is submitted with the form data. | `string`  | `this.inputId` |
+| `pattern`     | `pattern`     |                                                                 | `string`  | `''`           |
 | `placeholder` | `placeholder` |                                                                 | `string`  | `''`           |
 | `readonly`    | `readonly`    |                                                                 | `boolean` | `false`        |
 | `type`        | `type`        |                                                                 | `string`  | `'text'`       |

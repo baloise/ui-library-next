@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { FormsModule } from '@angular/forms'
 import { defineCustomElements } from '@baloise/ui-library-next/loader'
 
 import { DIRECTIVES } from './directives/proxies-list'
 import { BooleanValueAccessor } from './directives/boolean-value-accessor'
 import { TextValueAccessor } from './directives/text-value-accessor'
-import { FormsModule } from '@angular/forms'
+import { SelectValueAccessor } from './directives/select-value-accessor'
 
 defineCustomElements(window)
 
@@ -16,6 +17,7 @@ const DECLARATIONS = [
   // ngModel accessors
   BooleanValueAccessor,
   TextValueAccessor,
+  SelectValueAccessor,
 ]
 
 @NgModule({

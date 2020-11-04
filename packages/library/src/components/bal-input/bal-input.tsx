@@ -18,6 +18,9 @@ export class Input {
   @Prop() name: string = this.inputId
   @Prop() type: string = 'text'
   @Prop() placeholder = ''
+  @Prop() pattern = ''
+  @Prop() maxLength: number | undefined = undefined
+  @Prop() minLength: number | undefined = undefined
   @Prop() inverted = false
   @Prop() readonly = false
   @Prop() disabled = false
@@ -69,6 +72,9 @@ export class Input {
           value={this.value}
           disabled={this.disabled}
           readonly={this.readonly}
+          pattern={this.pattern}
+          maxLength={this.maxLength}
+          minLength={this.minLength}
           onInput={e => this.onInput(e as any)}
           onBlur={e => this.balBlur.emit(e)}
           onClick={e => this.balClick.emit(e)}

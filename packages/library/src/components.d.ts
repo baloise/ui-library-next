@@ -304,10 +304,13 @@ export namespace Components {
         "clickable": boolean;
         "disabled": boolean;
         "inverted": boolean;
+        "maxLength": number | undefined;
+        "minLength": number | undefined;
         /**
           * The name of the control, which is submitted with the form data.
          */
         "name": string;
+        "pattern": string;
         "placeholder": string;
         "readonly": boolean;
         "setFocus": () => Promise<void>;
@@ -792,6 +795,8 @@ declare namespace LocalJSX {
         "clickable"?: boolean;
         "disabled"?: boolean;
         "inverted"?: boolean;
+        "maxLength"?: number | undefined;
+        "minLength"?: number | undefined;
         /**
           * The name of the control, which is submitted with the form data.
          */
@@ -803,6 +808,7 @@ declare namespace LocalJSX {
         "onBalKeyDown"?: (event: CustomEvent<KeyboardEvent>) => void;
         "onBalKeyPress"?: (event: CustomEvent<KeyboardEvent>) => void;
         "onBalKeyUp"?: (event: CustomEvent<KeyboardEvent>) => void;
+        "pattern"?: string;
         "placeholder"?: string;
         "readonly"?: boolean;
         "type"?: string;

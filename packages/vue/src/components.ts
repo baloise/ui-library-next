@@ -255,6 +255,9 @@ export const BalInput = /*@__PURE__*/ Vue.extend({
     name: {} as PropOptions<Components.BalInput['name']>,
     type: {} as PropOptions<Components.BalInput['type']>,
     placeholder: {} as PropOptions<Components.BalInput['placeholder']>,
+    pattern: {} as PropOptions<Components.BalInput['pattern']>,
+    maxLength: {} as PropOptions<Components.BalInput['maxLength']>,
+    minLength: {} as PropOptions<Components.BalInput['minLength']>,
     inverted: {} as PropOptions<Components.BalInput['inverted']>,
     readonly: {} as PropOptions<Components.BalInput['readonly']>,
     disabled: {} as PropOptions<Components.BalInput['disabled']>,
@@ -289,6 +292,10 @@ export const BalSelect = /*@__PURE__*/ Vue.extend({
     options: {} as PropOptions<Components.BalSelect['options']>,
   },
 
+  model: {
+    prop: 'value',
+    event: 'balChange'
+  },
 
   methods: {
     clear: createCommonMethod('clear') as Components.BalSelect['clear'],

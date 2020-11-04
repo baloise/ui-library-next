@@ -15,6 +15,11 @@ const vueComponentModels: ComponentModelConfig[] = [
     targetAttr: 'checked',
   },
   {
+    elements: ['bal-select'],
+    event: 'balChange',
+    targetAttr: 'value',
+  },
+  {
     elements: ['bal-input'],
     event: 'balInput',
     targetAttr: 'value',
@@ -30,7 +35,14 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [
     event: 'balChange',
     targetAttr: 'checked',
     type: 'boolean',
-  },{
+  },
+  {
+    elementSelectors: ['bal-select'],
+    event: 'balChange',
+    targetAttr: 'value',
+    type: 'select',
+  },
+  {
     elementSelectors: ['bal-input'],
     event: 'balInput',
     targetAttr: 'value',
