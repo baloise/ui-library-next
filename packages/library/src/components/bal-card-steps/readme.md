@@ -8,17 +8,21 @@ The steps list is useful for tracking progress in multi steps forms or wizards.
 
 ## Properties
 
-| Property   | Attribute  | Description                                           | Type      | Default |
-| ---------- | ---------- | ----------------------------------------------------- | --------- | ------- |
-| `hidden`   | `hidden`   | If `true` the steps navigation is hidden.             | `boolean` | `false` |
-| `inverted` | `inverted` | If `true` a the style is ready for a dark background. | `boolean` | `false` |
+| Property    | Attribute    | Description                                           | Type      | Default     |
+| ----------- | ------------ | ----------------------------------------------------- | --------- | ----------- |
+| `backLabel` | `back-label` | Label for back button                                 | `string`  | `undefined` |
+| `hasBack`   | `has-back`   | If `true` the steps navigation has back button.       | `boolean` | `false`     |
+| `hidden`    | `hidden`     | If `true` the steps navigation is hidden.             | `boolean` | `false`     |
+| `inverted`  | `inverted`   | If `true` a the style is ready for a dark background. | `boolean` | `false`     |
 
 
 ## Events
 
-| Event                   | Description                            | Type                              |
-| ----------------------- | -------------------------------------- | --------------------------------- |
-| `balCardStepsDidChange` | Emitted when the changes has finished. | `CustomEvent<BalCardStepOptions>` |
+| Event                   | Description                              | Type                              |
+| ----------------------- | ---------------------------------------- | --------------------------------- |
+| `backButtonEvent`       | Emitted when the back button is pressed. | `CustomEvent<void>`               |
+| `balCardStepsDidChange` | Emitted when the changes has finished.   | `CustomEvent<BalCardStepOptions>` |
+| `stepCircleEvent`       | Emitted when the step circle is pressed. | `CustomEvent<number>`             |
 
 
 ## Methods
@@ -33,6 +37,19 @@ Type: `Promise<void>`
 
 
 
+
+## Dependencies
+
+### Depends on
+
+- [bal-icon](../bal-icon)
+
+### Graph
+```mermaid
+graph TD;
+  bal-card-steps --> bal-icon
+  style bal-card-steps fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 

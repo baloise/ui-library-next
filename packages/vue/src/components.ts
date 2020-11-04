@@ -138,13 +138,15 @@ export const BalCardSteps = /*@__PURE__*/ Vue.extend({
   props: {
     inverted: {} as PropOptions<Components.BalCardSteps['inverted']>,
     hidden: {} as PropOptions<Components.BalCardSteps['hidden']>,
+    hasBack: {} as PropOptions<Components.BalCardSteps['hasBack']>,
+    backLabel: {} as PropOptions<Components.BalCardSteps['backLabel']>,
   },
 
 
   methods: {
     select: createCommonMethod('select') as Components.BalCardSteps['select'],
   },
-  render: createCommonRender('bal-card-steps', ['balCardStepsDidChange']),
+  render: createCommonRender('bal-card-steps', ['balCardStepsDidChange', 'backButtonEvent', 'stepCircleEvent']),
 });
 
 
@@ -238,6 +240,7 @@ export const BalIcon = /*@__PURE__*/ Vue.extend({
     isRight: {} as PropOptions<Components.BalIcon['isRight']>,
     isLeft: {} as PropOptions<Components.BalIcon['isLeft']>,
     rotate: {} as PropOptions<Components.BalIcon['rotate']>,
+    color: {} as PropOptions<Components.BalIcon['color']>,
   },
 
 

@@ -143,24 +143,28 @@ export class BalCardStep {
 import { CardSteps as ICardSteps } from '@baloise/ui-library-next/dist/types/components/bal-card-steps/bal-card-steps';
 export declare interface BalCardSteps extends Components.BalCardSteps {}
 @ProxyCmp({
-  inputs: ['hidden', 'inverted'],
+  inputs: ['backLabel', 'hasBack', 'hidden', 'inverted'],
   methods: ['select']
 })
 @Component({
   selector: 'bal-card-steps',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['hidden', 'inverted'],
-  outputs: ['balCardStepsDidChange']
+  inputs: ['backLabel', 'hasBack', 'hidden', 'inverted'],
+  outputs: ['balCardStepsDidChange', 'backButtonEvent', 'stepCircleEvent']
 })
 export class BalCardSteps {
   /** Emitted when the changes has finished. */
   balCardStepsDidChange!: ICardSteps['stepsDidChange'];
+  /** Emitted when the back button is pressed. */
+  backButtonEvent!: ICardSteps['backButtonEvent'];
+  /** Emitted when the step circle is pressed. */
+  stepCircleEvent!: ICardSteps['stepCircleEvent'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balCardStepsDidChange']);
+    proxyOutputs(this, this.el, ['balCardStepsDidChange', 'backButtonEvent', 'stepCircleEvent']);
   }
 }
 
@@ -276,13 +280,13 @@ export class BalField {
 
 export declare interface BalIcon extends Components.BalIcon {}
 @ProxyCmp({
-  inputs: ['isLeft', 'isRight', 'name', 'rotate', 'size']
+  inputs: ['color', 'isLeft', 'isRight', 'name', 'rotate', 'size']
 })
 @Component({
   selector: 'bal-icon',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['isLeft', 'isRight', 'name', 'rotate', 'size']
+  inputs: ['color', 'isLeft', 'isRight', 'name', 'rotate', 'size']
 })
 export class BalIcon {
   protected el: HTMLElement;
