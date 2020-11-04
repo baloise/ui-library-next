@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/baloise/ui-library-next/compare/v1.8.3...v1.9.0) (2020-11-04)
+
+
+### Features
+
+* **select:** add model usage ([77d4333](https://github.com/baloise/ui-library-next/commit/77d4333f7050bb05f668213b11d494f3d238e6d1))
+
+
+
+
+
 ## [1.8.3](https://github.com/baloise/ui-library-next/compare/v1.8.2...v1.8.3) (2020-11-04)
 
 
