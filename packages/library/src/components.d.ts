@@ -326,7 +326,7 @@ export namespace Components {
     }
     interface BalSelectOption {
         /**
-          * If `true` the option is focused
+          * TODO: add description
          */
         "checkbox": boolean;
         /**
@@ -821,7 +821,7 @@ declare namespace LocalJSX {
     }
     interface BalSelectOption {
         /**
-          * If `true` the option is focused
+          * TODO: add description
          */
         "checkbox"?: boolean;
         /**

@@ -11,7 +11,7 @@
 
 | Property   | Attribute  | Description                                                                                       | Type                  | Default     |
 | ---------- | ---------- | ------------------------------------------------------------------------------------------------- | --------------------- | ----------- |
-| `checkbox` | `checkbox` | If `true` the option is focused                                                                   | `boolean`             | `false`     |
+| `checkbox` | `checkbox` | TODO: add description                                                                             | `boolean`             | `false`     |
 | `focused`  | `focused`  | If `true` the option is focused                                                                   | `boolean`             | `false`     |
 | `hidden`   | `hidden`   |                                                                                                   | `boolean`             | `false`     |
 | `icon`     | `icon`     | Baloise icon as a prefix                                                                          | `string`              | `''`        |

@@ -23,7 +23,7 @@ export class SelectOption {
   @Prop() icon = ''
 
   /**
-   * If `true` the option is focused
+   * TODO: add description
    */
   @Prop() checkbox = false
 
@@ -44,7 +44,6 @@ export class SelectOption {
     event.preventDefault()
     event.stopPropagation()
     this.selected = event.detail === null ? false : this.value.value === event.detail.value
-    console.log('this.selected', this.selected)
   }
 
   @Listen('balSelectInput')
