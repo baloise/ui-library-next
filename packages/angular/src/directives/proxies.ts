@@ -257,13 +257,13 @@ export class BalDropdown {
 
 export declare interface BalField extends Components.BalField {}
 @ProxyCmp({
-  inputs: ['iconLeft', 'iconRight', 'inverted', 'label', 'loading', 'required', 'validationMessage']
+  inputs: ['disabled', 'iconLeft', 'iconRight', 'inverted', 'label', 'loading', 'required', 'validationMessage']
 })
 @Component({
   selector: 'bal-field',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['iconLeft', 'iconRight', 'inverted', 'label', 'loading', 'required', 'validationMessage']
+  inputs: ['disabled', 'iconLeft', 'iconRight', 'inverted', 'label', 'loading', 'required', 'validationMessage']
 })
 export class BalField {
   protected el: HTMLElement;

@@ -35,6 +35,10 @@ p.help {
 }
 
 .form {
+  &.is-disabled {
+    opacity: 0.6;
+  }
+
   &.is-inverted {
     .label {
       color: $white;

@@ -1,4 +1,4 @@
-# ie-app
+# Vue Example 
 
 ## Project setup
 ```

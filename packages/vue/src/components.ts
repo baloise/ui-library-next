@@ -217,6 +217,7 @@ export const BalField = /*@__PURE__*/ Vue.extend({
   props: {
     label: {} as PropOptions<Components.BalField['label']>,
     required: {} as PropOptions<Components.BalField['required']>,
+    disabled: {} as PropOptions<Components.BalField['disabled']>,
     validationMessage: {} as PropOptions<Components.BalField['validationMessage']>,
     iconRight: {} as PropOptions<Components.BalField['iconRight']>,
     iconLeft: {} as PropOptions<Components.BalField['iconLeft']>,
@@ -259,7 +260,7 @@ export const BalInput = /*@__PURE__*/ Vue.extend({
 
   model: {
     prop: 'value',
-    event: 'balChange'
+    event: 'balInput'
   },
 
   methods: {

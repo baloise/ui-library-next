@@ -10,6 +10,7 @@ All generic form field, designed for consistency
 
 | Property            | Attribute            | Description                                                    | Type      | Default |
 | ------------------- | -------------------- | -------------------------------------------------------------- | --------- | ------- |
+| `disabled`          | `disabled`           | If `true` the field loses opacity                              | `boolean` | `false` |
 | `iconLeft`          | `icon-left`          | Baloise icon for the left side of the input                    | `string`  | `''`    |
 | `iconRight`         | `icon-right`         | Baloise icon for the right side of the input                   | `string`  | `''`    |
 | `inverted`          | `inverted`           | If `true` the field can be used on blue background.            | `boolean` | `false` |

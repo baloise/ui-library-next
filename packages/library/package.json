@@ -1,6 +1,6 @@
 {
   "name": "@baloise/ui-library-next",
-  "version": "0.3.2",
+  "version": "1.7.1",
   "publishConfig": {
     "access": "public"
   },
@@ -38,5 +38,5 @@
     "@types/autoprefixer": "^9.7.2",
     "autoprefixer": "^10.0.1"
   },
-  "gitHead": "b167aad662bd9c34eb0b5d894b350c69370759a2"
+  "gitHead": "722ef389df9b49212894042493cb203eb8fd8f09"
 }

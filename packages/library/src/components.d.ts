@@ -230,6 +230,10 @@ export namespace Components {
     }
     interface BalField {
         /**
+          * If `true` the field loses opacity
+         */
+        "disabled": boolean;
+        /**
           * Baloise icon for the left side of the input
          */
         "iconLeft": string;
@@ -691,6 +695,10 @@ declare namespace LocalJSX {
         "scrollable"?: number;
     }
     interface BalField {
+        /**
+          * If `true` the field loses opacity
+         */
+        "disabled"?: boolean;
         /**
           * Baloise icon for the left side of the input
          */

@@ -20,6 +20,11 @@ export class Field {
   @Prop() required: boolean = false
 
   /**
+   * If `true` the field loses opacity
+   */
+  @Prop() disabled: boolean = false
+
+  /**
    * Validation message text
    */
   @Prop() validationMessage: string = ''
@@ -61,7 +66,12 @@ export class Field {
   render() {
     return (
       <Host>
-        <div class={['form', this.inverted ? 'is-inverted' : ''].join(' ')}>
+        <div
+          class={{
+            'form': true,
+            'is-inverted': this.inverted,
+            'is-disabled': this.disabled,
+          }}>
           <label class="label" htmlFor={this.findInputId()}>
             {this.label}
             {this.required === true ? '*' : ''}

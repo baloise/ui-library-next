@@ -3,6 +3,230 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/baloise/ui-library-next/compare/v1.7.0...v1.7.1) (2020-11-04)
+
+
+### Bug Fixes
+
+* **field:** add disabled look ([5fff008](https://github.com/baloise/ui-library-next/commit/5fff008bc50bab2a506067838c9870e1a479ef63))
+
+
+
+
+
+# [1.7.0](https://github.com/baloise/ui-library-next/compare/v1.6.1...v1.7.0) (2020-11-04)
+
+
+### Features
+
+* **field:** add disabled look ([fc4a548](https://github.com/baloise/ui-library-next/commit/fc4a548881ba91453955a27a817842167d73eba8))
+
+
+
+
+
+## [1.6.1](https://github.com/baloise/ui-library-next/compare/v1.6.0...v1.6.1) (2020-11-04)
+
+
+### Bug Fixes
+
+* **input:** make inverted disabled look darker ([1457e0f](https://github.com/baloise/ui-library-next/commit/1457e0f91525a4135e061e685d4193753f121758))
+
+
+
+
+
+# [1.6.0](https://github.com/baloise/ui-library-next/compare/v1.5.0...v1.6.0) (2020-11-04)
+
+**Note:** Version bump only for package @baloise/ui-library-next
+
+
+
+
+
+# [1.5.0](https://github.com/baloise/ui-library-next/compare/v1.4.0...v1.5.0) (2020-11-03)
+
+**Note:** Version bump only for package @baloise/ui-library-next
+
+
+
+
+
+# [1.4.0](https://github.com/baloise/ui-library-next/compare/v1.3.16...v1.4.0) (2020-11-03)
+
+
+### Features
+
+* **angular:** add two-way binding ([f6e1957](https://github.com/baloise/ui-library-next/commit/f6e19577777a4180ce2cf38e9cd31c592e1957eb))
+
+
+
+
+
+## [1.3.16](https://github.com/baloise/ui-library-next/compare/v1.3.15...v1.3.16) (2020-11-03)
+
+
+### Bug Fixes
+
+* **angular:** fix path configs ([4794b50](https://github.com/baloise/ui-library-next/commit/4794b509ec7713a7ef594c3618d9e1be4439a92a))
+
+
+
+
+
+## [1.3.15](https://github.com/baloise/ui-library-next/compare/v1.3.14...v1.3.15) (2020-11-03)
+
+
+### Bug Fixes
+
+* **angular:** fix path configs ([5e0b371](https://github.com/baloise/ui-library-next/commit/5e0b371d2134ab47386c0b7249ef475a691558ff))
+
+
+
+
+
+## [1.3.14](https://github.com/baloise/ui-library-next/compare/v1.3.13...v1.3.14) (2020-11-03)
+
+
+### Bug Fixes
+
+* **angular:** fix path configs ([7a3cb5e](https://github.com/baloise/ui-library-next/commit/7a3cb5e71bc2d8b6e28abd14c85e3c63bcd687c0))
+
+
+
+
+
+## [1.3.13](https://github.com/baloise/ui-library-next/compare/v1.3.12...v1.3.13) (2020-11-03)
+
+
+### Bug Fixes
+
+* **angular:** fix path configs ([90c0567](https://github.com/baloise/ui-library-next/commit/90c0567dd5d4aa8c705d71876b648923af82be8b))
+
+
+
+
+
+## [1.3.12](https://github.com/baloise/ui-library-next/compare/v1.3.11...v1.3.12) (2020-11-03)
+
+
+### Bug Fixes
+
+* **angular:** fix path configs ([85e3a46](https://github.com/baloise/ui-library-next/commit/85e3a46f7850e58c2733ded9685bb27de60baf04))
+
+
+
+
+
+## [1.3.11](https://github.com/baloise/ui-library-next/compare/v1.3.10...v1.3.11) (2020-11-03)
+
+**Note:** Version bump only for package @baloise/ui-library-next
+
+
+
+
+
+## [1.3.10](https://github.com/baloise/ui-library-next/compare/v1.3.9...v1.3.10) (2020-11-03)
+
+**Note:** Version bump only for package @baloise/ui-library-next
+
+
+
+
+
+## [1.3.9](https://github.com/baloise/ui-library-next/compare/v1.3.8...v1.3.9) (2020-11-03)
+
+**Note:** Version bump only for package @baloise/ui-library-next
+
+
+
+
+
+## [1.3.8](https://github.com/baloise/ui-library-next/compare/v1.3.7...v1.3.8) (2020-11-03)
+
+**Note:** Version bump only for package @baloise/ui-library-next
+
+
+
+
+
+## [1.3.7](https://github.com/baloise/ui-library-next/compare/v1.3.6...v1.3.7) (2020-11-03)
+
+**Note:** Version bump only for package @baloise/ui-library-next
+
+
+
+
+
+## [1.3.6](https://github.com/baloise/ui-library-next/compare/v1.3.5...v1.3.6) (2020-11-03)
+
+**Note:** Version bump only for package @baloise/ui-library-next
+
+
+
+
+
+## [1.3.5](https://github.com/baloise/ui-library-next/compare/v1.3.4...v1.3.5) (2020-11-03)
+
+**Note:** Version bump only for package @baloise/ui-library-next
+
+
+
+
+
+## [1.3.4](https://github.com/baloise/ui-library-next/compare/v1.3.3...v1.3.4) (2020-11-03)
+
+**Note:** Version bump only for package @baloise/ui-library-next
+
+
+
+
+
+## [1.3.3](https://github.com/baloise/ui-library-next/compare/v1.3.2...v1.3.3) (2020-11-03)
+
+**Note:** Version bump only for package @baloise/ui-library-next
+
+
+
+
+
+## [1.3.2](https://github.com/baloise/ui-library-next/compare/v1.3.1...v1.3.2) (2020-11-03)
+
+**Note:** Version bump only for package @baloise/ui-library-next
+
+
+
+
+
+## [1.3.1](https://github.com/baloise/ui-library-next/compare/v1.3.0...v1.3.1) (2020-11-03)
+
+**Note:** Version bump only for package @baloise/ui-library-next
+
+
+
+
+
+# 1.3.0 (2020-11-03)
+
+
+### Bug Fixes
+
+* **button:** adjust icon position ([7f58491](https://github.com/baloise/ui-library-next/commit/7f58491801ef5a5c5cdd6d441716a99ffa033d8c))
+* **styles:** improve style ordering ([cdf09f8](https://github.com/baloise/ui-library-next/commit/cdf09f8ddfae57a3e228375ea130476dd6bc4cde))
+* stencil build ([ffa80df](https://github.com/baloise/ui-library-next/commit/ffa80df4d3a9f7e8dc30dff97567682e29b9b6d7))
+* update deps ([46f98c0](https://github.com/baloise/ui-library-next/commit/46f98c04ea284e03e5573fabea2bc1392db6742e))
+
+
+### Features
+
+* **card:** add teaser theme ([4ddfb14](https://github.com/baloise/ui-library-next/commit/4ddfb141633b36bfc79b9ff2c7cdd52bf19b1e2c))
+* **dropdown:** simplify usage and improve docs ([9583004](https://github.com/baloise/ui-library-next/commit/958300485c8720831bdd2f4a0ec3850b10f55ab5))
+* **select:** add select ([5d11e06](https://github.com/baloise/ui-library-next/commit/5d11e06a1b4294f4732cce13bd8f8305541deac2))
+
+
+
+
+
 ## [0.3.2](https://github.com/baloise/ui-library-next/compare/@baloise/ui-library-next@0.3.1...@baloise/ui-library-next@0.3.2) (2020-11-03)
 
 **Note:** Version bump only for package @baloise/ui-library-next
