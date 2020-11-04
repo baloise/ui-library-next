@@ -21,9 +21,9 @@
 
 ## Events
 
-| Event                | Description                          | Type               |
-| -------------------- | ------------------------------------ | ------------------ |
-| `balCardStepChanged` | Emitted when the steps get rendered. | `CustomEvent<any>` |
+| Event           | Description                          | Type               |
+| --------------- | ------------------------------------ | ------------------ |
+| `balStepChange` | Emitted when the steps get rendered. | `CustomEvent<any>` |
 
 
 ## Methods

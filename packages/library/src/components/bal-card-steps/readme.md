@@ -8,21 +8,21 @@ The steps list is useful for tracking progress in multi steps forms or wizards.
 
 ## Properties
 
-| Property    | Attribute    | Description                                           | Type      | Default     |
-| ----------- | ------------ | ----------------------------------------------------- | --------- | ----------- |
-| `backLabel` | `back-label` | Label for back button                                 | `string`  | `undefined` |
-| `hasBack`   | `has-back`   | If `true` the steps navigation has back button.       | `boolean` | `false`     |
-| `hidden`    | `hidden`     | If `true` the steps navigation is hidden.             | `boolean` | `false`     |
-| `inverted`  | `inverted`   | If `true` a the style is ready for a dark background. | `boolean` | `false`     |
+| Property    | Attribute    | Description                                           | Type      | Default |
+| ----------- | ------------ | ----------------------------------------------------- | --------- | ------- |
+| `backLabel` | `back-label` | Label for back button                                 | `string`  | `''`    |
+| `hasBack`   | `has-back`   | If `true` the steps navigation has back button.       | `boolean` | `false` |
+| `hidden`    | `hidden`     | If `true` the steps navigation is hidden.             | `boolean` | `false` |
+| `inverted`  | `inverted`   | If `true` a the style is ready for a dark background. | `boolean` | `false` |
 
 
 ## Events
 
-| Event                   | Description                              | Type                              |
-| ----------------------- | ---------------------------------------- | --------------------------------- |
-| `backButtonEvent`       | Emitted when the back button is pressed. | `CustomEvent<void>`               |
-| `balCardStepsDidChange` | Emitted when the changes has finished.   | `CustomEvent<BalCardStepOptions>` |
-| `stepCircleEvent`       | Emitted when the step circle is pressed. | `CustomEvent<number>`             |
+| Event            | Description                              | Type                              |
+| ---------------- | ---------------------------------------- | --------------------------------- |
+| `balBackClick`   | Emitted when the back button is clicked. | `CustomEvent<void>`               |
+| `balStepClick`   | Emitted when the step circle is clicked. | `CustomEvent<number>`             |
+| `balStepsChange` | Emitted when the changes has finished.   | `CustomEvent<BalCardStepOptions>` |
 
 
 ## Methods

@@ -30,22 +30,22 @@ export class CardSteps {
   /**
    * Label for back button
    */
-  @Prop() backLabel: string
+  @Prop() backLabel: string = ''
 
   /**
    * Emitted when the changes has finished.
    */
-  @Event({ eventName: 'balCardStepsDidChange' }) stepsDidChange: EventEmitter<BalCardStepOptions>
+  @Event() balStepsChange: EventEmitter<BalCardStepOptions>
 
   /**
-   * Emitted when the back button is pressed.
+   * Emitted when the back button is clicked.
    */
-  @Event() backButtonEvent: EventEmitter<void>
+  @Event() balBackClick: EventEmitter<void>
 
   /**
-   * Emitted when the step circle is pressed.
+   * Emitted when the step circle is clicked.
    */
-  @Event() stepCircleEvent: EventEmitter<number>
+  @Event() balStepClick: EventEmitter<number>
 
   /**
    * Select a step.
@@ -80,9 +80,9 @@ export class CardSteps {
   private async onSelectStep(step: BalCardStepOptions, index: number): Promise<void> {
     if (!step.disabled) {
       await this.select(step.value)
-      this.stepsDidChange.emit(step)
+      this.balStepsChange.emit(step)
     }
-    this.stepCircleEvent.emit(index)
+    this.balStepClick.emit(index)
   }
 
   private getPreviousStepIndex() {
@@ -98,7 +98,7 @@ export class CardSteps {
       await this.select(previousStep.value)
     }
 
-    this.backButtonEvent.emit()
+    this.balBackClick.emit()
   }
 
   render() {

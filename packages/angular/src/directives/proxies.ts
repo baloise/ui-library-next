@@ -127,16 +127,16 @@ export declare interface BalCardStep extends Components.BalCardStep {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['active', 'disabled', 'done', 'hidden', 'label', 'value'],
-  outputs: ['balCardStepChanged']
+  outputs: ['balStepChange']
 })
 export class BalCardStep {
   /** Emitted when the steps get rendered. */
-  balCardStepChanged!: ICardStep['stepChanged'];
+  balStepChange!: ICardStep['balStepChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balCardStepChanged']);
+    proxyOutputs(this, this.el, ['balStepChange']);
   }
 }
 
@@ -151,20 +151,20 @@ export declare interface BalCardSteps extends Components.BalCardSteps {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['backLabel', 'hasBack', 'hidden', 'inverted'],
-  outputs: ['balCardStepsDidChange', 'backButtonEvent', 'stepCircleEvent']
+  outputs: ['balStepsChange', 'balBackClick', 'balStepClick']
 })
 export class BalCardSteps {
   /** Emitted when the changes has finished. */
-  balCardStepsDidChange!: ICardSteps['stepsDidChange'];
-  /** Emitted when the back button is pressed. */
-  backButtonEvent!: ICardSteps['backButtonEvent'];
-  /** Emitted when the step circle is pressed. */
-  stepCircleEvent!: ICardSteps['stepCircleEvent'];
+  balStepsChange!: ICardSteps['balStepsChange'];
+  /** Emitted when the back button is clicked. */
+  balBackClick!: ICardSteps['balBackClick'];
+  /** Emitted when the step circle is clicked. */
+  balStepClick!: ICardSteps['balStepClick'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balCardStepsDidChange', 'backButtonEvent', 'stepCircleEvent']);
+    proxyOutputs(this, this.el, ['balStepsChange', 'balBackClick', 'balStepClick']);
   }
 }
 

@@ -48,7 +48,7 @@ export class CardStep {
   /**
    * Emitted when the steps get rendered.
    */
-  @Event({ eventName: 'balCardStepChanged' }) stepChanged: EventEmitter
+  @Event() balStepChange: EventEmitter
 
   get options() {
     return {

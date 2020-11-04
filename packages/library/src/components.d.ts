@@ -622,7 +622,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the steps get rendered.
          */
-        "onBalCardStepChanged"?: (event: CustomEvent<any>) => void;
+        "onBalStepChange"?: (event: CustomEvent<any>) => void;
         /**
           * This is the key of the step.
          */
@@ -646,17 +646,17 @@ declare namespace LocalJSX {
          */
         "inverted"?: boolean;
         /**
-          * Emitted when the back button is pressed.
+          * Emitted when the back button is clicked.
          */
-        "onBackButtonEvent"?: (event: CustomEvent<void>) => void;
+        "onBalBackClick"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the step circle is clicked.
+         */
+        "onBalStepClick"?: (event: CustomEvent<number>) => void;
         /**
           * Emitted when the changes has finished.
          */
-        "onBalCardStepsDidChange"?: (event: CustomEvent<BalCardStepOptions>) => void;
-        /**
-          * Emitted when the step circle is pressed.
-         */
-        "onStepCircleEvent"?: (event: CustomEvent<number>) => void;
+        "onBalStepsChange"?: (event: CustomEvent<BalCardStepOptions>) => void;
     }
     interface BalCardSubtitle {
         /**
