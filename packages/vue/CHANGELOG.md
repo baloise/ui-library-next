@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/baloise/ui-library-next/compare/v1.7.1...v1.8.0) (2020-11-04)
+
+
+### Features
+
+* **vue:** improve plugin ([5b2883d](https://github.com/baloise/ui-library-next/commit/5b2883df966b945da3914e9e85a2b071177cd502))
+
+
+
+
+
 ## [1.7.1](https://github.com/baloise/ui-library-next/compare/v1.7.0...v1.7.1) (2020-11-04)
 
 **Note:** Version bump only for package @baloise/ui-library-next-vue
