@@ -199,6 +199,7 @@ export const BalDropdown = /*@__PURE__*/ Vue.extend({
 
   props: {
     scrollable: {} as PropOptions<Components.BalDropdown['scrollable']>,
+    expanded: {} as PropOptions<Components.BalDropdown['expanded']>,
     isActive: {} as PropOptions<Components.BalDropdown['isActive']>,
   },
 
@@ -277,6 +278,8 @@ export const BalSelect = /*@__PURE__*/ Vue.extend({
 
   props: {
     remote: {} as PropOptions<Components.BalSelect['remote']>,
+    expanded: {} as PropOptions<Components.BalSelect['expanded']>,
+    inverted: {} as PropOptions<Components.BalSelect['inverted']>,
     disabled: {} as PropOptions<Components.BalSelect['disabled']>,
     typeahead: {} as PropOptions<Components.BalSelect['typeahead']>,
     loading: {} as PropOptions<Components.BalSelect['loading']>,

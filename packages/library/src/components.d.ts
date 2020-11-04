@@ -212,6 +212,10 @@ export namespace Components {
          */
         "close": () => Promise<void>;
         /**
+          * If `true` the field spans over the whole width.
+         */
+        "expanded": boolean;
+        /**
           * Returns the `HTMLDivElement` of the content element
          */
         "getContentElement": () => Promise<HTMLDivElement>;
@@ -316,6 +320,8 @@ export namespace Components {
     interface BalSelect {
         "clear": () => Promise<void>;
         "disabled": boolean;
+        "expanded": boolean;
+        "inverted": boolean;
         "loading": boolean;
         "options": BalOptionValue<any>[];
         "placeholder": string;
@@ -706,6 +712,10 @@ declare namespace LocalJSX {
     }
     interface BalDropdown {
         /**
+          * If `true` the field spans over the whole width.
+         */
+        "expanded"?: boolean;
+        /**
           * If `true` the dropdown content is open.
          */
         "isActive"?: boolean;
@@ -803,6 +813,8 @@ declare namespace LocalJSX {
     }
     interface BalSelect {
         "disabled"?: boolean;
+        "expanded"?: boolean;
+        "inverted"?: boolean;
         "loading"?: boolean;
         "onBalBlur"?: (event: CustomEvent<FocusEvent>) => void;
         "onBalChange"?: (event: CustomEvent<BalOptionValue<any>>) => void;

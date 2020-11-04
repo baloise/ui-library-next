@@ -13,6 +13,8 @@ Select fields components are used for collecting user provided information from 
 | Property      | Attribute     | Description | Type                    | Default     |
 | ------------- | ------------- | ----------- | ----------------------- | ----------- |
 | `disabled`    | `disabled`    |             | `boolean`               | `false`     |
+| `expanded`    | `expanded`    |             | `boolean`               | `false`     |
+| `inverted`    | `inverted`    |             | `boolean`               | `false`     |
 | `loading`     | `loading`     |             | `boolean`               | `false`     |
 | `options`     | --            |             | `BalOptionValue<any>[]` | `[]`        |
 | `placeholder` | `placeholder` |             | `string`                | `''`        |

@@ -1,7 +1,7 @@
 @import 'base/fonts.scss';
+@import './ui-library.utilities';
 
 .bal-app {
-  @import './ui-library.utilities';
   @import './utilities/helpers';
   @import './utilities/animations';
   @import './base/all';

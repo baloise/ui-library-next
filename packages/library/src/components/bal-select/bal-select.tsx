@@ -19,6 +19,8 @@ export class Select {
   @State() label = ''
 
   @Prop() remote = false
+  @Prop() expanded = false
+  @Prop() inverted = false
   @Prop() disabled = false
   @Prop() typeahead = false
   @Prop() loading = false
@@ -95,10 +97,17 @@ export class Select {
     this.optionElements.clear()
     return (
       <Host>
-        <bal-dropdown scrollable={this.scrollable} ref={el => (this.dropdownElement = el as HTMLBalDropdownElement)}>
+        <bal-dropdown
+          expanded={this.expanded}
+          scrollable={this.scrollable}
+          ref={el => (this.dropdownElement = el as HTMLBalDropdownElement)}>
           <div class="control has-icons-right" slot="trigger">
             <input
-              class="input clickable"
+              class={{
+                'input': true,
+                'clickable': true,
+                'is-inverted': this.inverted,
+              }}
               readonly={!this.typeahead}
               disabled={this.disabled}
               placeholder={this.placeholder}
@@ -116,6 +125,7 @@ export class Select {
             <bal-icon
               size="medium"
               rotate={this.loading}
+              color={this.inverted ? 'white' : 'blue'}
               name={this.loading ? 'refresh' : this.typeahead ? 'search' : 'caret-down'}
               is-right
             />

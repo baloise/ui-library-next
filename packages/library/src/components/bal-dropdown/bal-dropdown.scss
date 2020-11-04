@@ -1,7 +1,7 @@
-@import "bal-dropdown.vars";
+@import 'bal-dropdown.vars';
 @import '../bal-input/bal-input.scss';
-@import "node_modules/bulma/sass/components/dropdown.sass";
-@import "node_modules/bulma/sass/form/all";
+@import 'node_modules/bulma/sass/components/dropdown.sass';
+@import 'node_modules/bulma/sass/form/all';
 
 :host {
   display: block;
@@ -9,6 +9,13 @@
   .dropdown {
     .dropdown-trigger i.icon-caret-down {
       transition-duration: 0.5s;
+    }
+
+    &.is-expanded {
+      width: 100%;
+      .dropdown-trigger {
+        width: 100%;
+      }
     }
 
     &.is-active .dropdown-trigger i.icon-caret-down {
@@ -56,7 +63,6 @@
       width: 100%;
     }
 
-
     &.is-inverted {
       .icon > i {
         color: $blue-line;
@@ -83,7 +89,8 @@
       }
     }
 
-    .is-empty, .no-search-results {
+    .is-empty,
+    .no-search-results {
       display: flex;
       justify-content: center;
       align-items: center;

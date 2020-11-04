@@ -233,14 +233,14 @@ export class BalCheckbox {
 import { Dropdown as IDropdown } from '@baloise/ui-library-next/dist/types/components/bal-dropdown/bal-dropdown';
 export declare interface BalDropdown extends Components.BalDropdown {}
 @ProxyCmp({
-  inputs: ['isActive', 'scrollable'],
+  inputs: ['expanded', 'isActive', 'scrollable'],
   methods: ['open', 'close', 'toggle', 'getMenuElement', 'getContentElement']
 })
 @Component({
   selector: 'bal-dropdown',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['isActive', 'scrollable'],
+  inputs: ['expanded', 'isActive', 'scrollable'],
   outputs: ['balChange']
 })
 export class BalDropdown {
@@ -331,14 +331,14 @@ export class BalInput {
 import { Select as ISelect } from '@baloise/ui-library-next/dist/types/components/bal-select/bal-select';
 export declare interface BalSelect extends Components.BalSelect {}
 @ProxyCmp({
-  inputs: ['disabled', 'loading', 'options', 'placeholder', 'remote', 'scrollable', 'typeahead', 'value'],
+  inputs: ['disabled', 'expanded', 'inverted', 'loading', 'options', 'placeholder', 'remote', 'scrollable', 'typeahead', 'value'],
   methods: ['clear']
 })
 @Component({
   selector: 'bal-select',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['disabled', 'loading', 'options', 'placeholder', 'remote', 'scrollable', 'typeahead', 'value'],
+  inputs: ['disabled', 'expanded', 'inverted', 'loading', 'options', 'placeholder', 'remote', 'scrollable', 'typeahead', 'value'],
   outputs: ['balChange', 'balInput', 'balBlur', 'balFocus', 'balClick', 'balKeyDown', 'balKeyPress', 'balKeyUp']
 })
 export class BalSelect {

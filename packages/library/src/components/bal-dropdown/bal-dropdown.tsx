@@ -17,6 +17,11 @@ export class Dropdown {
   @Prop() scrollable: number = 0
 
   /**
+   * If `true` the field spans over the whole width.
+   */
+  @Prop() expanded: boolean = false
+
+  /**
    * If `true` the dropdown content is open.
    */
   @Prop({ mutable: true, reflect: true }) isActive = false
@@ -102,6 +107,7 @@ export class Dropdown {
           class={{
             'dropdown': true,
             'is-active': this.isActive,
+            'is-expanded': this.expanded,
           }}>
           <div class="dropdown-trigger">
             <slot name="trigger" />

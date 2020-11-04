@@ -30,6 +30,21 @@
         })
       </script>
 
+      <h2 class="title is-size-2">Inverted & Expanded</h2>
+      <section>
+        <div class="has-background-blue is-padded">
+          <bal-select id="bal-select-year-inverted" inverted expanded placeholder="select a year"></bal-select>
+        </div>
+      </section>
+      <script>
+        var selectYearInverted = document.getElementById('bal-select-year-inverted')
+        var optionsYearInverted = []
+        for (var index = 1990; index < 2020; index++) {
+          optionsYearInverted.push({ text: `${index}`, value: index })
+        }
+        selectYearInverted.options = optionsYearInverted
+      </script>
+
       <h2 class="title is-size-2">Custom Option Style</h2>
       <section>
         <bal-select id="bal-select-custom" placeholder="select a hero"></bal-select>

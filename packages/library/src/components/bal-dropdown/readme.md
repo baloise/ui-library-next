@@ -9,6 +9,7 @@
 
 | Property     | Attribute    | Description                                                         | Type      | Default |
 | ------------ | ------------ | ------------------------------------------------------------------- | --------- | ------- |
+| `expanded`   | `expanded`   | If `true` the field spans over the whole width.                     | `boolean` | `false` |
 | `isActive`   | `is-active`  | If `true` the dropdown content is open.                             | `boolean` | `false` |
 | `scrollable` | `scrollable` | Limit the height of the dropdown content. Pass the amount of pixel. | `number`  | `0`     |
 
