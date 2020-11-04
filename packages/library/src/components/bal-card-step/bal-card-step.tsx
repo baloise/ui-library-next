@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, h, Host, Method, Prop, State, Watch } from '@stencil/core'
+import { Component, h, Host, Method, Prop, State, Watch } from '@stencil/core'
 import { BalCardStepOptions } from './bal-card-step.type'
 
 @Component({
@@ -44,11 +44,6 @@ export class CardStep {
   activatedHandler(newActive: boolean) {
     this.isContentHidden = !newActive
   }
-
-  /**
-   * Emitted when the steps get rendered.
-   */
-  @Event({ eventName: 'balCardStepChanged' }) stepChanged: EventEmitter
 
   get options() {
     return {

@@ -116,7 +116,7 @@ export class BalCardHeading {
   }
 }
 
-import { CardStep as ICardStep } from '@baloise/ui-library-next/dist/types/components/bal-card-step/bal-card-step';
+
 export declare interface BalCardStep extends Components.BalCardStep {}
 @ProxyCmp({
   inputs: ['active', 'disabled', 'done', 'hidden', 'label', 'value'],
@@ -126,41 +126,41 @@ export declare interface BalCardStep extends Components.BalCardStep {}
   selector: 'bal-card-step',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['active', 'disabled', 'done', 'hidden', 'label', 'value'],
-  outputs: ['balCardStepChanged']
+  inputs: ['active', 'disabled', 'done', 'hidden', 'label', 'value']
 })
 export class BalCardStep {
-  /** Emitted when the steps get rendered. */
-  balCardStepChanged!: ICardStep['stepChanged'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balCardStepChanged']);
   }
 }
 
 import { CardSteps as ICardSteps } from '@baloise/ui-library-next/dist/types/components/bal-card-steps/bal-card-steps';
 export declare interface BalCardSteps extends Components.BalCardSteps {}
 @ProxyCmp({
-  inputs: ['hidden', 'inverted'],
+  inputs: ['backLabel', 'hasBack', 'hidden', 'inverted'],
   methods: ['select']
 })
 @Component({
   selector: 'bal-card-steps',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['hidden', 'inverted'],
-  outputs: ['balCardStepsDidChange']
+  inputs: ['backLabel', 'hasBack', 'hidden', 'inverted'],
+  outputs: ['balChange', 'balBackClick', 'balStepClick']
 })
 export class BalCardSteps {
   /** Emitted when the changes has finished. */
-  balCardStepsDidChange!: ICardSteps['stepsDidChange'];
+  balChange!: ICardSteps['balChange'];
+  /** Emitted when the back button is clicked. */
+  balBackClick!: ICardSteps['balBackClick'];
+  /** Emitted when the step circle is clicked. */
+  balStepClick!: ICardSteps['balStepClick'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balCardStepsDidChange']);
+    proxyOutputs(this, this.el, ['balChange', 'balBackClick', 'balStepClick']);
   }
 }
 
@@ -276,13 +276,13 @@ export class BalField {
 
 export declare interface BalIcon extends Components.BalIcon {}
 @ProxyCmp({
-  inputs: ['isLeft', 'isRight', 'name', 'rotate', 'size']
+  inputs: ['color', 'isLeft', 'isRight', 'name', 'rotate', 'size']
 })
 @Component({
   selector: 'bal-icon',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['isLeft', 'isRight', 'name', 'rotate', 'size']
+  inputs: ['color', 'isLeft', 'isRight', 'name', 'rotate', 'size']
 })
 export class BalIcon {
   protected el: HTMLElement;

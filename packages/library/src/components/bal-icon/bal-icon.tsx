@@ -32,6 +32,11 @@ export class Icon {
    */
   @Prop() rotate = false
 
+  /**
+   * Defines the color of the icon.
+   */
+  @Prop() color: 'danger' | 'warning' | 'primary' | 'blue' | 'success' | 'grey' | 'white' | 'black' | 'blue-line' | 'blue-light-line' | '' = ''
+
   get sizeCssClass() {
     if (this.size && this.size.length > 0) {
       return `is-${this.size}`
@@ -54,7 +59,7 @@ export class Icon {
             this.isLeft ? 'is-left' : '',
             this.sizeCssClass,
           ].join(' ')}>
-          <i class={[this.iconCssClass, 'font'].join(' ')}></i>
+          <i class={[this.iconCssClass, 'font', this.color.length > 0 ? `has-text-${this.color}` : ''].join(' ')}></i>
         </span>
       </Host>
     )

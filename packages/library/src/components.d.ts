@@ -144,6 +144,14 @@ export namespace Components {
     }
     interface BalCardSteps {
         /**
+          * Label for back button
+         */
+        "backLabel": string;
+        /**
+          * If `true` the steps navigation has back button.
+         */
+        "hasBack": boolean;
+        /**
           * If `true` the steps navigation is hidden.
          */
         "hidden": boolean;
@@ -263,6 +271,10 @@ export namespace Components {
         "validationMessage": string;
     }
     interface BalIcon {
+        /**
+          * Defines the color of the icon.
+         */
+        "color": 'danger' | 'warning' | 'primary' | 'blue' | 'success' | 'grey' | 'white' | 'black' | 'blue-line' | 'blue-light-line' | '';
         /**
           * If `true` the icon can be positioned ot the left side of another component
          */
@@ -608,15 +620,19 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * Emitted when the steps get rendered.
-         */
-        "onBalCardStepChanged"?: (event: CustomEvent<any>) => void;
-        /**
           * This is the key of the step.
          */
         "value"?: string;
     }
     interface BalCardSteps {
+        /**
+          * Label for back button
+         */
+        "backLabel"?: string;
+        /**
+          * If `true` the steps navigation has back button.
+         */
+        "hasBack"?: boolean;
         /**
           * If `true` the steps navigation is hidden.
          */
@@ -626,9 +642,17 @@ declare namespace LocalJSX {
          */
         "inverted"?: boolean;
         /**
+          * Emitted when the back button is clicked.
+         */
+        "onBalBackClick"?: (event: CustomEvent<void>) => void;
+        /**
           * Emitted when the changes has finished.
          */
-        "onBalCardStepsDidChange"?: (event: CustomEvent<BalCardStepOptions>) => void;
+        "onBalChange"?: (event: CustomEvent<BalCardStepOptions>) => void;
+        /**
+          * Emitted when the step circle is clicked.
+         */
+        "onBalStepClick"?: (event: CustomEvent<BalCardStepOptions>) => void;
     }
     interface BalCardSubtitle {
         /**
@@ -729,6 +753,10 @@ declare namespace LocalJSX {
         "validationMessage"?: string;
     }
     interface BalIcon {
+        /**
+          * Defines the color of the icon.
+         */
+        "color"?: 'danger' | 'warning' | 'primary' | 'blue' | 'success' | 'grey' | 'white' | 'black' | 'blue-line' | 'blue-light-line' | '';
         /**
           * If `true` the icon can be positioned ot the left side of another component
          */
