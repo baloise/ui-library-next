@@ -129,7 +129,7 @@ export const BalCardStep = /*@__PURE__*/ Vue.extend({
     getOptions: createCommonMethod('getOptions') as Components.BalCardStep['getOptions'],
     setActive: createCommonMethod('setActive') as Components.BalCardStep['setActive'],
   },
-  render: createCommonRender('bal-card-step', ['balStepChange']),
+  render: createCommonRender('bal-card-step', []),
 });
 
 
@@ -146,7 +146,7 @@ export const BalCardSteps = /*@__PURE__*/ Vue.extend({
   methods: {
     select: createCommonMethod('select') as Components.BalCardSteps['select'],
   },
-  render: createCommonRender('bal-card-steps', ['balStepsChange', 'balBackClick', 'balStepClick']),
+  render: createCommonRender('bal-card-steps', ['balChange', 'balBackClick', 'balStepClick']),
 });
 
 

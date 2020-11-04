@@ -620,10 +620,6 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * Emitted when the steps get rendered.
-         */
-        "onBalStepChange"?: (event: CustomEvent<any>) => void;
-        /**
           * This is the key of the step.
          */
         "value"?: string;
@@ -650,13 +646,13 @@ declare namespace LocalJSX {
          */
         "onBalBackClick"?: (event: CustomEvent<void>) => void;
         /**
+          * Emitted when the changes has finished.
+         */
+        "onBalChange"?: (event: CustomEvent<BalCardStepOptions>) => void;
+        /**
           * Emitted when the step circle is clicked.
          */
         "onBalStepClick"?: (event: CustomEvent<number>) => void;
-        /**
-          * Emitted when the changes has finished.
-         */
-        "onBalStepsChange"?: (event: CustomEvent<BalCardStepOptions>) => void;
     }
     interface BalCardSubtitle {
         /**

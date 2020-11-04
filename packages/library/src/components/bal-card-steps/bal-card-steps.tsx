@@ -35,7 +35,7 @@ export class CardSteps {
   /**
    * Emitted when the changes has finished.
    */
-  @Event() balStepsChange: EventEmitter<BalCardStepOptions>
+  @Event() balChange: EventEmitter<BalCardStepOptions>
 
   /**
    * Emitted when the back button is clicked.
@@ -80,7 +80,7 @@ export class CardSteps {
   private async onSelectStep(step: BalCardStepOptions, index: number): Promise<void> {
     if (!step.disabled) {
       await this.select(step.value)
-      this.balStepsChange.emit(step)
+      this.balChange.emit(step)
     }
     this.balStepClick.emit(index)
   }
