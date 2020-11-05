@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.12](https://github.com/baloise/ui-library-next/compare/v1.9.11...v1.9.12) (2020-11-05)
+
+
+### Bug Fixes
+
+* fix event name clash ([d5b81b5](https://github.com/baloise/ui-library-next/commit/d5b81b5cd4eff71434cabcef2f41c2dbe7330fc3))
+
+
+
+
+
 ## [1.9.11](https://github.com/baloise/ui-library-next/compare/v1.9.10...v1.9.11) (2020-11-05)
 
 
