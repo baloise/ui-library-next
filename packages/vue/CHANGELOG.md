@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.11](https://github.com/baloise/ui-library-next/compare/v1.9.10...v1.9.11) (2020-11-05)
+
+
+### Bug Fixes
+
+* remove index ([fb57a56](https://github.com/baloise/ui-library-next/commit/fb57a5686189ff79d03a002fca8b78bd95f7ae49))
+
+
+
+
+
 ## [1.9.10](https://github.com/baloise/ui-library-next/compare/v1.9.9...v1.9.10) (2020-11-05)
 
 
