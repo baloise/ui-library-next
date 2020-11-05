@@ -46,7 +46,5 @@
       "@commitlint/config-conventional"
     ]
   },
-  "dependencies": {
-    "cypress": "^5.2.0"
-  }
+  "dependencies": {}
 }
