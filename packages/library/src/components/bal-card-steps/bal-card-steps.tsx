@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State } from '@stencil/core'
-import { BalCardStepOptions } from '../bal-card-step/bal-card-step.type'
+import { BalCardStepOption } from '../bal-card-step/bal-card-step.type'
 
 @Component({
   tag: 'bal-card-steps',
@@ -10,7 +10,7 @@ import { BalCardStepOptions } from '../bal-card-step/bal-card-step.type'
 export class CardSteps {
   @Element() element!: HTMLElement
 
-  @State() stepOptions: BalCardStepOptions[] = []
+  @State() stepOptions: BalCardStepOption[] = []
 
   /**
    * If `true` a the style is ready for a dark background.
@@ -35,7 +35,7 @@ export class CardSteps {
   /**
    * Emitted when the changes has finished.
    */
-  @Event() balChange: EventEmitter<BalCardStepOptions>
+  @Event() balChange: EventEmitter<BalCardStepOption>
 
   /**
    * Emitted when the back button is clicked.
@@ -45,13 +45,13 @@ export class CardSteps {
   /**
    * Emitted when the step circle is clicked.
    */
-  @Event() balStepClick: EventEmitter<BalCardStepOptions>
+  @Event() balStepClick: EventEmitter<BalCardStepOption>
 
   /**
    * Select a step.
    */
   @Method()
-  async select(step: BalCardStepOptions): Promise<void> {
+  async select(step: BalCardStepOption): Promise<void> {
     this.steps.forEach(t => t.setActive(t.value === step.value))
     this.readSteps()
     this.balChange.emit(step)
@@ -113,7 +113,7 @@ export class CardSteps {
     })
   }
 
-  private async onClickStepCircle(step: BalCardStepOptions): Promise<void> {
+  private async onClickStepCircle(step: BalCardStepOption): Promise<void> {
     if (!step.disabled) {
       await this.select(step)
     }

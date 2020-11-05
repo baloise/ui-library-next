@@ -18,16 +18,16 @@ The steps list is useful for tracking progress in multi steps forms or wizards.
 
 ## Events
 
-| Event          | Description                              | Type                              |
-| -------------- | ---------------------------------------- | --------------------------------- |
-| `balBackClick` | Emitted when the back button is clicked. | `CustomEvent<void>`               |
-| `balChange`    | Emitted when the changes has finished.   | `CustomEvent<BalCardStepOptions>` |
-| `balStepClick` | Emitted when the step circle is clicked. | `CustomEvent<BalCardStepOptions>` |
+| Event          | Description                              | Type                             |
+| -------------- | ---------------------------------------- | -------------------------------- |
+| `balBackClick` | Emitted when the back button is clicked. | `CustomEvent<void>`              |
+| `balChange`    | Emitted when the changes has finished.   | `CustomEvent<BalCardStepOption>` |
+| `balStepClick` | Emitted when the step circle is clicked. | `CustomEvent<BalCardStepOption>` |
 
 
 ## Methods
 
-### `select(step: BalCardStepOptions) => Promise<void>`
+### `select(step: BalCardStepOption) => Promise<void>`
 
 Select a step.
 

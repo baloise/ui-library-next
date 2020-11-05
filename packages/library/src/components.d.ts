@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { BalCardStepOptions } from "./components/bal-card-step/bal-card-step.type";
+import { BalCardStepOption } from "./components/bal-card-step/bal-card-step.type";
 import { BalOptionValue } from "./components/bal-select-option/bal-select-option.type";
 export namespace Components {
     interface BalButton {
@@ -124,11 +124,15 @@ export namespace Components {
         /**
           * Options of the step like label, value etc.
          */
-        "getOptions": () => Promise<BalCardStepOptions>;
+        "getOptions": () => Promise<BalCardStepOption>;
         /**
           * If `true` the step is hidden in the steps navigation.
          */
         "hidden": boolean;
+        /**
+          * Could helps to figure out the previous or next step
+         */
+        "index": number;
         /**
           * Label for the step.
          */
@@ -162,7 +166,7 @@ export namespace Components {
         /**
           * Select a step.
          */
-        "select": (step: BalCardStepOptions) => Promise<void>;
+        "select": (step: BalCardStepOption) => Promise<void>;
     }
     interface BalCardSubtitle {
         /**
@@ -626,6 +630,10 @@ declare namespace LocalJSX {
          */
         "hidden"?: boolean;
         /**
+          * Could helps to figure out the previous or next step
+         */
+        "index"?: number;
+        /**
           * Label for the step.
          */
         "label"?: string;
@@ -658,11 +666,11 @@ declare namespace LocalJSX {
         /**
           * Emitted when the changes has finished.
          */
-        "onBalChange"?: (event: CustomEvent<BalCardStepOptions>) => void;
+        "onBalChange"?: (event: CustomEvent<BalCardStepOption>) => void;
         /**
           * Emitted when the step circle is clicked.
          */
-        "onBalStepClick"?: (event: CustomEvent<BalCardStepOptions>) => void;
+        "onBalStepClick"?: (event: CustomEvent<BalCardStepOption>) => void;
     }
     interface BalCardSubtitle {
         /**

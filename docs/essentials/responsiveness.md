@@ -26,6 +26,15 @@ Use the scss mixins in your application like this.
 }
 ```
 
+### Breakpoints
+
+| Device               | Starts at screen width |
+| -------------------- | --------- |
+| Mobile               | 0px       |
+| Tablet               | 720px     |
+| Desktop              | 960px     |
+| Fullhd or Widescreen | 1200px    |
+
 ## Further Documentation
 
 [Go to the bulma documentation](http://bulma.io/documentation/overview/responsiveness/)

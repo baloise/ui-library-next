@@ -119,14 +119,14 @@ export class BalCardHeading {
 
 export declare interface BalCardStep extends Components.BalCardStep {}
 @ProxyCmp({
-  inputs: ['active', 'disabled', 'done', 'hidden', 'label', 'value'],
+  inputs: ['active', 'disabled', 'done', 'hidden', 'index', 'label', 'value'],
   methods: ['getOptions', 'setActive']
 })
 @Component({
   selector: 'bal-card-step',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['active', 'disabled', 'done', 'hidden', 'label', 'value']
+  inputs: ['active', 'disabled', 'done', 'hidden', 'index', 'label', 'value']
 })
 export class BalCardStep {
   protected el: HTMLElement;

@@ -1,5 +1,7 @@
 import { Component, h, Host, Method, Prop, State, Watch } from '@stencil/core'
-import { BalCardStepOptions } from './bal-card-step.type'
+import { BalCardStepOption } from './bal-card-step.type'
+
+let cardStepIndex = 0
 
 @Component({
   tag: 'bal-card-step',
@@ -36,6 +38,11 @@ export class CardStep {
   @Prop() done: boolean = false
 
   /**
+   * Could helps to figure out the previous or next step
+   */
+  @Prop() index: number = cardStepIndex++
+
+  /**
    * Tell's if the step is active and the content is visible.
    */
   @Prop() active: boolean = false
@@ -45,7 +52,7 @@ export class CardStep {
     this.isContentHidden = !newActive
   }
 
-  get options() {
+  get options(): BalCardStepOption {
     return {
       value: this.value,
       label: this.label,
@@ -53,6 +60,7 @@ export class CardStep {
       done: this.done,
       disabled: this.disabled,
       hidden: this.hidden,
+      index: this.index,
     }
   }
 
@@ -60,7 +68,7 @@ export class CardStep {
    * Options of the step like label, value etc.
    */
   @Method()
-  async getOptions(): Promise<BalCardStepOptions> {
+  async getOptions(): Promise<BalCardStepOption> {
     return this.options
   }
 
@@ -78,11 +86,12 @@ export class CardStep {
 
   render() {
     return (
-      <Host class={{
-        'is-hidden': this.isContentHidden,
-        'card-step-content': true,
-      }}>
-        <slot/>
+      <Host
+        class={{
+          'is-hidden': this.isContentHidden,
+          'card-step-content': true,
+        }}>
+        <slot />
       </Host>
     )
   }
