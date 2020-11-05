@@ -10,8 +10,8 @@
   </head>
   <body class="bal-app">
     <div class="container">
+      <h2 class="title is-size-2">Basic</h2>
       <section>
-        <h2 class="title is-size-2">Basic</h2>
         <bal-input id="bal-input-1" name="firstName" placeholder="Enter your firstname"></bal-input>
         <bal-input id="bal-input-1-preview" disabled placeholder="Enter your firstname"></bal-input>
       </section>
@@ -25,13 +25,39 @@
         })
       </script>
 
+      <h2 class="title is-size-2">HTML input</h2>
       <section>
-        <h2 class="title is-size-2">Inverted</h2>
+        <input class="input" name="firstName" placeholder="Enter your firstname" />
+        <input class="input" name="firstName" disabled placeholder="Enter your firstname" />
+      </section>
+
+      <h2 class="title is-size-2">Inverted</h2>
+      <section>
         <div class="has-background-info is-padded">
           <bal-input inverted name="firstName" placeholder="Enter your firstname"></bal-input>
           <bal-input inverted name="firstName" placeholder="Enter your firstname" disabled></bal-input>
         </div>
       </section>
+
+      <h2 class="title is-size-2">Number Input</h2>
+      <section>
+        <bal-input
+          id="bal-input-only-numbers"
+          only-numbers
+          number-keyboard
+          name="age"
+          placeholder="Enter your age"
+        ></bal-input>
+        <p class="help" id="bal-input-only-numbers-preview"></p>
+      </section>
+      <script>
+        var inputOnlyNumbers = document.getElementById('bal-input-only-numbers')
+        var inputOnlyNumbersPreview = document.getElementById('bal-input-only-numbers-preview')
+        setTimeout(() => input1.setFocus(), 0)
+        inputOnlyNumbers.addEventListener('balInput', function (event) {
+          inputOnlyNumbersPreview.innerHTML = event.detail
+        })
+      </script>
     </div>
   </body>
 </html>

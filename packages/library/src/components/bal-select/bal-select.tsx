@@ -147,8 +147,10 @@ export class Select {
   private async scrollToText(text: string) {
     const dropdownContentElement = await this.dropdownElement.getContentElement()
     const option = this.options.find(option => option.text.startsWith(text))
-    const optionElement = this.optionElements.get(option.value)
-    dropdownContentElement.scrollTop = optionElement.offsetTop
+    if (option) {
+      const optionElement = this.optionElements.get(option.value)
+      dropdownContentElement.scrollTop = optionElement.offsetTop
+    }
   }
 
   private dispatchEventToOptions(event: CustomEvent) {

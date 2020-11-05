@@ -310,7 +310,8 @@ export namespace Components {
           * The name of the control, which is submitted with the form data.
          */
         "name": string;
-        "pattern": string;
+        "numberKeyboard": boolean;
+        "onlyNumbers": boolean;
         "placeholder": string;
         "readonly": boolean;
         "setFocus": () => Promise<void>;
@@ -801,6 +802,7 @@ declare namespace LocalJSX {
           * The name of the control, which is submitted with the form data.
          */
         "name"?: string;
+        "numberKeyboard"?: boolean;
         "onBalBlur"?: (event: CustomEvent<FocusEvent>) => void;
         "onBalClick"?: (event: CustomEvent<MouseEvent>) => void;
         "onBalFocus"?: (event: CustomEvent<FocusEvent>) => void;
@@ -808,7 +810,7 @@ declare namespace LocalJSX {
         "onBalKeyDown"?: (event: CustomEvent<KeyboardEvent>) => void;
         "onBalKeyPress"?: (event: CustomEvent<KeyboardEvent>) => void;
         "onBalKeyUp"?: (event: CustomEvent<KeyboardEvent>) => void;
-        "pattern"?: string;
+        "onlyNumbers"?: boolean;
         "placeholder"?: string;
         "readonly"?: boolean;
         "type"?: string;

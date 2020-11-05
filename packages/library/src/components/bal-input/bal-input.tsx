@@ -18,13 +18,14 @@ export class Input {
   @Prop() name: string = this.inputId
   @Prop() type: string = 'text'
   @Prop() placeholder = ''
-  @Prop() pattern = ''
   @Prop() maxLength: number | undefined = undefined
   @Prop() minLength: number | undefined = undefined
   @Prop() inverted = false
   @Prop() readonly = false
   @Prop() disabled = false
   @Prop() clickable = false
+  @Prop() numberKeyboard = false
+  @Prop() onlyNumbers = false
 
   /**
    * The value of the control.
@@ -32,16 +33,23 @@ export class Input {
   @Prop({ mutable: true }) value: string = ''
   @Watch('value')
   protected valueChanged() {
-    if (this.inputEl.value !== this.value) {
-      this.inputEl.value = this.value
-    }
+    this.updateInputValue()
   }
 
   @Event() balInput!: EventEmitter<string>
   private onInput = (event: { target: { value: string } }) => {
     let val = event.target && event.target?.value
-    this.value = val
-    this.balInput.emit(this.value)
+    
+    if (this.onlyNumbers) {
+      val = this.filterNumbers(val)
+    }
+
+    if (this.value !== val) {
+      this.value = val
+      this.balInput.emit(this.value)
+    } else {
+      this.updateInputValue()
+    }
   }
 
   @Event() balBlur!: EventEmitter<FocusEvent>
@@ -72,7 +80,7 @@ export class Input {
           value={this.value}
           disabled={this.disabled}
           readonly={this.readonly}
-          pattern={this.pattern}
+          pattern={this.numberKeyboard ? '[0-9]*' : ''}
           maxLength={this.maxLength}
           minLength={this.minLength}
           onInput={e => this.onInput(e as any)}
@@ -86,6 +94,19 @@ export class Input {
         />
       </Host>
     )
+  }
+
+  private updateInputValue() {
+    if (this.inputEl.value !== this.value) {
+      this.inputEl.value = this.value
+    }
+  }
+
+  private filterNumbers(val: string) {
+    if (val && typeof val === 'string') {
+      val = val.replace(/[^\d]/g, '')
+    }
+    return val
   }
 }
 

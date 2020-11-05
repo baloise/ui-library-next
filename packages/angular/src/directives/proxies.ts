@@ -295,14 +295,14 @@ export class BalIcon {
 import { Input as IInput } from '@baloise/ui-library-next/dist/types/components/bal-input/bal-input';
 export declare interface BalInput extends Components.BalInput {}
 @ProxyCmp({
-  inputs: ['clickable', 'disabled', 'inverted', 'maxLength', 'minLength', 'name', 'pattern', 'placeholder', 'readonly', 'type', 'value'],
+  inputs: ['clickable', 'disabled', 'inverted', 'maxLength', 'minLength', 'name', 'numberKeyboard', 'onlyNumbers', 'placeholder', 'readonly', 'type', 'value'],
   methods: ['setFocus']
 })
 @Component({
   selector: 'bal-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['clickable', 'disabled', 'inverted', 'maxLength', 'minLength', 'name', 'pattern', 'placeholder', 'readonly', 'type', 'value'],
+  inputs: ['clickable', 'disabled', 'inverted', 'maxLength', 'minLength', 'name', 'numberKeyboard', 'onlyNumbers', 'placeholder', 'readonly', 'type', 'value'],
   outputs: ['balInput', 'balBlur', 'balClick', 'balKeyDown', 'balKeyPress', 'balKeyUp', 'balFocus']
 })
 export class BalInput {
