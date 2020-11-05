@@ -10,6 +10,7 @@ import type { Components } from '@baloise/ui-library-next';
 
 
 const customElementTags: string[] = [
+ 'bal-accordion',
  'bal-button',
  'bal-card',
  'bal-card-actions',
@@ -21,6 +22,10 @@ const customElementTags: string[] = [
  'bal-card-subtitle',
  'bal-card-title',
  'bal-checkbox',
+ 'bal-data',
+ 'bal-data-item',
+ 'bal-data-label',
+ 'bal-data-value',
  'bal-dropdown',
  'bal-field',
  'bal-icon',
@@ -31,6 +36,31 @@ const customElementTags: string[] = [
  'bal-text',
 ];
 Vue.config.ignoredElements = [...Vue.config.ignoredElements, ...customElementTags];
+
+
+export const BalAccordion = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    type: {} as PropOptions<Components.BalAccordion['type']>,
+    collapsed: {} as PropOptions<Components.BalAccordion['collapsed']>,
+    openLabel: {} as PropOptions<Components.BalAccordion['openLabel']>,
+    openIcon: {} as PropOptions<Components.BalAccordion['openIcon']>,
+    closeLabel: {} as PropOptions<Components.BalAccordion['closeLabel']>,
+    closeIcon: {} as PropOptions<Components.BalAccordion['closeIcon']>,
+  },
+
+  model: {
+    prop: 'collapsed',
+    event: 'balAccordionChange'
+  },
+
+  methods: {
+    open: createCommonMethod('open') as Components.BalAccordion['open'],
+    close: createCommonMethod('close') as Components.BalAccordion['close'],
+    toggle: createCommonMethod('toggle') as Components.BalAccordion['toggle'],
+  },
+  render: createCommonRender('bal-accordion', ['balAccordionChange']),
+});
 
 
 export const BalButton = /*@__PURE__*/ Vue.extend({
@@ -185,13 +215,55 @@ export const BalCheckbox = /*@__PURE__*/ Vue.extend({
 
   model: {
     prop: 'checked',
-    event: 'balChange'
+    event: 'balCheckboxChange'
   },
 
   methods: {
     setFocus: createCommonMethod('setFocus') as Components.BalCheckbox['setFocus'],
   },
   render: createCommonRender('bal-checkbox', ['balCheckboxChange', 'balCheckboxFocus', 'balCheckboxBlur']),
+});
+
+
+export const BalData = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    border: {} as PropOptions<Components.BalData['border']>,
+    horizontal: {} as PropOptions<Components.BalData['horizontal']>,
+  },
+
+
+  render: createCommonRender('bal-data', []),
+});
+
+
+export const BalDataItem = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    disabled: {} as PropOptions<Components.BalDataItem['disabled']>,
+  },
+
+
+  render: createCommonRender('bal-data-item', []),
+});
+
+
+export const BalDataLabel = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    required: {} as PropOptions<Components.BalDataLabel['required']>,
+  },
+
+
+  render: createCommonRender('bal-data-label', []),
+});
+
+
+export const BalDataValue = /*@__PURE__*/ Vue.extend({
+
+
+
+  render: createCommonRender('bal-data-value', []),
 });
 
 
@@ -296,7 +368,7 @@ export const BalSelect = /*@__PURE__*/ Vue.extend({
 
   model: {
     prop: 'value',
-    event: 'balChange'
+    event: 'balSelectChange'
   },
 
   methods: {

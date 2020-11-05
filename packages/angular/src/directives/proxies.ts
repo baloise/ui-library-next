@@ -5,6 +5,30 @@ import { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';
 
 import { Components } from '@baloise/ui-library-next';
 
+import { Accordion as IAccordion } from '@baloise/ui-library-next/dist/types/components/bal-accordion/bal-accordion';
+export declare interface BalAccordion extends Components.BalAccordion {}
+@ProxyCmp({
+  inputs: ['closeIcon', 'closeLabel', 'collapsed', 'openIcon', 'openLabel', 'type'],
+  methods: ['open', 'close', 'toggle']
+})
+@Component({
+  selector: 'bal-accordion',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['closeIcon', 'closeLabel', 'collapsed', 'openIcon', 'openLabel', 'type'],
+  outputs: ['balAccordionChange']
+})
+export class BalAccordion {
+  /** Emmited when the accordion has changed */
+  balAccordionChange!: IAccordion['balChange'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['balAccordionChange']);
+  }
+}
+
 
 export declare interface BalButton extends Components.BalButton {}
 @ProxyCmp({
@@ -227,6 +251,79 @@ export class BalCheckbox {
     c.detach();
     this.el = r.nativeElement;
     proxyOutputs(this, this.el, ['balCheckboxChange', 'balCheckboxFocus', 'balCheckboxBlur']);
+  }
+}
+
+
+export declare interface BalData extends Components.BalData {}
+@ProxyCmp({
+  inputs: ['border', 'horizontal']
+})
+@Component({
+  selector: 'bal-data',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['border', 'horizontal']
+})
+export class BalData {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface BalDataItem extends Components.BalDataItem {}
+@ProxyCmp({
+  inputs: ['disabled']
+})
+@Component({
+  selector: 'bal-data-item',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['disabled']
+})
+export class BalDataItem {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface BalDataLabel extends Components.BalDataLabel {}
+@ProxyCmp({
+  inputs: ['required']
+})
+@Component({
+  selector: 'bal-data-label',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['required']
+})
+export class BalDataLabel {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface BalDataValue extends Components.BalDataValue {}
+
+@Component({
+  selector: 'bal-data-value',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class BalDataValue {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
   }
 }
 

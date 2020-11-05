@@ -244,6 +244,30 @@ export namespace Components {
          */
         "value": string;
     }
+    interface BalData {
+        /**
+          * If `true` a bottom border is added to the data-item.
+         */
+        "border": boolean;
+        /**
+          * If `true` the data list is horizontal instead of vertical.
+         */
+        "horizontal": boolean;
+    }
+    interface BalDataItem {
+        /**
+          * If `true` the item gets a lighter font color.
+         */
+        "disabled": boolean;
+    }
+    interface BalDataLabel {
+        /**
+          * If `true` an asterix is added after the label.
+         */
+        "required": boolean;
+    }
+    interface BalDataValue {
+    }
     interface BalDropdown {
         /**
           * Closes the dropdown menu.
@@ -560,6 +584,30 @@ declare global {
         prototype: HTMLBalCheckboxElement;
         new (): HTMLBalCheckboxElement;
     };
+    interface HTMLBalDataElement extends Components.BalData, HTMLStencilElement {
+    }
+    var HTMLBalDataElement: {
+        prototype: HTMLBalDataElement;
+        new (): HTMLBalDataElement;
+    };
+    interface HTMLBalDataItemElement extends Components.BalDataItem, HTMLStencilElement {
+    }
+    var HTMLBalDataItemElement: {
+        prototype: HTMLBalDataItemElement;
+        new (): HTMLBalDataItemElement;
+    };
+    interface HTMLBalDataLabelElement extends Components.BalDataLabel, HTMLStencilElement {
+    }
+    var HTMLBalDataLabelElement: {
+        prototype: HTMLBalDataLabelElement;
+        new (): HTMLBalDataLabelElement;
+    };
+    interface HTMLBalDataValueElement extends Components.BalDataValue, HTMLStencilElement {
+    }
+    var HTMLBalDataValueElement: {
+        prototype: HTMLBalDataValueElement;
+        new (): HTMLBalDataValueElement;
+    };
     interface HTMLBalDropdownElement extends Components.BalDropdown, HTMLStencilElement {
     }
     var HTMLBalDropdownElement: {
@@ -621,6 +669,10 @@ declare global {
         "bal-card-subtitle": HTMLBalCardSubtitleElement;
         "bal-card-title": HTMLBalCardTitleElement;
         "bal-checkbox": HTMLBalCheckboxElement;
+        "bal-data": HTMLBalDataElement;
+        "bal-data-item": HTMLBalDataItemElement;
+        "bal-data-label": HTMLBalDataLabelElement;
+        "bal-data-value": HTMLBalDataValueElement;
         "bal-dropdown": HTMLBalDropdownElement;
         "bal-field": HTMLBalFieldElement;
         "bal-icon": HTMLBalIconElement;
@@ -867,6 +919,30 @@ declare namespace LocalJSX {
           * The value of the control.
          */
         "value"?: string;
+    }
+    interface BalData {
+        /**
+          * If `true` a bottom border is added to the data-item.
+         */
+        "border"?: boolean;
+        /**
+          * If `true` the data list is horizontal instead of vertical.
+         */
+        "horizontal"?: boolean;
+    }
+    interface BalDataItem {
+        /**
+          * If `true` the item gets a lighter font color.
+         */
+        "disabled"?: boolean;
+    }
+    interface BalDataLabel {
+        /**
+          * If `true` an asterix is added after the label.
+         */
+        "required"?: boolean;
+    }
+    interface BalDataValue {
     }
     interface BalDropdown {
         /**
@@ -1147,6 +1223,10 @@ declare namespace LocalJSX {
         "bal-card-subtitle": BalCardSubtitle;
         "bal-card-title": BalCardTitle;
         "bal-checkbox": BalCheckbox;
+        "bal-data": BalData;
+        "bal-data-item": BalDataItem;
+        "bal-data-label": BalDataLabel;
+        "bal-data-value": BalDataValue;
         "bal-dropdown": BalDropdown;
         "bal-field": BalField;
         "bal-icon": BalIcon;
@@ -1173,6 +1253,10 @@ declare module "@stencil/core" {
             "bal-card-subtitle": LocalJSX.BalCardSubtitle & JSXBase.HTMLAttributes<HTMLBalCardSubtitleElement>;
             "bal-card-title": LocalJSX.BalCardTitle & JSXBase.HTMLAttributes<HTMLBalCardTitleElement>;
             "bal-checkbox": LocalJSX.BalCheckbox & JSXBase.HTMLAttributes<HTMLBalCheckboxElement>;
+            "bal-data": LocalJSX.BalData & JSXBase.HTMLAttributes<HTMLBalDataElement>;
+            "bal-data-item": LocalJSX.BalDataItem & JSXBase.HTMLAttributes<HTMLBalDataItemElement>;
+            "bal-data-label": LocalJSX.BalDataLabel & JSXBase.HTMLAttributes<HTMLBalDataLabelElement>;
+            "bal-data-value": LocalJSX.BalDataValue & JSXBase.HTMLAttributes<HTMLBalDataValueElement>;
             "bal-dropdown": LocalJSX.BalDropdown & JSXBase.HTMLAttributes<HTMLBalDropdownElement>;
             "bal-field": LocalJSX.BalField & JSXBase.HTMLAttributes<HTMLBalFieldElement>;
             "bal-icon": LocalJSX.BalIcon & JSXBase.HTMLAttributes<HTMLBalIconElement>;

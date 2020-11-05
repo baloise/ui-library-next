@@ -48,12 +48,6 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [
     type: 'select',
   },
   {
-    elementSelectors: ['bal-accordion'],
-    event: 'balAccordionChange',
-    targetAttr: 'collapsed',
-    type: 'boolean',
-  },
-  {
     elementSelectors: ['bal-input'],
     event: 'balInput',
     targetAttr: 'value',
