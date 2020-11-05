@@ -396,6 +396,58 @@ export class BalFileUpload {
 }
 
 
+export declare interface BalHint extends Components.BalHint {}
+@ProxyCmp({
+  inputs: ['closeLabel', 'disabled'],
+  methods: ['toggle', 'open', 'close']
+})
+@Component({
+  selector: 'bal-hint',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['closeLabel', 'disabled']
+})
+export class BalHint {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface BalHintText extends Components.BalHintText {}
+
+@Component({
+  selector: 'bal-hint-text',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class BalHintText {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface BalHintTitle extends Components.BalHintTitle {}
+
+@Component({
+  selector: 'bal-hint-title',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class BalHintTitle {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
 export declare interface BalIcon extends Components.BalIcon {}
 @ProxyCmp({
   inputs: ['color', 'isLeft', 'isRight', 'name', 'rotate', 'size', 'turn']

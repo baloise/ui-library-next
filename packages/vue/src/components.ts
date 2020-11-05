@@ -29,6 +29,9 @@ const customElementTags: string[] = [
  'bal-dropdown',
  'bal-field',
  'bal-file-upload',
+ 'bal-hint',
+ 'bal-hint-text',
+ 'bal-hint-title',
  'bal-icon',
  'bal-input',
  'bal-select',
@@ -320,6 +323,39 @@ export const BalFileUpload = /*@__PURE__*/ Vue.extend({
 
 
   render: createCommonRender('bal-file-upload', ['balFileUploadChange', 'balFileUploadRejectedFile']),
+});
+
+
+export const BalHint = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    closeLabel: {} as PropOptions<Components.BalHint['closeLabel']>,
+    disabled: {} as PropOptions<Components.BalHint['disabled']>,
+  },
+
+
+  methods: {
+    toggle: createCommonMethod('toggle') as Components.BalHint['toggle'],
+    open: createCommonMethod('open') as Components.BalHint['open'],
+    close: createCommonMethod('close') as Components.BalHint['close'],
+  },
+  render: createCommonRender('bal-hint', []),
+});
+
+
+export const BalHintText = /*@__PURE__*/ Vue.extend({
+
+
+
+  render: createCommonRender('bal-hint-text', []),
+});
+
+
+export const BalHintTitle = /*@__PURE__*/ Vue.extend({
+
+
+
+  render: createCommonRender('bal-hint-title', []),
 });
 
 

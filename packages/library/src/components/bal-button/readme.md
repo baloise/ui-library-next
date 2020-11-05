@@ -33,6 +33,7 @@ The classic button, in different colors, sizes, and states.
 
  - [bal-accordion](../bal-accordion)
  - [bal-card-button](../bal-card-button)
+ - [bal-hint](../bal-hint)
 
 ### Depends on
 
@@ -48,6 +49,7 @@ graph TD;
   bal-button --> bal-text
   bal-accordion --> bal-button
   bal-card-button --> bal-button
+  bal-hint --> bal-button
   style bal-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -367,6 +367,32 @@ export namespace Components {
          */
         "multiple": boolean;
     }
+    interface BalHint {
+        /**
+          * Closes the hint box.
+         */
+        "close": () => Promise<void>;
+        /**
+          * Text for the close button.
+         */
+        "closeLabel": string;
+        /**
+          * If `true`, the user cannot interact with the input.
+         */
+        "disabled": boolean;
+        /**
+          * Opens the hint box.
+         */
+        "open": () => Promise<void>;
+        /**
+          * Toggles the hint box.
+         */
+        "toggle": () => Promise<void>;
+    }
+    interface BalHintText {
+    }
+    interface BalHintTitle {
+    }
     interface BalIcon {
         /**
           * Defines the color of the icon.
@@ -657,6 +683,24 @@ declare global {
         prototype: HTMLBalFileUploadElement;
         new (): HTMLBalFileUploadElement;
     };
+    interface HTMLBalHintElement extends Components.BalHint, HTMLStencilElement {
+    }
+    var HTMLBalHintElement: {
+        prototype: HTMLBalHintElement;
+        new (): HTMLBalHintElement;
+    };
+    interface HTMLBalHintTextElement extends Components.BalHintText, HTMLStencilElement {
+    }
+    var HTMLBalHintTextElement: {
+        prototype: HTMLBalHintTextElement;
+        new (): HTMLBalHintTextElement;
+    };
+    interface HTMLBalHintTitleElement extends Components.BalHintTitle, HTMLStencilElement {
+    }
+    var HTMLBalHintTitleElement: {
+        prototype: HTMLBalHintTitleElement;
+        new (): HTMLBalHintTitleElement;
+    };
     interface HTMLBalIconElement extends Components.BalIcon, HTMLStencilElement {
     }
     var HTMLBalIconElement: {
@@ -713,6 +757,9 @@ declare global {
         "bal-dropdown": HTMLBalDropdownElement;
         "bal-field": HTMLBalFieldElement;
         "bal-file-upload": HTMLBalFileUploadElement;
+        "bal-hint": HTMLBalHintElement;
+        "bal-hint-text": HTMLBalHintTextElement;
+        "bal-hint-title": HTMLBalHintTitleElement;
         "bal-icon": HTMLBalIconElement;
         "bal-input": HTMLBalInputElement;
         "bal-select": HTMLBalSelectElement;
@@ -1072,6 +1119,20 @@ declare namespace LocalJSX {
          */
         "onBalFileUploadRejectedFile"?: (event: CustomEvent<FileUploadRejectedFile>) => void;
     }
+    interface BalHint {
+        /**
+          * Text for the close button.
+         */
+        "closeLabel"?: string;
+        /**
+          * If `true`, the user cannot interact with the input.
+         */
+        "disabled"?: boolean;
+    }
+    interface BalHintText {
+    }
+    interface BalHintTitle {
+    }
     interface BalIcon {
         /**
           * Defines the color of the icon.
@@ -1306,6 +1367,9 @@ declare namespace LocalJSX {
         "bal-dropdown": BalDropdown;
         "bal-field": BalField;
         "bal-file-upload": BalFileUpload;
+        "bal-hint": BalHint;
+        "bal-hint-text": BalHintText;
+        "bal-hint-title": BalHintTitle;
         "bal-icon": BalIcon;
         "bal-input": BalInput;
         "bal-select": BalSelect;
@@ -1337,6 +1401,9 @@ declare module "@stencil/core" {
             "bal-dropdown": LocalJSX.BalDropdown & JSXBase.HTMLAttributes<HTMLBalDropdownElement>;
             "bal-field": LocalJSX.BalField & JSXBase.HTMLAttributes<HTMLBalFieldElement>;
             "bal-file-upload": LocalJSX.BalFileUpload & JSXBase.HTMLAttributes<HTMLBalFileUploadElement>;
+            "bal-hint": LocalJSX.BalHint & JSXBase.HTMLAttributes<HTMLBalHintElement>;
+            "bal-hint-text": LocalJSX.BalHintText & JSXBase.HTMLAttributes<HTMLBalHintTextElement>;
+            "bal-hint-title": LocalJSX.BalHintTitle & JSXBase.HTMLAttributes<HTMLBalHintTitleElement>;
             "bal-icon": LocalJSX.BalIcon & JSXBase.HTMLAttributes<HTMLBalIconElement>;
             "bal-input": LocalJSX.BalInput & JSXBase.HTMLAttributes<HTMLBalInputElement>;
             "bal-select": LocalJSX.BalSelect & JSXBase.HTMLAttributes<HTMLBalSelectElement>;
