@@ -35,6 +35,10 @@ p.help {
 }
 
 .form {
+  p.help {
+    text-align: left;
+  }
+
   &.is-disabled {
     .label,
     .control {

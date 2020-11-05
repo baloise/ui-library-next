@@ -38,6 +38,23 @@
           <bal-input name="firstName" placeholder="Enter your firstname"></bal-input>
         </bal-field>
       </section>
+
+      <h2 class="title is-size-2">Validation Messages</h2>
+      <section>
+        <bal-field id="bal-field-validation" label="Firstname" validation-message="">
+          <bal-input name="firstName" placeholder="Enter your firstname"></bal-input>
+        </bal-field>
+        <bal-button id="bal-button-validation">Update Validation Message</bal-button>
+      </section>
+      <script>
+        var inputValidation = document.getElementById('bal-field-validation')
+        var buttonValidation = document.getElementById('bal-button-validation')
+        var counter = 0
+        buttonValidation.addEventListener('click', function (event) {
+          counter = ++counter
+          inputValidation.setAttribute('validation-message', 'Generated validation message number:' + counter)
+        })
+      </script>
     </div>
   </body>
 </html>
