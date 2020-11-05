@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.3](https://github.com/baloise/ui-library-next/compare/v1.9.2...v1.9.3) (2020-11-05)
+
+
+### Bug Fixes
+
+* add readme's, fix bal-select scroll to, improve bal-inout ([5f14918](https://github.com/baloise/ui-library-next/commit/5f14918f2184d63f01da3fed91e0929215b3711f))
+
+
+
+
+
 ## [1.9.2](https://github.com/baloise/ui-library-next/compare/v1.9.1...v1.9.2) (2020-11-04)
 
 
