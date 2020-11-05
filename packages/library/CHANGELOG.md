@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.9](https://github.com/baloise/ui-library-next/compare/v1.9.8...v1.9.9) (2020-11-05)
+
+
+### Bug Fixes
+
+* stopping event from bubbeling ([eddaed5](https://github.com/baloise/ui-library-next/commit/eddaed5cf46d5b42c5e5406e6f39271ad4518ba2))
+
+
+
+
+
 ## [1.9.8](https://github.com/baloise/ui-library-next/compare/v1.9.7...v1.9.8) (2020-11-05)
 
 
