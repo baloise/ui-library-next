@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.5](https://github.com/baloise/ui-library-next/compare/v1.9.4...v1.9.5) (2020-11-05)
+
+
+### Bug Fixes
+
+* **vue:** fix props changing ([3f78a30](https://github.com/baloise/ui-library-next/commit/3f78a3000a2b0aababa564d88d890c54615e93e5))
+
+
+
+
+
 ## [1.9.4](https://github.com/baloise/ui-library-next/compare/v1.9.3...v1.9.4) (2020-11-05)
 
 
