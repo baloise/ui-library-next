@@ -31,6 +31,7 @@ The classic button, in different colors, sizes, and states.
 
 ### Used by
 
+ - [bal-accordion](../bal-accordion)
  - [bal-card-button](../bal-card-button)
 
 ### Depends on
@@ -45,6 +46,7 @@ graph TD;
   bal-button --> bal-spinner
   bal-button --> bal-icon
   bal-button --> bal-text
+  bal-accordion --> bal-button
   bal-card-button --> bal-button
   style bal-button fill:#f9f,stroke:#333,stroke-width:4px
 ```

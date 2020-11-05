@@ -8,6 +8,44 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { BalCardStepOption } from "./components/bal-card-step/bal-card-step.type";
 import { BalOptionValue } from "./components/bal-select-option/bal-select-option.type";
 export namespace Components {
+    interface BalAccordion {
+        /**
+          * Close the accordion
+         */
+        "close": () => Promise<void>;
+        /**
+          * Bal-Icon of the close trigger button
+         */
+        "closeIcon": string;
+        /**
+          * Label of the close trigger button
+         */
+        "closeLabel": string;
+        /**
+          * Controls if the accordion is collapsed or not
+         */
+        "collapsed": boolean;
+        /**
+          * Open the accordion
+         */
+        "open": () => Promise<void>;
+        /**
+          * Bal-Icon of the open trigger button
+         */
+        "openIcon": string;
+        /**
+          * Label of the open trigger button
+         */
+        "openLabel": string;
+        /**
+          * Triggers the accordion
+         */
+        "toggle": () => Promise<void>;
+        /**
+          * Type defines the theme of the accordion toggle
+         */
+        "type": 'is-primary' | 'is-info';
+    }
     interface BalButton {
         /**
           * If `true` the bottom corners get rounded
@@ -450,6 +488,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLBalAccordionElement extends Components.BalAccordion, HTMLStencilElement {
+    }
+    var HTMLBalAccordionElement: {
+        prototype: HTMLBalAccordionElement;
+        new (): HTMLBalAccordionElement;
+    };
     interface HTMLBalButtonElement extends Components.BalButton, HTMLStencilElement {
     }
     var HTMLBalButtonElement: {
@@ -565,6 +609,7 @@ declare global {
         new (): HTMLBalTextElement;
     };
     interface HTMLElementTagNameMap {
+        "bal-accordion": HTMLBalAccordionElement;
         "bal-button": HTMLBalButtonElement;
         "bal-card": HTMLBalCardElement;
         "bal-card-actions": HTMLBalCardActionsElement;
@@ -587,6 +632,36 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface BalAccordion {
+        /**
+          * Bal-Icon of the close trigger button
+         */
+        "closeIcon"?: string;
+        /**
+          * Label of the close trigger button
+         */
+        "closeLabel"?: string;
+        /**
+          * Controls if the accordion is collapsed or not
+         */
+        "collapsed"?: boolean;
+        /**
+          * Emmited when the accordion has changed
+         */
+        "onBalAccordionChange"?: (event: CustomEvent<boolean>) => void;
+        /**
+          * Bal-Icon of the open trigger button
+         */
+        "openIcon"?: string;
+        /**
+          * Label of the open trigger button
+         */
+        "openLabel"?: string;
+        /**
+          * Type defines the theme of the accordion toggle
+         */
+        "type"?: 'is-primary' | 'is-info';
+    }
     interface BalButton {
         /**
           * If `true` the bottom corners get rounded
@@ -1060,6 +1135,7 @@ declare namespace LocalJSX {
     interface BalText {
     }
     interface IntrinsicElements {
+        "bal-accordion": BalAccordion;
         "bal-button": BalButton;
         "bal-card": BalCard;
         "bal-card-actions": BalCardActions;
@@ -1085,6 +1161,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "bal-accordion": LocalJSX.BalAccordion & JSXBase.HTMLAttributes<HTMLBalAccordionElement>;
             "bal-button": LocalJSX.BalButton & JSXBase.HTMLAttributes<HTMLBalButtonElement>;
             "bal-card": LocalJSX.BalCard & JSXBase.HTMLAttributes<HTMLBalCardElement>;
             "bal-card-actions": LocalJSX.BalCardActions & JSXBase.HTMLAttributes<HTMLBalCardActionsElement>;

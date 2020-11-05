@@ -85,6 +85,7 @@ The proprocessing step for each SVG icon included: (done in Adobe Illustrator, b
 
 ### Used by
 
+ - [bal-accordion](../bal-accordion)
  - [bal-button](../bal-button)
  - [bal-card-steps](../bal-card-steps)
  - [bal-field](../bal-field)
@@ -93,6 +94,7 @@ The proprocessing step for each SVG icon included: (done in Adobe Illustrator, b
 ### Graph
 ```mermaid
 graph TD;
+  bal-accordion --> bal-icon
   bal-button --> bal-icon
   bal-card-steps --> bal-icon
   bal-field --> bal-icon

@@ -1,5 +1,3 @@
-@import 'node_modules/bulma/sass/elements/title.sass';
-
 $pixel_50: 3.125rem;
 $pixel_44: 2.75rem;
 $pixel_40: 2.5rem;
@@ -17,6 +15,8 @@ $pixel_16: 1;
 $pixel_15: 0.9375rem;
 $pixel_14: 0.875rem;
 $pixel_12: 0.75rem;
+
+@import 'node_modules/bulma/sass/elements/title.sass';
 
 // Headline
 h1.title.is-size-1 {

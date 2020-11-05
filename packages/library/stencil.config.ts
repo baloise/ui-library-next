@@ -11,13 +11,18 @@ import { angularOutputTarget, ValueAccessorConfig } from '@stencil/angular-outpu
 const vueComponentModels: ComponentModelConfig[] = [
   {
     elements: ['bal-checkbox'],
-    event: 'balChange',
+    event: 'balCheckboxChange',
     targetAttr: 'checked',
   },
   {
     elements: ['bal-select'],
-    event: 'balChange',
+    event: 'balSelectChange',
     targetAttr: 'value',
+  },
+  {
+    elements: ['bal-accordion'],
+    event: 'balAccordionChange',
+    targetAttr: 'collapsed',
   },
   {
     elements: ['bal-input'],
@@ -32,15 +37,21 @@ const vueComponentModels: ComponentModelConfig[] = [
 const angularValueAccessorBindings: ValueAccessorConfig[] = [
   {
     elementSelectors: ['bal-checkbox'],
-    event: 'balChange',
+    event: 'balCheckboxChange',
     targetAttr: 'checked',
     type: 'boolean',
   },
   {
     elementSelectors: ['bal-select'],
-    event: 'balChange',
+    event: 'balSelectChange',
     targetAttr: 'value',
     type: 'select',
+  },
+  {
+    elementSelectors: ['bal-accordion'],
+    event: 'balAccordionChange',
+    targetAttr: 'collapsed',
+    type: 'boolean',
   },
   {
     elementSelectors: ['bal-input'],
