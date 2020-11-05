@@ -147,20 +147,20 @@ export declare interface BalCardSteps extends Components.BalCardSteps {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['backLabel', 'hasBack', 'hidden', 'inverted'],
-  outputs: ['balChange', 'balBackClick', 'balStepClick']
+  outputs: ['balCardStepsChange', 'balCardStepsBackClick', 'balCardStepsStepClick']
 })
 export class BalCardSteps {
   /** Emitted when the changes has finished. */
-  balChange!: ICardSteps['balChange'];
+  balCardStepsChange!: ICardSteps['balChange'];
   /** Emitted when the back button is clicked. */
-  balBackClick!: ICardSteps['balBackClick'];
+  balCardStepsBackClick!: ICardSteps['balBackClick'];
   /** Emitted when the step circle is clicked. */
-  balStepClick!: ICardSteps['balStepClick'];
+  balCardStepsStepClick!: ICardSteps['balStepClick'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balChange', 'balBackClick', 'balStepClick']);
+    proxyOutputs(this, this.el, ['balCardStepsChange', 'balCardStepsBackClick', 'balCardStepsStepClick']);
   }
 }
 
@@ -213,20 +213,20 @@ export declare interface BalCheckbox extends Components.BalCheckbox {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['checked', 'disabled', 'inverted', 'label', 'name', 'value'],
-  outputs: ['balChange', 'balFocus', 'balBlur']
+  outputs: ['balCheckboxChange', 'balCheckboxFocus', 'balCheckboxBlur']
 })
 export class BalCheckbox {
   /** Emitted when the checked property has changed. */
-  balChange!: ICheckbox['balChange'];
+  balCheckboxChange!: ICheckbox['balChange'];
   /** Emitted when the toggle has focus. */
-  balFocus!: ICheckbox['balFocus'];
+  balCheckboxFocus!: ICheckbox['balFocus'];
   /** Emitted when the toggle loses focus. */
-  balBlur!: ICheckbox['balBlur'];
+  balCheckboxBlur!: ICheckbox['balBlur'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balChange', 'balFocus', 'balBlur']);
+    proxyOutputs(this, this.el, ['balCheckboxChange', 'balCheckboxFocus', 'balCheckboxBlur']);
   }
 }
 
@@ -241,16 +241,16 @@ export declare interface BalDropdown extends Components.BalDropdown {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['expanded', 'isActive', 'scrollable'],
-  outputs: ['balChange']
+  outputs: ['balDropdownChange']
 })
 export class BalDropdown {
   /** Listen when the dropdown opens or closes. Returns the current `isActive` value. */
-  balChange!: IDropdown['balChange'];
+  balDropdownChange!: IDropdown['balChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balChange']);
+    proxyOutputs(this, this.el, ['balDropdownChange']);
   }
 }
 
@@ -276,13 +276,13 @@ export class BalField {
 
 export declare interface BalIcon extends Components.BalIcon {}
 @ProxyCmp({
-  inputs: ['color', 'isLeft', 'isRight', 'name', 'rotate', 'size']
+  inputs: ['color', 'isLeft', 'isRight', 'name', 'rotate', 'size', 'turn']
 })
 @Component({
   selector: 'bal-icon',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['color', 'isLeft', 'isRight', 'name', 'rotate', 'size']
+  inputs: ['color', 'isLeft', 'isRight', 'name', 'rotate', 'size', 'turn']
 })
 export class BalIcon {
   protected el: HTMLElement;
@@ -303,28 +303,28 @@ export declare interface BalInput extends Components.BalInput {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['clickable', 'disabled', 'inverted', 'maxLength', 'minLength', 'name', 'numberKeyboard', 'onlyNumbers', 'placeholder', 'readonly', 'type', 'value'],
-  outputs: ['balInput', 'balBlur', 'balClick', 'balKeyDown', 'balKeyPress', 'balKeyUp', 'balFocus']
+  outputs: ['balInput', 'balInputBlur', 'balInputClick', 'balInputKeyDown', 'balInputKeyPress', 'balInputKeyUp', 'balInputFocus']
 })
 export class BalInput {
   /**  */
   balInput!: IInput['balInput'];
   /**  */
-  balBlur!: IInput['balBlur'];
+  balInputBlur!: IInput['balBlur'];
   /**  */
-  balClick!: IInput['balClick'];
+  balInputClick!: IInput['balClick'];
   /**  */
-  balKeyDown!: IInput['balKeyDown'];
+  balInputKeyDown!: IInput['balKeyDown'];
   /**  */
-  balKeyPress!: IInput['balKeyPress'];
+  balInputKeyPress!: IInput['balKeyPress'];
   /**  */
-  balKeyUp!: IInput['balKeyUp'];
+  balInputKeyUp!: IInput['balKeyUp'];
   /**  */
-  balFocus!: IInput['balFocus'];
+  balInputFocus!: IInput['balFocus'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balInput', 'balBlur', 'balClick', 'balKeyDown', 'balKeyPress', 'balKeyUp', 'balFocus']);
+    proxyOutputs(this, this.el, ['balInput', 'balInputBlur', 'balInputClick', 'balInputKeyDown', 'balInputKeyPress', 'balInputKeyUp', 'balInputFocus']);
   }
 }
 
@@ -339,30 +339,30 @@ export declare interface BalSelect extends Components.BalSelect {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['disabled', 'expanded', 'inverted', 'loading', 'options', 'placeholder', 'remote', 'scrollable', 'typeahead', 'value'],
-  outputs: ['balChange', 'balInput', 'balBlur', 'balFocus', 'balClick', 'balKeyDown', 'balKeyPress', 'balKeyUp']
+  outputs: ['balSelectChange', 'balSelectInput', 'balSelectBlur', 'balSelectFocus', 'balSelectClick', 'balSelectKeyDown', 'balSelectKeyPress', 'balSelectKeyUp']
 })
 export class BalSelect {
   /**  */
-  balChange!: ISelect['balChange'];
+  balSelectChange!: ISelect['balChange'];
   /**  */
-  balInput!: ISelect['balInput'];
+  balSelectInput!: ISelect['balInput'];
   /**  */
-  balBlur!: ISelect['balBlur'];
+  balSelectBlur!: ISelect['balBlur'];
   /**  */
-  balFocus!: ISelect['balFocus'];
+  balSelectFocus!: ISelect['balFocus'];
   /**  */
-  balClick!: ISelect['balClick'];
+  balSelectClick!: ISelect['balClick'];
   /**  */
-  balKeyDown!: ISelect['balKeyDown'];
+  balSelectKeyDown!: ISelect['balKeyDown'];
   /**  */
-  balKeyPress!: ISelect['balKeyPress'];
+  balSelectKeyPress!: ISelect['balKeyPress'];
   /**  */
-  balKeyUp!: ISelect['balKeyUp'];
+  balSelectKeyUp!: ISelect['balKeyUp'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balChange', 'balInput', 'balBlur', 'balFocus', 'balClick', 'balKeyDown', 'balKeyPress', 'balKeyUp']);
+    proxyOutputs(this, this.el, ['balSelectChange', 'balSelectInput', 'balSelectBlur', 'balSelectFocus', 'balSelectClick', 'balSelectKeyDown', 'balSelectKeyPress', 'balSelectKeyUp']);
   }
 }
 
@@ -376,16 +376,16 @@ export declare interface BalSelectOption extends Components.BalSelectOption {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['checkbox', 'focused', 'hidden', 'icon', 'selected', 'value'],
-  outputs: ['balOptionSelect']
+  outputs: ['balSelectOptionClick']
 })
 export class BalSelectOption {
   /**  */
-  balOptionSelect!: ISelectOption['balOptionSelect'];
+  balSelectOptionClick!: ISelectOption['balSelectOptionClick'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balOptionSelect']);
+    proxyOutputs(this, this.el, ['balSelectOptionClick']);
   }
 }
 

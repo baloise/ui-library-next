@@ -15,6 +15,7 @@ export class Select {
 
   clearScrollToValue: NodeJS.Timeout
 
+  @State() isDropdownOpen: boolean = false
   @State() textToScrollTo: string = ''
   @State() label = ''
 
@@ -35,16 +36,16 @@ export class Select {
     }
   }
 
-  @Event({ bubbles: false }) balChange!: EventEmitter<BalOptionValue<any>>
-  @Event({ bubbles: false }) balInput!: EventEmitter<string>
-  @Event({ bubbles: false }) balBlur!: EventEmitter<FocusEvent>
-  @Event({ bubbles: false }) balFocus!: EventEmitter<FocusEvent>
-  @Event({ bubbles: false }) balClick!: EventEmitter<MouseEvent>
-  @Event({ bubbles: false }) balKeyDown!: EventEmitter<KeyboardEvent>
-  @Event({ bubbles: false }) balKeyPress!: EventEmitter<KeyboardEvent>
-  @Event({ bubbles: false }) balKeyUp!: EventEmitter<KeyboardEvent>
+  @Event({ eventName: 'balSelectChange' }) balChange!: EventEmitter<BalOptionValue<any>>
+  @Event({ eventName: 'balSelectInput' }) balInput!: EventEmitter<string>
+  @Event({ eventName: 'balSelectBlur' }) balBlur!: EventEmitter<FocusEvent>
+  @Event({ eventName: 'balSelectFocus' }) balFocus!: EventEmitter<FocusEvent>
+  @Event({ eventName: 'balSelectClick' }) balClick!: EventEmitter<MouseEvent>
+  @Event({ eventName: 'balSelectKeyDown' }) balKeyDown!: EventEmitter<KeyboardEvent>
+  @Event({ eventName: 'balSelectKeyPress' }) balKeyPress!: EventEmitter<KeyboardEvent>
+  @Event({ eventName: 'balSelectKeyUp' }) balKeyUp!: EventEmitter<KeyboardEvent>
 
-  @Listen('balOptionSelect')
+  @Listen('balSelectOptionClick')
   async optionSelect(event: CustomEvent<BalOptionValue<any>>) {
     event.preventDefault()
     event.stopPropagation()
@@ -70,6 +71,7 @@ export class Select {
   }
 
   onDropdownChange(event: CustomEvent<boolean>) {
+    this.isDropdownOpen = event.detail
     event.stopPropagation()
     event.preventDefault()
   }
@@ -105,7 +107,7 @@ export class Select {
         <bal-dropdown
           expanded={this.expanded}
           scrollable={this.scrollable}
-          onBalChange={e => this.onDropdownChange(e)}
+          onBalDropdownChange={e => this.onDropdownChange(e)}
           ref={el => (this.dropdownElement = el as HTMLBalDropdownElement)}>
           <div class="control has-icons-right" slot="trigger">
             <input
@@ -130,6 +132,7 @@ export class Select {
             />
             <bal-icon
               size="medium"
+              turn={!this.loading && !this.typeahead && this.isDropdownOpen}
               rotate={this.loading}
               color={this.inverted ? 'white' : 'blue'}
               name={this.loading ? 'refresh' : this.typeahead ? 'search' : 'caret-down'}

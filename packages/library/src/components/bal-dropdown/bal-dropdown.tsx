@@ -72,7 +72,7 @@ export class Dropdown {
   /**
    * Listen when the dropdown opens or closes. Returns the current `isActive` value.
    */
-  @Event({ bubbles: false }) balChange!: EventEmitter<boolean>
+  @Event({ eventName: 'balDropdownChange' }) balChange!: EventEmitter<boolean>
 
   @Listen('keyup', { target: 'document' })
   async tabOutside(event: KeyboardEvent) {

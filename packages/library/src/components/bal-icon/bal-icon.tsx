@@ -33,9 +33,25 @@ export class Icon {
   @Prop() rotate = false
 
   /**
+   * If `true` the icon rotates like for a loading spinner
+   */
+  @Prop() turn = false
+
+  /**
    * Defines the color of the icon.
    */
-  @Prop() color: 'danger' | 'warning' | 'primary' | 'blue' | 'success' | 'grey' | 'white' | 'black' | 'blue-line' | 'blue-light-line' | '' = ''
+  @Prop() color:
+    | 'danger'
+    | 'warning'
+    | 'primary'
+    | 'blue'
+    | 'success'
+    | 'grey'
+    | 'white'
+    | 'black'
+    | 'blue-line'
+    | 'blue-light-line'
+    | '' = ''
 
   get sizeCssClass() {
     if (this.size && this.size.length > 0) {
@@ -54,12 +70,13 @@ export class Icon {
         <span
           class={[
             'icon',
-            this.rotate ? 'rotate' : '',
             this.isRight ? 'is-right' : '',
             this.isLeft ? 'is-left' : '',
+            this.rotate ? 'rotate' : '',
+            this.turn ? 'turn' : '',
             this.sizeCssClass,
           ].join(' ')}>
-          <i class={[this.iconCssClass, 'font', this.color.length > 0 ? `has-text-${this.color}` : ''].join(' ')}></i>
+          <i class={['font', this.iconCssClass, this.color.length > 0 ? `has-text-${this.color}` : ''].join(' ')}></i>
         </span>
       </Host>
     )

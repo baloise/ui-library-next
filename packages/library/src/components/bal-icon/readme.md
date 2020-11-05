@@ -78,6 +78,7 @@ The proprocessing step for each SVG icon included: (done in Adobe Illustrator, b
 | `name`    | `name`     | The name of the icon without the bal-icon prefix.                           | `string`                                                                                                                              | `''`    |
 | `rotate`  | `rotate`   | If `true` the icon rotates like for a loading spinner                       | `boolean`                                                                                                                             | `false` |
 | `size`    | `size`     | Defines the size of the icon.                                               | `"" \| "large" \| "medium" \| "small"`                                                                                                | `''`    |
+| `turn`    | `turn`     | If `true` the icon rotates like for a loading spinner                       | `boolean`                                                                                                                             | `false` |
 
 
 ## Dependencies

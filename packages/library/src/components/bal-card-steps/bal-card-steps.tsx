@@ -35,17 +35,17 @@ export class CardSteps {
   /**
    * Emitted when the changes has finished.
    */
-  @Event({ bubbles: false }) balChange: EventEmitter<BalCardStepOption>
+  @Event({ eventName: 'balCardStepsChange' }) balChange: EventEmitter<BalCardStepOption>
 
   /**
    * Emitted when the back button is clicked.
    */
-  @Event({ bubbles: false }) balBackClick: EventEmitter<void>
+  @Event({ eventName: 'balCardStepsBackClick' }) balBackClick: EventEmitter<void>
 
   /**
    * Emitted when the step circle is clicked.
    */
-  @Event({ bubbles: false }) balStepClick: EventEmitter<BalCardStepOption>
+  @Event({ eventName: 'balCardStepsStepClick' }) balStepClick: EventEmitter<BalCardStepOption>
 
   /**
    * Select a step.

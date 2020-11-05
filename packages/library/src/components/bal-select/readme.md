@@ -26,16 +26,16 @@ Select fields components are used for collecting user provided information from 
 
 ## Events
 
-| Event         | Description | Type                               |
-| ------------- | ----------- | ---------------------------------- |
-| `balBlur`     |             | `CustomEvent<FocusEvent>`          |
-| `balChange`   |             | `CustomEvent<BalOptionValue<any>>` |
-| `balClick`    |             | `CustomEvent<MouseEvent>`          |
-| `balFocus`    |             | `CustomEvent<FocusEvent>`          |
-| `balInput`    |             | `CustomEvent<string>`              |
-| `balKeyDown`  |             | `CustomEvent<KeyboardEvent>`       |
-| `balKeyPress` |             | `CustomEvent<KeyboardEvent>`       |
-| `balKeyUp`    |             | `CustomEvent<KeyboardEvent>`       |
+| Event               | Description | Type                               |
+| ------------------- | ----------- | ---------------------------------- |
+| `balSelectBlur`     |             | `CustomEvent<FocusEvent>`          |
+| `balSelectChange`   |             | `CustomEvent<BalOptionValue<any>>` |
+| `balSelectClick`    |             | `CustomEvent<MouseEvent>`          |
+| `balSelectFocus`    |             | `CustomEvent<FocusEvent>`          |
+| `balSelectInput`    |             | `CustomEvent<string>`              |
+| `balSelectKeyDown`  |             | `CustomEvent<KeyboardEvent>`       |
+| `balSelectKeyPress` |             | `CustomEvent<KeyboardEvent>`       |
+| `balSelectKeyUp`    |             | `CustomEvent<KeyboardEvent>`       |
 
 
 ## Methods

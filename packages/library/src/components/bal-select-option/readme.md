@@ -21,9 +21,9 @@
 
 ## Events
 
-| Event             | Description | Type               |
-| ----------------- | ----------- | ------------------ |
-| `balOptionSelect` |             | `CustomEvent<any>` |
+| Event                  | Description | Type               |
+| ---------------------- | ----------- | ------------------ |
+| `balSelectOptionClick` |             | `CustomEvent<any>` |
 
 
 ## Dependencies

@@ -7,7 +7,7 @@ import { Component, h, Host, Prop, Element, Watch, EventEmitter, Event, Method }
   scoped: true,
 })
 export class Input {
-  private inputId = `bal-in-${checkboxIds++}`
+  private inputId = `bal-in-${InputIds++}`
   private inputEl?: HTMLInputElement
 
   @Element() el!: HTMLElement
@@ -36,7 +36,7 @@ export class Input {
     this.updateInputValue()
   }
 
-  @Event({ bubbles: false }) balInput!: EventEmitter<string>
+  @Event({ eventName: 'balInput' }) balInput!: EventEmitter<string>
   private onInput = (event: { target: { value: string } }) => {
     let val = event.target && event.target?.value
     
@@ -52,12 +52,12 @@ export class Input {
     }
   }
 
-  @Event({ bubbles: false }) balBlur!: EventEmitter<FocusEvent>
-  @Event({ bubbles: false }) balClick!: EventEmitter<MouseEvent>
-  @Event({ bubbles: false }) balKeyDown!: EventEmitter<KeyboardEvent>
-  @Event({ bubbles: false }) balKeyPress!: EventEmitter<KeyboardEvent>
-  @Event({ bubbles: false }) balKeyUp!: EventEmitter<KeyboardEvent>
-  @Event({ bubbles: false }) balFocus!: EventEmitter<FocusEvent>
+  @Event({ eventName: 'balInputBlur' }) balBlur!: EventEmitter<FocusEvent>
+  @Event({ eventName: 'balInputClick' }) balClick!: EventEmitter<MouseEvent>
+  @Event({ eventName: 'balInputKeyDown' }) balKeyDown!: EventEmitter<KeyboardEvent>
+  @Event({ eventName: 'balInputKeyPress' }) balKeyPress!: EventEmitter<KeyboardEvent>
+  @Event({ eventName: 'balInputKeyUp' }) balKeyUp!: EventEmitter<KeyboardEvent>
+  @Event({ eventName: 'balInputFocus' }) balFocus!: EventEmitter<FocusEvent>
 
   @Method()
   async setFocus(): Promise<void> {
@@ -110,4 +110,4 @@ export class Input {
   }
 }
 
-let checkboxIds = 0
+let InputIds = 0

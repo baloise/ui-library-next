@@ -25,15 +25,15 @@
 
 ## Events
 
-| Event         | Description | Type                         |
-| ------------- | ----------- | ---------------------------- |
-| `balBlur`     |             | `CustomEvent<FocusEvent>`    |
-| `balClick`    |             | `CustomEvent<MouseEvent>`    |
-| `balFocus`    |             | `CustomEvent<FocusEvent>`    |
-| `balInput`    |             | `CustomEvent<string>`        |
-| `balKeyDown`  |             | `CustomEvent<KeyboardEvent>` |
-| `balKeyPress` |             | `CustomEvent<KeyboardEvent>` |
-| `balKeyUp`    |             | `CustomEvent<KeyboardEvent>` |
+| Event              | Description | Type                         |
+| ------------------ | ----------- | ---------------------------- |
+| `balInput`         |             | `CustomEvent<string>`        |
+| `balInputBlur`     |             | `CustomEvent<FocusEvent>`    |
+| `balInputClick`    |             | `CustomEvent<MouseEvent>`    |
+| `balInputFocus`    |             | `CustomEvent<FocusEvent>`    |
+| `balInputKeyDown`  |             | `CustomEvent<KeyboardEvent>` |
+| `balInputKeyPress` |             | `CustomEvent<KeyboardEvent>` |
+| `balInputKeyUp`    |             | `CustomEvent<KeyboardEvent>` |
 
 
 ## Methods

@@ -37,7 +37,7 @@ export class SelectOption {
    */
   @Prop() selected = false
 
-  @Event({ bubbles: false }) balOptionSelect: EventEmitter<string | boolean | number | any>
+  @Event() balSelectOptionClick: EventEmitter<string | boolean | number | any>
 
   @Listen('balSelectChanged')
   async selectChanged(event: CustomEvent<BalOptionValue<any> | null>) {
@@ -56,7 +56,7 @@ export class SelectOption {
   }
 
   async onClick() {
-    this.balOptionSelect.emit(this.value)
+    this.balSelectOptionClick.emit(this.value)
   }
 
   render() {

@@ -1,6 +1,10 @@
-@import "bal-select.vars";
-@import "../bal-input/bal-input.scss";
+@import 'bal-select.vars';
+@import '../bal-input/bal-input.scss';
 
 :host {
   display: block;
+}
+
+.is-turned-up {
+  rotate: 180deg;
 }
