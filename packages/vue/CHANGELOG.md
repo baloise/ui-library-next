@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.6](https://github.com/baloise/ui-library-next/compare/v1.9.5...v1.9.6) (2020-11-05)
+
+
+### Bug Fixes
+
+* update vue generation ([845ff79](https://github.com/baloise/ui-library-next/commit/845ff799a731d59e4300b07b7c2bc553063e6880))
+
+
+
+
+
 ## [1.9.5](https://github.com/baloise/ui-library-next/compare/v1.9.4...v1.9.5) (2020-11-05)
 
 
