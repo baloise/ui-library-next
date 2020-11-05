@@ -162,7 +162,7 @@ export namespace Components {
         /**
           * Select a step.
          */
-        "select": (value: string) => Promise<void>;
+        "select": (step: BalCardStepOptions) => Promise<void>;
     }
     interface BalCardSubtitle {
         /**

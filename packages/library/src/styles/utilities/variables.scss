@@ -1,4 +1,4 @@
-@import "bal-variables";
+@import 'bal-variables';
 
 /**
  * Colors
@@ -51,19 +51,19 @@ $text: $black;
 $text-strong: $blue;
 
 $shades: (
-  "blue-darker": $blue-darker,
-  "blue-dark": $blue-dark,
-  "blue": $blue,
-  "blue-line-inverted": $blue-line-inverted,
-  "blue-light-text": $blue-light-text,
-  "blue-line": $blue-line,
-  "blue-light-line": $blue-light-line,
-  "blue-light-hover": $blue-light-hover,
-  "blue-light": $blue-light,
-  "white-bis": $white-bis,
-  "white-ter": $white-ter,
-  "grey": $grey,
-  "black": $black,
+  'blue-darker': $blue-darker,
+  'blue-dark': $blue-dark,
+  'blue': $blue,
+  'blue-line-inverted': $blue-line-inverted,
+  'blue-light-text': $blue-light-text,
+  'blue-line': $blue-line,
+  'blue-light-line': $blue-light-line,
+  'blue-light-hover': $blue-light-hover,
+  'blue-light': $blue-light,
+  'white-bis': $white-bis,
+  'white-ter': $white-ter,
+  'grey': $grey,
+  'black': $black,
 );
 
 $border: $blue-light-line;
@@ -164,3 +164,11 @@ $input-disabled-color: $blue-light-text;
 $input-disabled-background-color: $blue-light;
 $input-disabled-border-color: $blue-light-line;
 $input-disabled-placeholder-color: $blue-light-text;
+
+/**
+ * Breakpoints
+ */
+$tablet: $bp-min-m;
+$desktop: $bp-min-l;
+$widescreen: $bp-min-xl;
+$fullhd: $bp-min-xl;

@@ -27,7 +27,7 @@ The steps list is useful for tracking progress in multi steps forms or wizards.
 
 ## Methods
 
-### `select(value: string) => Promise<void>`
+### `select(step: BalCardStepOptions) => Promise<void>`
 
 Select a step.
 
