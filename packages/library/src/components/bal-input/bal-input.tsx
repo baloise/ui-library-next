@@ -36,7 +36,7 @@ export class Input {
     this.updateInputValue()
   }
 
-  @Event() balInput!: EventEmitter<string>
+  @Event({ bubbles: false }) balInput!: EventEmitter<string>
   private onInput = (event: { target: { value: string } }) => {
     let val = event.target && event.target?.value
     
@@ -52,12 +52,12 @@ export class Input {
     }
   }
 
-  @Event() balBlur!: EventEmitter<FocusEvent>
-  @Event() balClick!: EventEmitter<MouseEvent>
-  @Event() balKeyDown!: EventEmitter<KeyboardEvent>
-  @Event() balKeyPress!: EventEmitter<KeyboardEvent>
-  @Event() balKeyUp!: EventEmitter<KeyboardEvent>
-  @Event() balFocus!: EventEmitter<FocusEvent>
+  @Event({ bubbles: false }) balBlur!: EventEmitter<FocusEvent>
+  @Event({ bubbles: false }) balClick!: EventEmitter<MouseEvent>
+  @Event({ bubbles: false }) balKeyDown!: EventEmitter<KeyboardEvent>
+  @Event({ bubbles: false }) balKeyPress!: EventEmitter<KeyboardEvent>
+  @Event({ bubbles: false }) balKeyUp!: EventEmitter<KeyboardEvent>
+  @Event({ bubbles: false }) balFocus!: EventEmitter<FocusEvent>
 
   @Method()
   async setFocus(): Promise<void> {

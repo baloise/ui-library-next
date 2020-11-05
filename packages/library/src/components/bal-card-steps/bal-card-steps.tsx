@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, h, Host, Listen, Method, Prop, State } from '@stencil/core'
+import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, State } from '@stencil/core'
 import { BalCardStepOption } from '../bal-card-step/bal-card-step.type'
 
 @Component({
@@ -35,17 +35,17 @@ export class CardSteps {
   /**
    * Emitted when the changes has finished.
    */
-  @Event() balChange: EventEmitter<BalCardStepOption>
+  @Event({ bubbles: false }) balChange: EventEmitter<BalCardStepOption>
 
   /**
    * Emitted when the back button is clicked.
    */
-  @Event() balBackClick: EventEmitter<void>
+  @Event({ bubbles: false }) balBackClick: EventEmitter<void>
 
   /**
    * Emitted when the step circle is clicked.
    */
-  @Event() balStepClick: EventEmitter<BalCardStepOption>
+  @Event({ bubbles: false }) balStepClick: EventEmitter<BalCardStepOption>
 
   /**
    * Select a step.
@@ -61,11 +61,6 @@ export class CardSteps {
     this.readSteps()
   }
 
-  @Listen('balCardStepChanged')
-  stepChanged(): void {
-    this.readSteps()
-  }
-
   render() {
     return (
       <Host>
@@ -73,8 +68,8 @@ export class CardSteps {
           <div class={['left-side', !this.hasBack ? 'is-hidden' : ''].join(' ')}>
             <a role="button" onClick={() => this.onBackButtonClick()}>
               <bal-icon class="nav-go-left" name="nav-go-large" size="medium" color="white"></bal-icon>
+              <span class="nav-go-left-label">{this.backLabel}</span>
             </a>
-            <span class="nav-go-left-label">{this.backLabel}</span>
           </div>
           <div class={['tabs', this.inverted ? 'is-inverted' : '', this.hidden ? 'is-hidden' : ''].join(' ')}>
             <ul>
@@ -133,5 +128,4 @@ export class CardSteps {
     let activeStepIndex = this.stepOptions.findIndex(el => el.active === true)
     return activeStepIndex - 1
   }
-
 }

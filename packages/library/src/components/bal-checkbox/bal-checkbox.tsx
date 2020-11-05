@@ -51,17 +51,17 @@ export class Checkbox {
   /**
    * Emitted when the checked property has changed.
    */
-  @Event() balChange!: EventEmitter<boolean>
+  @Event({ bubbles: false }) balChange!: EventEmitter<boolean>
 
   /**
    * Emitted when the toggle has focus.
    */
-  @Event() balFocus!: EventEmitter<void>
+  @Event({ bubbles: false }) balFocus!: EventEmitter<void>
 
   /**
    * Emitted when the toggle loses focus.
    */
-  @Event() balBlur!: EventEmitter<void>
+  @Event({ bubbles: false }) balBlur!: EventEmitter<void>
 
   /**
    * Sets the focus on the checkbox input element.

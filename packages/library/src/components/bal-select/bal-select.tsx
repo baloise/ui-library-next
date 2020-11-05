@@ -35,14 +35,14 @@ export class Select {
     }
   }
 
-  @Event() balChange!: EventEmitter<BalOptionValue<any>>
-  @Event() balInput!: EventEmitter<string>
-  @Event() balBlur!: EventEmitter<FocusEvent>
-  @Event() balFocus!: EventEmitter<FocusEvent>
-  @Event() balClick!: EventEmitter<MouseEvent>
-  @Event() balKeyDown!: EventEmitter<KeyboardEvent>
-  @Event() balKeyPress!: EventEmitter<KeyboardEvent>
-  @Event() balKeyUp!: EventEmitter<KeyboardEvent>
+  @Event({ bubbles: false }) balChange!: EventEmitter<BalOptionValue<any>>
+  @Event({ bubbles: false }) balInput!: EventEmitter<string>
+  @Event({ bubbles: false }) balBlur!: EventEmitter<FocusEvent>
+  @Event({ bubbles: false }) balFocus!: EventEmitter<FocusEvent>
+  @Event({ bubbles: false }) balClick!: EventEmitter<MouseEvent>
+  @Event({ bubbles: false }) balKeyDown!: EventEmitter<KeyboardEvent>
+  @Event({ bubbles: false }) balKeyPress!: EventEmitter<KeyboardEvent>
+  @Event({ bubbles: false }) balKeyUp!: EventEmitter<KeyboardEvent>
 
   @Listen('balOptionSelect')
   async optionSelect(event: CustomEvent<BalOptionValue<any>>) {
