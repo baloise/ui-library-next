@@ -20,9 +20,7 @@ export const createCommonRender = (tagName: string, eventNames: string[] = []) =
       tagName,
       {
         ref: 'wc',
-        domProps: {
-          ...vueElement.$props,
-        },
+        domProps: { ...vueElement.$props },
         on: allListeners,
       },
       [vueElement.$slots.default],
