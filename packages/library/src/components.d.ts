@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { BalCardStepOption } from "./components/bal-card-step/bal-card-step.type";
+import { FileUploadRejectedFile } from "./components/bal-file-upload/bal-file-upload.type";
 import { BalOptionValue } from "./components/bal-select-option/bal-select-option.type";
 export namespace Components {
     interface BalAccordion {
@@ -336,6 +337,36 @@ export namespace Components {
          */
         "validationMessage": string;
     }
+    interface BalFileUpload {
+        /**
+          * Accepted MIME-Types like `image/png,image/jpeg`.
+         */
+        "accept": string;
+        /**
+          * If `true` the button is disabled
+         */
+        "disabled": boolean;
+        /**
+          * Label of the drop area.
+         */
+        "label": string;
+        /**
+          * Allowed max bundle size in bytes.
+         */
+        "maxBundleSize": number;
+        /**
+          * Allowed max file size in bytes.
+         */
+        "maxFileSize": number;
+        /**
+          * Allowed number of files in the bundle.
+         */
+        "maxFiles": number;
+        /**
+          * If `true` multiple file upload is possible.
+         */
+        "multiple": boolean;
+    }
     interface BalIcon {
         /**
           * Defines the color of the icon.
@@ -620,6 +651,12 @@ declare global {
         prototype: HTMLBalFieldElement;
         new (): HTMLBalFieldElement;
     };
+    interface HTMLBalFileUploadElement extends Components.BalFileUpload, HTMLStencilElement {
+    }
+    var HTMLBalFileUploadElement: {
+        prototype: HTMLBalFileUploadElement;
+        new (): HTMLBalFileUploadElement;
+    };
     interface HTMLBalIconElement extends Components.BalIcon, HTMLStencilElement {
     }
     var HTMLBalIconElement: {
@@ -675,6 +712,7 @@ declare global {
         "bal-data-value": HTMLBalDataValueElement;
         "bal-dropdown": HTMLBalDropdownElement;
         "bal-field": HTMLBalFieldElement;
+        "bal-file-upload": HTMLBalFileUploadElement;
         "bal-icon": HTMLBalIconElement;
         "bal-input": HTMLBalInputElement;
         "bal-select": HTMLBalSelectElement;
@@ -996,6 +1034,44 @@ declare namespace LocalJSX {
          */
         "validationMessage"?: string;
     }
+    interface BalFileUpload {
+        /**
+          * Accepted MIME-Types like `image/png,image/jpeg`.
+         */
+        "accept"?: string;
+        /**
+          * If `true` the button is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * Label of the drop area.
+         */
+        "label"?: string;
+        /**
+          * Allowed max bundle size in bytes.
+         */
+        "maxBundleSize"?: number;
+        /**
+          * Allowed max file size in bytes.
+         */
+        "maxFileSize"?: number;
+        /**
+          * Allowed number of files in the bundle.
+         */
+        "maxFiles"?: number;
+        /**
+          * If `true` multiple file upload is possible.
+         */
+        "multiple"?: boolean;
+        /**
+          * Triggers when a file is added or removed.
+         */
+        "onBalFileUploadChange"?: (event: CustomEvent<File[]>) => void;
+        /**
+          * Triggers when a file is rejected due to not allowed MIME-Type and so on.
+         */
+        "onBalFileUploadRejectedFile"?: (event: CustomEvent<FileUploadRejectedFile>) => void;
+    }
     interface BalIcon {
         /**
           * Defines the color of the icon.
@@ -1229,6 +1305,7 @@ declare namespace LocalJSX {
         "bal-data-value": BalDataValue;
         "bal-dropdown": BalDropdown;
         "bal-field": BalField;
+        "bal-file-upload": BalFileUpload;
         "bal-icon": BalIcon;
         "bal-input": BalInput;
         "bal-select": BalSelect;
@@ -1259,6 +1336,7 @@ declare module "@stencil/core" {
             "bal-data-value": LocalJSX.BalDataValue & JSXBase.HTMLAttributes<HTMLBalDataValueElement>;
             "bal-dropdown": LocalJSX.BalDropdown & JSXBase.HTMLAttributes<HTMLBalDropdownElement>;
             "bal-field": LocalJSX.BalField & JSXBase.HTMLAttributes<HTMLBalFieldElement>;
+            "bal-file-upload": LocalJSX.BalFileUpload & JSXBase.HTMLAttributes<HTMLBalFileUploadElement>;
             "bal-icon": LocalJSX.BalIcon & JSXBase.HTMLAttributes<HTMLBalIconElement>;
             "bal-input": LocalJSX.BalInput & JSXBase.HTMLAttributes<HTMLBalInputElement>;
             "bal-select": LocalJSX.BalSelect & JSXBase.HTMLAttributes<HTMLBalSelectElement>;

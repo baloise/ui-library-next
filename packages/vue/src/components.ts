@@ -28,6 +28,7 @@ const customElementTags: string[] = [
  'bal-data-value',
  'bal-dropdown',
  'bal-field',
+ 'bal-file-upload',
  'bal-icon',
  'bal-input',
  'bal-select',
@@ -302,6 +303,23 @@ export const BalField = /*@__PURE__*/ Vue.extend({
 
 
   render: createCommonRender('bal-field', []),
+});
+
+
+export const BalFileUpload = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    label: {} as PropOptions<Components.BalFileUpload['label']>,
+    multiple: {} as PropOptions<Components.BalFileUpload['multiple']>,
+    disabled: {} as PropOptions<Components.BalFileUpload['disabled']>,
+    accept: {} as PropOptions<Components.BalFileUpload['accept']>,
+    maxFiles: {} as PropOptions<Components.BalFileUpload['maxFiles']>,
+    maxFileSize: {} as PropOptions<Components.BalFileUpload['maxFileSize']>,
+    maxBundleSize: {} as PropOptions<Components.BalFileUpload['maxBundleSize']>,
+  },
+
+
+  render: createCommonRender('bal-file-upload', ['balFileUploadChange', 'balFileUploadRejectedFile']),
 });
 
 

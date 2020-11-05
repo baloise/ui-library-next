@@ -1,0 +1,45 @@
+# bal-file-upload
+
+The `bal-file-upload` is all in one component. It supports drag&drop and the normal file upload dialog of the browser.
+
+
+<!-- Auto Generated Below -->
+
+
+## Properties
+
+| Property        | Attribute         | Description                                      | Type      | Default                      |
+| --------------- | ----------------- | ------------------------------------------------ | --------- | ---------------------------- |
+| `accept`        | `accept`          | Accepted MIME-Types like `image/png,image/jpeg`. | `string`  | `''`                         |
+| `disabled`      | `disabled`        | If `true` the button is disabled                 | `boolean` | `undefined`                  |
+| `label`         | `label`           | Label of the drop area.                          | `string`  | `'Choose or drop a file...'` |
+| `maxBundleSize` | `max-bundle-size` | Allowed max bundle size in bytes.                | `number`  | `undefined`                  |
+| `maxFileSize`   | `max-file-size`   | Allowed max file size in bytes.                  | `number`  | `undefined`                  |
+| `maxFiles`      | `max-files`       | Allowed number of files in the bundle.           | `number`  | `undefined`                  |
+| `multiple`      | `multiple`        | If `true` multiple file upload is possible.      | `boolean` | `true`                       |
+
+
+## Events
+
+| Event                       | Description                                                              | Type                                  |
+| --------------------------- | ------------------------------------------------------------------------ | ------------------------------------- |
+| `balFileUploadChange`       | Triggers when a file is added or removed.                                | `CustomEvent<File[]>`                 |
+| `balFileUploadRejectedFile` | Triggers when a file is rejected due to not allowed MIME-Type and so on. | `CustomEvent<FileUploadRejectedFile>` |
+
+
+## Dependencies
+
+### Depends on
+
+- [bal-icon](../bal-icon)
+
+### Graph
+```mermaid
+graph TD;
+  bal-file-upload --> bal-icon
+  style bal-file-upload fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

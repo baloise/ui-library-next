@@ -370,6 +370,31 @@ export class BalField {
   }
 }
 
+import { FileUpload as IFileUpload } from '@baloise/ui-library-next/dist/types/components/bal-file-upload/bal-file-upload';
+export declare interface BalFileUpload extends Components.BalFileUpload {}
+@ProxyCmp({
+  inputs: ['accept', 'disabled', 'label', 'maxBundleSize', 'maxFileSize', 'maxFiles', 'multiple']
+})
+@Component({
+  selector: 'bal-file-upload',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['accept', 'disabled', 'label', 'maxBundleSize', 'maxFileSize', 'maxFiles', 'multiple'],
+  outputs: ['balFileUploadChange', 'balFileUploadRejectedFile']
+})
+export class BalFileUpload {
+  /** Triggers when a file is added or removed. */
+  balFileUploadChange!: IFileUpload['balChangeEventEmitter'];
+  /** Triggers when a file is rejected due to not allowed MIME-Type and so on. */
+  balFileUploadRejectedFile!: IFileUpload['balRejectedFileEventEmitter'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['balFileUploadChange', 'balFileUploadRejectedFile']);
+  }
+}
+
 
 export declare interface BalIcon extends Components.BalIcon {}
 @ProxyCmp({
