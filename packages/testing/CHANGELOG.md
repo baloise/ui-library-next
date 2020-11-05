@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.8](https://github.com/baloise/ui-library-next/compare/v1.9.7...v1.9.8) (2020-11-05)
+
+
+### Bug Fixes
+
+* **card-steps:** improve typings of ([b53ae13](https://github.com/baloise/ui-library-next/commit/b53ae1364d60815a009cab6fec0c9198e9f03bc6))
+
+
+
+
+
 ## [1.9.7](https://github.com/baloise/ui-library-next/compare/v1.9.6...v1.9.7) (2020-11-05)
 
 **Note:** Version bump only for package @baloise/ui-library-next-testing
