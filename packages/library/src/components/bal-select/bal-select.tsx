@@ -19,15 +19,54 @@ export class Select {
   @State() textToScrollTo: string = ''
   @State() label = ''
 
+  /**
+   * If `true` the filtering of the options is done outside of the component.
+   */
   @Prop() remote = false
+
+  /**
+   * If `true` the component uses the whole width.
+   */
   @Prop() expanded = false
+
+  /**
+   * Set this to `true` when the component is placed on a dark background.
+   */
   @Prop() inverted = false
+
+  /**
+   * If `true` the component is diabled.
+   */
   @Prop() disabled = false
+
+  /**
+   * If `true` the user can search by typing into the input field.
+   */
   @Prop() typeahead = false
+
+  /**
+   * If `true` the component shows a loading spinner and sets the input to readonly.
+   */
   @Prop() loading = false
+
+  /**
+   * Defines the placeholder of the input element.
+   */
   @Prop() placeholder = ''
+
+  /**
+   * Defines the height of the dropdown list.
+   */
   @Prop() scrollable: number = 250
+
+  /**
+   * Selected option value.
+   */
   @Prop({ mutable: true }) value: BalOptionValue<any>
+
+  /**
+   * List of the options.
+   */
   @Prop() options: BalOptionValue<any>[] = []
   @Watch('options')
   optionsChanged() {
@@ -36,14 +75,35 @@ export class Select {
     }
   }
 
+  /**
+   * Emitted when a option got selected.
+   */
   @Event({ eventName: 'balSelectChange' }) balChange!: EventEmitter<BalOptionValue<any>>
+
+  /**
+   * Emitted when a keyboard input occurred.
+   */
   @Event({ eventName: 'balSelectInput' }) balInput!: EventEmitter<string>
+
+  /**
+   * Emitted when the input loses focus.
+   */
   @Event({ eventName: 'balSelectBlur' }) balBlur!: EventEmitter<FocusEvent>
+
+  /**
+   * Emitted when the input has focus.
+   */
   @Event({ eventName: 'balSelectFocus' }) balFocus!: EventEmitter<FocusEvent>
+
+  /**
+   * Emitted when the input got clicked.
+   */
   @Event({ eventName: 'balSelectClick' }) balClick!: EventEmitter<MouseEvent>
-  @Event({ eventName: 'balSelectKeyDown' }) balKeyDown!: EventEmitter<KeyboardEvent>
+
+  /**
+   * Emitted when the input has focus and key from the keyboard go hit.
+   */
   @Event({ eventName: 'balSelectKeyPress' }) balKeyPress!: EventEmitter<KeyboardEvent>
-  @Event({ eventName: 'balSelectKeyUp' }) balKeyUp!: EventEmitter<KeyboardEvent>
 
   @Listen('balSelectOptionClick')
   async optionSelect(event: CustomEvent<BalOptionValue<any>>) {
@@ -56,6 +116,9 @@ export class Select {
     this.inputElement.value = this.value?.text
   }
 
+  /**
+   * Sets the value to null and resets the value of the input.
+   */
   @Method()
   async clear() {
     this.value = null
@@ -116,7 +179,7 @@ export class Select {
                 'clickable': true,
                 'is-inverted': this.inverted,
               }}
-              readonly={!this.typeahead}
+              readonly={!this.typeahead || this.loading}
               disabled={this.disabled}
               placeholder={this.placeholder}
               autoComplete="off"
@@ -124,9 +187,7 @@ export class Select {
               onInput={e => this.onInput(e as any)}
               onBlur={e => this.balBlur.emit(e)}
               onClick={e => this.onInputClick(e)}
-              onKeyDown={e => this.balKeyDown.emit(e)}
               onKeyPress={e => this.onKeyPress(e)}
-              onKeyUp={e => this.balKeyUp.emit(e)}
               onFocus={e => this.balFocus.emit(e)}
               ref={el => (this.inputElement = el as HTMLInputElement)}
             />

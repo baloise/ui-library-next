@@ -10,6 +10,9 @@ import { BalOptionValue } from './bal-select-option.type'
 export class SelectOption {
   @Element() element!: HTMLElement
 
+  /**
+   * If `true` the option is hidden
+   */
   @Prop({ mutable: true }) hidden = false
 
   /**
@@ -23,11 +26,6 @@ export class SelectOption {
   @Prop() icon = ''
 
   /**
-   * TODO: add description
-   */
-  @Prop() checkbox = false
-
-  /**
    * If `true` the option is focused
    */
   @Prop() focused = false
@@ -37,7 +35,10 @@ export class SelectOption {
    */
   @Prop() selected = false
 
-  @Event() balSelectOptionClick: EventEmitter<string | boolean | number | any>
+  /**
+   * Click event when a option get clicked.
+   */
+  @Event() balSelectOptionClick: EventEmitter<BalOptionValue<any>>
 
   @Listen('balSelectChanged')
   async selectChanged(event: CustomEvent<BalOptionValue<any> | null>) {

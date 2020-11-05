@@ -2,81 +2,27 @@
 
 ## Installation
 
-This project is published to the npm registry. Just run the below command inside of your repository the install it.
+There are supporting libraries for the following frameworks.
 
-```bash
-npm install @baloise/ui-library --save
-```
-
-### Vue.js
-
-After installing the core library `@baloise/ui-library` install the vue wrapper library.
-
-```bash
-npm install @baloise/ui-library-vue --save
-```
-
-#### Configure
-
-Add the css styles, apply polyfills and define the custom web components.
-
-```typescript
-// main.ts
-import 'babel-polyfill'
-import '@baloise/ui-library-next/dist/ui-library-next/ui-library-next.css'
-
-import Vue from 'vue'
-import App from './App.vue'
-import { applyPolyfills, defineCustomElements } from '@baloise/ui-library-next/loader'
-
-Vue.config.productionTip = false
-
-Vue.config.ignoredElements = [/bal-\w*/]
-applyPolyfills().then(() => {
-  defineCustomElements()
-})
-
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
-```
-
-#### Usage
-
-Just import the bal-components and use it in your templates.
-
-```vue
-<template>
-  <div id="app">
-    <BalCheckbox v-model="checkbox"></BalCheckbox>
-  </div>
-</template>
-
-<script lang="ts">
-import Vue from 'vue'
-import { BalCheckbox } from '@baloise/ui-library-vue'
-
-export default Vue.extend({
-  name: 'App',
-  components: { BalCheckbox },
-  data() {
-    const checkbox = true
-    return { checkbox }
-  },
-})
-</script>
-```
-
-### Angular
-
-Follow this [Guide](https://stenciljs.com/docs/angular)
-
-### Styles
-
-Just put the below import into your main sass file.
-
-```scss
-@import 'node_modules/ui-library/src/styles/ui-library.scss';
-```
-
-> Use the variables of the UI-Library for your own project components by using the `node_modules/ui-library/src/styles/ui-library.utilities.scss` file.
+<table style="width: 600px">
+  <tr>
+    <td style="text-align: center">
+      <a href="#/introduction/vue">
+        <h3 style="margin: 20px 0;">Vue</h3>
+      </a>
+    </td>
+    <td style="text-align: center">
+      <a href="#/introduction/angular">
+        <h3 style="margin: 20px 0;">Angular</h3>
+      </a>    
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" style="text-align: center; background: white;">
+      <a href="#/introduction/vue"><img style="width: 150px;" src="https://vuejs.org/images/logo.png" /></a>
+    </td>
+    <td width="50%" style="text-align: center; background: white;">
+    <a href="#/introduction/angular"><img style="width: 200px;" src="https://angular.io/assets/images/logos/angular/angular.svg"></a>
+    </td>
+  </tr>
+</table>

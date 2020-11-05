@@ -2,6 +2,8 @@
 
   - [Overview](home.md)
   - [Quick Start](introduction/quick-start.md)
+  - [Vue](introduction/vue.md)
+  - [Angular](introduction/angular.md)
   - [Why UI-Library](introduction/why.md)
   - [Architecture](introduction/architecture.md)
 
@@ -15,6 +17,10 @@
 
 <!-- Auto Generated Sidebar Start -->
 <!-- Auto Generated Sidebar End -->
+
+- **Utilities**
+
+  - [Installation](utilities/installation.md)
 
 - **Testing**
 
@@ -30,5 +36,5 @@
 
 - **Links**
 
-  - [Github](https://github.com/baloise/ui-library)
-  - [Changelog](https://github.com/baloise/ui-library/releases)
+  - [Github](https://github.com/baloise/ui-library-next)
+  - [Changelog](https://github.com/baloise/ui-library-next/blob/master/CHANGELOG.md)

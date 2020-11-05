@@ -3,18 +3,18 @@ import { defineCustomElements, applyPolyfills } from '@baloise/ui-library-next/l
 
 Vue.config.ignoredElements = [/bal-\w*/]
 
-export type UiLibraryPluginOption = {
+export type BalUiLibraryPluginOption = {
   defineCustomeElements: boolean
 }
 
-const UiLibraryPluginOptionDefaults: UiLibraryPluginOption = {
+const BalUiLibraryPluginOptionDefaults: BalUiLibraryPluginOption = {
   defineCustomeElements: true,
 }
 
-export const UiLibraryPlugin: PluginObject<UiLibraryPluginOption> = {
+export const BalUiLibraryPlugin: PluginObject<BalUiLibraryPluginOption> = {
   install(_VueInstance, options): void {
     options = {
-      ...UiLibraryPluginOptionDefaults,
+      ...BalUiLibraryPluginOptionDefaults,
       ...options,
     }
 

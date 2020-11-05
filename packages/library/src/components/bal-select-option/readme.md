@@ -11,9 +11,8 @@
 
 | Property   | Attribute  | Description                                                                                       | Type                  | Default     |
 | ---------- | ---------- | ------------------------------------------------------------------------------------------------- | --------------------- | ----------- |
-| `checkbox` | `checkbox` | TODO: add description                                                                             | `boolean`             | `false`     |
 | `focused`  | `focused`  | If `true` the option is focused                                                                   | `boolean`             | `false`     |
-| `hidden`   | `hidden`   |                                                                                                   | `boolean`             | `false`     |
+| `hidden`   | `hidden`   | If `true` the option is hidden                                                                    | `boolean`             | `false`     |
 | `icon`     | `icon`     | Baloise icon as a prefix                                                                          | `string`              | `''`        |
 | `selected` | `selected` | If `true` the option is selected                                                                  | `boolean`             | `false`     |
 | `value`    | --         | The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element. | `BalOptionValue<any>` | `undefined` |
@@ -21,9 +20,9 @@
 
 ## Events
 
-| Event                  | Description | Type               |
-| ---------------------- | ----------- | ------------------ |
-| `balSelectOptionClick` |             | `CustomEvent<any>` |
+| Event                  | Description                            | Type                               |
+| ---------------------- | -------------------------------------- | ---------------------------------- |
+| `balSelectOptionClick` | Click event when a option get clicked. | `CustomEvent<BalOptionValue<any>>` |
 
 
 ## Dependencies

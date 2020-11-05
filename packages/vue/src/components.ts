@@ -275,7 +275,7 @@ export const BalInput = /*@__PURE__*/ Vue.extend({
   methods: {
     setFocus: createCommonMethod('setFocus') as Components.BalInput['setFocus'],
   },
-  render: createCommonRender('bal-input', ['balInput', 'balInputBlur', 'balInputClick', 'balInputKeyDown', 'balInputKeyPress', 'balInputKeyUp', 'balInputFocus']),
+  render: createCommonRender('bal-input', ['balInput', 'balInputBlur', 'balInputClick', 'balInputKeyPress', 'balInputFocus']),
 });
 
 
@@ -302,7 +302,7 @@ export const BalSelect = /*@__PURE__*/ Vue.extend({
   methods: {
     clear: createCommonMethod('clear') as Components.BalSelect['clear'],
   },
-  render: createCommonRender('bal-select', ['balSelectChange', 'balSelectInput', 'balSelectBlur', 'balSelectFocus', 'balSelectClick', 'balSelectKeyDown', 'balSelectKeyPress', 'balSelectKeyUp']),
+  render: createCommonRender('bal-select', ['balSelectChange', 'balSelectInput', 'balSelectBlur', 'balSelectFocus', 'balSelectClick', 'balSelectKeyPress']),
 });
 
 
@@ -312,7 +312,6 @@ export const BalSelectOption = /*@__PURE__*/ Vue.extend({
     hidden: {} as PropOptions<Components.BalSelectOption['hidden']>,
     value: {} as PropOptions<Components.BalSelectOption['value']>,
     icon: {} as PropOptions<Components.BalSelectOption['icon']>,
-    checkbox: {} as PropOptions<Components.BalSelectOption['checkbox']>,
     focused: {} as PropOptions<Components.BalSelectOption['focused']>,
     selected: {} as PropOptions<Components.BalSelectOption['selected']>,
   },

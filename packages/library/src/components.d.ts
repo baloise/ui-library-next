@@ -315,20 +315,53 @@ export namespace Components {
         "turn": boolean;
     }
     interface BalInput {
+        /**
+          * If `true` the input gets a clickable cursor style
+         */
         "clickable": boolean;
+        /**
+          * If `true` the input is disabled
+         */
         "disabled": boolean;
+        /**
+          * If `true` this component can be placed on dark background
+         */
         "inverted": boolean;
+        /**
+          * Defines the max length of the value.
+         */
         "maxLength": number | undefined;
+        /**
+          * Defines the min length of the value.
+         */
         "minLength": number | undefined;
         /**
           * The name of the control, which is submitted with the form data.
          */
         "name": string;
+        /**
+          * If `true` on mobile device the number keypad is active
+         */
         "numberKeyboard": boolean;
+        /**
+          * If `true` the input only allows numbers
+         */
         "onlyNumbers": boolean;
+        /**
+          * Placeholder of the input
+         */
         "placeholder": string;
+        /**
+          * If `true` the input is readonly
+         */
         "readonly": boolean;
+        /**
+          * Sets the focus on the input element.
+         */
         "setFocus": () => Promise<void>;
+        /**
+          * Defines the type of the input (text, number, email ...).
+         */
         "type": string;
         /**
           * The value of the control.
@@ -336,27 +369,59 @@ export namespace Components {
         "value": string;
     }
     interface BalSelect {
+        /**
+          * Sets the value to null and resets the value of the input.
+         */
         "clear": () => Promise<void>;
+        /**
+          * If `true` the component is diabled.
+         */
         "disabled": boolean;
+        /**
+          * If `true` the component uses the whole width.
+         */
         "expanded": boolean;
+        /**
+          * Set this to `true` when the component is placed on a dark background.
+         */
         "inverted": boolean;
+        /**
+          * If `true` the component shows a loading spinner and sets the input to readonly.
+         */
         "loading": boolean;
+        /**
+          * List of the options.
+         */
         "options": BalOptionValue<any>[];
+        /**
+          * Defines the placeholder of the input element.
+         */
         "placeholder": string;
+        /**
+          * If `true` the filtering of the options is done outside of the component.
+         */
         "remote": boolean;
+        /**
+          * Defines the height of the dropdown list.
+         */
         "scrollable": number;
+        /**
+          * If `true` the user can search by typing into the input field.
+         */
         "typeahead": boolean;
+        /**
+          * Selected option value.
+         */
         "value": BalOptionValue<any>;
     }
     interface BalSelectOption {
         /**
-          * TODO: add description
-         */
-        "checkbox": boolean;
-        /**
           * If `true` the option is focused
          */
         "focused": boolean;
+        /**
+          * If `true` the option is hidden
+         */
         "hidden": boolean;
         /**
           * Baloise icon as a prefix
@@ -821,26 +886,69 @@ declare namespace LocalJSX {
         "turn"?: boolean;
     }
     interface BalInput {
+        /**
+          * If `true` the input gets a clickable cursor style
+         */
         "clickable"?: boolean;
+        /**
+          * If `true` the input is disabled
+         */
         "disabled"?: boolean;
+        /**
+          * If `true` this component can be placed on dark background
+         */
         "inverted"?: boolean;
+        /**
+          * Defines the max length of the value.
+         */
         "maxLength"?: number | undefined;
+        /**
+          * Defines the min length of the value.
+         */
         "minLength"?: number | undefined;
         /**
           * The name of the control, which is submitted with the form data.
          */
         "name"?: string;
+        /**
+          * If `true` on mobile device the number keypad is active
+         */
         "numberKeyboard"?: boolean;
+        /**
+          * Emitted when a keyboard input occurred.
+         */
         "onBalInput"?: (event: CustomEvent<string>) => void;
+        /**
+          * Emitted when a keyboard input occurred.
+         */
         "onBalInputBlur"?: (event: CustomEvent<FocusEvent>) => void;
+        /**
+          * Emitted when the input has clicked.
+         */
         "onBalInputClick"?: (event: CustomEvent<MouseEvent>) => void;
+        /**
+          * Emitted when the input has focus.
+         */
         "onBalInputFocus"?: (event: CustomEvent<FocusEvent>) => void;
-        "onBalInputKeyDown"?: (event: CustomEvent<KeyboardEvent>) => void;
+        /**
+          * Emitted when a keyboard key has pressed.
+         */
         "onBalInputKeyPress"?: (event: CustomEvent<KeyboardEvent>) => void;
-        "onBalInputKeyUp"?: (event: CustomEvent<KeyboardEvent>) => void;
+        /**
+          * If `true` the input only allows numbers
+         */
         "onlyNumbers"?: boolean;
+        /**
+          * Placeholder of the input
+         */
         "placeholder"?: string;
+        /**
+          * If `true` the input is readonly
+         */
         "readonly"?: boolean;
+        /**
+          * Defines the type of the input (text, number, email ...).
+         */
         "type"?: string;
         /**
           * The value of the control.
@@ -848,40 +956,88 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface BalSelect {
+        /**
+          * If `true` the component is diabled.
+         */
         "disabled"?: boolean;
+        /**
+          * If `true` the component uses the whole width.
+         */
         "expanded"?: boolean;
+        /**
+          * Set this to `true` when the component is placed on a dark background.
+         */
         "inverted"?: boolean;
+        /**
+          * If `true` the component shows a loading spinner and sets the input to readonly.
+         */
         "loading"?: boolean;
+        /**
+          * Emitted when the input loses focus.
+         */
         "onBalSelectBlur"?: (event: CustomEvent<FocusEvent>) => void;
+        /**
+          * Emitted when a option got selected.
+         */
         "onBalSelectChange"?: (event: CustomEvent<BalOptionValue<any>>) => void;
+        /**
+          * Emitted when the input got clicked.
+         */
         "onBalSelectClick"?: (event: CustomEvent<MouseEvent>) => void;
+        /**
+          * Emitted when the input has focus.
+         */
         "onBalSelectFocus"?: (event: CustomEvent<FocusEvent>) => void;
+        /**
+          * Emitted when a keyboard input occurred.
+         */
         "onBalSelectInput"?: (event: CustomEvent<string>) => void;
-        "onBalSelectKeyDown"?: (event: CustomEvent<KeyboardEvent>) => void;
+        /**
+          * Emitted when the input has focus and key from the keyboard go hit.
+         */
         "onBalSelectKeyPress"?: (event: CustomEvent<KeyboardEvent>) => void;
-        "onBalSelectKeyUp"?: (event: CustomEvent<KeyboardEvent>) => void;
+        /**
+          * List of the options.
+         */
         "options"?: BalOptionValue<any>[];
+        /**
+          * Defines the placeholder of the input element.
+         */
         "placeholder"?: string;
+        /**
+          * If `true` the filtering of the options is done outside of the component.
+         */
         "remote"?: boolean;
+        /**
+          * Defines the height of the dropdown list.
+         */
         "scrollable"?: number;
+        /**
+          * If `true` the user can search by typing into the input field.
+         */
         "typeahead"?: boolean;
+        /**
+          * Selected option value.
+         */
         "value"?: BalOptionValue<any>;
     }
     interface BalSelectOption {
         /**
-          * TODO: add description
-         */
-        "checkbox"?: boolean;
-        /**
           * If `true` the option is focused
          */
         "focused"?: boolean;
+        /**
+          * If `true` the option is hidden
+         */
         "hidden"?: boolean;
         /**
           * Baloise icon as a prefix
          */
         "icon"?: string;
-        "onBalSelectOptionClick"?: (event: CustomEvent<string | boolean | number | any>) => void;
+        /**
+          * Click event when a option get clicked.
+         */
+        "onBalSelectOptionClick"?: (event: CustomEvent<BalOptionValue<any>>) => void;
         /**
           * If `true` the option is selected
          */
