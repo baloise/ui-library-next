@@ -18,8 +18,8 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
-    "@baloise/ui-library-next": "^1.9.3",
-    "@baloise/ui-library-next-vue": "^1.9.3",
+    "@baloise/ui-library-next": "^1.9.5",
+    "@baloise/ui-library-next-vue": "^1.9.5",
     "babel-polyfill": "^6.26.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"

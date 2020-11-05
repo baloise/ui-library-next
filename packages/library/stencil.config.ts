@@ -2,7 +2,7 @@ import { Config } from '@stencil/core'
 import { sass } from '@stencil/sass'
 import { postcss } from '@stencil/postcss'
 import autoprefixer from 'autoprefixer'
-import { ComponentModelConfig, vueOutputTarget } from '@stencil/vue-output-target'
+import { ComponentModelConfig, vueOutputTarget } from 'stencil-vue2-output-target'
 import { angularOutputTarget, ValueAccessorConfig } from '@stencil/angular-output-target'
 
 /**
@@ -84,7 +84,9 @@ export const config: Config = {
       componentCorePackage: '@baloise/ui-library-next',
       proxiesFile: '../vue/src/components.ts',
       componentModels: vueComponentModels,
-    }),
+      includeDefineCustomElements: false,
+      includePolyfills: false,
+    }) as any,
     angularOutputTarget({
       componentCorePackage: '@baloise/ui-library-next',
       directivesProxyFile: '../angular/src/directives/proxies.ts',
