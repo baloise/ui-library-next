@@ -6,6 +6,7 @@
     "type": "git",
     "url": "https://github.com/baloise/ui-library-next.git"
   },
+  "homepage": "https://ui-library-next.vercel.app",
   "publishConfig": {
     "access": "public"
   },
