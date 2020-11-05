@@ -130,10 +130,6 @@ export namespace Components {
          */
         "hidden": boolean;
         /**
-          * Could helps to figure out the previous or next step
-         */
-        "index": number;
-        /**
           * Label for the step.
          */
         "label": string;
@@ -629,10 +625,6 @@ declare namespace LocalJSX {
           * If `true` the step is hidden in the steps navigation.
          */
         "hidden"?: boolean;
-        /**
-          * Could helps to figure out the previous or next step
-         */
-        "index"?: number;
         /**
           * Label for the step.
          */

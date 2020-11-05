@@ -1,5 +1,3 @@
-export * from '@baloise/ui-library-next'
-
 // DIRECTIVES
 export * from './directives/proxies'
 

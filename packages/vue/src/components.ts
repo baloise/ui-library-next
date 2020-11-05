@@ -121,7 +121,6 @@ export const BalCardStep = /*@__PURE__*/ Vue.extend({
     hidden: {} as PropOptions<Components.BalCardStep['hidden']>,
     disabled: {} as PropOptions<Components.BalCardStep['disabled']>,
     done: {} as PropOptions<Components.BalCardStep['done']>,
-    index: {} as PropOptions<Components.BalCardStep['index']>,
     active: {} as PropOptions<Components.BalCardStep['active']>,
   },
 

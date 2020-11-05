@@ -1,8 +1,6 @@
 import { Component, h, Host, Method, Prop, State, Watch } from '@stencil/core'
 import { BalCardStepOption } from './bal-card-step.type'
 
-let cardStepIndex = 0
-
 @Component({
   tag: 'bal-card-step',
   styleUrl: 'bal-card-step.scss',
@@ -38,11 +36,6 @@ export class CardStep {
   @Prop() done: boolean = false
 
   /**
-   * Could helps to figure out the previous or next step
-   */
-  @Prop() index: number = cardStepIndex++
-
-  /**
    * Tell's if the step is active and the content is visible.
    */
   @Prop() active: boolean = false
@@ -60,7 +53,6 @@ export class CardStep {
       done: this.done,
       disabled: this.disabled,
       hidden: this.hidden,
-      index: this.index,
     }
   }
 
