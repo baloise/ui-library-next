@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.7](https://github.com/baloise/ui-library-next/compare/v1.9.6...v1.9.7) (2020-11-05)
+
+
+### Bug Fixes
+
+* **card-steps:** adjust breakpoints and change event ([341b39c](https://github.com/baloise/ui-library-next/commit/341b39cb2ece02022ce8abda5c166f32a59a9232))
+
+
+
+
+
 ## [1.9.6](https://github.com/baloise/ui-library-next/compare/v1.9.5...v1.9.6) (2020-11-05)
 
 

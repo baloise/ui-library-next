@@ -1,6 +1,6 @@
 {
   "name": "@baloise/ui-library-next-angular",
-  "version": "1.9.6",
+  "version": "1.9.7",
   "description": "",
   "publishConfig": {
     "access": "public"
@@ -27,7 +27,7 @@
     "@angular/common": "~10.2.0",
     "@angular/core": "~10.2.0",
     "@angular/forms": "~10.2.0",
-    "@baloise/ui-library-next": "^1.9.6",
+    "@baloise/ui-library-next": "^1.9.7",
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
