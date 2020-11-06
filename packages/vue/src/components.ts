@@ -45,6 +45,8 @@ const customElementTags: string[] = [
  'bal-select',
  'bal-select-option',
  'bal-spinner',
+ 'bal-step',
+ 'bal-steps',
  'bal-tab-item',
  'bal-tabs',
  'bal-tag',
@@ -559,6 +561,36 @@ export const BalSpinner = /*@__PURE__*/ Vue.extend({
 
 
   render: createCommonRender('bal-spinner', []),
+});
+
+
+export const BalStep = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    value: {} as PropOptions<Components.BalStep['value']>,
+    label: {} as PropOptions<Components.BalStep['label']>,
+    bubble: {} as PropOptions<Components.BalStep['bubble']>,
+    disabled: {} as PropOptions<Components.BalStep['disabled']>,
+    active: {} as PropOptions<Components.BalStep['active']>,
+  },
+
+
+  methods: {
+    getOptions: createCommonMethod('getOptions') as Components.BalStep['getOptions'],
+    setActive: createCommonMethod('setActive') as Components.BalStep['setActive'],
+  },
+  render: createCommonRender('bal-step', ['balStepChange']),
+});
+
+
+export const BalSteps = /*@__PURE__*/ Vue.extend({
+
+
+
+  methods: {
+    select: createCommonMethod('select') as Components.BalSteps['select'],
+  },
+  render: createCommonRender('bal-steps', ['balStepsChange']),
 });
 
 

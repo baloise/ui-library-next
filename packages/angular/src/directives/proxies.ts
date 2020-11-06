@@ -722,6 +722,52 @@ export class BalSpinner {
   }
 }
 
+import { Step as IStep } from '@baloise/ui-library-next/dist/types/components/bal-step/bal-step';
+export declare interface BalStep extends Components.BalStep {}
+@ProxyCmp({
+  inputs: ['active', 'bubble', 'disabled', 'label', 'value'],
+  methods: ['getOptions', 'setActive']
+})
+@Component({
+  selector: 'bal-step',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['active', 'bubble', 'disabled', 'label', 'value'],
+  outputs: ['balStepChange']
+})
+export class BalStep {
+  /** Emitted when the steps get rendered. */
+  balStepChange!: IStep['stepChanged'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['balStepChange']);
+  }
+}
+
+import { Steps as ISteps } from '@baloise/ui-library-next/dist/types/components/bal-steps/bal-steps';
+export declare interface BalSteps extends Components.BalSteps {}
+@ProxyCmp({
+  methods: ['select']
+})
+@Component({
+  selector: 'bal-steps',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  outputs: ['balStepsChange']
+})
+export class BalSteps {
+  /** Emitted when the changes has finished. */
+  balStepsChange!: ISteps['stepsDidChange'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['balStepsChange']);
+  }
+}
+
 import { TabItem as ITabItem } from '@baloise/ui-library-next/dist/types/components/bal-tab-item/bal-tab-item';
 export declare interface BalTabItem extends Components.BalTabItem {}
 @ProxyCmp({
