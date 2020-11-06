@@ -1,6 +1,6 @@
 {
   "name": "@baloise/ui-library-next-vue",
-  "version": "1.9.13",
+  "version": "1.10.0",
   "description": "The UI-Libary is an open source project for styling awesome web applications that follow the Baloise corporate styling guidelines.",
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@baloise/ui-library-next": "^1.9.13"
+    "@baloise/ui-library-next": "^1.10.0"
   },
   "devDependencies": {
     "typescript": "^4.0.2",
