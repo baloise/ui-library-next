@@ -40,6 +40,7 @@ const customElementTags: string[] = [
  'bal-list-item-icon',
  'bal-list-item-subtitle',
  'bal-list-item-title',
+ 'bal-navbar',
  'bal-select',
  'bal-select-option',
  'bal-spinner',
@@ -468,6 +469,18 @@ export const BalListItemTitle = /*@__PURE__*/ Vue.extend({
 
 
   render: createCommonRender('bal-list-item-title', []),
+});
+
+
+export const BalNavbar = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    light: {} as PropOptions<Components.BalNavbar['light']>,
+    logoHref: {} as PropOptions<Components.BalNavbar['logoHref']>,
+  },
+
+
+  render: createCommonRender('bal-navbar', []),
 });
 
 

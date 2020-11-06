@@ -603,6 +603,25 @@ export class BalListItemTitle {
   }
 }
 
+
+export declare interface BalNavbar extends Components.BalNavbar {}
+@ProxyCmp({
+  inputs: ['light', 'logoHref']
+})
+@Component({
+  selector: 'bal-navbar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['light', 'logoHref']
+})
+export class BalNavbar {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 import { Select as ISelect } from '@baloise/ui-library-next/dist/types/components/bal-select/bal-select';
 export declare interface BalSelect extends Components.BalSelect {}
 @ProxyCmp({

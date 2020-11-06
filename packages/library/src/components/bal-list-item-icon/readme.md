@@ -2,6 +2,7 @@
 
 # bal-list-item-icon
 
+`bal-list-item-subtitle` is a child component of `bal-list` that defines the subtitle list row element.
 
 <!-- Auto Generated Below -->
 

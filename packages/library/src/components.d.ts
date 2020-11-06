@@ -523,6 +523,16 @@ export namespace Components {
     }
     interface BalListItemTitle {
     }
+    interface BalNavbar {
+        /**
+          * It `true` the navbar has a white background
+         */
+        "light": boolean;
+        /**
+          * Defines the link on the logo.
+         */
+        "logoHref": string;
+    }
     interface BalSelect {
         /**
           * Sets the value to null and resets the value of the input.
@@ -785,6 +795,12 @@ declare global {
         prototype: HTMLBalListItemTitleElement;
         new (): HTMLBalListItemTitleElement;
     };
+    interface HTMLBalNavbarElement extends Components.BalNavbar, HTMLStencilElement {
+    }
+    var HTMLBalNavbarElement: {
+        prototype: HTMLBalNavbarElement;
+        new (): HTMLBalNavbarElement;
+    };
     interface HTMLBalSelectElement extends Components.BalSelect, HTMLStencilElement {
     }
     var HTMLBalSelectElement: {
@@ -840,6 +856,7 @@ declare global {
         "bal-list-item-icon": HTMLBalListItemIconElement;
         "bal-list-item-subtitle": HTMLBalListItemSubtitleElement;
         "bal-list-item-title": HTMLBalListItemTitleElement;
+        "bal-navbar": HTMLBalNavbarElement;
         "bal-select": HTMLBalSelectElement;
         "bal-select-option": HTMLBalSelectOptionElement;
         "bal-spinner": HTMLBalSpinnerElement;
@@ -1357,6 +1374,16 @@ declare namespace LocalJSX {
     }
     interface BalListItemTitle {
     }
+    interface BalNavbar {
+        /**
+          * It `true` the navbar has a white background
+         */
+        "light"?: boolean;
+        /**
+          * Defines the link on the logo.
+         */
+        "logoHref"?: string;
+    }
     interface BalSelect {
         /**
           * If `true` the component is diabled.
@@ -1492,6 +1519,7 @@ declare namespace LocalJSX {
         "bal-list-item-icon": BalListItemIcon;
         "bal-list-item-subtitle": BalListItemSubtitle;
         "bal-list-item-title": BalListItemTitle;
+        "bal-navbar": BalNavbar;
         "bal-select": BalSelect;
         "bal-select-option": BalSelectOption;
         "bal-spinner": BalSpinner;
@@ -1532,6 +1560,7 @@ declare module "@stencil/core" {
             "bal-list-item-icon": LocalJSX.BalListItemIcon & JSXBase.HTMLAttributes<HTMLBalListItemIconElement>;
             "bal-list-item-subtitle": LocalJSX.BalListItemSubtitle & JSXBase.HTMLAttributes<HTMLBalListItemSubtitleElement>;
             "bal-list-item-title": LocalJSX.BalListItemTitle & JSXBase.HTMLAttributes<HTMLBalListItemTitleElement>;
+            "bal-navbar": LocalJSX.BalNavbar & JSXBase.HTMLAttributes<HTMLBalNavbarElement>;
             "bal-select": LocalJSX.BalSelect & JSXBase.HTMLAttributes<HTMLBalSelectElement>;
             "bal-select-option": LocalJSX.BalSelectOption & JSXBase.HTMLAttributes<HTMLBalSelectOptionElement>;
             "bal-spinner": LocalJSX.BalSpinner & JSXBase.HTMLAttributes<HTMLBalSpinnerElement>;
