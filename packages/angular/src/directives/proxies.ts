@@ -498,6 +498,111 @@ export class BalInput {
   }
 }
 
+
+export declare interface BalList extends Components.BalList {}
+@ProxyCmp({
+  inputs: ['border', 'disabled', 'inverted']
+})
+@Component({
+  selector: 'bal-list',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['border', 'disabled', 'inverted']
+})
+export class BalList {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface BalListItem extends Components.BalListItem {}
+@ProxyCmp({
+  inputs: ['disabled', 'selected']
+})
+@Component({
+  selector: 'bal-list-item',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['disabled', 'selected']
+})
+export class BalListItem {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface BalListItemContent extends Components.BalListItemContent {}
+
+@Component({
+  selector: 'bal-list-item-content',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class BalListItemContent {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface BalListItemIcon extends Components.BalListItemIcon {}
+@ProxyCmp({
+  inputs: ['right']
+})
+@Component({
+  selector: 'bal-list-item-icon',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['right']
+})
+export class BalListItemIcon {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface BalListItemSubtitle extends Components.BalListItemSubtitle {}
+
+@Component({
+  selector: 'bal-list-item-subtitle',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class BalListItemSubtitle {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface BalListItemTitle extends Components.BalListItemTitle {}
+
+@Component({
+  selector: 'bal-list-item-title',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class BalListItemTitle {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 import { Select as ISelect } from '@baloise/ui-library-next/dist/types/components/bal-select/bal-select';
 export declare interface BalSelect extends Components.BalSelect {}
 @ProxyCmp({

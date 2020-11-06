@@ -487,6 +487,42 @@ export namespace Components {
          */
         "value": string;
     }
+    interface BalList {
+        /**
+          * If `true` each list item has a bottom border
+         */
+        "border": boolean;
+        /**
+          * If `true` the list item can be hovered
+         */
+        "disabled": boolean;
+        /**
+          * If `true` the list can be used on a dark backround
+         */
+        "inverted": boolean;
+    }
+    interface BalListItem {
+        /**
+          * If `true` the list item can be hovered
+         */
+        "disabled": boolean;
+        /**
+          * If `true` the list item has a selected theme
+         */
+        "selected": boolean;
+    }
+    interface BalListItemContent {
+    }
+    interface BalListItemIcon {
+        /**
+          * If `true` the icon is on the right side of the list item. Default is the left side.
+         */
+        "right": boolean;
+    }
+    interface BalListItemSubtitle {
+    }
+    interface BalListItemTitle {
+    }
     interface BalSelect {
         /**
           * Sets the value to null and resets the value of the input.
@@ -713,6 +749,42 @@ declare global {
         prototype: HTMLBalInputElement;
         new (): HTMLBalInputElement;
     };
+    interface HTMLBalListElement extends Components.BalList, HTMLStencilElement {
+    }
+    var HTMLBalListElement: {
+        prototype: HTMLBalListElement;
+        new (): HTMLBalListElement;
+    };
+    interface HTMLBalListItemElement extends Components.BalListItem, HTMLStencilElement {
+    }
+    var HTMLBalListItemElement: {
+        prototype: HTMLBalListItemElement;
+        new (): HTMLBalListItemElement;
+    };
+    interface HTMLBalListItemContentElement extends Components.BalListItemContent, HTMLStencilElement {
+    }
+    var HTMLBalListItemContentElement: {
+        prototype: HTMLBalListItemContentElement;
+        new (): HTMLBalListItemContentElement;
+    };
+    interface HTMLBalListItemIconElement extends Components.BalListItemIcon, HTMLStencilElement {
+    }
+    var HTMLBalListItemIconElement: {
+        prototype: HTMLBalListItemIconElement;
+        new (): HTMLBalListItemIconElement;
+    };
+    interface HTMLBalListItemSubtitleElement extends Components.BalListItemSubtitle, HTMLStencilElement {
+    }
+    var HTMLBalListItemSubtitleElement: {
+        prototype: HTMLBalListItemSubtitleElement;
+        new (): HTMLBalListItemSubtitleElement;
+    };
+    interface HTMLBalListItemTitleElement extends Components.BalListItemTitle, HTMLStencilElement {
+    }
+    var HTMLBalListItemTitleElement: {
+        prototype: HTMLBalListItemTitleElement;
+        new (): HTMLBalListItemTitleElement;
+    };
     interface HTMLBalSelectElement extends Components.BalSelect, HTMLStencilElement {
     }
     var HTMLBalSelectElement: {
@@ -762,6 +834,12 @@ declare global {
         "bal-hint-title": HTMLBalHintTitleElement;
         "bal-icon": HTMLBalIconElement;
         "bal-input": HTMLBalInputElement;
+        "bal-list": HTMLBalListElement;
+        "bal-list-item": HTMLBalListItemElement;
+        "bal-list-item-content": HTMLBalListItemContentElement;
+        "bal-list-item-icon": HTMLBalListItemIconElement;
+        "bal-list-item-subtitle": HTMLBalListItemSubtitleElement;
+        "bal-list-item-title": HTMLBalListItemTitleElement;
         "bal-select": HTMLBalSelectElement;
         "bal-select-option": HTMLBalSelectOptionElement;
         "bal-spinner": HTMLBalSpinnerElement;
@@ -1243,6 +1321,42 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface BalList {
+        /**
+          * If `true` each list item has a bottom border
+         */
+        "border"?: boolean;
+        /**
+          * If `true` the list item can be hovered
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true` the list can be used on a dark backround
+         */
+        "inverted"?: boolean;
+    }
+    interface BalListItem {
+        /**
+          * If `true` the list item can be hovered
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true` the list item has a selected theme
+         */
+        "selected"?: boolean;
+    }
+    interface BalListItemContent {
+    }
+    interface BalListItemIcon {
+        /**
+          * If `true` the icon is on the right side of the list item. Default is the left side.
+         */
+        "right"?: boolean;
+    }
+    interface BalListItemSubtitle {
+    }
+    interface BalListItemTitle {
+    }
     interface BalSelect {
         /**
           * If `true` the component is diabled.
@@ -1372,6 +1486,12 @@ declare namespace LocalJSX {
         "bal-hint-title": BalHintTitle;
         "bal-icon": BalIcon;
         "bal-input": BalInput;
+        "bal-list": BalList;
+        "bal-list-item": BalListItem;
+        "bal-list-item-content": BalListItemContent;
+        "bal-list-item-icon": BalListItemIcon;
+        "bal-list-item-subtitle": BalListItemSubtitle;
+        "bal-list-item-title": BalListItemTitle;
         "bal-select": BalSelect;
         "bal-select-option": BalSelectOption;
         "bal-spinner": BalSpinner;
@@ -1406,6 +1526,12 @@ declare module "@stencil/core" {
             "bal-hint-title": LocalJSX.BalHintTitle & JSXBase.HTMLAttributes<HTMLBalHintTitleElement>;
             "bal-icon": LocalJSX.BalIcon & JSXBase.HTMLAttributes<HTMLBalIconElement>;
             "bal-input": LocalJSX.BalInput & JSXBase.HTMLAttributes<HTMLBalInputElement>;
+            "bal-list": LocalJSX.BalList & JSXBase.HTMLAttributes<HTMLBalListElement>;
+            "bal-list-item": LocalJSX.BalListItem & JSXBase.HTMLAttributes<HTMLBalListItemElement>;
+            "bal-list-item-content": LocalJSX.BalListItemContent & JSXBase.HTMLAttributes<HTMLBalListItemContentElement>;
+            "bal-list-item-icon": LocalJSX.BalListItemIcon & JSXBase.HTMLAttributes<HTMLBalListItemIconElement>;
+            "bal-list-item-subtitle": LocalJSX.BalListItemSubtitle & JSXBase.HTMLAttributes<HTMLBalListItemSubtitleElement>;
+            "bal-list-item-title": LocalJSX.BalListItemTitle & JSXBase.HTMLAttributes<HTMLBalListItemTitleElement>;
             "bal-select": LocalJSX.BalSelect & JSXBase.HTMLAttributes<HTMLBalSelectElement>;
             "bal-select-option": LocalJSX.BalSelectOption & JSXBase.HTMLAttributes<HTMLBalSelectOptionElement>;
             "bal-spinner": LocalJSX.BalSpinner & JSXBase.HTMLAttributes<HTMLBalSpinnerElement>;

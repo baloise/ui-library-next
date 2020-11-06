@@ -34,6 +34,12 @@ const customElementTags: string[] = [
  'bal-hint-title',
  'bal-icon',
  'bal-input',
+ 'bal-list',
+ 'bal-list-item',
+ 'bal-list-item-content',
+ 'bal-list-item-icon',
+ 'bal-list-item-subtitle',
+ 'bal-list-item-title',
  'bal-select',
  'bal-select-option',
  'bal-spinner',
@@ -402,6 +408,66 @@ export const BalInput = /*@__PURE__*/ Vue.extend({
     setFocus: createCommonMethod('setFocus') as Components.BalInput['setFocus'],
   },
   render: createCommonRender('bal-input', ['balInput', 'balInputBlur', 'balInputClick', 'balInputKeyPress', 'balInputFocus']),
+});
+
+
+export const BalList = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    disabled: {} as PropOptions<Components.BalList['disabled']>,
+    inverted: {} as PropOptions<Components.BalList['inverted']>,
+    border: {} as PropOptions<Components.BalList['border']>,
+  },
+
+
+  render: createCommonRender('bal-list', []),
+});
+
+
+export const BalListItem = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    disabled: {} as PropOptions<Components.BalListItem['disabled']>,
+    selected: {} as PropOptions<Components.BalListItem['selected']>,
+  },
+
+
+  render: createCommonRender('bal-list-item', []),
+});
+
+
+export const BalListItemContent = /*@__PURE__*/ Vue.extend({
+
+
+
+  render: createCommonRender('bal-list-item-content', []),
+});
+
+
+export const BalListItemIcon = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    right: {} as PropOptions<Components.BalListItemIcon['right']>,
+  },
+
+
+  render: createCommonRender('bal-list-item-icon', []),
+});
+
+
+export const BalListItemSubtitle = /*@__PURE__*/ Vue.extend({
+
+
+
+  render: createCommonRender('bal-list-item-subtitle', []),
+});
+
+
+export const BalListItemTitle = /*@__PURE__*/ Vue.extend({
+
+
+
+  render: createCommonRender('bal-list-item-title', []),
 });
 
 

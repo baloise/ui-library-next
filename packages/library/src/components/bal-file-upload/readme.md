@@ -32,11 +32,23 @@ The `bal-file-upload` is all in one component. It supports drag&drop and the nor
 ### Depends on
 
 - [bal-icon](../bal-icon)
+- [bal-list](../bal-list)
+- [bal-list-item](../bal-list-item)
+- [bal-list-item-icon](../bal-list-item-icon)
+- [bal-list-item-content](../bal-list-item-content)
+- [bal-list-item-title](../bal-list-item-title)
+- [bal-list-item-subtitle](../bal-list-item-subtitle)
 
 ### Graph
 ```mermaid
 graph TD;
   bal-file-upload --> bal-icon
+  bal-file-upload --> bal-list
+  bal-file-upload --> bal-list-item
+  bal-file-upload --> bal-list-item-icon
+  bal-file-upload --> bal-list-item-content
+  bal-file-upload --> bal-list-item-title
+  bal-file-upload --> bal-list-item-subtitle
   style bal-file-upload fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
