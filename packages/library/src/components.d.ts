@@ -160,6 +160,10 @@ export namespace Components {
          */
         "inverted": boolean;
         /**
+          * If `true` the navigation is handled by the component
+         */
+        "navigation": boolean;
+        /**
           * Select a step.
          */
         "select": (step: BalCardStepOption) => Promise<void>;
@@ -730,6 +734,10 @@ declare namespace LocalJSX {
           * If `true` a the style is ready for a dark background.
          */
         "inverted"?: boolean;
+        /**
+          * If `true` the navigation is handled by the component
+         */
+        "navigation"?: boolean;
         /**
           * Emitted when the back button is clicked.
          */

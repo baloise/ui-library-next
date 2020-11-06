@@ -139,6 +139,7 @@ export const BalCardSteps = /*@__PURE__*/ Vue.extend({
     inverted: {} as PropOptions<Components.BalCardSteps['inverted']>,
     hidden: {} as PropOptions<Components.BalCardSteps['hidden']>,
     hasBack: {} as PropOptions<Components.BalCardSteps['hasBack']>,
+    navigation: {} as PropOptions<Components.BalCardSteps['navigation']>,
     backLabel: {} as PropOptions<Components.BalCardSteps['backLabel']>,
   },
 

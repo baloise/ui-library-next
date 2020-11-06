@@ -139,14 +139,14 @@ export class BalCardStep {
 import { CardSteps as ICardSteps } from '@baloise/ui-library-next/dist/types/components/bal-card-steps/bal-card-steps';
 export declare interface BalCardSteps extends Components.BalCardSteps {}
 @ProxyCmp({
-  inputs: ['backLabel', 'hasBack', 'hidden', 'inverted'],
+  inputs: ['backLabel', 'hasBack', 'hidden', 'inverted', 'navigation'],
   methods: ['select']
 })
 @Component({
   selector: 'bal-card-steps',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['backLabel', 'hasBack', 'hidden', 'inverted'],
+  inputs: ['backLabel', 'hasBack', 'hidden', 'inverted', 'navigation'],
   outputs: ['balCardStepsChange', 'balCardStepsBackClick', 'balCardStepsStepClick']
 })
 export class BalCardSteps {
