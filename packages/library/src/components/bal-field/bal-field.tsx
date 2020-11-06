@@ -74,7 +74,7 @@ export class Field {
           }}>
           <label class="label" htmlFor={this.findInputId()}>
             {this.label}
-            {this.required === true ? '*' : ''}
+            {this.required === true ? ' *' : ''}
             <slot name="hint" />
           </label>
           <div

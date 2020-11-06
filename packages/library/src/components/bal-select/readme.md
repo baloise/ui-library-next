@@ -10,12 +10,11 @@ Select fields components are used for collecting user provided information from 
 export interface BalOptionValue<T> {
   value: T
   text: string
-  render?(data: any): string
+  render?(option: BalOptionValue<T>): string
 }
 ```
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -32,7 +31,6 @@ export interface BalOptionValue<T> {
 | `typeahead`   | `typeahead`   | If `true` the user can search by typing into the input field.                   | `boolean`               | `false`     |
 | `value`       | --            | Selected option value.                                                          | `BalOptionValue<any>`   | `undefined` |
 
-
 ## Events
 
 | Event               | Description                                                        | Type                               |
@@ -44,7 +42,6 @@ export interface BalOptionValue<T> {
 | `balSelectInput`    | Emitted when a keyboard input occurred.                            | `CustomEvent<string>`              |
 | `balSelectKeyPress` | Emitted when the input has focus and key from the keyboard go hit. | `CustomEvent<KeyboardEvent>`       |
 
-
 ## Methods
 
 ### `clear() => Promise<void>`
@@ -55,9 +52,6 @@ Sets the value to null and resets the value of the input.
 
 Type: `Promise<void>`
 
-
-
-
 ## Dependencies
 
 ### Depends on
@@ -67,6 +61,7 @@ Type: `Promise<void>`
 - [bal-select-option](../bal-select-option)
 
 ### Graph
+
 ```mermaid
 graph TD;
   bal-select --> bal-dropdown
@@ -76,6 +71,6 @@ graph TD;
   style bal-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

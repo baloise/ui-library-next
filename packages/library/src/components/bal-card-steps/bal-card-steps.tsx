@@ -28,9 +28,19 @@ export class CardSteps {
   @Prop() hasBack: boolean = false
 
   /**
+   * If `true` the navigation is handled by the component
+   */
+  @Prop() navigation: boolean = false
+
+  /**
    * Label for back button
    */
   @Prop() backLabel: string = ''
+
+  /**
+   * Hides the navigation circles and adds the step label instead
+   */
+  @Prop() showLabel: boolean = false
 
   /**
    * Emitted when the changes has finished.
@@ -64,17 +74,28 @@ export class CardSteps {
   render() {
     return (
       <Host>
-        <div class="card-steps-wrapper">
+        <div class={['card-steps-wrapper', this.inverted ? 'is-inverted' : ''].join(' ')}>
           <div class={['left-side', !this.hasBack ? 'is-hidden' : ''].join(' ')}>
             <a role="button" onClick={() => this.onBackButtonClick()}>
-              <bal-icon class="nav-go-left" name="nav-go-large" size="medium" color="white"></bal-icon>
+              <bal-icon
+                class="nav-go-left"
+                name="nav-go-large"
+                size="medium"
+                color={this.inverted ? 'white' : 'blue'}></bal-icon>
               <span class="nav-go-left-label">{this.backLabel}</span>
             </a>
           </div>
-          <div class={['tabs', this.inverted ? 'is-inverted' : '', this.hidden ? 'is-hidden' : ''].join(' ')}>
+          <h3
+            style={{ display: this.showLabel ? 'block' : 'none' }}
+            class={['tab-title title is-size-3', this.inverted ? 'is-inverted' : ''].join(' ')}>
+            {this.getActiveStep()?.label}
+          </h3>
+          <div
+            style={{ display: this.showLabel ? 'none' : 'block' }}
+            class={['tabs', this.inverted ? 'is-inverted' : '', this.hidden ? 'is-hidden' : ''].join(' ')}>
             <ul>
               {this.stepOptions
-                .filter(step => !step.hidden && !this.hidden)
+                .filter(step => !step.hidden && !this.hidden && !this.showLabel)
                 .map((step, index) => (
                   <li
                     class={[
@@ -109,17 +130,19 @@ export class CardSteps {
   }
 
   private async onClickStepCircle(step: BalCardStepOption): Promise<void> {
-    if (!step.disabled) {
+    if (this.navigation && !step.disabled) {
       await this.select(step)
     }
     this.balStepClick.emit(step)
   }
 
   private async onBackButtonClick() {
-    let previousStepIndex = this.getPreviousStepIndex()
-    let previousStep = this.stepOptions[previousStepIndex]
-    if (previousStepIndex >= 0 && previousStep && !previousStep.disabled) {
-      await this.select(previousStep)
+    if (this.navigation) {
+      let previousStepIndex = this.getPreviousStepIndex()
+      let previousStep = this.stepOptions[previousStepIndex]
+      if (previousStepIndex >= 0 && previousStep && !previousStep.disabled) {
+        await this.select(previousStep)
+      }
     }
     this.balBackClick.emit()
   }
@@ -127,5 +150,9 @@ export class CardSteps {
   private getPreviousStepIndex() {
     let activeStepIndex = this.stepOptions.findIndex(el => el.active === true)
     return activeStepIndex - 1
+  }
+
+  private getActiveStep() {
+    return this.stepOptions.find(el => el.active === true)
   }
 }

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/baloise/ui-library-next/compare/v1.9.13...v1.10.0) (2020-11-06)
+
+
+### Features
+
+* **card-steps:** add show label option ([2056fa0](https://github.com/baloise/ui-library-next/commit/2056fa0e7af3e055862c6ae5f986864442f5677a))
+
+
+
+
+
+## [1.9.13](https://github.com/baloise/ui-library-next/compare/v1.9.12...v1.9.13) (2020-11-06)
+
+
+### Bug Fixes
+
+* **card-steps:** fix navigation ([381dcf3](https://github.com/baloise/ui-library-next/commit/381dcf31c7c622105cfdec2179b6db5f8ce3fc6a))
+
+
+
+
+
 ## [1.9.12](https://github.com/baloise/ui-library-next/compare/v1.9.11...v1.9.12) (2020-11-05)
 
 
