@@ -141,6 +141,7 @@ export const BalCardSteps = /*@__PURE__*/ Vue.extend({
     hasBack: {} as PropOptions<Components.BalCardSteps['hasBack']>,
     navigation: {} as PropOptions<Components.BalCardSteps['navigation']>,
     backLabel: {} as PropOptions<Components.BalCardSteps['backLabel']>,
+    showLabel: {} as PropOptions<Components.BalCardSteps['showLabel']>,
   },
 
 

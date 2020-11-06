@@ -8,13 +8,14 @@ The steps list is useful for tracking progress in multi steps forms or wizards.
 
 ## Properties
 
-| Property     | Attribute    | Description                                           | Type      | Default |
-| ------------ | ------------ | ----------------------------------------------------- | --------- | ------- |
-| `backLabel`  | `back-label` | Label for back button                                 | `string`  | `''`    |
-| `hasBack`    | `has-back`   | If `true` the steps navigation has back button.       | `boolean` | `false` |
-| `hidden`     | `hidden`     | If `true` the steps navigation is hidden.             | `boolean` | `false` |
-| `inverted`   | `inverted`   | If `true` a the style is ready for a dark background. | `boolean` | `false` |
-| `navigation` | `navigation` | If `true` the navigation is handled by the component  | `boolean` | `false` |
+| Property     | Attribute    | Description                                                  | Type      | Default |
+| ------------ | ------------ | ------------------------------------------------------------ | --------- | ------- |
+| `backLabel`  | `back-label` | Label for back button                                        | `string`  | `''`    |
+| `hasBack`    | `has-back`   | If `true` the steps navigation has back button.              | `boolean` | `false` |
+| `hidden`     | `hidden`     | If `true` the steps navigation is hidden.                    | `boolean` | `false` |
+| `inverted`   | `inverted`   | If `true` a the style is ready for a dark background.        | `boolean` | `false` |
+| `navigation` | `navigation` | If `true` the navigation is handled by the component         | `boolean` | `false` |
+| `showLabel`  | `show-label` | Hides the navigation circles and adds the step label instead | `boolean` | `false` |
 
 
 ## Events

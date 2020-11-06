@@ -38,6 +38,11 @@ export class CardSteps {
   @Prop() backLabel: string = ''
 
   /**
+   * Hides the navigation circles and adds the step label instead
+   */
+  @Prop() showLabel: boolean = false
+
+  /**
    * Emitted when the changes has finished.
    */
   @Event({ eventName: 'balCardStepsChange' }) balChange: EventEmitter<BalCardStepOption>
@@ -80,10 +85,17 @@ export class CardSteps {
               <span class="nav-go-left-label">{this.backLabel}</span>
             </a>
           </div>
-          <div class={['tabs', this.inverted ? 'is-inverted' : '', this.hidden ? 'is-hidden' : ''].join(' ')}>
+          <h3
+            style={{ display: this.showLabel ? 'block' : 'none' }}
+            class={['tab-title title is-size-3', this.inverted ? 'is-inverted' : ''].join(' ')}>
+            {this.getActiveStep()?.label}
+          </h3>
+          <div
+            style={{ display: this.showLabel ? 'none' : 'block' }}
+            class={['tabs', this.inverted ? 'is-inverted' : '', this.hidden ? 'is-hidden' : ''].join(' ')}>
             <ul>
               {this.stepOptions
-                .filter(step => !step.hidden && !this.hidden)
+                .filter(step => !step.hidden && !this.hidden && !this.showLabel)
                 .map((step, index) => (
                   <li
                     class={[
@@ -138,5 +150,9 @@ export class CardSteps {
   private getPreviousStepIndex() {
     let activeStepIndex = this.stepOptions.findIndex(el => el.active === true)
     return activeStepIndex - 1
+  }
+
+  private getActiveStep() {
+    return this.stepOptions.find(el => el.active === true)
   }
 }

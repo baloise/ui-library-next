@@ -167,6 +167,10 @@ export namespace Components {
           * Select a step.
          */
         "select": (step: BalCardStepOption) => Promise<void>;
+        /**
+          * Hides the navigation circles and adds the step label instead
+         */
+        "showLabel": boolean;
     }
     interface BalCardSubtitle {
         /**
@@ -750,6 +754,10 @@ declare namespace LocalJSX {
           * Emitted when the step circle is clicked.
          */
         "onBalCardStepsStepClick"?: (event: CustomEvent<BalCardStepOption>) => void;
+        /**
+          * Hides the navigation circles and adds the step label instead
+         */
+        "showLabel"?: boolean;
     }
     interface BalCardSubtitle {
         /**
