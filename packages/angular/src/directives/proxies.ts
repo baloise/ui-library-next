@@ -723,6 +723,25 @@ export class BalSpinner {
 }
 
 
+export declare interface BalTag extends Components.BalTag {}
+@ProxyCmp({
+  inputs: ['type']
+})
+@Component({
+  selector: 'bal-tag',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['type']
+})
+export class BalTag {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
 export declare interface BalText extends Components.BalText {}
 
 @Component({

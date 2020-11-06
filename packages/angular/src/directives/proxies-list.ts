@@ -37,5 +37,6 @@ d.BalAccordion,
   d.BalSelect,
   d.BalSelectOption,
   d.BalSpinner,
+  d.BalTag,
   d.BalText
 ];

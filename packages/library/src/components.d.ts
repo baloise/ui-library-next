@@ -637,6 +637,12 @@ export namespace Components {
          */
         "small": boolean;
     }
+    interface BalTag {
+        /**
+          * The theme type of the tag. Given by bulma our css framework.
+         */
+        "type": 'is-primary' | 'is-info' | 'is-success' | 'is-warning' | 'is-danger' | '';
+    }
     interface BalText {
     }
 }
@@ -851,6 +857,12 @@ declare global {
         prototype: HTMLBalSpinnerElement;
         new (): HTMLBalSpinnerElement;
     };
+    interface HTMLBalTagElement extends Components.BalTag, HTMLStencilElement {
+    }
+    var HTMLBalTagElement: {
+        prototype: HTMLBalTagElement;
+        new (): HTMLBalTagElement;
+    };
     interface HTMLBalTextElement extends Components.BalText, HTMLStencilElement {
     }
     var HTMLBalTextElement: {
@@ -893,6 +905,7 @@ declare global {
         "bal-select": HTMLBalSelectElement;
         "bal-select-option": HTMLBalSelectOptionElement;
         "bal-spinner": HTMLBalSpinnerElement;
+        "bal-tag": HTMLBalTagElement;
         "bal-text": HTMLBalTextElement;
     }
 }
@@ -1541,6 +1554,12 @@ declare namespace LocalJSX {
          */
         "small"?: boolean;
     }
+    interface BalTag {
+        /**
+          * The theme type of the tag. Given by bulma our css framework.
+         */
+        "type"?: 'is-primary' | 'is-info' | 'is-success' | 'is-warning' | 'is-danger' | '';
+    }
     interface BalText {
     }
     interface IntrinsicElements {
@@ -1579,6 +1598,7 @@ declare namespace LocalJSX {
         "bal-select": BalSelect;
         "bal-select-option": BalSelectOption;
         "bal-spinner": BalSpinner;
+        "bal-tag": BalTag;
         "bal-text": BalText;
     }
 }
@@ -1621,6 +1641,7 @@ declare module "@stencil/core" {
             "bal-select": LocalJSX.BalSelect & JSXBase.HTMLAttributes<HTMLBalSelectElement>;
             "bal-select-option": LocalJSX.BalSelectOption & JSXBase.HTMLAttributes<HTMLBalSelectOptionElement>;
             "bal-spinner": LocalJSX.BalSpinner & JSXBase.HTMLAttributes<HTMLBalSpinnerElement>;
+            "bal-tag": LocalJSX.BalTag & JSXBase.HTMLAttributes<HTMLBalTagElement>;
             "bal-text": LocalJSX.BalText & JSXBase.HTMLAttributes<HTMLBalTextElement>;
         }
     }

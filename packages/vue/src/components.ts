@@ -45,6 +45,7 @@ const customElementTags: string[] = [
  'bal-select',
  'bal-select-option',
  'bal-spinner',
+ 'bal-tag',
  'bal-text',
 ];
 Vue.config.ignoredElements = [...Vue.config.ignoredElements, ...customElementTags];
@@ -554,6 +555,17 @@ export const BalSpinner = /*@__PURE__*/ Vue.extend({
 
 
   render: createCommonRender('bal-spinner', []),
+});
+
+
+export const BalTag = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    type: {} as PropOptions<Components.BalTag['type']>,
+  },
+
+
+  render: createCommonRender('bal-tag', []),
 });
 
 
