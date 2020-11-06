@@ -42,5 +42,6 @@ d.BalAccordion,
   d.BalTabItem,
   d.BalTabs,
   d.BalTag,
-  d.BalText
+  d.BalText,
+  d.BalToast
 ];

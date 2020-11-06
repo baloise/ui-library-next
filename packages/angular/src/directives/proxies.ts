@@ -852,3 +852,23 @@ export class BalText {
     this.el = r.nativeElement;
   }
 }
+
+
+export declare interface BalToast extends Components.BalToast {}
+@ProxyCmp({
+  inputs: ['type'],
+  methods: ['closeIn', 'close']
+})
+@Component({
+  selector: 'bal-toast',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['type']
+})
+export class BalToast {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}

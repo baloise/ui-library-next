@@ -51,6 +51,7 @@ const customElementTags: string[] = [
  'bal-tabs',
  'bal-tag',
  'bal-text',
+ 'bal-toast',
 ];
 Vue.config.ignoredElements = [...Vue.config.ignoredElements, ...customElementTags];
 
@@ -647,5 +648,20 @@ export const BalText = /*@__PURE__*/ Vue.extend({
 
 
   render: createCommonRender('bal-text', []),
+});
+
+
+export const BalToast = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    type: {} as PropOptions<Components.BalToast['type']>,
+  },
+
+
+  methods: {
+    closeIn: createCommonMethod('closeIn') as Components.BalToast['closeIn'],
+    close: createCommonMethod('close') as Components.BalToast['close'],
+  },
+  render: createCommonRender('bal-toast', []),
 });
 

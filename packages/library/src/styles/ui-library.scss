@@ -1,15 +1,19 @@
 @import 'base/fonts.scss';
 @import './ui-library.utilities';
+@import './elements/notices.scss';
 
 .bal-app {
+  position: relative;
+}
+
+.bal-app,
+.bal-notices {
   @import './utilities/helpers';
   @import './utilities/animations';
   @import './base/all';
   @import './form/all';
   @import './elements/all';
-  @import "node_modules/bulma/sass/grid/all.sass";
-
-  position: relative;
+  @import 'node_modules/bulma/sass/grid/all.sass';
 
   * {
     box-sizing: border-box;

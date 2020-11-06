@@ -748,6 +748,20 @@ export namespace Components {
     }
     interface BalText {
     }
+    interface BalToast {
+        /**
+          * Closes this toast
+         */
+        "close": () => Promise<void>;
+        /**
+          * Closes the toast after the given duration in ms
+         */
+        "closeIn": (duration: number) => Promise<void>;
+        /**
+          * The theme type of the toast. Given by bulma our css framework.
+         */
+        "type": 'is-primary' | 'is-info' | 'is-success' | 'is-warning' | 'is-danger';
+    }
 }
 declare global {
     interface HTMLBalAccordionElement extends Components.BalAccordion, HTMLStencilElement {
@@ -996,6 +1010,12 @@ declare global {
         prototype: HTMLBalTextElement;
         new (): HTMLBalTextElement;
     };
+    interface HTMLBalToastElement extends Components.BalToast, HTMLStencilElement {
+    }
+    var HTMLBalToastElement: {
+        prototype: HTMLBalToastElement;
+        new (): HTMLBalToastElement;
+    };
     interface HTMLElementTagNameMap {
         "bal-accordion": HTMLBalAccordionElement;
         "bal-button": HTMLBalButtonElement;
@@ -1038,6 +1058,7 @@ declare global {
         "bal-tabs": HTMLBalTabsElement;
         "bal-tag": HTMLBalTagElement;
         "bal-text": HTMLBalTextElement;
+        "bal-toast": HTMLBalToastElement;
     }
 }
 declare namespace LocalJSX {
@@ -1789,6 +1810,12 @@ declare namespace LocalJSX {
     }
     interface BalText {
     }
+    interface BalToast {
+        /**
+          * The theme type of the toast. Given by bulma our css framework.
+         */
+        "type"?: 'is-primary' | 'is-info' | 'is-success' | 'is-warning' | 'is-danger';
+    }
     interface IntrinsicElements {
         "bal-accordion": BalAccordion;
         "bal-button": BalButton;
@@ -1831,6 +1858,7 @@ declare namespace LocalJSX {
         "bal-tabs": BalTabs;
         "bal-tag": BalTag;
         "bal-text": BalText;
+        "bal-toast": BalToast;
     }
 }
 export { LocalJSX as JSX };
@@ -1878,6 +1906,7 @@ declare module "@stencil/core" {
             "bal-tabs": LocalJSX.BalTabs & JSXBase.HTMLAttributes<HTMLBalTabsElement>;
             "bal-tag": LocalJSX.BalTag & JSXBase.HTMLAttributes<HTMLBalTagElement>;
             "bal-text": LocalJSX.BalText & JSXBase.HTMLAttributes<HTMLBalTextElement>;
+            "bal-toast": LocalJSX.BalToast & JSXBase.HTMLAttributes<HTMLBalToastElement>;
         }
     }
 }
