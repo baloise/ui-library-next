@@ -41,6 +41,7 @@ const customElementTags: string[] = [
  'bal-list-item-subtitle',
  'bal-list-item-title',
  'bal-navbar',
+ 'bal-pagination',
  'bal-select',
  'bal-select-option',
  'bal-spinner',
@@ -481,6 +482,24 @@ export const BalNavbar = /*@__PURE__*/ Vue.extend({
 
 
   render: createCommonRender('bal-navbar', []),
+});
+
+
+export const BalPagination = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    disabled: {} as PropOptions<Components.BalPagination['disabled']>,
+    value: {} as PropOptions<Components.BalPagination['value']>,
+    totalPages: {} as PropOptions<Components.BalPagination['totalPages']>,
+    pageRange: {} as PropOptions<Components.BalPagination['pageRange']>,
+  },
+
+
+  methods: {
+    next: createCommonMethod('next') as Components.BalPagination['next'],
+    previous: createCommonMethod('previous') as Components.BalPagination['previous'],
+  },
+  render: createCommonRender('bal-pagination', ['balNavbarChange']),
 });
 
 

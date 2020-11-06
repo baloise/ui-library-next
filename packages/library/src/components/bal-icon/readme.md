@@ -90,6 +90,7 @@ The proprocessing step for each SVG icon included: (done in Adobe Illustrator, b
  - [bal-card-steps](../bal-card-steps)
  - [bal-field](../bal-field)
  - [bal-file-upload](../bal-file-upload)
+ - [bal-pagination](../bal-pagination)
  - [bal-select](../bal-select)
 
 ### Graph
@@ -100,6 +101,7 @@ graph TD;
   bal-card-steps --> bal-icon
   bal-field --> bal-icon
   bal-file-upload --> bal-icon
+  bal-pagination --> bal-icon
   bal-select --> bal-icon
   style bal-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

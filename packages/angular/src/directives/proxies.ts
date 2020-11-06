@@ -622,6 +622,30 @@ export class BalNavbar {
   }
 }
 
+import { Pagination as IPagination } from '@baloise/ui-library-next/dist/types/components/bal-pagination/bal-pagination';
+export declare interface BalPagination extends Components.BalPagination {}
+@ProxyCmp({
+  inputs: ['disabled', 'pageRange', 'totalPages', 'value'],
+  methods: ['next', 'previous']
+})
+@Component({
+  selector: 'bal-pagination',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['disabled', 'pageRange', 'totalPages', 'value'],
+  outputs: ['balNavbarChange']
+})
+export class BalPagination {
+  /** Triggers when a page change happens */
+  balNavbarChange!: IPagination['balChangeEventEmitter'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['balNavbarChange']);
+  }
+}
+
 import { Select as ISelect } from '@baloise/ui-library-next/dist/types/components/bal-select/bal-select';
 export declare interface BalSelect extends Components.BalSelect {}
 @ProxyCmp({

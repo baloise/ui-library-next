@@ -533,6 +533,32 @@ export namespace Components {
          */
         "logoHref": string;
     }
+    interface BalPagination {
+        /**
+          * Disables component
+         */
+        "disabled": boolean;
+        /**
+          * Go to the next page
+         */
+        "next": () => Promise<void>;
+        /**
+          * Specify the max visible pages before and after the selected page
+         */
+        "pageRange": number;
+        /**
+          * Go to the prvious page
+         */
+        "previous": () => Promise<void>;
+        /**
+          * The total amount of pages
+         */
+        "totalPages": number;
+        /**
+          * Current selected page
+         */
+        "value": number;
+    }
     interface BalSelect {
         /**
           * Sets the value to null and resets the value of the input.
@@ -801,6 +827,12 @@ declare global {
         prototype: HTMLBalNavbarElement;
         new (): HTMLBalNavbarElement;
     };
+    interface HTMLBalPaginationElement extends Components.BalPagination, HTMLStencilElement {
+    }
+    var HTMLBalPaginationElement: {
+        prototype: HTMLBalPaginationElement;
+        new (): HTMLBalPaginationElement;
+    };
     interface HTMLBalSelectElement extends Components.BalSelect, HTMLStencilElement {
     }
     var HTMLBalSelectElement: {
@@ -857,6 +889,7 @@ declare global {
         "bal-list-item-subtitle": HTMLBalListItemSubtitleElement;
         "bal-list-item-title": HTMLBalListItemTitleElement;
         "bal-navbar": HTMLBalNavbarElement;
+        "bal-pagination": HTMLBalPaginationElement;
         "bal-select": HTMLBalSelectElement;
         "bal-select-option": HTMLBalSelectOptionElement;
         "bal-spinner": HTMLBalSpinnerElement;
@@ -1384,6 +1417,28 @@ declare namespace LocalJSX {
          */
         "logoHref"?: string;
     }
+    interface BalPagination {
+        /**
+          * Disables component
+         */
+        "disabled"?: boolean;
+        /**
+          * Triggers when a page change happens
+         */
+        "onBalNavbarChange"?: (event: CustomEvent<number>) => void;
+        /**
+          * Specify the max visible pages before and after the selected page
+         */
+        "pageRange"?: number;
+        /**
+          * The total amount of pages
+         */
+        "totalPages"?: number;
+        /**
+          * Current selected page
+         */
+        "value"?: number;
+    }
     interface BalSelect {
         /**
           * If `true` the component is diabled.
@@ -1520,6 +1575,7 @@ declare namespace LocalJSX {
         "bal-list-item-subtitle": BalListItemSubtitle;
         "bal-list-item-title": BalListItemTitle;
         "bal-navbar": BalNavbar;
+        "bal-pagination": BalPagination;
         "bal-select": BalSelect;
         "bal-select-option": BalSelectOption;
         "bal-spinner": BalSpinner;
@@ -1561,6 +1617,7 @@ declare module "@stencil/core" {
             "bal-list-item-subtitle": LocalJSX.BalListItemSubtitle & JSXBase.HTMLAttributes<HTMLBalListItemSubtitleElement>;
             "bal-list-item-title": LocalJSX.BalListItemTitle & JSXBase.HTMLAttributes<HTMLBalListItemTitleElement>;
             "bal-navbar": LocalJSX.BalNavbar & JSXBase.HTMLAttributes<HTMLBalNavbarElement>;
+            "bal-pagination": LocalJSX.BalPagination & JSXBase.HTMLAttributes<HTMLBalPaginationElement>;
             "bal-select": LocalJSX.BalSelect & JSXBase.HTMLAttributes<HTMLBalSelectElement>;
             "bal-select-option": LocalJSX.BalSelectOption & JSXBase.HTMLAttributes<HTMLBalSelectOptionElement>;
             "bal-spinner": LocalJSX.BalSpinner & JSXBase.HTMLAttributes<HTMLBalSpinnerElement>;
