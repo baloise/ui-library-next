@@ -722,6 +722,56 @@ export class BalSpinner {
   }
 }
 
+import { TabItem as ITabItem } from '@baloise/ui-library-next/dist/types/components/bal-tab-item/bal-tab-item';
+export declare interface BalTabItem extends Components.BalTabItem {}
+@ProxyCmp({
+  inputs: ['active', 'bubble', 'disabled', 'label', 'value'],
+  methods: ['getOptions', 'setActive']
+})
+@Component({
+  selector: 'bal-tab-item',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['active', 'bubble', 'disabled', 'label', 'value'],
+  outputs: ['balTabChange']
+})
+export class BalTabItem {
+  /** Emitted when the tabs get rendered. */
+  balTabChange!: ITabItem['tabChanged'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['balTabChange']);
+  }
+}
+
+import { Tabs as ITabs } from '@baloise/ui-library-next/dist/types/components/bal-tabs/bal-tabs';
+export declare interface BalTabs extends Components.BalTabs {}
+@ProxyCmp({
+  inputs: ['action', 'actionLabel', 'dense', 'expanded', 'rounded'],
+  methods: ['select']
+})
+@Component({
+  selector: 'bal-tabs',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['action', 'actionLabel', 'dense', 'expanded', 'rounded'],
+  outputs: ['balTabsChange', 'balTabsActionClick']
+})
+export class BalTabs {
+  /** Emitted when the changes has finished. */
+  balTabsChange!: ITabs['tabsDidChange'];
+  /** Emitted when the action button has clicked */
+  balTabsActionClick!: ITabs['actionHasClicked'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['balTabsChange', 'balTabsActionClick']);
+  }
+}
+
 
 export declare interface BalTag extends Components.BalTag {}
 @ProxyCmp({

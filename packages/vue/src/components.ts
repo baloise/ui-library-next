@@ -45,6 +45,8 @@ const customElementTags: string[] = [
  'bal-select',
  'bal-select-option',
  'bal-spinner',
+ 'bal-tab-item',
+ 'bal-tabs',
  'bal-tag',
  'bal-text',
 ];
@@ -555,6 +557,43 @@ export const BalSpinner = /*@__PURE__*/ Vue.extend({
 
 
   render: createCommonRender('bal-spinner', []),
+});
+
+
+export const BalTabItem = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    value: {} as PropOptions<Components.BalTabItem['value']>,
+    label: {} as PropOptions<Components.BalTabItem['label']>,
+    bubble: {} as PropOptions<Components.BalTabItem['bubble']>,
+    disabled: {} as PropOptions<Components.BalTabItem['disabled']>,
+    active: {} as PropOptions<Components.BalTabItem['active']>,
+  },
+
+
+  methods: {
+    getOptions: createCommonMethod('getOptions') as Components.BalTabItem['getOptions'],
+    setActive: createCommonMethod('setActive') as Components.BalTabItem['setActive'],
+  },
+  render: createCommonRender('bal-tab-item', ['balTabChange']),
+});
+
+
+export const BalTabs = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    expanded: {} as PropOptions<Components.BalTabs['expanded']>,
+    dense: {} as PropOptions<Components.BalTabs['dense']>,
+    rounded: {} as PropOptions<Components.BalTabs['rounded']>,
+    action: {} as PropOptions<Components.BalTabs['action']>,
+    actionLabel: {} as PropOptions<Components.BalTabs['actionLabel']>,
+  },
+
+
+  methods: {
+    select: createCommonMethod('select') as Components.BalTabs['select'],
+  },
+  render: createCommonRender('bal-tabs', ['balTabsChange', 'balTabsActionClick']),
 });
 
 

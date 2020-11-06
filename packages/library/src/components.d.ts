@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { BalCardStepOption } from "./components/bal-card-step/bal-card-step.type";
 import { FileUploadRejectedFile } from "./components/bal-file-upload/bal-file-upload.type";
 import { BalOptionValue } from "./components/bal-select-option/bal-select-option.type";
+import { BalTabOption } from "./components/bal-tabs/bal-tab.type";
 export namespace Components {
     interface BalAccordion {
         /**
@@ -637,6 +638,62 @@ export namespace Components {
          */
         "small": boolean;
     }
+    interface BalTabItem {
+        /**
+          * Tell's if the tab is active and the content is visible.
+         */
+        "active": boolean;
+        /**
+          * If `true` a small red bubble is added to the tab.
+         */
+        "bubble": boolean;
+        /**
+          * If `true` the tab is disabled.
+         */
+        "disabled": boolean;
+        /**
+          * Options of the tab like label, value etc.
+         */
+        "getOptions": () => Promise<BalTabOption>;
+        /**
+          * Label for the tab.
+         */
+        "label": string;
+        /**
+          * Sets the tab active.
+         */
+        "setActive": (active: boolean) => Promise<void>;
+        /**
+          * This is the key of the tab.
+         */
+        "value": string;
+    }
+    interface BalTabs {
+        /**
+          * If `true` a acation button is added to the right
+         */
+        "action": boolean;
+        /**
+          * Label for the action button
+         */
+        "actionLabel": string;
+        /**
+          * If `true` the the padding gets reduced.
+         */
+        "dense": boolean;
+        /**
+          * If `true` the field expands over the whole width.
+         */
+        "expanded": boolean;
+        /**
+          * If you want the rounded tab style.
+         */
+        "rounded": boolean;
+        /**
+          * Dropdown a tab by the value of the tab item.
+         */
+        "select": (value: string) => Promise<void>;
+    }
     interface BalTag {
         /**
           * The theme type of the tag. Given by bulma our css framework.
@@ -857,6 +914,18 @@ declare global {
         prototype: HTMLBalSpinnerElement;
         new (): HTMLBalSpinnerElement;
     };
+    interface HTMLBalTabItemElement extends Components.BalTabItem, HTMLStencilElement {
+    }
+    var HTMLBalTabItemElement: {
+        prototype: HTMLBalTabItemElement;
+        new (): HTMLBalTabItemElement;
+    };
+    interface HTMLBalTabsElement extends Components.BalTabs, HTMLStencilElement {
+    }
+    var HTMLBalTabsElement: {
+        prototype: HTMLBalTabsElement;
+        new (): HTMLBalTabsElement;
+    };
     interface HTMLBalTagElement extends Components.BalTag, HTMLStencilElement {
     }
     var HTMLBalTagElement: {
@@ -905,6 +974,8 @@ declare global {
         "bal-select": HTMLBalSelectElement;
         "bal-select-option": HTMLBalSelectOptionElement;
         "bal-spinner": HTMLBalSpinnerElement;
+        "bal-tab-item": HTMLBalTabItemElement;
+        "bal-tabs": HTMLBalTabsElement;
         "bal-tag": HTMLBalTagElement;
         "bal-text": HTMLBalTextElement;
     }
@@ -1554,6 +1625,62 @@ declare namespace LocalJSX {
          */
         "small"?: boolean;
     }
+    interface BalTabItem {
+        /**
+          * Tell's if the tab is active and the content is visible.
+         */
+        "active"?: boolean;
+        /**
+          * If `true` a small red bubble is added to the tab.
+         */
+        "bubble"?: boolean;
+        /**
+          * If `true` the tab is disabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * Label for the tab.
+         */
+        "label"?: string;
+        /**
+          * Emitted when the tabs get rendered.
+         */
+        "onBalTabChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * This is the key of the tab.
+         */
+        "value"?: string;
+    }
+    interface BalTabs {
+        /**
+          * If `true` a acation button is added to the right
+         */
+        "action"?: boolean;
+        /**
+          * Label for the action button
+         */
+        "actionLabel"?: string;
+        /**
+          * If `true` the the padding gets reduced.
+         */
+        "dense"?: boolean;
+        /**
+          * If `true` the field expands over the whole width.
+         */
+        "expanded"?: boolean;
+        /**
+          * Emitted when the action button has clicked
+         */
+        "onBalTabsActionClick"?: (event: CustomEvent<MouseEvent>) => void;
+        /**
+          * Emitted when the changes has finished.
+         */
+        "onBalTabsChange"?: (event: CustomEvent<BalTabOption>) => void;
+        /**
+          * If you want the rounded tab style.
+         */
+        "rounded"?: boolean;
+    }
     interface BalTag {
         /**
           * The theme type of the tag. Given by bulma our css framework.
@@ -1598,6 +1725,8 @@ declare namespace LocalJSX {
         "bal-select": BalSelect;
         "bal-select-option": BalSelectOption;
         "bal-spinner": BalSpinner;
+        "bal-tab-item": BalTabItem;
+        "bal-tabs": BalTabs;
         "bal-tag": BalTag;
         "bal-text": BalText;
     }
@@ -1641,6 +1770,8 @@ declare module "@stencil/core" {
             "bal-select": LocalJSX.BalSelect & JSXBase.HTMLAttributes<HTMLBalSelectElement>;
             "bal-select-option": LocalJSX.BalSelectOption & JSXBase.HTMLAttributes<HTMLBalSelectOptionElement>;
             "bal-spinner": LocalJSX.BalSpinner & JSXBase.HTMLAttributes<HTMLBalSpinnerElement>;
+            "bal-tab-item": LocalJSX.BalTabItem & JSXBase.HTMLAttributes<HTMLBalTabItemElement>;
+            "bal-tabs": LocalJSX.BalTabs & JSXBase.HTMLAttributes<HTMLBalTabsElement>;
             "bal-tag": LocalJSX.BalTag & JSXBase.HTMLAttributes<HTMLBalTagElement>;
             "bal-text": LocalJSX.BalText & JSXBase.HTMLAttributes<HTMLBalTextElement>;
         }
