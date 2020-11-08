@@ -1082,7 +1082,7 @@ declare namespace LocalJSX {
         /**
           * Emmited when the accordion has changed
          */
-        "onBalAccordionChange"?: (event: CustomEvent<boolean>) => void;
+        "onBalChange"?: (event: CustomEvent<boolean>) => void;
         /**
           * Bal-Icon of the open trigger button
          */
@@ -1422,11 +1422,11 @@ declare namespace LocalJSX {
         /**
           * Triggers when a file is added or removed.
          */
-        "onBalFileUploadChange"?: (event: CustomEvent<File[]>) => void;
+        "onBalChange"?: (event: CustomEvent<File[]>) => void;
         /**
           * Triggers when a file is rejected due to not allowed MIME-Type and so on.
          */
-        "onBalFileUploadRejectedFile"?: (event: CustomEvent<FileUploadRejectedFile>) => void;
+        "onBalRejectedFile"?: (event: CustomEvent<FileUploadRejectedFile>) => void;
     }
     interface BalHint {
         /**
@@ -1606,7 +1606,7 @@ declare namespace LocalJSX {
         /**
           * Triggers when a page change happens
          */
-        "onBalNavbarChange"?: (event: CustomEvent<number>) => void;
+        "onBalChange"?: (event: CustomEvent<number>) => void;
         /**
           * Specify the max visible pages before and after the selected page
          */
@@ -1742,7 +1742,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the steps get rendered.
          */
-        "onBalStepChange"?: (event: CustomEvent<any>) => void;
+        "onBalChange"?: (event: CustomEvent<any>) => void;
         /**
           * This is the key of the step.
          */
@@ -1752,7 +1752,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the changes has finished.
          */
-        "onBalStepsChange"?: (event: CustomEvent<StepOptions>) => void;
+        "onBalChange"?: (event: CustomEvent<StepOptions>) => void;
     }
     interface BalTabItem {
         /**
@@ -1774,7 +1774,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the tabs get rendered.
          */
-        "onBalTabChange"?: (event: CustomEvent<any>) => void;
+        "onBalChange"?: (event: CustomEvent<any>) => void;
         /**
           * This is the key of the tab.
          */
@@ -1800,11 +1800,11 @@ declare namespace LocalJSX {
         /**
           * Emitted when the action button has clicked
          */
-        "onBalTabsActionClick"?: (event: CustomEvent<MouseEvent>) => void;
+        "onBalActionClick"?: (event: CustomEvent<MouseEvent>) => void;
         /**
           * Emitted when the changes has finished.
          */
-        "onBalTabsChange"?: (event: CustomEvent<BalTabOption>) => void;
+        "onBalChange"?: (event: CustomEvent<BalTabOption>) => void;
         /**
           * If you want the rounded tab style.
          */

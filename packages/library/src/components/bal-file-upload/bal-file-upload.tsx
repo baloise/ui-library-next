@@ -54,12 +54,12 @@ export class FileUpload {
   /**
    * Triggers when a file is added or removed.
    */
-  @Event({ eventName: 'balFileUploadChange' }) balChangeEventEmitter!: EventEmitter<File[]>
+  @Event({ eventName: 'balChange' }) balChangeEventEmitter!: EventEmitter<File[]>
 
   /**
    * Triggers when a file is rejected due to not allowed MIME-Type and so on.
    */
-  @Event({ eventName: 'balFileUploadRejectedFile' }) balRejectedFileEventEmitter!: EventEmitter<FileUploadRejectedFile>
+  @Event({ eventName: 'balRejectedFile' }) balRejectedFileEventEmitter!: EventEmitter<FileUploadRejectedFile>
 
   @Listen('dragenter', { capture: false })
   dragenterHandler() {

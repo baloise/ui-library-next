@@ -20,9 +20,9 @@
 
 ## Events
 
-| Event          | Description                         | Type               |
-| -------------- | ----------------------------------- | ------------------ |
-| `balTabChange` | Emitted when the tabs get rendered. | `CustomEvent<any>` |
+| Event       | Description                         | Type               |
+| ----------- | ----------------------------------- | ------------------ |
+| `balChange` | Emitted when the tabs get rendered. | `CustomEvent<any>` |
 
 
 ## Methods

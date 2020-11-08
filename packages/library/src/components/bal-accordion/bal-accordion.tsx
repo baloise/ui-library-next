@@ -48,7 +48,7 @@ export class Accordion {
   /**
    * Emmited when the accordion has changed
    */
-  @Event({ eventName: 'balAccordionChange' }) balChange!: EventEmitter<boolean>
+  @Event({ eventName: 'balChange' }) balChange!: EventEmitter<boolean>
 
   /**
    * Open the accordion

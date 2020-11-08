@@ -21,10 +21,10 @@ The `bal-file-upload` is all in one component. It supports drag&drop and the nor
 
 ## Events
 
-| Event                       | Description                                                              | Type                                  |
-| --------------------------- | ------------------------------------------------------------------------ | ------------------------------------- |
-| `balFileUploadChange`       | Triggers when a file is added or removed.                                | `CustomEvent<File[]>`                 |
-| `balFileUploadRejectedFile` | Triggers when a file is rejected due to not allowed MIME-Type and so on. | `CustomEvent<FileUploadRejectedFile>` |
+| Event             | Description                                                              | Type                                  |
+| ----------------- | ------------------------------------------------------------------------ | ------------------------------------- |
+| `balChange`       | Triggers when a file is added or removed.                                | `CustomEvent<File[]>`                 |
+| `balRejectedFile` | Triggers when a file is rejected due to not allowed MIME-Type and so on. | `CustomEvent<FileUploadRejectedFile>` |
 
 
 ## Dependencies

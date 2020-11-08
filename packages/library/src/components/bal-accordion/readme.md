@@ -20,9 +20,9 @@ Accordion is a easy way to toggle things.
 
 ## Events
 
-| Event                | Description                            | Type                   |
-| -------------------- | -------------------------------------- | ---------------------- |
-| `balAccordionChange` | Emmited when the accordion has changed | `CustomEvent<boolean>` |
+| Event       | Description                            | Type                   |
+| ----------- | -------------------------------------- | ---------------------- |
+| `balChange` | Emmited when the accordion has changed | `CustomEvent<boolean>` |
 
 
 ## Methods

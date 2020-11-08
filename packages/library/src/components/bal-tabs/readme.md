@@ -19,10 +19,10 @@ Simple responsive horizontal navigation tabs.
 
 ## Events
 
-| Event                | Description                                | Type                        |
-| -------------------- | ------------------------------------------ | --------------------------- |
-| `balTabsActionClick` | Emitted when the action button has clicked | `CustomEvent<MouseEvent>`   |
-| `balTabsChange`      | Emitted when the changes has finished.     | `CustomEvent<BalTabOption>` |
+| Event            | Description                                | Type                        |
+| ---------------- | ------------------------------------------ | --------------------------- |
+| `balActionClick` | Emitted when the action button has clicked | `CustomEvent<MouseEvent>`   |
+| `balChange`      | Emitted when the changes has finished.     | `CustomEvent<BalTabOption>` |
 
 
 ## Methods

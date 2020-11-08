@@ -15,7 +15,7 @@ export class Steps {
   /**
    * Emitted when the changes has finished.
    */
-  @Event({ eventName: 'balStepsChange' }) stepsDidChange: EventEmitter<StepOptions>
+  @Event({ eventName: 'balChange' }) stepsDidChange: EventEmitter<StepOptions>
 
   /**
    * Select a step.
@@ -30,7 +30,7 @@ export class Steps {
     this.readSteps()
   }
 
-  @Listen('balStepChange')
+  @Listen('balChange')
   stepChanged() {
     this.readSteps()
   }

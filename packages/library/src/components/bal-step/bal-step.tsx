@@ -50,7 +50,7 @@ export class Step {
   /**
    * Emitted when the steps get rendered.
    */
-  @Event({ eventName: 'balStepChange' }) stepChanged: EventEmitter
+  @Event({ eventName: 'balChange' }) stepChanged: EventEmitter
 
   get options() {
     return {

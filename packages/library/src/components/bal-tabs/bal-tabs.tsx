@@ -40,12 +40,12 @@ export class Tabs {
   /**
    * Emitted when the changes has finished.
    */
-  @Event({ eventName: 'balTabsChange' }) tabsDidChange: EventEmitter<BalTabOption>
+  @Event({ eventName: 'balChange' }) tabsDidChange: EventEmitter<BalTabOption>
 
   /**
    * Emitted when the action button has clicked
    */
-  @Event({ eventName: 'balTabsActionClick' }) actionHasClicked: EventEmitter<MouseEvent>
+  @Event({ eventName: 'balActionClick' }) actionHasClicked: EventEmitter<MouseEvent>
 
   /**
    * Dropdown a tab by the value of the tab item.
@@ -60,7 +60,7 @@ export class Tabs {
     this.readTabItems()
   }
 
-  @Listen('balTabChange')
+  @Listen('balChange')
   tabChanged() {
     this.readTabItems()
   }

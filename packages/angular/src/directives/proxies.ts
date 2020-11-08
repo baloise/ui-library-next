@@ -16,16 +16,16 @@ export declare interface BalAccordion extends Components.BalAccordion {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['closeIcon', 'closeLabel', 'collapsed', 'openIcon', 'openLabel', 'type'],
-  outputs: ['balAccordionChange']
+  outputs: ['balChange']
 })
 export class BalAccordion {
   /** Emmited when the accordion has changed */
-  balAccordionChange!: IAccordion['balChange'];
+  balChange!: IAccordion['balChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balAccordionChange']);
+    proxyOutputs(this, this.el, ['balChange']);
   }
 }
 
@@ -384,18 +384,18 @@ export declare interface BalFileUpload extends Components.BalFileUpload {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['accept', 'disabled', 'label', 'maxBundleSize', 'maxFileSize', 'maxFiles', 'multiple'],
-  outputs: ['balFileUploadChange', 'balFileUploadRejectedFile']
+  outputs: ['balChange', 'balRejectedFile']
 })
 export class BalFileUpload {
   /** Triggers when a file is added or removed. */
-  balFileUploadChange!: IFileUpload['balChangeEventEmitter'];
+  balChange!: IFileUpload['balChangeEventEmitter'];
   /** Triggers when a file is rejected due to not allowed MIME-Type and so on. */
-  balFileUploadRejectedFile!: IFileUpload['balRejectedFileEventEmitter'];
+  balRejectedFile!: IFileUpload['balRejectedFileEventEmitter'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balFileUploadChange', 'balFileUploadRejectedFile']);
+    proxyOutputs(this, this.el, ['balChange', 'balRejectedFile']);
   }
 }
 
@@ -637,16 +637,16 @@ export declare interface BalPagination extends Components.BalPagination {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['disabled', 'pageRange', 'totalPages', 'value'],
-  outputs: ['balNavbarChange']
+  outputs: ['balChange']
 })
 export class BalPagination {
   /** Triggers when a page change happens */
-  balNavbarChange!: IPagination['balChangeEventEmitter'];
+  balChange!: IPagination['balChangeEventEmitter'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balNavbarChange']);
+    proxyOutputs(this, this.el, ['balChange']);
   }
 }
 
@@ -735,16 +735,16 @@ export declare interface BalStep extends Components.BalStep {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['active', 'bubble', 'disabled', 'label', 'value'],
-  outputs: ['balStepChange']
+  outputs: ['balChange']
 })
 export class BalStep {
   /** Emitted when the steps get rendered. */
-  balStepChange!: IStep['stepChanged'];
+  balChange!: IStep['stepChanged'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balStepChange']);
+    proxyOutputs(this, this.el, ['balChange']);
   }
 }
 
@@ -757,16 +757,16 @@ export declare interface BalSteps extends Components.BalSteps {}
   selector: 'bal-steps',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  outputs: ['balStepsChange']
+  outputs: ['balChange']
 })
 export class BalSteps {
   /** Emitted when the changes has finished. */
-  balStepsChange!: ISteps['stepsDidChange'];
+  balChange!: ISteps['stepsDidChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balStepsChange']);
+    proxyOutputs(this, this.el, ['balChange']);
   }
 }
 
@@ -781,16 +781,16 @@ export declare interface BalTabItem extends Components.BalTabItem {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['active', 'bubble', 'disabled', 'label', 'value'],
-  outputs: ['balTabChange']
+  outputs: ['balChange']
 })
 export class BalTabItem {
   /** Emitted when the tabs get rendered. */
-  balTabChange!: ITabItem['tabChanged'];
+  balChange!: ITabItem['tabChanged'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balTabChange']);
+    proxyOutputs(this, this.el, ['balChange']);
   }
 }
 
@@ -805,18 +805,18 @@ export declare interface BalTabs extends Components.BalTabs {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['action', 'actionLabel', 'dense', 'expanded', 'rounded'],
-  outputs: ['balTabsChange', 'balTabsActionClick']
+  outputs: ['balChange', 'balActionClick']
 })
 export class BalTabs {
   /** Emitted when the changes has finished. */
-  balTabsChange!: ITabs['tabsDidChange'];
+  balChange!: ITabs['tabsDidChange'];
   /** Emitted when the action button has clicked */
-  balTabsActionClick!: ITabs['actionHasClicked'];
+  balActionClick!: ITabs['actionHasClicked'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balTabsChange', 'balTabsActionClick']);
+    proxyOutputs(this, this.el, ['balChange', 'balActionClick']);
   }
 }
 

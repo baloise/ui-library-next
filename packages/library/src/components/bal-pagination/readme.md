@@ -17,9 +17,9 @@ A responsive, usable, and flexible pagination.
 
 ## Events
 
-| Event             | Description                         | Type                  |
-| ----------------- | ----------------------------------- | --------------------- |
-| `balNavbarChange` | Triggers when a page change happens | `CustomEvent<number>` |
+| Event       | Description                         | Type                  |
+| ----------- | ----------------------------------- | --------------------- |
+| `balChange` | Triggers when a page change happens | `CustomEvent<number>` |
 
 
 ## Methods

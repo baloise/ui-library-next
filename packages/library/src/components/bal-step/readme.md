@@ -20,9 +20,9 @@
 
 ## Events
 
-| Event           | Description                          | Type               |
-| --------------- | ------------------------------------ | ------------------ |
-| `balStepChange` | Emitted when the steps get rendered. | `CustomEvent<any>` |
+| Event       | Description                          | Type               |
+| ----------- | ------------------------------------ | ------------------ |
+| `balChange` | Emitted when the steps get rendered. | `CustomEvent<any>` |
 
 
 ## Methods

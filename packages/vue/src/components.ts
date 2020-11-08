@@ -77,7 +77,7 @@ export const BalAccordion = /*@__PURE__*/ Vue.extend({
     close: createCommonMethod('close') as Components.BalAccordion['close'],
     toggle: createCommonMethod('toggle') as Components.BalAccordion['toggle'],
   },
-  render: createCommonRender('bal-accordion', ['balAccordionChange']),
+  render: createCommonRender('bal-accordion', ['balChange']),
 });
 
 
@@ -338,7 +338,7 @@ export const BalFileUpload = /*@__PURE__*/ Vue.extend({
   },
 
 
-  render: createCommonRender('bal-file-upload', ['balFileUploadChange', 'balFileUploadRejectedFile']),
+  render: createCommonRender('bal-file-upload', ['balChange', 'balRejectedFile']),
 });
 
 
@@ -507,7 +507,7 @@ export const BalPagination = /*@__PURE__*/ Vue.extend({
     next: createCommonMethod('next') as Components.BalPagination['next'],
     previous: createCommonMethod('previous') as Components.BalPagination['previous'],
   },
-  render: createCommonRender('bal-pagination', ['balNavbarChange']),
+  render: createCommonRender('bal-pagination', ['balChange']),
 });
 
 
@@ -584,7 +584,7 @@ export const BalStep = /*@__PURE__*/ Vue.extend({
     getOptions: createCommonMethod('getOptions') as Components.BalStep['getOptions'],
     setActive: createCommonMethod('setActive') as Components.BalStep['setActive'],
   },
-  render: createCommonRender('bal-step', ['balStepChange']),
+  render: createCommonRender('bal-step', ['balChange']),
 });
 
 
@@ -595,7 +595,7 @@ export const BalSteps = /*@__PURE__*/ Vue.extend({
   methods: {
     select: createCommonMethod('select') as Components.BalSteps['select'],
   },
-  render: createCommonRender('bal-steps', ['balStepsChange']),
+  render: createCommonRender('bal-steps', ['balChange']),
 });
 
 
@@ -614,7 +614,7 @@ export const BalTabItem = /*@__PURE__*/ Vue.extend({
     getOptions: createCommonMethod('getOptions') as Components.BalTabItem['getOptions'],
     setActive: createCommonMethod('setActive') as Components.BalTabItem['setActive'],
   },
-  render: createCommonRender('bal-tab-item', ['balTabChange']),
+  render: createCommonRender('bal-tab-item', ['balChange']),
 });
 
 
@@ -632,7 +632,7 @@ export const BalTabs = /*@__PURE__*/ Vue.extend({
   methods: {
     select: createCommonMethod('select') as Components.BalTabs['select'],
   },
-  render: createCommonRender('bal-tabs', ['balTabsChange', 'balTabsActionClick']),
+  render: createCommonRender('bal-tabs', ['balChange', 'balActionClick']),
 });
 
 

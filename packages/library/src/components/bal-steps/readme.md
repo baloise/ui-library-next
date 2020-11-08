@@ -7,9 +7,9 @@ The steps list is useful for tracking progress in multi steps forms or wizards.
 
 ## Events
 
-| Event            | Description                            | Type                       |
-| ---------------- | -------------------------------------- | -------------------------- |
-| `balStepsChange` | Emitted when the changes has finished. | `CustomEvent<StepOptions>` |
+| Event       | Description                            | Type                       |
+| ----------- | -------------------------------------- | -------------------------- |
+| `balChange` | Emitted when the changes has finished. | `CustomEvent<StepOptions>` |
 
 
 ## Methods

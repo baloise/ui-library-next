@@ -43,7 +43,7 @@ export class TabItem {
   /**
    * Emitted when the tabs get rendered.
    */
-  @Event({ eventName: 'balTabChange' }) tabChanged: EventEmitter
+  @Event({ eventName: 'balChange' }) tabChanged: EventEmitter
 
   get options() {
     return {
