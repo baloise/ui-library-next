@@ -42,7 +42,7 @@ export class Tabs {
   /**
    * Emitted when the changes has finished.
    */
-  @Event({ eventName: 'balChange' }) tabsDidChange: EventEmitter<BalTabOption>
+  @Event({ eventName: 'balTabChange' }) tabsDidChange: EventEmitter<BalTabOption>
 
   /**
    * Emitted when the action button has clicked
@@ -50,12 +50,13 @@ export class Tabs {
   @Event({ eventName: 'balActionClick' }) actionHasClicked: EventEmitter<MouseEvent>
 
   /**
-   * Dropdown a tab by the value of the tab item.
+   * Go to tab with the given value
    */
   @Method()
-  async select(value: string) {
-    this.tabs.forEach(t => t.setActive(t.value === value))
+  async select(tab: BalTabOption) {
+    this.tabs.forEach(t => t.setActive(t.value === tab.value))
     this.sync()
+    this.tabsDidChange.emit(tab)
   }
 
   @Method()
@@ -75,7 +76,7 @@ export class Tabs {
 
   private async onSelectTab(tab: BalTabOption) {
     if (!tab.disabled) {
-      await this.select(tab.value)
+      await this.select(tab)
       this.tabsDidChange.emit(tab)
     }
   }

@@ -23,14 +23,14 @@ Simple responsive horizontal navigation tabs.
 | Event            | Description                                | Type                        |
 | ---------------- | ------------------------------------------ | --------------------------- |
 | `balActionClick` | Emitted when the action button has clicked | `CustomEvent<MouseEvent>`   |
-| `balChange`      | Emitted when the changes has finished.     | `CustomEvent<BalTabOption>` |
+| `balTabChange`   | Emitted when the changes has finished.     | `CustomEvent<BalTabOption>` |
 
 
 ## Methods
 
-### `select(value: string) => Promise<void>`
+### `select(tab: BalTabOption) => Promise<void>`
 
-Dropdown a tab by the value of the tab item.
+Go to tab with the given value
 
 #### Returns
 

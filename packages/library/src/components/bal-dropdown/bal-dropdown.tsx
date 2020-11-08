@@ -27,12 +27,17 @@ export class Dropdown {
   @Prop({ mutable: true, reflect: true }) isActive = false
 
   /**
+   * Listen when the dropdown opens or closes. Returns the current `isActive` value.
+   */
+  @Event({ eventName: 'balCollapse' }) balCollapse!: EventEmitter<boolean>
+
+  /**
    * Open the dropdown menu.
    */
   @Method()
   async open() {
     this.isActive = true
-    this.balChange.emit(this.isActive)
+    this.balCollapse.emit(this.isActive)
   }
 
   /**
@@ -41,7 +46,7 @@ export class Dropdown {
   @Method()
   async close() {
     this.isActive = false
-    this.balChange.emit(this.isActive)
+    this.balCollapse.emit(this.isActive)
   }
 
   /**
@@ -50,7 +55,7 @@ export class Dropdown {
   @Method()
   async toggle() {
     this.isActive = !this.isActive
-    this.balChange.emit(this.isActive)
+    this.balCollapse.emit(this.isActive)
   }
 
   /**
@@ -68,11 +73,6 @@ export class Dropdown {
   async getContentElement(): Promise<HTMLDivElement> {
     return this.contentElement
   }
-
-  /**
-   * Listen when the dropdown opens or closes. Returns the current `isActive` value.
-   */
-  @Event({ eventName: 'balChange' }) balChange!: EventEmitter<boolean>
 
   @Listen('keyup', { target: 'document' })
   async tabOutside(event: KeyboardEvent) {

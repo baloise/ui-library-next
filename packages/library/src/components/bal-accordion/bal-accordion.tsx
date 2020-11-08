@@ -22,7 +22,7 @@ export class Accordion {
   @Watch('collapsed')
   validateCollapsed(newValue: boolean) {
     this.isCollapsed = newValue
-    this.balChange.emit(this.isCollapsed)
+    this.balCollapse.emit(this.isCollapsed)
   }
 
   /**
@@ -48,7 +48,7 @@ export class Accordion {
   /**
    * Emmited when the accordion has changed
    */
-  @Event({ eventName: 'balChange' }) balChange!: EventEmitter<boolean>
+  @Event({ eventName: 'balCollapse' }) balCollapse!: EventEmitter<boolean>
 
   /**
    * Open the accordion
@@ -56,7 +56,7 @@ export class Accordion {
   @Method()
   async open() {
     this.isCollapsed = false
-    this.balChange.emit(this.isCollapsed)
+    this.balCollapse.emit(this.isCollapsed)
   }
 
   /**
@@ -65,7 +65,7 @@ export class Accordion {
   @Method()
   async close() {
     this.isCollapsed = true
-    this.balChange.emit(this.isCollapsed)
+    this.balCollapse.emit(this.isCollapsed)
   }
 
   /**
@@ -74,7 +74,7 @@ export class Accordion {
   @Method()
   async toggle() {
     this.isCollapsed = !this.isCollapsed
-    this.balChange.emit(this.isCollapsed)
+    this.balCollapse.emit(this.isCollapsed)
   }
 
   componentWillLoad() {

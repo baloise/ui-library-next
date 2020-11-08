@@ -1,15 +1,4 @@
-import {
-  Component,
-  Element,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Listen,
-  Method,
-  Prop,
-  State,
-} from '@stencil/core'
+import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, State } from '@stencil/core'
 import { BalCardStepOption } from '../bal-card-step/bal-card-step.type'
 
 @Component({
@@ -57,7 +46,7 @@ export class CardSteps {
   /**
    * Emitted when the changes has finished.
    */
-  @Event({ eventName: 'balChange' }) balChange: EventEmitter<BalCardStepOption>
+  @Event({ eventName: 'balCardStepChange' }) balChange: EventEmitter<BalCardStepOption>
 
   /**
    * Emitted when the back button is clicked.
@@ -67,33 +56,68 @@ export class CardSteps {
   /**
    * Emitted when the step circle is clicked.
    */
-  @Event({ eventName: 'balClick' }) balStepClick: EventEmitter<BalCardStepOption>
+  @Event({ eventName: 'balCardStepClick' }) balStepClick: EventEmitter<BalCardStepOption>
 
-  @Listen('balChange')
-  onStepChange(event: CustomEvent<BalCardStepOption>) {
-    event.preventDefault()
-    event.stopPropagation()
-    if (event.detail.active) {
-      if (this.showLabel) {
-        this.label = event.detail.label
-      } else {
-        this.label = ''
-      }
-    }
-  }
+  // @Listen('balChange')
+  // onStepChange(event: CustomEvent<BalCardStepOption>) {
+  //   event.preventDefault()
+  //   event.stopPropagation()
+  //   if (event.detail.active) {
+  //     if (this.showLabel) {
+  //       this.label = event.detail.label
+  //     } else {
+  //       this.label = ''
+  //     }
+  //   }
+  // }
 
   /**
-   * Select a step.
+   * Go to tab with the given value
    */
   @Method()
   async select(step: BalCardStepOption): Promise<void> {
     this.steps.forEach(t => t.setActive(t.value === step.value))
-    this.readSteps()
+    this.sync()
     this.balChange.emit(step)
   }
 
+  @Method()
+  async sync() {
+    await Promise.all(this.steps.map(value => value.getOptions())).then(stepOptions => {
+      this.stepOptions = stepOptions
+    })
+    this.label = this.stepOptions.find(o => o.active).label
+  }
+
   componentWillLoad(): void {
-    this.readSteps()
+    this.sync()
+  }
+
+  private get steps(): HTMLBalCardStepElement[] {
+    return Array.from(this.element.querySelectorAll('bal-card-step'))
+  }
+
+  private async onClickStepCircle(step: BalCardStepOption): Promise<void> {
+    if (this.navigation && !step.disabled) {
+      await this.select(step)
+    }
+    this.balStepClick.emit(step)
+  }
+
+  private async onBackButtonClick() {
+    if (this.navigation) {
+      let previousStepIndex = this.getPreviousStepIndex()
+      let previousStep = this.stepOptions[previousStepIndex]
+      if (previousStepIndex >= 0 && previousStep && !previousStep.disabled) {
+        await this.select(previousStep)
+      }
+    }
+    this.balBackClick.emit()
+  }
+
+  private getPreviousStepIndex() {
+    let activeStepIndex = this.stepOptions.findIndex(el => el.active === true)
+    return activeStepIndex - 1
   }
 
   render() {
@@ -143,38 +167,4 @@ export class CardSteps {
       </Host>
     )
   }
-
-  private get steps(): HTMLBalCardStepElement[] {
-    return Array.from(this.element.querySelectorAll('bal-card-step'))
-  }
-
-  private readSteps() {
-    Promise.all(this.steps.map(value => value.getOptions())).then(stepOptions => {
-      this.stepOptions = stepOptions
-    })
-  }
-
-  private async onClickStepCircle(step: BalCardStepOption): Promise<void> {
-    if (this.navigation && !step.disabled) {
-      await this.select(step)
-    }
-    this.balStepClick.emit(step)
-  }
-
-  private async onBackButtonClick() {
-    if (this.navigation) {
-      let previousStepIndex = this.getPreviousStepIndex()
-      let previousStep = this.stepOptions[previousStepIndex]
-      if (previousStepIndex >= 0 && previousStep && !previousStep.disabled) {
-        await this.select(previousStep)
-      }
-    }
-    this.balBackClick.emit()
-  }
-
-  private getPreviousStepIndex() {
-    let activeStepIndex = this.stepOptions.findIndex(el => el.active === true)
-    return activeStepIndex - 1
-  }
-
 }

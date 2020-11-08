@@ -234,7 +234,7 @@ export class Select {
         <bal-dropdown
           expanded={this.expanded}
           scrollable={this.scrollable}
-          onBalChange={e => this.onDropdownChange(e)}
+          onBalCollapse={e => this.onDropdownChange(e)}
           ref={el => (this.dropdownElement = el as HTMLBalDropdownElement)}>
           <div class="control has-icons-right" slot="trigger">
             <input
