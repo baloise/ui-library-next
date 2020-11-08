@@ -686,6 +686,55 @@ export class BalPagination {
   }
 }
 
+import { Radio as IRadio } from '@baloise/ui-library-next/dist/types/components/bal-radio/bal-radio';
+export declare interface BalRadio extends Components.BalRadio {}
+@ProxyCmp({
+  inputs: ['checked', 'disabled', 'inverted', 'label', 'name', 'value'],
+  methods: ['setFocus']
+})
+@Component({
+  selector: 'bal-radio',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['checked', 'disabled', 'inverted', 'label', 'name', 'value'],
+  outputs: ['balFocus', 'balBlur']
+})
+export class BalRadio {
+  /** Emitted when the toggle has focus. */
+  balFocus!: IRadio['balFocus'];
+  /** Emitted when the toggle loses focus. */
+  balBlur!: IRadio['balBlur'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['balFocus', 'balBlur']);
+  }
+}
+
+import { RadioGroup as IRadioGroup } from '@baloise/ui-library-next/dist/types/components/bal-radio-group/bal-radio-group';
+export declare interface BalRadioGroup extends Components.BalRadioGroup {}
+@ProxyCmp({
+  inputs: ['value']
+})
+@Component({
+  selector: 'bal-radio-group',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['value'],
+  outputs: ['balChange']
+})
+export class BalRadioGroup {
+  /** Emitted when the checked property has changed. */
+  balChange!: IRadioGroup['balChange'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['balChange']);
+  }
+}
+
 import { Select as ISelect } from '@baloise/ui-library-next/dist/types/components/bal-select/bal-select';
 export declare interface BalSelect extends Components.BalSelect {}
 @ProxyCmp({

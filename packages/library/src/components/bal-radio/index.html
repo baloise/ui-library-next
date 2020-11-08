@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="/build/ui-library-next.css" />
+    <script type="module" src="/build/ui-library-next.esm.js"></script>
+    <script nomodule src="/build/ui-library-next.js"></script>
+  </head>
+  <body class="bal-app">
+    <div class="container">
+      <h2 class="title is-size-2">Basic</h2>
+      <section>
+        <bal-radio-group id="radio-group-1">
+          <bal-radio id="radio-1" label="Label 1" name="radio-example" value="1" checked></bal-radio>
+          <bal-radio label="Label 2" name="radio-example" value="2"></bal-radio>
+          <bal-radio label="Label 3" name="radio-example" value="3"></bal-radio>
+          <bal-radio label="Label Disabled" name="radio-example" value="4" disabled></bal-radio>
+        </bal-radio-group>
+        <p class="help" id="radio-result-1"></p>
+      </section>
+      <script>
+        var radioElement = document.getElementById('radio-1')
+        var radioGroupElement = document.getElementById('radio-group-1')
+        var radioResultElement = document.getElementById('radio-result-1')
+        radioGroupElement.addEventListener('balChange', function (event) {
+          radioResultElement.innerHTML = event.detail
+        })
+        setTimeout(function () {
+          radioElement.setFocus()
+        }, 100)
+      </script>
+    </div>
+  </body>
+</html>

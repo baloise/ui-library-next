@@ -582,6 +582,42 @@ export namespace Components {
          */
         "value": number;
     }
+    interface BalRadio {
+        /**
+          * If `true`, the radio is selected.
+         */
+        "checked": boolean;
+        /**
+          * If `true`, the user cannot interact with the checkbox.
+         */
+        "disabled": boolean;
+        /**
+          * If `true`, the control works on dark background.
+         */
+        "inverted": boolean;
+        /**
+          * The label of the control.
+         */
+        "label": string;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name": string;
+        /**
+          * Sets the focus on the input element.
+         */
+        "setFocus": () => Promise<void>;
+        /**
+          * The value of the control.
+         */
+        "value": string;
+    }
+    interface BalRadioGroup {
+        /**
+          * The value of the control.
+         */
+        "value": string;
+    }
     interface BalSelect {
         /**
           * Sets the value to null and resets the value of the input.
@@ -950,6 +986,18 @@ declare global {
         prototype: HTMLBalPaginationElement;
         new (): HTMLBalPaginationElement;
     };
+    interface HTMLBalRadioElement extends Components.BalRadio, HTMLStencilElement {
+    }
+    var HTMLBalRadioElement: {
+        prototype: HTMLBalRadioElement;
+        new (): HTMLBalRadioElement;
+    };
+    interface HTMLBalRadioGroupElement extends Components.BalRadioGroup, HTMLStencilElement {
+    }
+    var HTMLBalRadioGroupElement: {
+        prototype: HTMLBalRadioGroupElement;
+        new (): HTMLBalRadioGroupElement;
+    };
     interface HTMLBalSelectElement extends Components.BalSelect, HTMLStencilElement {
     }
     var HTMLBalSelectElement: {
@@ -1033,6 +1081,8 @@ declare global {
         "bal-modal-actions": HTMLBalModalActionsElement;
         "bal-navbar": HTMLBalNavbarElement;
         "bal-pagination": HTMLBalPaginationElement;
+        "bal-radio": HTMLBalRadioElement;
+        "bal-radio-group": HTMLBalRadioGroupElement;
         "bal-select": HTMLBalSelectElement;
         "bal-select-option": HTMLBalSelectOptionElement;
         "bal-spinner": HTMLBalSpinnerElement;
@@ -1610,6 +1660,50 @@ declare namespace LocalJSX {
          */
         "value"?: number;
     }
+    interface BalRadio {
+        /**
+          * If `true`, the radio is selected.
+         */
+        "checked"?: boolean;
+        /**
+          * If `true`, the user cannot interact with the checkbox.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the control works on dark background.
+         */
+        "inverted"?: boolean;
+        /**
+          * The label of the control.
+         */
+        "label"?: string;
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the toggle loses focus.
+         */
+        "onBalBlur"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the toggle has focus.
+         */
+        "onBalFocus"?: (event: CustomEvent<void>) => void;
+        /**
+          * The value of the control.
+         */
+        "value"?: string;
+    }
+    interface BalRadioGroup {
+        /**
+          * Emitted when the checked property has changed.
+         */
+        "onBalChange"?: (event: CustomEvent<string>) => void;
+        /**
+          * The value of the control.
+         */
+        "value"?: string;
+    }
     interface BalSelect {
         /**
           * If `true` the component is diabled.
@@ -1814,6 +1908,8 @@ declare namespace LocalJSX {
         "bal-modal-actions": BalModalActions;
         "bal-navbar": BalNavbar;
         "bal-pagination": BalPagination;
+        "bal-radio": BalRadio;
+        "bal-radio-group": BalRadioGroup;
         "bal-select": BalSelect;
         "bal-select-option": BalSelectOption;
         "bal-spinner": BalSpinner;
@@ -1862,6 +1958,8 @@ declare module "@stencil/core" {
             "bal-modal-actions": LocalJSX.BalModalActions & JSXBase.HTMLAttributes<HTMLBalModalActionsElement>;
             "bal-navbar": LocalJSX.BalNavbar & JSXBase.HTMLAttributes<HTMLBalNavbarElement>;
             "bal-pagination": LocalJSX.BalPagination & JSXBase.HTMLAttributes<HTMLBalPaginationElement>;
+            "bal-radio": LocalJSX.BalRadio & JSXBase.HTMLAttributes<HTMLBalRadioElement>;
+            "bal-radio-group": LocalJSX.BalRadioGroup & JSXBase.HTMLAttributes<HTMLBalRadioGroupElement>;
             "bal-select": LocalJSX.BalSelect & JSXBase.HTMLAttributes<HTMLBalSelectElement>;
             "bal-select-option": LocalJSX.BalSelectOption & JSXBase.HTMLAttributes<HTMLBalSelectOptionElement>;
             "bal-spinner": LocalJSX.BalSpinner & JSXBase.HTMLAttributes<HTMLBalSpinnerElement>;

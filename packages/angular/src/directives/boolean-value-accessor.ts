@@ -7,7 +7,7 @@ import { ValueAccessor } from './value-accessor';
   /* tslint:disable-next-line:directive-selector */
   selector: 'bal-checkbox',
   host: {
-    '(balCheckboxChange)': 'handleChangeEvent($event.target.checked)'
+    '(balChange)': 'handleChangeEvent($event.target.checked)'
   },
   providers: [
     {

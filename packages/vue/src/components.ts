@@ -44,6 +44,8 @@ const customElementTags: string[] = [
  'bal-modal-actions',
  'bal-navbar',
  'bal-pagination',
+ 'bal-radio',
+ 'bal-radio-group',
  'bal-select',
  'bal-select-option',
  'bal-spinner',
@@ -69,7 +71,7 @@ export const BalAccordion = /*@__PURE__*/ Vue.extend({
 
   model: {
     prop: 'collapsed',
-    event: 'balAccordionChange'
+    event: 'balChange'
   },
 
   methods: {
@@ -235,7 +237,7 @@ export const BalCheckbox = /*@__PURE__*/ Vue.extend({
 
   model: {
     prop: 'checked',
-    event: 'balCheckboxChange'
+    event: 'balChange'
   },
 
   methods: {
@@ -535,6 +537,40 @@ export const BalPagination = /*@__PURE__*/ Vue.extend({
 });
 
 
+export const BalRadio = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    name: {} as PropOptions<Components.BalRadio['name']>,
+    label: {} as PropOptions<Components.BalRadio['label']>,
+    value: {} as PropOptions<Components.BalRadio['value']>,
+    checked: {} as PropOptions<Components.BalRadio['checked']>,
+    disabled: {} as PropOptions<Components.BalRadio['disabled']>,
+    inverted: {} as PropOptions<Components.BalRadio['inverted']>,
+  },
+
+
+  methods: {
+    setFocus: createCommonMethod('setFocus') as Components.BalRadio['setFocus'],
+  },
+  render: createCommonRender('bal-radio', ['balFocus', 'balBlur']),
+});
+
+
+export const BalRadioGroup = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    value: {} as PropOptions<Components.BalRadioGroup['value']>,
+  },
+
+  model: {
+    prop: 'value',
+    event: 'balChange'
+  },
+
+  render: createCommonRender('bal-radio-group', ['balChange']),
+});
+
+
 export const BalSelect = /*@__PURE__*/ Vue.extend({
 
   props: {
@@ -552,7 +588,7 @@ export const BalSelect = /*@__PURE__*/ Vue.extend({
 
   model: {
     prop: 'value',
-    event: 'balSelectChange'
+    event: 'balChange'
   },
 
   methods: {

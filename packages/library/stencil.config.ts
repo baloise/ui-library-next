@@ -2,26 +2,26 @@ import { Config } from '@stencil/core'
 import { sass } from '@stencil/sass'
 import { postcss } from '@stencil/postcss'
 import autoprefixer from 'autoprefixer'
-import { ComponentModelConfig, vueOutputTarget } from 'stencil-vue2-output-target'
-import { angularOutputTarget, ValueAccessorConfig } from '@stencil/angular-output-target'
+import { ComponentModelConfig, vueOutputTarget } from 'hirsch-vue-output-target'
+import { angularOutputTarget, ValueAccessorConfig } from 'hirsch-angular-output-target'
 
 /**
  * Vue Component Models
  */
 const vueComponentModels: ComponentModelConfig[] = [
   {
-    elements: ['bal-checkbox'],
-    event: 'balCheckboxChange',
-    targetAttr: 'checked',
-  },
-  {
-    elements: ['bal-select'],
-    event: 'balSelectChange',
+    elements: ['bal-radio-group', 'bal-select'],
+    event: 'balChange',
     targetAttr: 'value',
   },
   {
+    elements: ['bal-checkbox'],
+    event: 'balChange',
+    targetAttr: 'checked',
+  },
+  {
     elements: ['bal-accordion'],
-    event: 'balAccordionChange',
+    event: 'balChange',
     targetAttr: 'collapsed',
   },
   {
@@ -37,15 +37,21 @@ const vueComponentModels: ComponentModelConfig[] = [
 const angularValueAccessorBindings: ValueAccessorConfig[] = [
   {
     elementSelectors: ['bal-checkbox'],
-    event: 'balCheckboxChange',
+    event: 'balChange',
     targetAttr: 'checked',
     type: 'boolean',
   },
   {
     elementSelectors: ['bal-select'],
-    event: 'balSelectChange',
+    event: 'balChange',
     targetAttr: 'value',
     type: 'select',
+  },
+  {
+    elementSelectors: ['bal-radio-group'],
+    event: 'balChange',
+    targetAttr: 'value',
+    type: 'text',
   },
   {
     elementSelectors: ['bal-input'],
