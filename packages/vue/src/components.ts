@@ -40,13 +40,13 @@ const customElementTags: string[] = [
  'bal-list-item-icon',
  'bal-list-item-subtitle',
  'bal-list-item-title',
+ 'bal-modal',
+ 'bal-modal-actions',
  'bal-navbar',
  'bal-pagination',
  'bal-select',
  'bal-select-option',
  'bal-spinner',
- 'bal-step',
- 'bal-steps',
  'bal-tab-item',
  'bal-tabs',
  'bal-tag',
@@ -482,6 +482,29 @@ export const BalListItemTitle = /*@__PURE__*/ Vue.extend({
 });
 
 
+export const BalModal = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    card: {} as PropOptions<Components.BalModal['card']>,
+  },
+
+
+  methods: {
+    open: createCommonMethod('open') as Components.BalModal['open'],
+    close: createCommonMethod('close') as Components.BalModal['close'],
+  },
+  render: createCommonRender('bal-modal', []),
+});
+
+
+export const BalModalActions = /*@__PURE__*/ Vue.extend({
+
+
+
+  render: createCommonRender('bal-modal-actions', []),
+});
+
+
 export const BalNavbar = /*@__PURE__*/ Vue.extend({
 
   props: {
@@ -570,36 +593,6 @@ export const BalSpinner = /*@__PURE__*/ Vue.extend({
 });
 
 
-export const BalStep = /*@__PURE__*/ Vue.extend({
-
-  props: {
-    value: {} as PropOptions<Components.BalStep['value']>,
-    label: {} as PropOptions<Components.BalStep['label']>,
-    bubble: {} as PropOptions<Components.BalStep['bubble']>,
-    disabled: {} as PropOptions<Components.BalStep['disabled']>,
-    active: {} as PropOptions<Components.BalStep['active']>,
-  },
-
-
-  methods: {
-    getOptions: createCommonMethod('getOptions') as Components.BalStep['getOptions'],
-    setActive: createCommonMethod('setActive') as Components.BalStep['setActive'],
-  },
-  render: createCommonRender('bal-step', ['balChange']),
-});
-
-
-export const BalSteps = /*@__PURE__*/ Vue.extend({
-
-
-
-  methods: {
-    select: createCommonMethod('select') as Components.BalSteps['select'],
-  },
-  render: createCommonRender('bal-steps', ['balChange']),
-});
-
-
 export const BalTabItem = /*@__PURE__*/ Vue.extend({
 
   props: {
@@ -615,13 +608,14 @@ export const BalTabItem = /*@__PURE__*/ Vue.extend({
     getOptions: createCommonMethod('getOptions') as Components.BalTabItem['getOptions'],
     setActive: createCommonMethod('setActive') as Components.BalTabItem['setActive'],
   },
-  render: createCommonRender('bal-tab-item', ['balChange']),
+  render: createCommonRender('bal-tab-item', []),
 });
 
 
 export const BalTabs = /*@__PURE__*/ Vue.extend({
 
   props: {
+    interface: {} as PropOptions<Components.BalTabs['interface']>,
     expanded: {} as PropOptions<Components.BalTabs['expanded']>,
     dense: {} as PropOptions<Components.BalTabs['dense']>,
     rounded: {} as PropOptions<Components.BalTabs['rounded']>,
@@ -632,6 +626,7 @@ export const BalTabs = /*@__PURE__*/ Vue.extend({
 
   methods: {
     select: createCommonMethod('select') as Components.BalTabs['select'],
+    sync: createCommonMethod('sync') as Components.BalTabs['sync'],
   },
   render: createCommonRender('bal-tabs', ['balChange', 'balActionClick']),
 });

@@ -18,13 +18,6 @@
 | `value`    | `value`    | This is the key of the tab.                             | `string`  | `''`    |
 
 
-## Events
-
-| Event       | Description                         | Type               |
-| ----------- | ----------------------------------- | ------------------ |
-| `balChange` | Emitted when the tabs get rendered. | `CustomEvent<any>` |
-
-
 ## Methods
 
 ### `getOptions() => Promise<BalTabOption>`

@@ -608,6 +608,42 @@ export class BalListItemTitle {
 }
 
 
+export declare interface BalModal extends Components.BalModal {}
+@ProxyCmp({
+  inputs: ['card'],
+  methods: ['open', 'close']
+})
+@Component({
+  selector: 'bal-modal',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['card']
+})
+export class BalModal {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface BalModalActions extends Components.BalModalActions {}
+
+@Component({
+  selector: 'bal-modal-actions',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>'
+})
+export class BalModalActions {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
 export declare interface BalNavbar extends Components.BalNavbar {}
 @ProxyCmp({
   inputs: ['light', 'logoHref']
@@ -724,53 +760,7 @@ export class BalSpinner {
   }
 }
 
-import { Step as IStep } from '@baloise/ui-library-next/dist/types/components/bal-step/bal-step';
-export declare interface BalStep extends Components.BalStep {}
-@ProxyCmp({
-  inputs: ['active', 'bubble', 'disabled', 'label', 'value'],
-  methods: ['getOptions', 'setActive']
-})
-@Component({
-  selector: 'bal-step',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>',
-  inputs: ['active', 'bubble', 'disabled', 'label', 'value'],
-  outputs: ['balChange']
-})
-export class BalStep {
-  /** Emitted when the steps get rendered. */
-  balChange!: IStep['stepChanged'];
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balChange']);
-  }
-}
 
-import { Steps as ISteps } from '@baloise/ui-library-next/dist/types/components/bal-steps/bal-steps';
-export declare interface BalSteps extends Components.BalSteps {}
-@ProxyCmp({
-  methods: ['select']
-})
-@Component({
-  selector: 'bal-steps',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: '<ng-content></ng-content>',
-  outputs: ['balChange']
-})
-export class BalSteps {
-  /** Emitted when the changes has finished. */
-  balChange!: ISteps['stepsDidChange'];
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balChange']);
-  }
-}
-
-import { TabItem as ITabItem } from '@baloise/ui-library-next/dist/types/components/bal-tab-item/bal-tab-item';
 export declare interface BalTabItem extends Components.BalTabItem {}
 @ProxyCmp({
   inputs: ['active', 'bubble', 'disabled', 'label', 'value'],
@@ -780,31 +770,27 @@ export declare interface BalTabItem extends Components.BalTabItem {}
   selector: 'bal-tab-item',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['active', 'bubble', 'disabled', 'label', 'value'],
-  outputs: ['balChange']
+  inputs: ['active', 'bubble', 'disabled', 'label', 'value']
 })
 export class BalTabItem {
-  /** Emitted when the tabs get rendered. */
-  balChange!: ITabItem['tabChanged'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balChange']);
   }
 }
 
 import { Tabs as ITabs } from '@baloise/ui-library-next/dist/types/components/bal-tabs/bal-tabs';
 export declare interface BalTabs extends Components.BalTabs {}
 @ProxyCmp({
-  inputs: ['action', 'actionLabel', 'dense', 'expanded', 'rounded'],
-  methods: ['select']
+  inputs: ['action', 'actionLabel', 'dense', 'expanded', 'interface', 'rounded'],
+  methods: ['select', 'sync']
 })
 @Component({
   selector: 'bal-tabs',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['action', 'actionLabel', 'dense', 'expanded', 'rounded'],
+  inputs: ['action', 'actionLabel', 'dense', 'expanded', 'interface', 'rounded'],
   outputs: ['balChange', 'balActionClick']
 })
 export class BalTabs {

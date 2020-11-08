@@ -536,6 +536,16 @@ export namespace Components {
     }
     interface BalListItemTitle {
     }
+    interface BalModal {
+        /**
+          * Marks this modal as card-style modal, i.e. having visual lines separating head, body, and foot.
+         */
+        "card": boolean;
+        "close": () => Promise<void>;
+        "open": () => Promise<void>;
+    }
+    interface BalModalActions {
+    }
     interface BalNavbar {
         /**
           * It `true` the navbar has a white background
@@ -916,6 +926,18 @@ declare global {
         prototype: HTMLBalListItemTitleElement;
         new (): HTMLBalListItemTitleElement;
     };
+    interface HTMLBalModalElement extends Components.BalModal, HTMLStencilElement {
+    }
+    var HTMLBalModalElement: {
+        prototype: HTMLBalModalElement;
+        new (): HTMLBalModalElement;
+    };
+    interface HTMLBalModalActionsElement extends Components.BalModalActions, HTMLStencilElement {
+    }
+    var HTMLBalModalActionsElement: {
+        prototype: HTMLBalModalActionsElement;
+        new (): HTMLBalModalActionsElement;
+    };
     interface HTMLBalNavbarElement extends Components.BalNavbar, HTMLStencilElement {
     }
     var HTMLBalNavbarElement: {
@@ -1007,6 +1029,8 @@ declare global {
         "bal-list-item-icon": HTMLBalListItemIconElement;
         "bal-list-item-subtitle": HTMLBalListItemSubtitleElement;
         "bal-list-item-title": HTMLBalListItemTitleElement;
+        "bal-modal": HTMLBalModalElement;
+        "bal-modal-actions": HTMLBalModalActionsElement;
         "bal-navbar": HTMLBalNavbarElement;
         "bal-pagination": HTMLBalPaginationElement;
         "bal-select": HTMLBalSelectElement;
@@ -1546,6 +1570,14 @@ declare namespace LocalJSX {
     }
     interface BalListItemTitle {
     }
+    interface BalModal {
+        /**
+          * Marks this modal as card-style modal, i.e. having visual lines separating head, body, and foot.
+         */
+        "card"?: boolean;
+    }
+    interface BalModalActions {
+    }
     interface BalNavbar {
         /**
           * It `true` the navbar has a white background
@@ -1778,6 +1810,8 @@ declare namespace LocalJSX {
         "bal-list-item-icon": BalListItemIcon;
         "bal-list-item-subtitle": BalListItemSubtitle;
         "bal-list-item-title": BalListItemTitle;
+        "bal-modal": BalModal;
+        "bal-modal-actions": BalModalActions;
         "bal-navbar": BalNavbar;
         "bal-pagination": BalPagination;
         "bal-select": BalSelect;
@@ -1824,6 +1858,8 @@ declare module "@stencil/core" {
             "bal-list-item-icon": LocalJSX.BalListItemIcon & JSXBase.HTMLAttributes<HTMLBalListItemIconElement>;
             "bal-list-item-subtitle": LocalJSX.BalListItemSubtitle & JSXBase.HTMLAttributes<HTMLBalListItemSubtitleElement>;
             "bal-list-item-title": LocalJSX.BalListItemTitle & JSXBase.HTMLAttributes<HTMLBalListItemTitleElement>;
+            "bal-modal": LocalJSX.BalModal & JSXBase.HTMLAttributes<HTMLBalModalElement>;
+            "bal-modal-actions": LocalJSX.BalModalActions & JSXBase.HTMLAttributes<HTMLBalModalActionsElement>;
             "bal-navbar": LocalJSX.BalNavbar & JSXBase.HTMLAttributes<HTMLBalNavbarElement>;
             "bal-pagination": LocalJSX.BalPagination & JSXBase.HTMLAttributes<HTMLBalPaginationElement>;
             "bal-select": LocalJSX.BalSelect & JSXBase.HTMLAttributes<HTMLBalSelectElement>;

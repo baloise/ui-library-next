@@ -8,13 +8,14 @@ Simple responsive horizontal navigation tabs.
 
 ## Properties
 
-| Property      | Attribute      | Description                                       | Type      | Default |
-| ------------- | -------------- | ------------------------------------------------- | --------- | ------- |
-| `action`      | `action`       | If `true` a acation button is added to the right  | `boolean` | `false` |
-| `actionLabel` | `action-label` | Label for the action button                       | `string`  | `''`    |
-| `dense`       | `dense`        | If `true` the the padding gets reduced.           | `boolean` | `false` |
-| `expanded`    | `expanded`     | If `true` the field expands over the whole width. | `boolean` | `false` |
-| `rounded`     | `rounded`      | If you want the rounded tab style.                | `boolean` | `false` |
+| Property      | Attribute      | Description                                       | Type                | Default  |
+| ------------- | -------------- | ------------------------------------------------- | ------------------- | -------- |
+| `action`      | `action`       | If `true` a acation button is added to the right  | `boolean`           | `false`  |
+| `actionLabel` | `action-label` | Label for the action button                       | `string`            | `''`     |
+| `dense`       | `dense`        | If `true` the the padding gets reduced.           | `boolean`           | `false`  |
+| `expanded`    | `expanded`     | If `true` the field expands over the whole width. | `boolean`           | `false`  |
+| `interface`   | `interface`    |                                                   | `"steps" \| "tabs"` | `'tabs'` |
+| `rounded`     | `rounded`      | If you want the rounded tab style.                | `boolean`           | `false`  |
 
 
 ## Events
@@ -30,6 +31,16 @@ Simple responsive horizontal navigation tabs.
 ### `select(value: string) => Promise<void>`
 
 Dropdown a tab by the value of the tab item.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `sync() => Promise<void>`
+
+
 
 #### Returns
 
