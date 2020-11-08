@@ -12,7 +12,7 @@ Accordion is a easy way to toggle things.
 | ------------ | ------------- | ---------------------------------------------- | --------------------------- | -------------- |
 | `closeIcon`  | `close-icon`  | Bal-Icon of the close trigger button           | `string`                    | `'minus'`      |
 | `closeLabel` | `close-label` | Label of the close trigger button              | `string`                    | `''`           |
-| `collapsed`  | `collapsed`   | Controls if the accordion is collapsed or not  | `boolean`                   | `true`         |
+| `isActive`   | `is-active`   | Controls if the accordion is collapsed or not  | `boolean`                   | `false`        |
 | `openIcon`   | `open-icon`   | Bal-Icon of the open trigger button            | `string`                    | `'plus'`       |
 | `openLabel`  | `open-label`  | Label of the open trigger button               | `string`                    | `''`           |
 | `type`       | `type`        | Type defines the theme of the accordion toggle | `"is-info" \| "is-primary"` | `'is-primary'` |

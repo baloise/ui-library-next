@@ -8,14 +8,14 @@ import { Components } from '@baloise/ui-library-next';
 import { Accordion as IAccordion } from '@baloise/ui-library-next/dist/types/components/bal-accordion/bal-accordion';
 export declare interface BalAccordion extends Components.BalAccordion {}
 @ProxyCmp({
-  inputs: ['closeIcon', 'closeLabel', 'collapsed', 'openIcon', 'openLabel', 'type'],
+  inputs: ['closeIcon', 'closeLabel', 'isActive', 'openIcon', 'openLabel', 'type'],
   methods: ['open', 'close', 'toggle']
 })
 @Component({
   selector: 'bal-accordion',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['closeIcon', 'closeLabel', 'collapsed', 'openIcon', 'openLabel', 'type'],
+  inputs: ['closeIcon', 'closeLabel', 'isActive', 'openIcon', 'openLabel', 'type'],
   outputs: ['balCollapse']
 })
 export class BalAccordion {

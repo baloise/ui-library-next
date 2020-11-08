@@ -27,7 +27,7 @@
       <p>The navigation is disabled, so the framework has to do that.</p>
       <section>
         <bal-card teaser>
-          <bal-card-steps show-label>
+          <bal-card-steps id="steps-2">
             <bal-card-step value="step-a" label="Step A" done>Step A Content</bal-card-step>
             <bal-card-step id="step-2" value="step-b" label="One Moment, your premium is being clacluated..." active
               >Step B Content</bal-card-step
@@ -37,16 +37,18 @@
             <bal-card-step value="step-e" label="Step E" disabled>Step E Content</bal-card-step>
           </bal-card-steps>
 
-          <bal-button id="update-label-button">Update Label</bal-button>
+          <bal-button id="update-label-button">Show Label</bal-button>
         </bal-card>
       </section>
       <script>
         var button = document.getElementById('update-label-button')
         var step = document.getElementById('step-2')
+        var steps = document.getElementById('steps-2')
         var counter = 0
         button.addEventListener('click', function () {
           counter = ++counter
           step.setAttribute('label', 'New label with counter: ' + counter)
+          steps.setAttribute('show-label', 'true')
         })
       </script>
     </div>

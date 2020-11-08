@@ -26,7 +26,7 @@ export namespace Components {
         /**
           * Controls if the accordion is collapsed or not
          */
-        "collapsed": boolean;
+        "isActive": boolean;
         /**
           * Open the accordion
          */
@@ -1107,7 +1107,7 @@ declare namespace LocalJSX {
         /**
           * Controls if the accordion is collapsed or not
          */
-        "collapsed"?: boolean;
+        "isActive"?: boolean;
         /**
           * Emmited when the accordion has changed
          */

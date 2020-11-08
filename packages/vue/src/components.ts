@@ -62,7 +62,7 @@ export const BalAccordion = /*@__PURE__*/ Vue.extend({
 
   props: {
     type: {} as PropOptions<Components.BalAccordion['type']>,
-    collapsed: {} as PropOptions<Components.BalAccordion['collapsed']>,
+    isActive: {} as PropOptions<Components.BalAccordion['isActive']>,
     openLabel: {} as PropOptions<Components.BalAccordion['openLabel']>,
     openIcon: {} as PropOptions<Components.BalAccordion['openIcon']>,
     closeLabel: {} as PropOptions<Components.BalAccordion['closeLabel']>,
@@ -70,8 +70,8 @@ export const BalAccordion = /*@__PURE__*/ Vue.extend({
   },
 
   model: {
-    prop: 'collapsed',
-    event: 'balChange'
+    prop: 'is-active',
+    event: 'balCollapsed'
   },
 
   methods: {
@@ -298,6 +298,10 @@ export const BalDropdown = /*@__PURE__*/ Vue.extend({
     isActive: {} as PropOptions<Components.BalDropdown['isActive']>,
   },
 
+  model: {
+    prop: 'is-active',
+    event: 'balCollapsed'
+  },
 
   methods: {
     open: createCommonMethod('open') as Components.BalDropdown['open'],

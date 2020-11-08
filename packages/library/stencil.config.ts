@@ -20,14 +20,14 @@ const vueComponentModels: ComponentModelConfig[] = [
     targetAttr: 'checked',
   },
   {
-    elements: ['bal-accordion'],
-    event: 'balChange',
-    targetAttr: 'collapsed',
-  },
-  {
     elements: ['bal-input'],
     event: 'balInput',
     targetAttr: 'value',
+  },
+  {
+    elements: ['bal-accordion', 'bal-dropdown'],
+    event: 'balCollapsed',
+    targetAttr: 'is-active',
   },
 ]
 
@@ -36,22 +36,16 @@ const vueComponentModels: ComponentModelConfig[] = [
  */
 const angularValueAccessorBindings: ValueAccessorConfig[] = [
   {
-    elementSelectors: ['bal-checkbox'],
-    event: 'balChange',
-    targetAttr: 'checked',
-    type: 'boolean',
-  },
-  {
-    elementSelectors: ['bal-select'],
+    elementSelectors: ['bal-radio-group', 'bal-select'],
     event: 'balChange',
     targetAttr: 'value',
     type: 'select',
   },
   {
-    elementSelectors: ['bal-radio-group'],
+    elementSelectors: ['bal-checkbox'],
     event: 'balChange',
-    targetAttr: 'value',
-    type: 'text',
+    targetAttr: 'checked',
+    type: 'boolean',
   },
   {
     elementSelectors: ['bal-input'],

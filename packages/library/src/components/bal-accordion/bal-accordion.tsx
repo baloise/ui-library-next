@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, State, Watch, Method, Event, EventEmitter } from '@stencil/core'
+import { Component, Host, h, Prop, Method, Event, EventEmitter } from '@stencil/core'
 
 @Component({
   tag: 'bal-accordion',
@@ -7,7 +7,6 @@ import { Component, Host, h, Prop, State, Watch, Method, Event, EventEmitter } f
   shadow: false,
 })
 export class Accordion {
-  @State() isCollapsed: boolean = true
 
   /**
    * Type defines the theme of the accordion toggle
@@ -17,13 +16,8 @@ export class Accordion {
   /**
    * Controls if the accordion is collapsed or not
    */
-  @Prop() collapsed: boolean = true
+  @Prop({ mutable: true, reflect: true }) isActive = false
 
-  @Watch('collapsed')
-  validateCollapsed(newValue: boolean) {
-    this.isCollapsed = newValue
-    this.balCollapse.emit(this.isCollapsed)
-  }
 
   /**
    * Label of the open trigger button
@@ -55,8 +49,8 @@ export class Accordion {
    */
   @Method()
   async open() {
-    this.isCollapsed = false
-    this.balCollapse.emit(this.isCollapsed)
+    this.isActive = true
+    this.balCollapse.emit(this.isActive)
   }
 
   /**
@@ -64,8 +58,8 @@ export class Accordion {
    */
   @Method()
   async close() {
-    this.isCollapsed = true
-    this.balCollapse.emit(this.isCollapsed)
+    this.isActive = false
+    this.balCollapse.emit(this.isActive)
   }
 
   /**
@@ -73,28 +67,24 @@ export class Accordion {
    */
   @Method()
   async toggle() {
-    this.isCollapsed = !this.isCollapsed
-    this.balCollapse.emit(this.isCollapsed)
-  }
-
-  componentWillLoad() {
-    this.isCollapsed = this.collapsed
+    this.isActive = !this.isActive
+    this.balCollapse.emit(this.isActive)
   }
 
   render() {
     return (
       <Host class="accordion">
         <bal-button expanded={true} light={true} inverted={true} type={this.type} onClick={() => this.toggle()}>
-          <span class="trigger-label" style={!this.isCollapsed && { display: 'none' }}>
+          <span class="trigger-label" style={this.isActive && { display: 'none' }}>
             <bal-icon name={this.openIcon} />
             <span class="label">{this.openLabel}</span>
           </span>
-          <span class="trigger-label" style={this.isCollapsed && { display: 'none' }}>
+          <span class="trigger-label" style={!this.isActive && { display: 'none' }}>
             <bal-icon name={this.closeIcon} />
             <span class="label">{this.closeLabel}</span>
           </span>
         </bal-button>
-        <div class={['accordion-content', this.type].join(' ')} style={this.isCollapsed && { display: 'none' }}>
+        <div class={['accordion-content', this.type].join(' ')} style={!this.isActive && { display: 'none' }}>
           <slot></slot>
         </div>
       </Host>

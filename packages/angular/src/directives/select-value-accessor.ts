@@ -5,7 +5,7 @@ import { ValueAccessor } from './value-accessor';
 
 @Directive({
   /* tslint:disable-next-line:directive-selector */
-  selector: 'bal-select',
+  selector: 'bal-radio-group, bal-select',
   host: {
     '(balChange)': 'handleChangeEvent($event.target.value)'
   },
