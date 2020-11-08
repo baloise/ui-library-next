@@ -58,6 +58,11 @@ export class Input {
   @Prop() clickable = false
 
   /**
+   * The autocomplete attribute specifies whether or not an input field should have autocomplete enabled.
+   */
+  @Prop() autoComplete: boolean = false
+
+  /**
    * If `true` on mobile device the number keypad is active
    */
   @Prop() numberKeyboard = false
@@ -132,6 +137,7 @@ export class Input {
             'is-inverted': this.inverted,
             'clickable': this.clickable,
           }}
+          autoComplete={this.autoComplete ? 'on' : 'off'}
           id={this.inputId}
           type={this.type}
           placeholder={this.placeholder}

@@ -404,6 +404,7 @@ export const BalInput = /*@__PURE__*/ Vue.extend({
     readonly: {} as PropOptions<Components.BalInput['readonly']>,
     disabled: {} as PropOptions<Components.BalInput['disabled']>,
     clickable: {} as PropOptions<Components.BalInput['clickable']>,
+    autoComplete: {} as PropOptions<Components.BalInput['autoComplete']>,
     numberKeyboard: {} as PropOptions<Components.BalInput['numberKeyboard']>,
     onlyNumbers: {} as PropOptions<Components.BalInput['onlyNumbers']>,
     value: {} as PropOptions<Components.BalInput['value']>,

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/baloise/ui-library-next/compare/v1.10.0...v1.11.0) (2020-11-08)
+
+
+### Bug Fixes
+
+* **bal-select:** fix event handling ([ea88ae0](https://github.com/baloise/ui-library-next/commit/ea88ae09e08b597ba31cee6c848d1ea9298c4adf))
+* **bal-select:** fix selected ([fb1c57f](https://github.com/baloise/ui-library-next/commit/fb1c57fa08f0bac558a8cd897b9e507cf38ed194))
+* **card-steps:** fix update label ([4cd4914](https://github.com/baloise/ui-library-next/commit/4cd4914f949b474bebc355196e8e41e3974b7c3c))
+
+
+### Features
+
+* **input:** add autocomplete ([0d99584](https://github.com/baloise/ui-library-next/commit/0d99584abfe4a3baa64f5cd26a7993d926816be8))
+
+
+
+
+
 # [1.10.0](https://github.com/baloise/ui-library-next/compare/v1.9.13...v1.10.0) (2020-11-06)
 
 

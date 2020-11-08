@@ -446,6 +446,10 @@ export namespace Components {
     }
     interface BalInput {
         /**
+          * The autocomplete attribute specifies whether or not an input field should have autocomplete enabled.
+         */
+        "autoComplete": boolean;
+        /**
           * If `true` the input gets a clickable cursor style
          */
         "clickable": boolean;
@@ -1483,6 +1487,10 @@ declare namespace LocalJSX {
         "turn"?: boolean;
     }
     interface BalInput {
+        /**
+          * The autocomplete attribute specifies whether or not an input field should have autocomplete enabled.
+         */
+        "autoComplete"?: boolean;
         /**
           * If `true` the input gets a clickable cursor style
          */
