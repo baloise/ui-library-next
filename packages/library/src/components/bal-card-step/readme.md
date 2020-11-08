@@ -19,6 +19,13 @@
 | `value`    | `value`    | This is the key of the step.                             | `string`  | `''`    |
 
 
+## Events
+
+| Event       | Description                                    | Type                             |
+| ----------- | ---------------------------------------------- | -------------------------------- |
+| `balChange` | Emitted when the label of the step has changed | `CustomEvent<BalCardStepOption>` |
+
+
 ## Methods
 
 ### `getOptions() => Promise<BalCardStepOption>`

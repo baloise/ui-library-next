@@ -1,4 +1,4 @@
-import { Component, h, Host, Element, Event, EventEmitter, Prop, Listen, State, Watch, Method } from '@stencil/core'
+import { Component, h, Host, Element, Prop, State, Method, EventEmitter, Event, Watch } from '@stencil/core'
 import { BalOptionValue } from '../bal-select-option/bal-select-option.type'
 
 @Component({
@@ -8,16 +8,14 @@ import { BalOptionValue } from '../bal-select-option/bal-select-option.type'
   scoped: true,
 })
 export class Select {
-  @Element() element!: HTMLElement
-  inputElement!: HTMLInputElement
-  dropdownElement!: HTMLBalDropdownElement
-  optionElements = new Map<string, HTMLBalSelectOptionElement>()
+  private inputElement!: HTMLInputElement
+  private dropdownElement!: HTMLBalDropdownElement
+  private clearScrollToValue: NodeJS.Timeout
 
-  clearScrollToValue: NodeJS.Timeout
+  @Element() element!: HTMLElement
 
   @State() isDropdownOpen: boolean = false
   @State() textToScrollTo: string = ''
-  @State() label = ''
 
   /**
    * If `true` the filtering of the options is done outside of the component.
@@ -68,6 +66,42 @@ export class Select {
    * List of the options.
    */
   @Prop() options: BalOptionValue<any>[] = []
+
+  /**
+   * Emitted when a option got selected.
+   */
+  @Event({ eventName: 'balChange' }) balChange!: EventEmitter<BalOptionValue<any>>
+
+  /**
+   * Emitted when a keyboard input occurred.
+   */
+  @Event({ eventName: 'balInput' }) balInput!: EventEmitter<string>
+
+  /**
+   * Emitted when the selection is cancelled.
+   */
+  @Event({ eventName: 'balCancel' }) balCancel!: EventEmitter<void>
+
+  /**
+   * Emitted when the input loses focus.
+   */
+  @Event({ eventName: 'balBlur' }) balBlur!: EventEmitter<FocusEvent>
+
+  /**
+   * Emitted when the input has focus.
+   */
+  @Event({ eventName: 'balFocus' }) balFocus!: EventEmitter<FocusEvent>
+
+  /**
+   * Emitted when the input got clicked.
+   */
+  @Event({ eventName: 'balClick' }) balClick!: EventEmitter<MouseEvent>
+
+  /**
+   * Emitted when the input has focus and key from the keyboard go hit.
+   */
+  @Event({ eventName: 'balKeyPress' }) balKeyPress!: EventEmitter<KeyboardEvent>
+
   @Watch('options')
   optionsChanged() {
     if (this.options.length === 0) {
@@ -75,45 +109,32 @@ export class Select {
     }
   }
 
-  /**
-   * Emitted when a option got selected.
-   */
-  @Event({ eventName: 'balSelectChange' }) balChange!: EventEmitter<BalOptionValue<any>>
+  @Method()
+  async open(): Promise<void> {
+    if (this.disabled) {
+      return undefined
+    }
+    this.dropdownElement.open()
+  }
+
+  @Method()
+  async close(): Promise<void> {
+    if (this.disabled) {
+      return undefined
+    }
+    this.dropdownElement.close()
+  }
 
   /**
-   * Emitted when a keyboard input occurred.
+   *
    */
-  @Event({ eventName: 'balSelectInput' }) balInput!: EventEmitter<string>
-
-  /**
-   * Emitted when the input loses focus.
-   */
-  @Event({ eventName: 'balSelectBlur' }) balBlur!: EventEmitter<FocusEvent>
-
-  /**
-   * Emitted when the input has focus.
-   */
-  @Event({ eventName: 'balSelectFocus' }) balFocus!: EventEmitter<FocusEvent>
-
-  /**
-   * Emitted when the input got clicked.
-   */
-  @Event({ eventName: 'balSelectClick' }) balClick!: EventEmitter<MouseEvent>
-
-  /**
-   * Emitted when the input has focus and key from the keyboard go hit.
-   */
-  @Event({ eventName: 'balSelectKeyPress' }) balKeyPress!: EventEmitter<KeyboardEvent>
-
-  @Listen('balSelectOptionClick')
-  async optionSelect(event: CustomEvent<BalOptionValue<any>>) {
-    event.preventDefault()
-    event.stopPropagation()
-    this.value = { ...event.detail }
-    this.balChange.emit(event.detail)
-    await this.dropdownElement?.toggle()
-    this.dispatchEventToOptions(this.buildCustomEvent('balSelectChanged', this.value))
+  @Method()
+  async select(option: BalOptionValue<any>) {
+    this.value = option
+    this.balChange.emit(this.value)
     this.inputElement.value = this.value?.text
+    await this.dropdownElement?.toggle()
+    this.updateOptionProps()
   }
 
   /**
@@ -123,38 +144,70 @@ export class Select {
   async clear() {
     this.value = null
     this.inputElement.value = ''
-    this.dispatchEventToOptions(this.buildCustomEvent('balSelectChanged', this.value))
+    this.updateOptionProps()
   }
 
-  async onInputClick(event: MouseEvent) {
+  @Method()
+  async setFocus() {
+    if (this.inputElement) {
+      this.inputElement.focus()
+    }
+  }
+
+  private async onInputClick(event: MouseEvent) {
+    if (this.disabled) {
+      return undefined
+    }
+
     this.balClick.emit(event)
     if (!this.typeahead) {
       await this.dropdownElement?.toggle()
     }
   }
 
-  onDropdownChange(event: CustomEvent<boolean>) {
+  private onDropdownChange(event: CustomEvent<boolean>) {
     this.isDropdownOpen = event.detail
     event.stopPropagation()
-    event.preventDefault()
   }
 
-  onInput(event: InputEvent) {
+  private onInput(event: InputEvent) {
     const inputValue = (event.target as HTMLInputElement).value
     this.balInput.emit(inputValue)
     if (!this.remote) {
-      this.dispatchEventToOptions(this.buildCustomEvent('balSelectInput', inputValue))
+      this.updateOptionProps()
     }
-    if (this.options.length > 0) {
-      this.dropdownElement.open()
+    if (this.typeahead && inputValue.length === 0) {
+      this.dropdownElement.close()
+    } else {
+      if (this.options.length > 0) {
+        this.dropdownElement.open()
+      }
     }
   }
 
-  onKeyPress(event: KeyboardEvent) {
+  private updateOptionProps() {
+    const inputValue = this.inputElement.value
+    this.childOptions.forEach(option => {
+      if (!this.remote && this.typeahead) {
+        const didMatch = this.compareForFilter(`${option.value.text}` || '', `${inputValue}`)
+        option.setAttribute('hidden', `${!didMatch}`)
+      }
+
+      const isSelected = this.value.value === option.value.value
+      option.setAttribute('selected', `${isSelected}`)
+    })
+  }
+
+  private compareForFilter(text: string, input: string): boolean {
+    text = text.toLocaleLowerCase()
+    input = input.toLocaleLowerCase()
+    return text.indexOf(input) >= 0
+  }
+
+  private onKeyPress(event: KeyboardEvent) {
     this.balKeyPress.emit(event)
     if (!this.typeahead) {
       this.textToScrollTo = this.textToScrollTo + event.key
-
       clearTimeout(this.clearScrollToValue)
       this.clearScrollToValue = setTimeout(() => {
         this.scrollToText(this.textToScrollTo)
@@ -163,14 +216,25 @@ export class Select {
     }
   }
 
+  private async scrollToText(input: string) {
+    const dropdownContentElement = await this.dropdownElement.getContentElement()
+    const optionElement = this.childOptions.find(o => this.compareForFilter(o.value.text, input))
+    if (optionElement) {
+      dropdownContentElement.scrollTop = optionElement.offsetTop
+    }
+  }
+
+  private get childOptions() {
+    return Array.from(this.element.querySelectorAll('bal-select-option'))
+  }
+
   render() {
-    this.optionElements.clear()
     return (
-      <Host>
+      <Host role="listbox">
         <bal-dropdown
           expanded={this.expanded}
           scrollable={this.scrollable}
-          onBalDropdownChange={e => this.onDropdownChange(e)}
+          onBalChange={e => this.onDropdownChange(e)}
           ref={el => (this.dropdownElement = el as HTMLBalDropdownElement)}>
           <div class="control has-icons-right" slot="trigger">
             <input
@@ -180,49 +244,31 @@ export class Select {
                 'is-inverted': this.inverted,
               }}
               readonly={!this.typeahead || this.loading}
+              autoComplete="off"
               disabled={this.disabled}
               placeholder={this.placeholder}
-              autoComplete="off"
               value={this.value?.text}
               onInput={e => this.onInput(e as any)}
-              onBlur={e => this.balBlur.emit(e)}
               onClick={e => this.onInputClick(e)}
               onKeyPress={e => this.onKeyPress(e)}
+              onBlur={e => this.balBlur.emit(e)}
               onFocus={e => this.balFocus.emit(e)}
               ref={el => (this.inputElement = el as HTMLInputElement)}
             />
             <bal-icon
               size="medium"
+              is-right
               turn={!this.loading && !this.typeahead && this.isDropdownOpen}
               rotate={this.loading}
               color={this.inverted ? 'white' : 'blue'}
               name={this.loading ? 'refresh' : this.typeahead ? 'search' : 'caret-down'}
-              is-right
             />
           </div>
           {this.options.map(option => (
-            <bal-select-option ref={el => this.optionElements.set(option.value, el)} value={option}></bal-select-option>
+            <bal-select-option value={option}></bal-select-option>
           ))}
         </bal-dropdown>
       </Host>
     )
-  }
-
-  private async scrollToText(text: string) {
-    const dropdownContentElement = await this.dropdownElement.getContentElement()
-    const option = this.options.find(option => option.text.startsWith(text))
-    if (option) {
-      const optionElement = this.optionElements.get(option.value)
-      dropdownContentElement.scrollTop = optionElement.offsetTop
-    }
-  }
-
-  private dispatchEventToOptions(event: CustomEvent) {
-    const options = this.element.querySelectorAll('bal-select-option')
-    options.forEach(o => o.dispatchEvent(event))
-  }
-
-  private buildCustomEvent(typeArg: string, detail: any) {
-    return new CustomEvent<any>(typeArg, { detail })
   }
 }

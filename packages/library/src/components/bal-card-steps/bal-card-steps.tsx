@@ -1,4 +1,15 @@
-import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, State } from '@stencil/core'
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  h,
+  Host,
+  Listen,
+  Method,
+  Prop,
+  State,
+} from '@stencil/core'
 import { BalCardStepOption } from '../bal-card-step/bal-card-step.type'
 
 @Component({
@@ -11,6 +22,7 @@ export class CardSteps {
   @Element() element!: HTMLElement
 
   @State() stepOptions: BalCardStepOption[] = []
+  @State() label = ''
 
   /**
    * If `true` a the style is ready for a dark background.
@@ -45,17 +57,30 @@ export class CardSteps {
   /**
    * Emitted when the changes has finished.
    */
-  @Event({ eventName: 'balCardStepsChange' }) balChange: EventEmitter<BalCardStepOption>
+  @Event({ eventName: 'balChange' }) balChange: EventEmitter<BalCardStepOption>
 
   /**
    * Emitted when the back button is clicked.
    */
-  @Event({ eventName: 'balCardStepsBackClick' }) balBackClick: EventEmitter<void>
+  @Event({ eventName: 'balBackClick' }) balBackClick: EventEmitter<void>
 
   /**
    * Emitted when the step circle is clicked.
    */
-  @Event({ eventName: 'balCardStepsStepClick' }) balStepClick: EventEmitter<BalCardStepOption>
+  @Event({ eventName: 'balClick' }) balStepClick: EventEmitter<BalCardStepOption>
+
+  @Listen('balChange')
+  onStepChange(event: CustomEvent<BalCardStepOption>) {
+    event.preventDefault()
+    event.stopPropagation()
+    if (event.detail.active) {
+      if (this.showLabel) {
+        this.label = event.detail.label
+      } else {
+        this.label = ''
+      }
+    }
+  }
 
   /**
    * Select a step.
@@ -88,7 +113,7 @@ export class CardSteps {
           <h3
             style={{ display: this.showLabel ? 'block' : 'none' }}
             class={['tab-title title is-size-3', this.inverted ? 'is-inverted' : ''].join(' ')}>
-            {this.getActiveStep()?.label}
+            {this.label}
           </h3>
           <div
             style={{ display: this.showLabel ? 'none' : 'block' }}
@@ -152,7 +177,4 @@ export class CardSteps {
     return activeStepIndex - 1
   }
 
-  private getActiveStep() {
-    return this.stepOptions.find(el => el.active === true)
-  }
 }

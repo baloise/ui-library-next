@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Prop, Event, EventEmitter, Listen } from '@stencil/core'
+import { Component, Element, h, Host, Prop } from '@stencil/core'
 import { BalOptionValue } from './bal-select-option.type'
 
 @Component({
@@ -8,17 +8,19 @@ import { BalOptionValue } from './bal-select-option.type'
   scoped: true,
 })
 export class SelectOption {
-  @Element() element!: HTMLElement
+  private inputId = `ion-selopt-${selectOptionIds++}`
 
-  /**
-   * If `true` the option is hidden
-   */
-  @Prop({ mutable: true }) hidden = false
+  @Element() element!: HTMLElement
 
   /**
    * The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element.
    */
   @Prop() value: BalOptionValue<any>
+
+  /**
+   * If `true` the option is hidden
+   */
+  @Prop() hidden = false
 
   /**
    * Baloise icon as a prefix
@@ -35,34 +37,17 @@ export class SelectOption {
    */
   @Prop() selected = false
 
-  /**
-   * Click event when a option get clicked.
-   */
-  @Event() balSelectOptionClick: EventEmitter<BalOptionValue<any>>
-
-  @Listen('balSelectChanged')
-  async selectChanged(event: CustomEvent<BalOptionValue<any> | null>) {
-    event.preventDefault()
-    event.stopPropagation()
-    this.selected = event.detail === null ? false : this.value.value === event.detail.value
+  get parent(): HTMLBalSelectElement {
+    return this.element.closest('bal-select')
   }
 
-  @Listen('balSelectInput')
-  async selectInput(event: CustomEvent<string>) {
-    event.preventDefault()
-    event.stopPropagation()
-    const searchValue = event.detail
-    const index = this.value.text.toLowerCase().indexOf(searchValue.toLowerCase())
-    this.hidden = index < 0
-  }
-
-  async onClick() {
-    this.balSelectOptionClick.emit(this.value)
+  private onClick() {
+    this.parent.select(this.value)
   }
 
   render() {
     return (
-      <Host>
+      <Host role="option" id={this.inputId} onClick={() => this.onClick()}>
         <button
           class={[
             'dropdown-item',
@@ -71,8 +56,7 @@ export class SelectOption {
             this.focused ? 'is-focused' : '',
             this.icon ? 'has-icon' : '',
           ].join(' ')}
-          tabIndex={-1}
-          onClick={this.onClick.bind(this)}>
+          tabIndex={-1}>
           {this.value.render ? (
             <span innerHTML={this.value.render(this.value)}></span>
           ) : (
@@ -83,3 +67,5 @@ export class SelectOption {
     )
   }
 }
+
+let selectOptionIds = 0

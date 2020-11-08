@@ -98,22 +98,22 @@ export class Input {
   /**
    * Emitted when a keyboard input occurred.
    */
-  @Event({ eventName: 'balInputBlur' }) balBlur!: EventEmitter<FocusEvent>
+  @Event({ eventName: 'balBlur' }) balBlur!: EventEmitter<FocusEvent>
 
   /**
    * Emitted when the input has clicked.
    */
-  @Event({ eventName: 'balInputClick' }) balClick!: EventEmitter<MouseEvent>
+  @Event({ eventName: 'balClick' }) balClick!: EventEmitter<MouseEvent>
 
   /**
    * Emitted when a keyboard key has pressed.
    */
-  @Event({ eventName: 'balInputKeyPress' }) balKeyPress!: EventEmitter<KeyboardEvent>
+  @Event({ eventName: 'balKeyPress' }) balKeyPress!: EventEmitter<KeyboardEvent>
 
   /**
    * Emitted when the input has focus.
    */
-  @Event({ eventName: 'balInputFocus' }) balFocus!: EventEmitter<FocusEvent>
+  @Event({ eventName: 'balFocus' }) balFocus!: EventEmitter<FocusEvent>
 
   /**
    * Sets the focus on the input element.

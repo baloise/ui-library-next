@@ -1,4 +1,4 @@
-import { Component, h, Host, Method, Prop, State, Watch } from '@stencil/core'
+import { Component, h, Host, Method, Prop, State, Watch, Event, EventEmitter } from '@stencil/core'
 import { BalCardStepOption } from './bal-card-step.type'
 
 @Component({
@@ -19,6 +19,10 @@ export class CardStep {
    * Label for the step.
    */
   @Prop() label: string = ''
+  @Watch('label')
+  async labelHandler() {
+    this.didChange.emit(await this.getOptions())
+  }
 
   /**
    * If `true` the step is hidden in the steps navigation.
@@ -39,11 +43,15 @@ export class CardStep {
    * Tell's if the step is active and the content is visible.
    */
   @Prop() active: boolean = false
-
   @Watch('active')
   activatedHandler(newActive: boolean) {
     this.isContentHidden = !newActive
   }
+
+  /**
+   * Emitted when the label of the step has changed
+   */
+  @Event({ eventName: 'balChange' }) didChange: EventEmitter<BalCardStepOption>
 
   get options(): BalCardStepOption {
     return {
@@ -74,6 +82,9 @@ export class CardStep {
 
   componentWillLoad() {
     this.isContentHidden = !this.active
+    if (this.active) {
+      this.labelHandler()
+    }
   }
 
   render() {

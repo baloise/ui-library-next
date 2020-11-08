@@ -35,14 +35,15 @@ export interface BalOptionValue<T> {
 
 ## Events
 
-| Event               | Description                                                        | Type                               |
-| ------------------- | ------------------------------------------------------------------ | ---------------------------------- |
-| `balSelectBlur`     | Emitted when the input loses focus.                                | `CustomEvent<FocusEvent>`          |
-| `balSelectChange`   | Emitted when a option got selected.                                | `CustomEvent<BalOptionValue<any>>` |
-| `balSelectClick`    | Emitted when the input got clicked.                                | `CustomEvent<MouseEvent>`          |
-| `balSelectFocus`    | Emitted when the input has focus.                                  | `CustomEvent<FocusEvent>`          |
-| `balSelectInput`    | Emitted when a keyboard input occurred.                            | `CustomEvent<string>`              |
-| `balSelectKeyPress` | Emitted when the input has focus and key from the keyboard go hit. | `CustomEvent<KeyboardEvent>`       |
+| Event         | Description                                                        | Type                               |
+| ------------- | ------------------------------------------------------------------ | ---------------------------------- |
+| `balBlur`     | Emitted when the input loses focus.                                | `CustomEvent<FocusEvent>`          |
+| `balCancel`   | Emitted when the selection is cancelled.                           | `CustomEvent<void>`                |
+| `balChange`   | Emitted when a option got selected.                                | `CustomEvent<BalOptionValue<any>>` |
+| `balClick`    | Emitted when the input got clicked.                                | `CustomEvent<MouseEvent>`          |
+| `balFocus`    | Emitted when the input has focus.                                  | `CustomEvent<FocusEvent>`          |
+| `balInput`    | Emitted when a keyboard input occurred.                            | `CustomEvent<string>`              |
+| `balKeyPress` | Emitted when the input has focus and key from the keyboard go hit. | `CustomEvent<KeyboardEvent>`       |
 
 
 ## Methods
@@ -50,6 +51,46 @@ export interface BalOptionValue<T> {
 ### `clear() => Promise<void>`
 
 Sets the value to null and resets the value of the input.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `close() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `open() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `select(option: BalOptionValue<any>) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `setFocus() => Promise<void>`
+
+
 
 #### Returns
 
