@@ -25,7 +25,7 @@
           optionsYear.push({ text: `${index}`, value: index })
         }
         selectYear.options = optionsYear
-        selectYear.addEventListener('balSelectChange', function (evt) {
+        selectYear.addEventListener('balChange', function (evt) {
           console.log(evt)
         })
         buttonYear.addEventListener('click', function () {
@@ -95,7 +95,7 @@
       <script>
         var selectTypeaheadRemote = document.getElementById('bal-select-typeahead-remote')
         selectTypeaheadRemote.options = []
-        selectTypeaheadRemote.addEventListener('balSelectInput', function (event) {
+        selectTypeaheadRemote.addEventListener('balInput', function (event) {
           var search = event.detail
           selectTypeaheadRemote.loading = true
           fetch('https://swapi.dev/api/people/?search=' + search)

@@ -21,7 +21,7 @@ export class CardStep {
   @Prop() label: string = ''
   @Watch('label')
   async labelHandler() {
-    this.labelDidChange.emit(await this.getOptions())
+    this.didChange.emit(await this.getOptions())
   }
 
   /**
@@ -51,7 +51,7 @@ export class CardStep {
   /**
    * Emitted when the label of the step has changed
    */
-  @Event({ eventName: 'balCardStepLabelChange' }) labelDidChange: EventEmitter<BalCardStepOption>
+  @Event({ eventName: 'balChange' }) didChange: EventEmitter<BalCardStepOption>
 
   get options(): BalCardStepOption {
     return {

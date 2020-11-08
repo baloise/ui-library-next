@@ -381,6 +381,7 @@ export namespace Components {
           * Sets the value to null and resets the value of the input.
          */
         "clear": () => Promise<void>;
+        "close": () => Promise<void>;
         /**
           * If `true` the component is diabled.
          */
@@ -397,6 +398,7 @@ export namespace Components {
           * If `true` the component shows a loading spinner and sets the input to readonly.
          */
         "loading": boolean;
+        "open": () => Promise<void>;
         /**
           * List of the options.
          */
@@ -413,6 +415,8 @@ export namespace Components {
           * Defines the height of the dropdown list.
          */
         "scrollable": number;
+        "select": (option: BalOptionValue<any>) => Promise<void>;
+        "setFocus": () => Promise<void>;
         /**
           * If `true` the user can search by typing into the input field.
          */
@@ -719,7 +723,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when the label of the step has changed
          */
-        "onBalCardStepLabelChange"?: (event: CustomEvent<BalCardStepOption>) => void;
+        "onBalChange"?: (event: CustomEvent<BalCardStepOption>) => void;
         /**
           * This is the key of the step.
          */
@@ -749,15 +753,15 @@ declare namespace LocalJSX {
         /**
           * Emitted when the back button is clicked.
          */
-        "onBalCardStepsBackClick"?: (event: CustomEvent<void>) => void;
+        "onBalBackClick"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the changes has finished.
          */
-        "onBalCardStepsChange"?: (event: CustomEvent<BalCardStepOption>) => void;
+        "onBalChange"?: (event: CustomEvent<BalCardStepOption>) => void;
         /**
           * Emitted when the step circle is clicked.
          */
-        "onBalCardStepsStepClick"?: (event: CustomEvent<BalCardStepOption>) => void;
+        "onBalClick"?: (event: CustomEvent<BalCardStepOption>) => void;
         /**
           * Hides the navigation circles and adds the step label instead
          */
@@ -799,15 +803,15 @@ declare namespace LocalJSX {
         /**
           * Emitted when the toggle loses focus.
          */
-        "onBalCheckboxBlur"?: (event: CustomEvent<void>) => void;
+        "onBalBlur"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the checked property has changed.
          */
-        "onBalCheckboxChange"?: (event: CustomEvent<boolean>) => void;
+        "onBalChange"?: (event: CustomEvent<boolean>) => void;
         /**
           * Emitted when the toggle has focus.
          */
-        "onBalCheckboxFocus"?: (event: CustomEvent<void>) => void;
+        "onBalFocus"?: (event: CustomEvent<void>) => void;
         /**
           * The value of the control.
          */
@@ -825,7 +829,7 @@ declare namespace LocalJSX {
         /**
           * Listen when the dropdown opens or closes. Returns the current `isActive` value.
          */
-        "onBalDropdownChange"?: (event: CustomEvent<boolean>) => void;
+        "onBalChange"?: (event: CustomEvent<boolean>) => void;
         /**
           * Limit the height of the dropdown content. Pass the amount of pixel.
          */
@@ -937,23 +941,23 @@ declare namespace LocalJSX {
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onBalInput"?: (event: CustomEvent<string>) => void;
-        /**
-          * Emitted when a keyboard input occurred.
-         */
-        "onBalInputBlur"?: (event: CustomEvent<FocusEvent>) => void;
+        "onBalBlur"?: (event: CustomEvent<FocusEvent>) => void;
         /**
           * Emitted when the input has clicked.
          */
-        "onBalInputClick"?: (event: CustomEvent<MouseEvent>) => void;
+        "onBalClick"?: (event: CustomEvent<MouseEvent>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onBalInputFocus"?: (event: CustomEvent<FocusEvent>) => void;
+        "onBalFocus"?: (event: CustomEvent<FocusEvent>) => void;
+        /**
+          * Emitted when a keyboard input occurred.
+         */
+        "onBalInput"?: (event: CustomEvent<string>) => void;
         /**
           * Emitted when a keyboard key has pressed.
          */
-        "onBalInputKeyPress"?: (event: CustomEvent<KeyboardEvent>) => void;
+        "onBalKeyPress"?: (event: CustomEvent<KeyboardEvent>) => void;
         /**
           * If `true` the input only allows numbers
          */
@@ -995,27 +999,31 @@ declare namespace LocalJSX {
         /**
           * Emitted when the input loses focus.
          */
-        "onBalSelectBlur"?: (event: CustomEvent<FocusEvent>) => void;
+        "onBalBlur"?: (event: CustomEvent<FocusEvent>) => void;
+        /**
+          * Emitted when the selection is cancelled.
+         */
+        "onBalCancel"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when a option got selected.
          */
-        "onBalSelectChange"?: (event: CustomEvent<BalOptionValue<any>>) => void;
+        "onBalChange"?: (event: CustomEvent<BalOptionValue<any>>) => void;
         /**
           * Emitted when the input got clicked.
          */
-        "onBalSelectClick"?: (event: CustomEvent<MouseEvent>) => void;
+        "onBalClick"?: (event: CustomEvent<MouseEvent>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onBalSelectFocus"?: (event: CustomEvent<FocusEvent>) => void;
+        "onBalFocus"?: (event: CustomEvent<FocusEvent>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onBalSelectInput"?: (event: CustomEvent<string>) => void;
+        "onBalInput"?: (event: CustomEvent<string>) => void;
         /**
           * Emitted when the input has focus and key from the keyboard go hit.
          */
-        "onBalSelectKeyPress"?: (event: CustomEvent<KeyboardEvent>) => void;
+        "onBalKeyPress"?: (event: CustomEvent<KeyboardEvent>) => void;
         /**
           * List of the options.
          */
@@ -1054,10 +1062,6 @@ declare namespace LocalJSX {
           * Baloise icon as a prefix
          */
         "icon"?: string;
-        /**
-          * Click event when a option get clicked.
-         */
-        "onBalSelectOptionClick"?: (event: CustomEvent<BalOptionValue<any>>) => void;
         /**
           * If `true` the option is selected
          */

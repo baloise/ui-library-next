@@ -57,20 +57,22 @@ export class CardSteps {
   /**
    * Emitted when the changes has finished.
    */
-  @Event({ eventName: 'balCardStepsChange' }) balChange: EventEmitter<BalCardStepOption>
+  @Event({ eventName: 'balChange' }) balChange: EventEmitter<BalCardStepOption>
 
   /**
    * Emitted when the back button is clicked.
    */
-  @Event({ eventName: 'balCardStepsBackClick' }) balBackClick: EventEmitter<void>
+  @Event({ eventName: 'balBackClick' }) balBackClick: EventEmitter<void>
 
   /**
    * Emitted when the step circle is clicked.
    */
-  @Event({ eventName: 'balCardStepsStepClick' }) balStepClick: EventEmitter<BalCardStepOption>
+  @Event({ eventName: 'balClick' }) balStepClick: EventEmitter<BalCardStepOption>
 
-  @Listen('balCardStepLabelChange')
-  onCardLabelChange(event: CustomEvent<BalCardStepOption>) {
+  @Listen('balChange')
+  onStepChange(event: CustomEvent<BalCardStepOption>) {
+    event.preventDefault()
+    event.stopPropagation()
     if (event.detail.active) {
       if (this.showLabel) {
         this.label = event.detail.label

@@ -116,7 +116,7 @@ export class BalCardHeading {
   }
 }
 
-
+import { CardStep as ICardStep } from '@baloise/ui-library-next/dist/types/components/bal-card-step/bal-card-step';
 export declare interface BalCardStep extends Components.BalCardStep {}
 @ProxyCmp({
   inputs: ['active', 'disabled', 'done', 'hidden', 'label', 'value'],
@@ -126,13 +126,17 @@ export declare interface BalCardStep extends Components.BalCardStep {}
   selector: 'bal-card-step',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['active', 'disabled', 'done', 'hidden', 'label', 'value']
+  inputs: ['active', 'disabled', 'done', 'hidden', 'label', 'value'],
+  outputs: ['balChange']
 })
 export class BalCardStep {
+  /** Emitted when the label of the step has changed */
+  balChange!: ICardStep['didChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['balChange']);
   }
 }
 
@@ -147,20 +151,20 @@ export declare interface BalCardSteps extends Components.BalCardSteps {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['backLabel', 'hasBack', 'hidden', 'inverted', 'navigation', 'showLabel'],
-  outputs: ['balCardStepsChange', 'balCardStepsBackClick', 'balCardStepsStepClick']
+  outputs: ['balChange', 'balBackClick', 'balClick']
 })
 export class BalCardSteps {
   /** Emitted when the changes has finished. */
-  balCardStepsChange!: ICardSteps['balChange'];
+  balChange!: ICardSteps['balChange'];
   /** Emitted when the back button is clicked. */
-  balCardStepsBackClick!: ICardSteps['balBackClick'];
+  balBackClick!: ICardSteps['balBackClick'];
   /** Emitted when the step circle is clicked. */
-  balCardStepsStepClick!: ICardSteps['balStepClick'];
+  balClick!: ICardSteps['balStepClick'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balCardStepsChange', 'balCardStepsBackClick', 'balCardStepsStepClick']);
+    proxyOutputs(this, this.el, ['balChange', 'balBackClick', 'balClick']);
   }
 }
 
@@ -213,20 +217,20 @@ export declare interface BalCheckbox extends Components.BalCheckbox {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['checked', 'disabled', 'inverted', 'label', 'name', 'value'],
-  outputs: ['balCheckboxChange', 'balCheckboxFocus', 'balCheckboxBlur']
+  outputs: ['balChange', 'balFocus', 'balBlur']
 })
 export class BalCheckbox {
   /** Emitted when the checked property has changed. */
-  balCheckboxChange!: ICheckbox['balChange'];
+  balChange!: ICheckbox['balChange'];
   /** Emitted when the toggle has focus. */
-  balCheckboxFocus!: ICheckbox['balFocus'];
+  balFocus!: ICheckbox['balFocus'];
   /** Emitted when the toggle loses focus. */
-  balCheckboxBlur!: ICheckbox['balBlur'];
+  balBlur!: ICheckbox['balBlur'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balCheckboxChange', 'balCheckboxFocus', 'balCheckboxBlur']);
+    proxyOutputs(this, this.el, ['balChange', 'balFocus', 'balBlur']);
   }
 }
 
@@ -241,16 +245,16 @@ export declare interface BalDropdown extends Components.BalDropdown {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['expanded', 'isActive', 'scrollable'],
-  outputs: ['balDropdownChange']
+  outputs: ['balChange']
 })
 export class BalDropdown {
   /** Listen when the dropdown opens or closes. Returns the current `isActive` value. */
-  balDropdownChange!: IDropdown['balChange'];
+  balChange!: IDropdown['balChange'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balDropdownChange']);
+    proxyOutputs(this, this.el, ['balChange']);
   }
 }
 
@@ -303,24 +307,24 @@ export declare interface BalInput extends Components.BalInput {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['clickable', 'disabled', 'inverted', 'maxLength', 'minLength', 'name', 'numberKeyboard', 'onlyNumbers', 'placeholder', 'readonly', 'type', 'value'],
-  outputs: ['balInput', 'balInputBlur', 'balInputClick', 'balInputKeyPress', 'balInputFocus']
+  outputs: ['balInput', 'balBlur', 'balClick', 'balKeyPress', 'balFocus']
 })
 export class BalInput {
   /** Emitted when a keyboard input occurred. */
   balInput!: IInput['balInput'];
   /** Emitted when a keyboard input occurred. */
-  balInputBlur!: IInput['balBlur'];
+  balBlur!: IInput['balBlur'];
   /** Emitted when the input has clicked. */
-  balInputClick!: IInput['balClick'];
+  balClick!: IInput['balClick'];
   /** Emitted when a keyboard key has pressed. */
-  balInputKeyPress!: IInput['balKeyPress'];
+  balKeyPress!: IInput['balKeyPress'];
   /** Emitted when the input has focus. */
-  balInputFocus!: IInput['balFocus'];
+  balFocus!: IInput['balFocus'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balInput', 'balInputBlur', 'balInputClick', 'balInputKeyPress', 'balInputFocus']);
+    proxyOutputs(this, this.el, ['balInput', 'balBlur', 'balClick', 'balKeyPress', 'balFocus']);
   }
 }
 
@@ -328,37 +332,39 @@ import { Select as ISelect } from '@baloise/ui-library-next/dist/types/component
 export declare interface BalSelect extends Components.BalSelect {}
 @ProxyCmp({
   inputs: ['disabled', 'expanded', 'inverted', 'loading', 'options', 'placeholder', 'remote', 'scrollable', 'typeahead', 'value'],
-  methods: ['clear']
+  methods: ['open', 'close', 'select', 'clear', 'setFocus']
 })
 @Component({
   selector: 'bal-select',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['disabled', 'expanded', 'inverted', 'loading', 'options', 'placeholder', 'remote', 'scrollable', 'typeahead', 'value'],
-  outputs: ['balSelectChange', 'balSelectInput', 'balSelectBlur', 'balSelectFocus', 'balSelectClick', 'balSelectKeyPress']
+  outputs: ['balChange', 'balInput', 'balCancel', 'balBlur', 'balFocus', 'balClick', 'balKeyPress']
 })
 export class BalSelect {
   /** Emitted when a option got selected. */
-  balSelectChange!: ISelect['balChange'];
+  balChange!: ISelect['balChange'];
   /** Emitted when a keyboard input occurred. */
-  balSelectInput!: ISelect['balInput'];
+  balInput!: ISelect['balInput'];
+  /** Emitted when the selection is cancelled. */
+  balCancel!: ISelect['balCancel'];
   /** Emitted when the input loses focus. */
-  balSelectBlur!: ISelect['balBlur'];
+  balBlur!: ISelect['balBlur'];
   /** Emitted when the input has focus. */
-  balSelectFocus!: ISelect['balFocus'];
+  balFocus!: ISelect['balFocus'];
   /** Emitted when the input got clicked. */
-  balSelectClick!: ISelect['balClick'];
+  balClick!: ISelect['balClick'];
   /** Emitted when the input has focus and key from the keyboard go hit. */
-  balSelectKeyPress!: ISelect['balKeyPress'];
+  balKeyPress!: ISelect['balKeyPress'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balSelectChange', 'balSelectInput', 'balSelectBlur', 'balSelectFocus', 'balSelectClick', 'balSelectKeyPress']);
+    proxyOutputs(this, this.el, ['balChange', 'balInput', 'balCancel', 'balBlur', 'balFocus', 'balClick', 'balKeyPress']);
   }
 }
 
-import { SelectOption as ISelectOption } from '@baloise/ui-library-next/dist/types/components/bal-select-option/bal-select-option';
+
 export declare interface BalSelectOption extends Components.BalSelectOption {}
 @ProxyCmp({
   inputs: ['focused', 'hidden', 'icon', 'selected', 'value']
@@ -367,17 +373,13 @@ export declare interface BalSelectOption extends Components.BalSelectOption {}
   selector: 'bal-select-option',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['focused', 'hidden', 'icon', 'selected', 'value'],
-  outputs: ['balSelectOptionClick']
+  inputs: ['focused', 'hidden', 'icon', 'selected', 'value']
 })
 export class BalSelectOption {
-  /** Click event when a option get clicked. */
-  balSelectOptionClick!: ISelectOption['balSelectOptionClick'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balSelectOptionClick']);
   }
 }
 

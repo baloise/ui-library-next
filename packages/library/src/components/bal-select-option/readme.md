@@ -18,13 +18,6 @@
 | `value`    | --         | The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element. | `BalOptionValue<any>` | `undefined` |
 
 
-## Events
-
-| Event                  | Description                            | Type                               |
-| ---------------------- | -------------------------------------- | ---------------------------------- |
-| `balSelectOptionClick` | Click event when a option get clicked. | `CustomEvent<BalOptionValue<any>>` |
-
-
 ## Dependencies
 
 ### Used by

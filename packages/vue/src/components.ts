@@ -129,7 +129,7 @@ export const BalCardStep = /*@__PURE__*/ Vue.extend({
     getOptions: createCommonMethod('getOptions') as Components.BalCardStep['getOptions'],
     setActive: createCommonMethod('setActive') as Components.BalCardStep['setActive'],
   },
-  render: createCommonRender('bal-card-step', []),
+  render: createCommonRender('bal-card-step', ['balChange']),
 });
 
 
@@ -148,7 +148,7 @@ export const BalCardSteps = /*@__PURE__*/ Vue.extend({
   methods: {
     select: createCommonMethod('select') as Components.BalCardSteps['select'],
   },
-  render: createCommonRender('bal-card-steps', ['balCardStepsChange', 'balCardStepsBackClick', 'balCardStepsStepClick']),
+  render: createCommonRender('bal-card-steps', ['balChange', 'balBackClick', 'balClick']),
 });
 
 
@@ -193,7 +193,7 @@ export const BalCheckbox = /*@__PURE__*/ Vue.extend({
   methods: {
     setFocus: createCommonMethod('setFocus') as Components.BalCheckbox['setFocus'],
   },
-  render: createCommonRender('bal-checkbox', ['balCheckboxChange', 'balCheckboxFocus', 'balCheckboxBlur']),
+  render: createCommonRender('bal-checkbox', ['balChange', 'balFocus', 'balBlur']),
 });
 
 
@@ -213,7 +213,7 @@ export const BalDropdown = /*@__PURE__*/ Vue.extend({
     getMenuElement: createCommonMethod('getMenuElement') as Components.BalDropdown['getMenuElement'],
     getContentElement: createCommonMethod('getContentElement') as Components.BalDropdown['getContentElement'],
   },
-  render: createCommonRender('bal-dropdown', ['balDropdownChange']),
+  render: createCommonRender('bal-dropdown', ['balChange']),
 });
 
 
@@ -277,7 +277,7 @@ export const BalInput = /*@__PURE__*/ Vue.extend({
   methods: {
     setFocus: createCommonMethod('setFocus') as Components.BalInput['setFocus'],
   },
-  render: createCommonRender('bal-input', ['balInput', 'balInputBlur', 'balInputClick', 'balInputKeyPress', 'balInputFocus']),
+  render: createCommonRender('bal-input', ['balInput', 'balBlur', 'balClick', 'balKeyPress', 'balFocus']),
 });
 
 
@@ -302,24 +302,28 @@ export const BalSelect = /*@__PURE__*/ Vue.extend({
   },
 
   methods: {
+    open: createCommonMethod('open') as Components.BalSelect['open'],
+    close: createCommonMethod('close') as Components.BalSelect['close'],
+    select: createCommonMethod('select') as Components.BalSelect['select'],
     clear: createCommonMethod('clear') as Components.BalSelect['clear'],
+    setFocus: createCommonMethod('setFocus') as Components.BalSelect['setFocus'],
   },
-  render: createCommonRender('bal-select', ['balSelectChange', 'balSelectInput', 'balSelectBlur', 'balSelectFocus', 'balSelectClick', 'balSelectKeyPress']),
+  render: createCommonRender('bal-select', ['balChange', 'balInput', 'balCancel', 'balBlur', 'balFocus', 'balClick', 'balKeyPress']),
 });
 
 
 export const BalSelectOption = /*@__PURE__*/ Vue.extend({
 
   props: {
-    hidden: {} as PropOptions<Components.BalSelectOption['hidden']>,
     value: {} as PropOptions<Components.BalSelectOption['value']>,
+    hidden: {} as PropOptions<Components.BalSelectOption['hidden']>,
     icon: {} as PropOptions<Components.BalSelectOption['icon']>,
     focused: {} as PropOptions<Components.BalSelectOption['focused']>,
     selected: {} as PropOptions<Components.BalSelectOption['selected']>,
   },
 
 
-  render: createCommonRender('bal-select-option', ['balSelectOptionClick']),
+  render: createCommonRender('bal-select-option', []),
 });
 
 
