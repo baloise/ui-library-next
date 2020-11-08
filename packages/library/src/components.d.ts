@@ -717,6 +717,10 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
+          * Emitted when the label of the step has changed
+         */
+        "onBalCardStepLabelChange"?: (event: CustomEvent<BalCardStepOption>) => void;
+        /**
           * This is the key of the step.
          */
         "value"?: string;
