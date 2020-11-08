@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Method, State, Watch, Event, EventEmitter } from '@stencil/core'
+import { Component, Host, h, Prop, Method, State, Watch, Element } from '@stencil/core'
 import { BalTabOption } from '../bal-tabs/bal-tab.type'
 
 @Component({
@@ -8,6 +8,8 @@ import { BalTabOption } from '../bal-tabs/bal-tab.type'
   shadow: false,
 })
 export class TabItem {
+  @Element() element!: HTMLElement
+
   @State() isContentHidden = true
 
   /**
@@ -40,19 +42,13 @@ export class TabItem {
     this.isContentHidden = !newActive
   }
 
-  /**
-   * Emitted when the tabs get rendered.
-   */
-  @Event({ eventName: 'balChange' }) tabChanged: EventEmitter
-
-  get options() {
-    return {
-      value: this.value,
-      label: this.label,
-      active: this.active,
-      disabled: this.disabled,
-      hasBubble: this.bubble,
-    }
+  @Watch('active')
+  @Watch('value')
+  @Watch('bubble')
+  @Watch('disabled')
+  @Watch('label')
+  informParent() {
+    this.parent.sync()
   }
 
   /**
@@ -71,12 +67,25 @@ export class TabItem {
     this.active = active
   }
 
+  get options() {
+    return {
+      value: this.value,
+      label: this.label,
+      active: this.active,
+      disabled: this.disabled,
+      hasBubble: this.bubble,
+    }
+  }
+
+  get parent(): HTMLBalTabsElement {
+    return this.element.closest('bal-tabs')
+  }
+
   componentWillLoad() {
     this.isContentHidden = !this.active
   }
 
   render() {
-    this.tabChanged.emit(this.options)
     return (
       <Host>
         <div style={this.isContentHidden && { display: 'none' }}>

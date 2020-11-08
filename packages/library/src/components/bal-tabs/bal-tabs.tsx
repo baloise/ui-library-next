@@ -1,4 +1,4 @@
-import { Component, Host, h, Element, State, Event, EventEmitter, Method, Prop, Listen } from '@stencil/core'
+import { Component, Host, h, Element, State, Event, EventEmitter, Method, Prop } from '@stencil/core'
 import { BalTabOption } from './bal-tab.type'
 
 @Component({
@@ -11,6 +11,8 @@ export class Tabs {
   @Element() element!: HTMLElement
 
   @State() tabsOptions: BalTabOption[] = []
+
+  @Prop() interface: 'tabs' | 'steps' = 'tabs'
 
   /**
    * If `true` the field expands over the whole width.
@@ -53,22 +55,18 @@ export class Tabs {
   @Method()
   async select(value: string) {
     this.tabs.forEach(t => t.setActive(t.value === value))
-    this.readTabItems()
+    this.sync()
   }
 
-  componentWillLoad() {
-    this.readTabItems()
-  }
-
-  @Listen('balChange')
-  tabChanged() {
-    this.readTabItems()
-  }
-
-  private readTabItems() {
+  @Method()
+  async sync() {
     Promise.all(this.tabs.map(value => value.getOptions())).then(tabsOptions => {
       this.tabsOptions = tabsOptions
     })
+  }
+
+  componentWillLoad() {
+    this.sync()
   }
 
   private get tabs(): HTMLBalTabItemElement[] {
@@ -83,8 +81,39 @@ export class Tabs {
   }
 
   render() {
+    if (this.interface === 'steps') {
+      return this.renderSteps()
+    } else {
+      return this.renderTabs()
+    }
+  }
+
+  renderSteps() {
     return (
-      <Host>
+      <Host class="bal-steps">
+        <div class={['tabs is-fullwidth'].join(' ')}>
+          <ul>
+            {this.tabsOptions.map((tab, index) => (
+              <li class={[tab.active ? 'is-active' : '', tab.disabled ? 'is-disabled' : ''].join(' ')}>
+                <a onClick={() => this.onSelectTab(tab)}>
+                  <span class="step-index">
+                    <span>{index + 1}</span>
+                  </span>
+                  <span class="step-label">{tab.label}</span>
+                </a>
+                <span class="bubble" style={!tab.hasBubble && { display: 'none' }}></span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <slot />
+      </Host>
+    )
+  }
+
+  renderTabs() {
+    return (
+      <Host class="bal-tabs">
         <div
           class={[
             'tabs',

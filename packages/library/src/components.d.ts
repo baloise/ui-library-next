@@ -8,8 +8,6 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { BalCardStepOption } from "./components/bal-card-step/bal-card-step.type";
 import { FileUploadRejectedFile } from "./components/bal-file-upload/bal-file-upload.type";
 import { BalOptionValue } from "./components/bal-select-option/bal-select-option.type";
-import { StepOptions } from "./components/bal-step/bal-step";
-import { StepOptions as StepOptions1 } from "./components/bal-step/bal-step";
 import { BalTabOption } from "./components/bal-tabs/bal-tab.type";
 export namespace Components {
     interface BalAccordion {
@@ -656,42 +654,6 @@ export namespace Components {
          */
         "small": boolean;
     }
-    interface BalStep {
-        /**
-          * Tell's if the step is active and the content is visible.
-         */
-        "active": boolean;
-        /**
-          * If `true` a small red bubble is added to the step.
-         */
-        "bubble": boolean;
-        /**
-          * If `true` the step is disabled.
-         */
-        "disabled": boolean;
-        /**
-          * Options of the step like label, value etc.
-         */
-        "getOptions": () => Promise<StepOptions>;
-        /**
-          * Label for the step.
-         */
-        "label": string;
-        /**
-          * Sets the step active.
-         */
-        "setActive": (active: boolean) => Promise<void>;
-        /**
-          * This is the key of the step.
-         */
-        "value": string;
-    }
-    interface BalSteps {
-        /**
-          * Select a step.
-         */
-        "select": (value: string) => Promise<void>;
-    }
     interface BalTabItem {
         /**
           * Tell's if the tab is active and the content is visible.
@@ -739,6 +701,7 @@ export namespace Components {
           * If `true` the field expands over the whole width.
          */
         "expanded": boolean;
+        "interface": 'tabs' | 'steps';
         /**
           * If you want the rounded tab style.
          */
@@ -747,6 +710,7 @@ export namespace Components {
           * Dropdown a tab by the value of the tab item.
          */
         "select": (value: string) => Promise<void>;
+        "sync": () => Promise<void>;
     }
     interface BalTag {
         /**
@@ -982,18 +946,6 @@ declare global {
         prototype: HTMLBalSpinnerElement;
         new (): HTMLBalSpinnerElement;
     };
-    interface HTMLBalStepElement extends Components.BalStep, HTMLStencilElement {
-    }
-    var HTMLBalStepElement: {
-        prototype: HTMLBalStepElement;
-        new (): HTMLBalStepElement;
-    };
-    interface HTMLBalStepsElement extends Components.BalSteps, HTMLStencilElement {
-    }
-    var HTMLBalStepsElement: {
-        prototype: HTMLBalStepsElement;
-        new (): HTMLBalStepsElement;
-    };
     interface HTMLBalTabItemElement extends Components.BalTabItem, HTMLStencilElement {
     }
     var HTMLBalTabItemElement: {
@@ -1060,8 +1012,6 @@ declare global {
         "bal-select": HTMLBalSelectElement;
         "bal-select-option": HTMLBalSelectOptionElement;
         "bal-spinner": HTMLBalSpinnerElement;
-        "bal-step": HTMLBalStepElement;
-        "bal-steps": HTMLBalStepsElement;
         "bal-tab-item": HTMLBalTabItemElement;
         "bal-tabs": HTMLBalTabsElement;
         "bal-tag": HTMLBalTagElement;
@@ -1730,38 +1680,6 @@ declare namespace LocalJSX {
          */
         "small"?: boolean;
     }
-    interface BalStep {
-        /**
-          * Tell's if the step is active and the content is visible.
-         */
-        "active"?: boolean;
-        /**
-          * If `true` a small red bubble is added to the step.
-         */
-        "bubble"?: boolean;
-        /**
-          * If `true` the step is disabled.
-         */
-        "disabled"?: boolean;
-        /**
-          * Label for the step.
-         */
-        "label"?: string;
-        /**
-          * Emitted when the steps get rendered.
-         */
-        "onBalChange"?: (event: CustomEvent<any>) => void;
-        /**
-          * This is the key of the step.
-         */
-        "value"?: string;
-    }
-    interface BalSteps {
-        /**
-          * Emitted when the changes has finished.
-         */
-        "onBalChange"?: (event: CustomEvent<StepOptions>) => void;
-    }
     interface BalTabItem {
         /**
           * Tell's if the tab is active and the content is visible.
@@ -1779,10 +1697,6 @@ declare namespace LocalJSX {
           * Label for the tab.
          */
         "label"?: string;
-        /**
-          * Emitted when the tabs get rendered.
-         */
-        "onBalChange"?: (event: CustomEvent<any>) => void;
         /**
           * This is the key of the tab.
          */
@@ -1805,6 +1719,7 @@ declare namespace LocalJSX {
           * If `true` the field expands over the whole width.
          */
         "expanded"?: boolean;
+        "interface"?: 'tabs' | 'steps';
         /**
           * Emitted when the action button has clicked
          */
@@ -1868,8 +1783,6 @@ declare namespace LocalJSX {
         "bal-select": BalSelect;
         "bal-select-option": BalSelectOption;
         "bal-spinner": BalSpinner;
-        "bal-step": BalStep;
-        "bal-steps": BalSteps;
         "bal-tab-item": BalTabItem;
         "bal-tabs": BalTabs;
         "bal-tag": BalTag;
@@ -1916,8 +1829,6 @@ declare module "@stencil/core" {
             "bal-select": LocalJSX.BalSelect & JSXBase.HTMLAttributes<HTMLBalSelectElement>;
             "bal-select-option": LocalJSX.BalSelectOption & JSXBase.HTMLAttributes<HTMLBalSelectOptionElement>;
             "bal-spinner": LocalJSX.BalSpinner & JSXBase.HTMLAttributes<HTMLBalSpinnerElement>;
-            "bal-step": LocalJSX.BalStep & JSXBase.HTMLAttributes<HTMLBalStepElement>;
-            "bal-steps": LocalJSX.BalSteps & JSXBase.HTMLAttributes<HTMLBalStepsElement>;
             "bal-tab-item": LocalJSX.BalTabItem & JSXBase.HTMLAttributes<HTMLBalTabItemElement>;
             "bal-tabs": LocalJSX.BalTabs & JSXBase.HTMLAttributes<HTMLBalTabsElement>;
             "bal-tag": LocalJSX.BalTag & JSXBase.HTMLAttributes<HTMLBalTagElement>;
