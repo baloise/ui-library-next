@@ -164,13 +164,14 @@ export namespace Components {
          */
         "navigation": boolean;
         /**
-          * Select a step.
+          * Go to tab with the given value
          */
         "select": (step: BalCardStepOption) => Promise<void>;
         /**
           * Hides the navigation circles and adds the step label instead
          */
         "showLabel": boolean;
+        "sync": () => Promise<void>;
     }
     interface BalCardSubtitle {
         /**
@@ -725,10 +726,6 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
-          * Emitted when the label of the step has changed
-         */
-        "onBalChange"?: (event: CustomEvent<BalCardStepOption>) => void;
-        /**
           * This is the key of the step.
          */
         "value"?: string;
@@ -761,11 +758,11 @@ declare namespace LocalJSX {
         /**
           * Emitted when the changes has finished.
          */
-        "onBalChange"?: (event: CustomEvent<BalCardStepOption>) => void;
+        "onBalCardStepChange"?: (event: CustomEvent<BalCardStepOption>) => void;
         /**
           * Emitted when the step circle is clicked.
          */
-        "onBalClick"?: (event: CustomEvent<BalCardStepOption>) => void;
+        "onBalCardStepClick"?: (event: CustomEvent<BalCardStepOption>) => void;
         /**
           * Hides the navigation circles and adds the step label instead
          */
@@ -833,7 +830,7 @@ declare namespace LocalJSX {
         /**
           * Listen when the dropdown opens or closes. Returns the current `isActive` value.
          */
-        "onBalChange"?: (event: CustomEvent<boolean>) => void;
+        "onBalCollapse"?: (event: CustomEvent<boolean>) => void;
         /**
           * Limit the height of the dropdown content. Pass the amount of pixel.
          */

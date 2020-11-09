@@ -2,8 +2,8 @@ import { Config } from '@stencil/core'
 import { sass } from '@stencil/sass'
 import { postcss } from '@stencil/postcss'
 import autoprefixer from 'autoprefixer'
-import { ComponentModelConfig, vueOutputTarget } from 'stencil-vue2-output-target'
-import { angularOutputTarget, ValueAccessorConfig } from '@stencil/angular-output-target'
+import { ComponentModelConfig, vueOutputTarget } from 'hirsch-vue-output-target'
+import { angularOutputTarget, ValueAccessorConfig } from 'hirsch-angular-output-target'
 
 /**
  * Vue Component Models
@@ -24,6 +24,11 @@ const vueComponentModels: ComponentModelConfig[] = [
     event: 'balInput',
     targetAttr: 'value',
   },
+  {
+    elements: ['bal-dropdown'],
+    event: 'balCollapsed',
+    targetAttr: 'is-active',
+  },
 ]
 
 /**
@@ -31,16 +36,16 @@ const vueComponentModels: ComponentModelConfig[] = [
  */
 const angularValueAccessorBindings: ValueAccessorConfig[] = [
   {
-    elementSelectors: ['bal-checkbox'],
-    event: 'balChange',
-    targetAttr: 'checked',
-    type: 'boolean',
-  },
-  {
     elementSelectors: ['bal-select'],
     event: 'balChange',
     targetAttr: 'value',
     type: 'select',
+  },
+  {
+    elementSelectors: ['bal-checkbox'],
+    event: 'balChange',
+    targetAttr: 'checked',
+    type: 'boolean',
   },
   {
     elementSelectors: ['bal-input'],

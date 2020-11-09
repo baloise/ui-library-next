@@ -1,15 +1,4 @@
-import {
-  Component,
-  Element,
-  Event,
-  EventEmitter,
-  h,
-  Host,
-  Listen,
-  Method,
-  Prop,
-  State,
-} from '@stencil/core'
+import { Component, Element, Event, EventEmitter, h, Host, Method, Prop, State } from '@stencil/core'
 import { BalCardStepOption } from '../bal-card-step/bal-card-step.type'
 
 @Component({
@@ -57,7 +46,7 @@ export class CardSteps {
   /**
    * Emitted when the changes has finished.
    */
-  @Event({ eventName: 'balChange' }) balChange: EventEmitter<BalCardStepOption>
+  @Event({ eventName: 'balCardStepChange' }) balChange: EventEmitter<BalCardStepOption>
 
   /**
    * Emitted when the back button is clicked.
@@ -67,91 +56,45 @@ export class CardSteps {
   /**
    * Emitted when the step circle is clicked.
    */
-  @Event({ eventName: 'balClick' }) balStepClick: EventEmitter<BalCardStepOption>
+  @Event({ eventName: 'balCardStepClick' }) balStepClick: EventEmitter<BalCardStepOption>
 
-  @Listen('balChange')
-  onStepChange(event: CustomEvent<BalCardStepOption>) {
-    event.preventDefault()
-    event.stopPropagation()
-    if (event.detail.active) {
-      if (this.showLabel) {
-        this.label = event.detail.label
-      } else {
-        this.label = ''
-      }
-    }
-  }
+  // @Listen('balChange')
+  // onStepChange(event: CustomEvent<BalCardStepOption>) {
+  //   event.preventDefault()
+  //   event.stopPropagation()
+  //   if (event.detail.active) {
+  //     if (this.showLabel) {
+  //       this.label = event.detail.label
+  //     } else {
+  //       this.label = ''
+  //     }
+  //   }
+  // }
 
   /**
-   * Select a step.
+   * Go to tab with the given value
    */
   @Method()
   async select(step: BalCardStepOption): Promise<void> {
     this.steps.forEach(t => t.setActive(t.value === step.value))
-    this.readSteps()
+    this.sync()
     this.balChange.emit(step)
   }
 
-  componentWillLoad(): void {
-    this.readSteps()
+  @Method()
+  async sync() {
+    await Promise.all(this.steps.map(value => value.getOptions())).then(stepOptions => {
+      this.stepOptions = stepOptions
+    })
+    this.label = this.stepOptions.find(o => o.active).label
   }
 
-  render() {
-    return (
-      <Host>
-        <div class={['card-steps-wrapper', this.inverted ? 'is-inverted' : ''].join(' ')}>
-          <div class={['left-side', !this.hasBack ? 'is-hidden' : ''].join(' ')}>
-            <a role="button" onClick={() => this.onBackButtonClick()}>
-              <bal-icon
-                class="nav-go-left"
-                name="nav-go-large"
-                size="medium"
-                color={this.inverted ? 'white' : 'blue'}></bal-icon>
-              <span class="nav-go-left-label">{this.backLabel}</span>
-            </a>
-          </div>
-          <h3
-            style={{ display: this.showLabel ? 'block' : 'none' }}
-            class={['tab-title title is-size-3', this.inverted ? 'is-inverted' : ''].join(' ')}>
-            {this.label}
-          </h3>
-          <div
-            style={{ display: this.showLabel ? 'none' : 'block' }}
-            class={['tabs', this.inverted ? 'is-inverted' : '', this.hidden ? 'is-hidden' : ''].join(' ')}>
-            <ul>
-              {this.stepOptions
-                .filter(step => !step.hidden && !this.hidden && !this.showLabel)
-                .map((step, index) => (
-                  <li
-                    class={[
-                      step.active ? 'is-active' : '',
-                      step.disabled ? 'is-disabled' : '',
-                      step.done ? 'is-done' : '',
-                    ].join(' ')}>
-                    <a onClick={() => this.onClickStepCircle(step)} title={step.label}>
-                      <span class="step-index">
-                        <span>{index + 1}</span>
-                      </span>
-                    </a>
-                  </li>
-                ))}
-            </ul>
-          </div>
-          <div class={['right-side', !this.hasBack ? 'is-hidden' : ''].join(' ')}></div>
-        </div>
-        <slot />
-      </Host>
-    )
+  componentWillLoad(): void {
+    this.sync()
   }
 
   private get steps(): HTMLBalCardStepElement[] {
     return Array.from(this.element.querySelectorAll('bal-card-step'))
-  }
-
-  private readSteps() {
-    Promise.all(this.steps.map(value => value.getOptions())).then(stepOptions => {
-      this.stepOptions = stepOptions
-    })
   }
 
   private async onClickStepCircle(step: BalCardStepOption): Promise<void> {
@@ -177,4 +120,56 @@ export class CardSteps {
     return activeStepIndex - 1
   }
 
+  render() {
+    return (
+      <Host>
+        <div class={['card-steps-wrapper', this.inverted ? 'is-inverted' : ''].join(' ')}>
+          <div class={['left-side', !this.hasBack ? 'is-hidden' : ''].join(' ')}>
+            <a role="button" onClick={() => this.onBackButtonClick()}>
+              <bal-icon
+                class="nav-go-left"
+                name="nav-go-large"
+                size="medium"
+                color={this.inverted ? 'white' : 'blue'}></bal-icon>
+              <span class="nav-go-left-label">{this.backLabel}</span>
+            </a>
+          </div>
+          <h3
+            style={{ display: this.showLabel ? 'block' : 'none' }}
+            class={['tab-title title is-size-3', this.inverted ? 'is-inverted' : ''].join(' ')}>
+            {this.label}
+          </h3>
+          <div
+            style={{ display: this.showLabel ? 'none' : 'block' }}
+            class={[
+              'tabs',
+              !this.navigation ? 'is-disabled' : '',
+              this.inverted ? 'is-inverted' : '',
+              this.hidden ? 'is-hidden' : '',
+            ].join(' ')}>
+            <ul>
+              {this.stepOptions
+                .filter(step => !step.hidden && !this.hidden && !this.showLabel)
+                .map((step, index) => (
+                  <li
+                    class={[
+                      step.active ? 'is-active' : '',
+                      step.disabled ? 'is-disabled' : '',
+                      step.done ? 'is-done' : '',
+                    ].join(' ')}>
+                    <a onClick={() => this.onClickStepCircle(step)} title={step.label}>
+                      <span class="step-index">
+                        <span>{index + 1}</span>
+                      </span>
+                    </a>
+                  </li>
+                ))}
+            </ul>
+          </div>
+          <div class={['right-side', !this.hasBack ? 'is-hidden' : ''].join(' ')}></div>
+        </div>
+        <slot />
+      </Host>
+    )
+  }
 }
