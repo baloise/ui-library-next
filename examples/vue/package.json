@@ -20,6 +20,7 @@
   "dependencies": {
     "@baloise/ui-library-next": "^1.12.3",
     "@baloise/ui-library-next-vue": "^1.12.3",
+    "@vue/composition-api": "^1.0.0-beta.19",
     "babel-polyfill": "^6.26.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11"

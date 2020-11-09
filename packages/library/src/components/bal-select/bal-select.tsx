@@ -198,7 +198,7 @@ export class Select {
         option.setAttribute('hidden', `${!didMatch}`)
       }
 
-      const isSelected = !!this.value && this.value.value === option.value.value
+      const isSelected = !!this.value && this.value.key === option.value.key
       option.setAttribute('selected', `${isSelected}`)
     })
   }

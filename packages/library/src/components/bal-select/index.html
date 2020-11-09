@@ -23,7 +23,7 @@
         var buttonYear = document.getElementById('bal-select-year-clear')
         var optionsYear = []
         for (var index = 1990; index < 2020; index++) {
-          optionsYear.push({ text: `${index}`, value: index })
+          optionsYear.push({ text: `${index}`, key: index })
         }
         selectYear.options = optionsYear
         selectYear.addEventListener('balChange', function (evt) {
@@ -44,7 +44,7 @@
         var selectYearInverted = document.getElementById('bal-select-year-inverted')
         var optionsYearInverted = []
         for (var index = 1990; index < 2020; index++) {
-          optionsYearInverted.push({ text: `${index}`, value: index })
+          optionsYearInverted.push({ text: `${index}`, key: index })
         }
         selectYearInverted.options = optionsYearInverted
       </script>
@@ -59,9 +59,9 @@
           return '<b>' + data.text + '</b></br><span>' + data.location + '</span>'
         }
         selectCustom.options = [
-          { text: 'Ant-Man', value: 1, location: 'San Francisco', render: renderCustom },
-          { text: 'Spider-Man', value: 2, location: 'Queens', render: renderCustom },
-          { text: 'Iron Man', value: 3, location: 'Malibu', render: renderCustom },
+          { text: 'Ant-Man', key: 1, location: 'San Francisco', render: renderCustom },
+          { text: 'Spider-Man', key: 2, location: 'Queens', render: renderCustom },
+          { text: 'Iron Man', key: 3, location: 'Malibu', render: renderCustom },
         ]
       </script>
 
@@ -72,20 +72,20 @@
       <script>
         var selectTypeahead = document.getElementById('bal-select-typeahead')
         selectTypeahead.options = [
-          { text: 'Ant-Man', value: 1, location: 'San Francisco', render: renderCustom },
-          { text: 'Spider-Man', value: 2, location: 'Queens', render: renderCustom },
-          { text: 'Iron Man', value: 3, location: 'Malibu', render: renderCustom },
-          { text: 'Black Panter', value: 4, location: 'Wakanda', render: renderCustom },
-          { text: 'Black Widow', value: 5, location: 'Russia', render: renderCustom },
-          { text: 'Captain America', value: 6, location: 'Brooklyn', render: renderCustom },
-          { text: 'Captain Marvel', value: 7, location: 'Somewhere', render: renderCustom },
-          { text: 'Vision', value: 8, location: 'Scotland', render: renderCustom },
-          { text: 'Falcon', value: 9, location: 'Washington', render: renderCustom },
-          { text: 'Thor', value: 10, location: 'Asgard', render: renderCustom },
-          { text: 'Hulk', value: 11, location: 'Hidden', render: renderCustom },
-          { text: 'Hawkeye', value: 12, location: 'Shield', render: renderCustom },
-          { text: 'Doctor Strange', value: 13, location: 'Manhatten', render: renderCustom },
-          { text: 'Wasp', value: 14, location: 'San Francisco', render: renderCustom },
+          { text: 'Ant-Man', key: 1, location: 'San Francisco', render: renderCustom },
+          { text: 'Spider-Man', key: 2, location: 'Queens', render: renderCustom },
+          { text: 'Iron Man', key: 3, location: 'Malibu', render: renderCustom },
+          { text: 'Black Panter', key: 4, location: 'Wakanda', render: renderCustom },
+          { text: 'Black Widow', key: 5, location: 'Russia', render: renderCustom },
+          { text: 'Captain America', key: 6, location: 'Brooklyn', render: renderCustom },
+          { text: 'Captain Marvel', key: 7, location: 'Somewhere', render: renderCustom },
+          { text: 'Vision', key: 8, location: 'Scotland', render: renderCustom },
+          { text: 'Falcon', key: 9, location: 'Washington', render: renderCustom },
+          { text: 'Thor', key: 10, location: 'Asgard', render: renderCustom },
+          { text: 'Hulk', key: 11, location: 'Hidden', render: renderCustom },
+          { text: 'Hawkeye', key: 12, location: 'Shield', render: renderCustom },
+          { text: 'Doctor Strange', key: 13, location: 'Manhatten', render: renderCustom },
+          { text: 'Wasp', key: 14, location: 'San Francisco', render: renderCustom },
         ]
       </script>
 
@@ -96,6 +96,9 @@
       <script>
         var selectTypeaheadRemote = document.getElementById('bal-select-typeahead-remote')
         selectTypeaheadRemote.options = []
+        selectTypeaheadRemote.addEventListener('balChange', function (event) {
+          console.log(event)
+        })
         selectTypeaheadRemote.addEventListener('balInput', function (event) {
           var search = event.detail
           selectTypeaheadRemote.loading = true
@@ -103,7 +106,7 @@
             .then(res => res.json())
             .then(data => {
               selectTypeaheadRemote.options = data.results.map((person, index) => ({
-                value: index,
+                key: index,
                 text: person.name,
               }))
               selectTypeaheadRemote.loading = false
