@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/baloise/ui-library-next/compare/v1.12.3...v1.13.0) (2020-11-09)
+
+
+### Features
+
+* **select:** new data prop for better rendering custom layouts ([9916465](https://github.com/baloise/ui-library-next/commit/9916465db43ce0a2871af7add9ee1a74c6ef93c1))
+
+
+
+
+
 ## [1.12.3](https://github.com/baloise/ui-library-next/compare/v1.12.2...v1.12.3) (2020-11-09)
 
 

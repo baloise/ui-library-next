@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/baloise/ui-library-next/compare/v1.12.3...v1.13.0) (2020-11-09)
+
+**Note:** Version bump only for package @baloise/ui-library-next-angular
+
+
+
+
+
 ## [1.12.3](https://github.com/baloise/ui-library-next/compare/v1.12.2...v1.12.3) (2020-11-09)
 
 **Note:** Version bump only for package @baloise/ui-library-next-angular
