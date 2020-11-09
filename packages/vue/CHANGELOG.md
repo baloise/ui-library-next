@@ -3,6 +3,71 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.1](https://github.com/baloise/ui-library-next/compare/v1.13.0...v1.13.1) (2020-11-09)
+
+**Note:** Version bump only for package @baloise/ui-library-next-vue
+
+
+
+
+
+# [1.13.0](https://github.com/baloise/ui-library-next/compare/v1.12.3...v1.13.0) (2020-11-09)
+
+**Note:** Version bump only for package @baloise/ui-library-next-vue
+
+
+
+
+
+## [1.12.3](https://github.com/baloise/ui-library-next/compare/v1.12.2...v1.12.3) (2020-11-09)
+
+**Note:** Version bump only for package @baloise/ui-library-next-vue
+
+
+
+
+
+## [1.12.2](https://github.com/baloise/ui-library-next/compare/v1.12.1...v1.12.2) (2020-11-09)
+
+
+### Bug Fixes
+
+* **vue:** array binding ([93a8a4b](https://github.com/baloise/ui-library-next/commit/93a8a4b6deeedd85d8d31d25b45ee418806ca0ec))
+
+
+
+
+
+## [1.12.1](https://github.com/baloise/ui-library-next/compare/v1.12.0...v1.12.1) (2020-11-09)
+
+
+### Bug Fixes
+
+* **vue:** array binding ([d879bb0](https://github.com/baloise/ui-library-next/commit/d879bb0c237da3b1abaf2e5d2e99b4a5a68284d4))
+
+
+
+
+
+# [1.12.0](https://github.com/baloise/ui-library-next/compare/v1.11.1...v1.12.0) (2020-11-09)
+
+
+### Features
+
+* improve components ([17cba42](https://github.com/baloise/ui-library-next/commit/17cba4246815b2aa92ea83c42bd29ba2b0a6ee77))
+
+
+
+
+
+## [1.11.1](https://github.com/baloise/ui-library-next/compare/v1.11.0...v1.11.1) (2020-11-09)
+
+**Note:** Version bump only for package @baloise/ui-library-next-vue
+
+
+
+
+
 # [1.11.0](https://github.com/baloise/ui-library-next/compare/v1.10.0...v1.11.0) (2020-11-08)
 
 

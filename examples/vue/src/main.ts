@@ -4,11 +4,11 @@ import '@baloise/ui-library-next/dist/ui-library-next/ui-library-next.css'
 
 import Vue from 'vue'
 import App from './App.vue'
-import { UiLibraryPlugin } from '@baloise/ui-library-next-vue'
+import { BalUiLibraryPlugin } from '@baloise/ui-library-next-vue'
 
 Vue.config.productionTip = false
 
-Vue.use(UiLibraryPlugin)
+Vue.use(BalUiLibraryPlugin)
 
 new Vue({
   render: h => h(App),

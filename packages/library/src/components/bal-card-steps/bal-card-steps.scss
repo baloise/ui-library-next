@@ -166,6 +166,12 @@
         }
       }
 
+      &.is-disabled {
+        & ul > li > a {
+          cursor: unset !important;
+        }
+      }
+
       &.is-hidden {
         opacity: 0;
       }

@@ -19,6 +19,7 @@
       </section>
       <script>
         var selectYear = document.getElementById('bal-select-year')
+        var selectYearDisabled = document.getElementById('bal-select-year-disabled')
         var buttonYear = document.getElementById('bal-select-year-clear')
         var optionsYear = []
         for (var index = 1990; index < 2020; index++) {
@@ -26,7 +27,7 @@
         }
         selectYear.options = optionsYear
         selectYear.addEventListener('balChange', function (evt) {
-          console.log(evt)
+          selectYearDisabled.select(evt.detail)
         })
         buttonYear.addEventListener('click', function () {
           selectYear.clear()

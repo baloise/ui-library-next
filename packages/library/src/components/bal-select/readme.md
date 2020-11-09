@@ -8,8 +8,9 @@ Select fields components are used for collecting user provided information from 
 
 ```typescript
 export interface BalOptionValue<T> {
-  value: T
+  value: string
   text: string
+  data?: T
   render?(option: BalOptionValue<T>): string
 }
 ```

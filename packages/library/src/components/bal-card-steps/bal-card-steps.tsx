@@ -141,7 +141,12 @@ export class CardSteps {
           </h3>
           <div
             style={{ display: this.showLabel ? 'none' : 'block' }}
-            class={['tabs', this.inverted ? 'is-inverted' : '', this.hidden ? 'is-hidden' : ''].join(' ')}>
+            class={[
+              'tabs',
+              !this.navigation ? 'is-disabled' : '',
+              this.inverted ? 'is-inverted' : '',
+              this.hidden ? 'is-hidden' : '',
+            ].join(' ')}>
             <ul>
               {this.stepOptions
                 .filter(step => !step.hidden && !this.hidden && !this.showLabel)

@@ -10,6 +10,7 @@
     "build": "npm run lib:build && npm run lib:vue:build && npm run lib:angular:build && npm run testing:build",
     "lint": "lerna run lint",
     "publish": "lerna publish --yes --force-publish",
+    "docs:publish": "npm run docs:install && npm run docs:build",
     "docs:install": "npm --prefix docs install",
     "docs:serve": "npm --prefix docs run serve",
     "docs:build": "npm --prefix packages/library run build:docs && npm --prefix packages/testing run build:docs && npm --prefix docs run build",

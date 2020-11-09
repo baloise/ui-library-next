@@ -22,11 +22,6 @@ export class CardStep {
    */
   @Prop() label: string = ''
 
-  // @Watch('label')
-  // async labelHandler() {
-  //   this.didChange.emit(await this.getOptions())
-  // }
-
   /**
    * If `true` the step is hidden in the steps navigation.
    */

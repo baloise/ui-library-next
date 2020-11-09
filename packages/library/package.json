@@ -1,6 +1,6 @@
 {
   "name": "@baloise/ui-library-next",
-  "version": "1.11.0",
+  "version": "1.13.1",
   "description": "The UI-Libary is an open source project for styling awesome web applications that follow the Baloise corporate styling guidelines.",
   "repository": {
     "type": "git",
@@ -32,8 +32,7 @@
   },
   "dependencies": {
     "@stencil/core": "^2.0.1",
-    "bulma": "^0.9.0",
-    "filesize.js": "^2.0.0"
+    "bulma": "^0.9.0"
   },
   "license": "MIT",
   "devDependencies": {
@@ -42,7 +41,7 @@
     "@types/autoprefixer": "^9.7.2",
     "autoprefixer": "^10.0.1",
     "hirsch-angular-output-target": "0.0.6",
-    "hirsch-vue-output-target": "0.0.4"
+    "hirsch-vue-output-target": "0.0.5"
   },
   "gitHead": "722ef389df9b49212894042493cb203eb8fd8f09"
 }

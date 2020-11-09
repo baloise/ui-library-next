@@ -1,44 +1,58 @@
 <template>
   <div id="app" class="container">
-    <BalField :validation-message="error">
+    <!-- <BalField :validation-message="error">
       <BalInput v-model="myValue"></BalInput>
     </BalField>
     <BalButton @click="validate($event)">Validate</BalButton>
-    <p>{{error}}</p>
-    <!-- <hr />
-    <BalCheckbox v-model="checkbox"></BalCheckbox>
-    <br />
-    <h4>{{ checkbox }}</h4>
-    <br />
-    <hr />
-    <br />
-    <BalInput v-model="myValue"></BalInput>
-    <br />
-    <input type="text" v-model="myValue" />
-    <h4>{{ myValue }}</h4> -->
+    <p>{{ error }}</p>
+    <hr /> -->
+    <BalSelect
+      remote
+      typeahead
+      placeholder="Start typing"
+      :loading="loading"
+      :options="options"
+      @balInput="onSelectInput($event)"
+    ></BalSelect>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { BalInput, BalCheckbox, BalField, BalButton } from '@baloise/ui-library-next-vue'
+import { BalInput, BalCheckbox, BalField, BalButton, BalSelect } from '@baloise/ui-library-next-vue'
+import { BalOptionValue } from '@baloise/ui-library-next/dist/types/components/bal-select-option/bal-select-option.type'
 
 export default Vue.extend({
   name: 'App',
   data() {
     const myValue = 'start value'
     const error = 'Error Message'
+    const options: BalOptionValue<number>[] = []
+    const loading = false
     const checkbox = true
     const counter = 1
-    return { myValue, error, checkbox, counter }
+    return { myValue, error, checkbox, counter, options, loading }
   },
   methods: {
     validate: function() {
       this.counter = this.counter++
       this.error = this.error + this.counter
     },
+    onSelectInput: function(searchTerm: string) {
+      console.log('onSelectInput', searchTerm)
+      this.loading = true
+      fetch('https://swapi.dev/api/people/?search=' + searchTerm)
+        .then(res => res.json())
+        .then(data => {
+          this.options = data.results.map((person: any, index: number) => ({
+            value: index,
+            text: person.name,
+          }))
+          this.loading = false
+        })
+    },
   },
-  components: { BalInput, BalCheckbox, BalField, BalButton },
+  components: { BalInput, BalCheckbox, BalField, BalButton, BalSelect },
 })
 </script>
 
@@ -47,7 +61,6 @@ export default Vue.extend({
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }

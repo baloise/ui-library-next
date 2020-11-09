@@ -104,8 +104,14 @@ export class Select {
 
   @Watch('options')
   optionsChanged() {
-    if (this.options.length === 0) {
-      this.dropdownElement.close()
+    if (this.typeahead && this.remote) {
+      if (this.options.length === 0) {
+        this.dropdownElement.close()
+      } else {
+        if (this.inputElement.value.length > 0) {
+          this.dropdownElement.open()
+        }
+      }
     }
   }
 
@@ -178,10 +184,9 @@ export class Select {
     }
     if (this.typeahead && inputValue.length === 0) {
       this.dropdownElement.close()
-    } else {
-      if (this.options.length > 0) {
-        this.dropdownElement.open()
-      }
+    }
+    if (this.typeahead && !this.remote && inputValue.length > 0) {
+      this.dropdownElement.open()
     }
   }
 
@@ -243,7 +248,7 @@ export class Select {
                 'clickable': true,
                 'is-inverted': this.inverted,
               }}
-              readonly={!this.typeahead || this.loading}
+              readonly={!this.typeahead}
               autoComplete="off"
               disabled={this.disabled}
               placeholder={this.placeholder}
