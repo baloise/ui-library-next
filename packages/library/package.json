@@ -41,7 +41,7 @@
     "@types/autoprefixer": "^9.7.2",
     "autoprefixer": "^10.0.1",
     "hirsch-angular-output-target": "0.0.6",
-    "hirsch-vue-output-target": "0.0.4"
+    "hirsch-vue-output-target": "0.0.5"
   },
   "gitHead": "722ef389df9b49212894042493cb203eb8fd8f09"
 }
