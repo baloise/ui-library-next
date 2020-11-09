@@ -129,7 +129,7 @@ export const BalCardStep = /*@__PURE__*/ Vue.extend({
     getOptions: createCommonMethod('getOptions') as Components.BalCardStep['getOptions'],
     setActive: createCommonMethod('setActive') as Components.BalCardStep['setActive'],
   },
-  render: createCommonRender('bal-card-step', ['balChange']),
+  render: createCommonRender('bal-card-step', []),
 });
 
 
@@ -147,8 +147,9 @@ export const BalCardSteps = /*@__PURE__*/ Vue.extend({
 
   methods: {
     select: createCommonMethod('select') as Components.BalCardSteps['select'],
+    sync: createCommonMethod('sync') as Components.BalCardSteps['sync'],
   },
-  render: createCommonRender('bal-card-steps', ['balChange', 'balBackClick', 'balClick']),
+  render: createCommonRender('bal-card-steps', ['balCardStepChange', 'balBackClick', 'balCardStepClick']),
 });
 
 
@@ -205,6 +206,10 @@ export const BalDropdown = /*@__PURE__*/ Vue.extend({
     isActive: {} as PropOptions<Components.BalDropdown['isActive']>,
   },
 
+  model: {
+    prop: 'is-active',
+    event: 'balCollapsed'
+  },
 
   methods: {
     open: createCommonMethod('open') as Components.BalDropdown['open'],
@@ -213,7 +218,7 @@ export const BalDropdown = /*@__PURE__*/ Vue.extend({
     getMenuElement: createCommonMethod('getMenuElement') as Components.BalDropdown['getMenuElement'],
     getContentElement: createCommonMethod('getContentElement') as Components.BalDropdown['getContentElement'],
   },
-  render: createCommonRender('bal-dropdown', ['balChange']),
+  render: createCommonRender('bal-dropdown', ['balCollapse']),
 });
 
 
