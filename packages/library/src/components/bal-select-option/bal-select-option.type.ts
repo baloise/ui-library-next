@@ -1,6 +1,7 @@
 export interface BalOptionValue<T> {
-  value: T
+  value: string
   text: string
+  data?: T
   render?(option: BalOptionValue<T>): string
 }
 
