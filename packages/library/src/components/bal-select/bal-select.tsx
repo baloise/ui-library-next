@@ -104,10 +104,14 @@ export class Select {
 
   @Watch('options')
   optionsChanged() {
-    if (this.options.length === 0) {
-      this.dropdownElement.close()
-    } else {
-      this.dropdownElement.open()
+    if (this.typeahead && this.remote) {
+      if (this.options.length === 0) {
+        this.dropdownElement.close()
+      } else {
+        if (this.inputElement.value.length > 0) {
+          this.dropdownElement.open()
+        }
+      }
     }
   }
 
@@ -180,6 +184,9 @@ export class Select {
     }
     if (this.typeahead && inputValue.length === 0) {
       this.dropdownElement.close()
+    }
+    if (this.typeahead && !this.remote && inputValue.length > 0) {
+      this.dropdownElement.open()
     }
   }
 
