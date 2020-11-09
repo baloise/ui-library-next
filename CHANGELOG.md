@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.1](https://github.com/baloise/ui-library-next/compare/v1.13.0...v1.13.1) (2020-11-09)
+
+
+### Bug Fixes
+
+* **select:** remove loading from readonly ([a351a27](https://github.com/baloise/ui-library-next/commit/a351a27de49bbc62bffda6907805c4ca505a8386))
+
+
+
+
+
 # [1.13.0](https://github.com/baloise/ui-library-next/compare/v1.12.3...v1.13.0) (2020-11-09)
 
 
