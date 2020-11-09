@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.2](https://github.com/baloise/ui-library-next/compare/v1.13.1...v1.13.2) (2020-11-09)
+
+
+### Bug Fixes
+
+* **vue:** fix select for composition api ([def0c31](https://github.com/baloise/ui-library-next/commit/def0c31102dd3bc1815fe16e53e072bc68bb62ed))
+
+
+
+
+
 ## [1.13.1](https://github.com/baloise/ui-library-next/compare/v1.13.0...v1.13.1) (2020-11-09)
 
 
