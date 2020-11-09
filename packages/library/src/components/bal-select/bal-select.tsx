@@ -106,6 +106,8 @@ export class Select {
   optionsChanged() {
     if (this.options.length === 0) {
       this.dropdownElement.close()
+    } else {
+      this.dropdownElement.open()
     }
   }
 
@@ -178,10 +180,6 @@ export class Select {
     }
     if (this.typeahead && inputValue.length === 0) {
       this.dropdownElement.close()
-    } else {
-      if (this.options.length > 0) {
-        this.dropdownElement.open()
-      }
     }
   }
 
