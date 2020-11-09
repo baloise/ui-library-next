@@ -1,4 +1,4 @@
-import { Component, h, Host, Element, Prop, State, Method, EventEmitter, Event, Watch } from '@stencil/core'
+import { Component, h, Host, Element, Prop, State, Method, EventEmitter, Event } from '@stencil/core'
 import { BalOptionValue } from '../bal-select-option/bal-select-option.type'
 
 @Component({
@@ -60,27 +60,17 @@ export class Select {
   /**
    * Selected option value.
    */
-  @Prop({ mutable: true }) value: BalOptionValue<any>
-
-  /**
-   * List of the options.
-   */
-  @Prop() options: BalOptionValue<any>[] = []
+  @Prop({ mutable: true }) value: string = ''
 
   /**
    * Emitted when a option got selected.
    */
-  @Event({ eventName: 'balChange' }) balChange!: EventEmitter<BalOptionValue<any>>
+  @Event({ eventName: 'balChange' }) balChange!: EventEmitter<string>
 
   /**
    * Emitted when a keyboard input occurred.
    */
   @Event({ eventName: 'balInput' }) balInput!: EventEmitter<string>
-
-  /**
-   * Emitted when the selection is cancelled.
-   */
-  @Event({ eventName: 'balCancel' }) balCancel!: EventEmitter<void>
 
   /**
    * Emitted when the input loses focus.
@@ -102,19 +92,9 @@ export class Select {
    */
   @Event({ eventName: 'balKeyPress' }) balKeyPress!: EventEmitter<KeyboardEvent>
 
-  @Watch('options')
-  optionsChanged() {
-    if (this.typeahead && this.remote) {
-      if (this.options.length === 0) {
-        this.dropdownElement.close()
-      } else {
-        if (this.inputElement.value.length > 0) {
-          this.dropdownElement.open()
-        }
-      }
-    }
-  }
-
+  /**
+   * Opens the dropdown
+   */
   @Method()
   async open(): Promise<void> {
     if (this.disabled) {
@@ -123,6 +103,9 @@ export class Select {
     this.dropdownElement.open()
   }
 
+  /**
+   * Closes the dropdown
+   */
   @Method()
   async close(): Promise<void> {
     if (this.disabled) {
@@ -132,13 +115,13 @@ export class Select {
   }
 
   /**
-   *
+   * Selects an option
    */
   @Method()
   async select(option: BalOptionValue<any>) {
-    this.value = option
+    this.value = option.value
     this.balChange.emit(this.value)
-    this.inputElement.value = this.value?.text
+    this.inputElement.value = option?.label
     await this.dropdownElement?.toggle()
     this.updateOptionProps()
   }
@@ -148,16 +131,27 @@ export class Select {
    */
   @Method()
   async clear() {
-    this.value = null
+    this.value = ''
     this.inputElement.value = ''
     this.updateOptionProps()
   }
 
+  /**
+   * Sets the focus on the input element
+   */
   @Method()
   async setFocus() {
     if (this.inputElement) {
       this.inputElement.focus()
     }
+  }
+
+  /**
+   * *Internal* - Used to update option changes
+   */
+  @Method()
+  async sync() {
+    this.updateOptionProps()
   }
 
   private async onInputClick(event: MouseEvent) {
@@ -178,14 +172,15 @@ export class Select {
 
   private onInput(event: InputEvent) {
     const inputValue = (event.target as HTMLInputElement).value
+    this.value = ''
+    this.balChange.emit(this.value)
     this.balInput.emit(inputValue)
-    if (!this.remote) {
-      this.updateOptionProps()
-    }
+    this.updateOptionProps()
+
     if (this.typeahead && inputValue.length === 0) {
       this.dropdownElement.close()
     }
-    if (this.typeahead && !this.remote && inputValue.length > 0) {
+    if (this.typeahead && inputValue.length > 0) {
       this.dropdownElement.open()
     }
   }
@@ -194,11 +189,11 @@ export class Select {
     const inputValue = this.inputElement.value
     this.childOptions.forEach(option => {
       if (!this.remote && this.typeahead) {
-        const didMatch = this.compareForFilter(`${option.value.text}` || '', `${inputValue}`)
+        const didMatch = this.compareForFilter(`${option.label}` || '', `${inputValue}`)
         option.setAttribute('hidden', `${!didMatch}`)
       }
 
-      const isSelected = !!this.value && this.value.key === option.value.key
+      const isSelected = !!this.value && this.value === option.value
       option.setAttribute('selected', `${isSelected}`)
     })
   }
@@ -223,13 +218,13 @@ export class Select {
 
   private async scrollToText(input: string) {
     const dropdownContentElement = await this.dropdownElement.getContentElement()
-    const optionElement = this.childOptions.find(o => this.compareForFilter(o.value.text, input))
+    const optionElement = this.childOptions.find(o => this.compareForFilter(o.label, input))
     if (optionElement) {
       dropdownContentElement.scrollTop = optionElement.offsetTop
     }
   }
 
-  private get childOptions() {
+  private get childOptions(): HTMLBalSelectOptionElement[] {
     return Array.from(this.element.querySelectorAll('bal-select-option'))
   }
 
@@ -252,7 +247,6 @@ export class Select {
               autoComplete="off"
               disabled={this.disabled}
               placeholder={this.placeholder}
-              value={this.value?.text}
               onInput={e => this.onInput(e as any)}
               onClick={e => this.onInputClick(e)}
               onKeyPress={e => this.onKeyPress(e)}
@@ -269,9 +263,7 @@ export class Select {
               name={this.loading ? 'refresh' : this.typeahead ? 'search' : 'caret-down'}
             />
           </div>
-          {this.options.map(option => (
-            <bal-select-option value={option}></bal-select-option>
-          ))}
+          <slot></slot>
         </bal-dropdown>
       </Host>
     )

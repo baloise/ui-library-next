@@ -327,23 +327,21 @@ export class BalInput {
 import { Select as ISelect } from '@baloise/ui-library-next/dist/types/components/bal-select/bal-select';
 export declare interface BalSelect extends Components.BalSelect {}
 @ProxyCmp({
-  inputs: ['disabled', 'expanded', 'inverted', 'loading', 'options', 'placeholder', 'remote', 'scrollable', 'typeahead', 'value'],
-  methods: ['open', 'close', 'select', 'clear', 'setFocus']
+  inputs: ['disabled', 'expanded', 'inverted', 'loading', 'placeholder', 'remote', 'scrollable', 'typeahead', 'value'],
+  methods: ['open', 'close', 'select', 'clear', 'setFocus', 'sync']
 })
 @Component({
   selector: 'bal-select',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['disabled', 'expanded', 'inverted', 'loading', 'options', 'placeholder', 'remote', 'scrollable', 'typeahead', 'value'],
-  outputs: ['balChange', 'balInput', 'balCancel', 'balBlur', 'balFocus', 'balClick', 'balKeyPress']
+  inputs: ['disabled', 'expanded', 'inverted', 'loading', 'placeholder', 'remote', 'scrollable', 'typeahead', 'value'],
+  outputs: ['balChange', 'balInput', 'balBlur', 'balFocus', 'balClick', 'balKeyPress']
 })
 export class BalSelect {
   /** Emitted when a option got selected. */
   balChange!: ISelect['balChange'];
   /** Emitted when a keyboard input occurred. */
   balInput!: ISelect['balInput'];
-  /** Emitted when the selection is cancelled. */
-  balCancel!: ISelect['balCancel'];
   /** Emitted when the input loses focus. */
   balBlur!: ISelect['balBlur'];
   /** Emitted when the input has focus. */
@@ -356,20 +354,20 @@ export class BalSelect {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balChange', 'balInput', 'balCancel', 'balBlur', 'balFocus', 'balClick', 'balKeyPress']);
+    proxyOutputs(this, this.el, ['balChange', 'balInput', 'balBlur', 'balFocus', 'balClick', 'balKeyPress']);
   }
 }
 
 
 export declare interface BalSelectOption extends Components.BalSelectOption {}
 @ProxyCmp({
-  inputs: ['focused', 'hidden', 'icon', 'selected', 'value']
+  inputs: ['focused', 'hidden', 'icon', 'label', 'selected', 'value']
 })
 @Component({
   selector: 'bal-select-option',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['focused', 'hidden', 'icon', 'selected', 'value']
+  inputs: ['focused', 'hidden', 'icon', 'label', 'selected', 'value']
 })
 export class BalSelectOption {
   protected el: HTMLElement;

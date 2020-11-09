@@ -1,14 +1,13 @@
 export interface BalOptionValue<T> {
-  key: string
-  text: string
+  value: string
+  label: string
   data?: T
-  render?(option: BalOptionValue<T>): string
 }
 
-export const NewBalOptionValue = <T>(key: T, text: string, render?: (option: BalOptionValue<T>) => string) => {
+export const NewBalOptionValue = <T>(value: T, label: string, data?: any) => {
   return {
-    key,
-    text,
-    render,
+    value,
+    label,
+    data,
   }
 }

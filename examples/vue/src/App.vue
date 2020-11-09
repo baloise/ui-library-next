@@ -56,7 +56,7 @@ export default Vue.extend({
         .then(res => res.json())
         .then(data => {
           this.options = data.results.map((person: any, index: number) => ({
-            value: index,
+            key: index,
             text: person.name,
           }))
           this.loading = false
