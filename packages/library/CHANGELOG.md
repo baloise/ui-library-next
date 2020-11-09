@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.1](https://github.com/baloise/ui-library-next/compare/v1.12.0...v1.12.1) (2020-11-09)
+
+
+### Bug Fixes
+
+* **vue:** array binding ([d879bb0](https://github.com/baloise/ui-library-next/commit/d879bb0c237da3b1abaf2e5d2e99b4a5a68284d4))
+
+
+
+
+
 # [1.12.0](https://github.com/baloise/ui-library-next/compare/v1.11.1...v1.12.0) (2020-11-09)
 
 
