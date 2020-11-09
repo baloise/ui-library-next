@@ -248,7 +248,7 @@ export class Select {
                 'clickable': true,
                 'is-inverted': this.inverted,
               }}
-              readonly={!this.typeahead || this.loading}
+              readonly={!this.typeahead}
               autoComplete="off"
               disabled={this.disabled}
               placeholder={this.placeholder}
