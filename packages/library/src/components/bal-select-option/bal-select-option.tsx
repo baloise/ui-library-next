@@ -8,14 +8,20 @@ import { BalOptionValue } from './bal-select-option.type'
   scoped: true,
 })
 export class SelectOption {
-  private inputId = `ion-selopt-${selectOptionIds++}`
+  private inputId = `bal-selopt-${selectOptionIds++}`
+  private parent!: HTMLBalSelectElement
 
   @Element() element!: HTMLElement
 
   /**
    * The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element.
    */
-  @Prop() value: BalOptionValue<any>
+  @Prop() value: string
+
+  /**
+   * Label will be shown in the input element when it got selected
+   */
+  @Prop() label: string
 
   /**
    * If `true` the option is hidden
@@ -37,12 +43,24 @@ export class SelectOption {
    */
   @Prop() selected = false
 
-  get parent(): HTMLBalSelectElement {
-    return this.element.closest('bal-select')
+  get option(): BalOptionValue<any> {
+    return {
+      value: this.value,
+      label: this.label,
+    }
+  }
+
+  connectedCallback() {
+    this.parent = this.element.closest('bal-select')
+    this.parent.sync()
+  }
+
+  disconnectedCallback() {
+    this.parent.sync()
   }
 
   private onClick() {
-    this.parent.select(this.value)
+    this.parent.select(this.option)
   }
 
   render() {
@@ -57,11 +75,7 @@ export class SelectOption {
             this.icon ? 'has-icon' : '',
           ].join(' ')}
           tabIndex={-1}>
-          {this.value.render ? (
-            <span innerHTML={this.value.render(this.value)}></span>
-          ) : (
-            <bal-text class="title">{this.value.text}</bal-text>
-          )}
+          <slot />
         </button>
       </Host>
     )

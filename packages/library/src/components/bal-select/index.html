@@ -21,11 +21,13 @@
         var selectYear = document.getElementById('bal-select-year')
         var selectYearDisabled = document.getElementById('bal-select-year-disabled')
         var buttonYear = document.getElementById('bal-select-year-clear')
-        var optionsYear = []
         for (var index = 1990; index < 2020; index++) {
-          optionsYear.push({ text: `${index}`, value: index })
+          var option = document.createElement('bal-select-option')
+          option.setAttribute('value', index)
+          option.setAttribute('label', index)
+          option.innerText = index
+          selectYear.appendChild(option)
         }
-        selectYear.options = optionsYear
         selectYear.addEventListener('balChange', function (evt) {
           selectYearDisabled.select(evt.detail)
         })
@@ -42,28 +44,32 @@
       </section>
       <script>
         var selectYearInverted = document.getElementById('bal-select-year-inverted')
-        var optionsYearInverted = []
         for (var index = 1990; index < 2020; index++) {
-          optionsYearInverted.push({ text: `${index}`, value: index })
+          var option = document.createElement('bal-select-option')
+          option.setAttribute('value', index)
+          option.setAttribute('label', index)
+          option.innerText = index
+          selectYearInverted.appendChild(option)
         }
-        selectYearInverted.options = optionsYearInverted
       </script>
 
       <h2 class="title is-size-2">Custom Option Style</h2>
       <section>
-        <bal-select id="bal-select-custom" placeholder="select a hero"></bal-select>
+        <bal-select id="bal-select-custom" placeholder="select a hero">
+          <bal-select-option value="1" label="Ant-Man">
+            <b>Ant-Man</b></br>
+            <span>San Francisco</span>
+          </bal-select-option>
+          <bal-select-option value="2" label="Spider-Man">
+            <b>The amating Spider-Man The amating Spider-Man The amating Spider-Man</b></br>
+            <span>Queens</span>
+          </bal-select-option>
+          <bal-select-option value="3" label="Iron-Man">
+            <b>Iron-Man</b></br>
+            <span>Malibu</span>
+          </bal-select-option>
+        </bal-select>
       </section>
-      <script>
-        var selectCustom = document.getElementById('bal-select-custom')
-        var renderCustom = function (data) {
-          return '<b>' + data.text + '</b></br><span>' + data.location + '</span>'
-        }
-        selectCustom.options = [
-          { text: 'Ant-Man', value: 1, location: 'San Francisco', render: renderCustom },
-          { text: 'Spider-Man', value: 2, location: 'Queens', render: renderCustom },
-          { text: 'Iron Man', value: 3, location: 'Malibu', render: renderCustom },
-        ]
-      </script>
 
       <h2 class="title is-size-2">Typeahead</h2>
       <section>
@@ -71,41 +77,63 @@
       </section>
       <script>
         var selectTypeahead = document.getElementById('bal-select-typeahead')
-        selectTypeahead.options = [
-          { text: 'Ant-Man', value: 1, location: 'San Francisco', render: renderCustom },
-          { text: 'Spider-Man', value: 2, location: 'Queens', render: renderCustom },
-          { text: 'Iron Man', value: 3, location: 'Malibu', render: renderCustom },
-          { text: 'Black Panter', value: 4, location: 'Wakanda', render: renderCustom },
-          { text: 'Black Widow', value: 5, location: 'Russia', render: renderCustom },
-          { text: 'Captain America', value: 6, location: 'Brooklyn', render: renderCustom },
-          { text: 'Captain Marvel', value: 7, location: 'Somewhere', render: renderCustom },
-          { text: 'Vision', value: 8, location: 'Scotland', render: renderCustom },
-          { text: 'Falcon', value: 9, location: 'Washington', render: renderCustom },
-          { text: 'Thor', value: 10, location: 'Asgard', render: renderCustom },
-          { text: 'Hulk', value: 11, location: 'Hidden', render: renderCustom },
-          { text: 'Hawkeye', value: 12, location: 'Shield', render: renderCustom },
-          { text: 'Doctor Strange', value: 13, location: 'Manhatten', render: renderCustom },
-          { text: 'Wasp', value: 14, location: 'San Francisco', render: renderCustom },
+        var heros = [
+          { label: 'Ant-Man', value: 1, location: 'San Francisco' },
+          { label: 'Spider-Man', value: 2, location: 'Queens' },
+          { label: 'Iron Man', value: 3, location: 'Malibu' },
+          { label: 'Black Panter', value: 4, location: 'Wakanda' },
+          { label: 'Black Widow', value: 5, location: 'Russia' },
+          { label: 'Captain America', value: 6, location: 'Brooklyn' },
+          { label: 'Captain Marvel', value: 7, location: 'Somewhere' },
+          { label: 'Vision', value: 8, location: 'Scotland' },
+          { label: 'Falcon', value: 9, location: 'Washington' },
+          { label: 'Thor', value: 10, location: 'Asgard' },
+          { label: 'Hulk', value: 11, location: 'Hidden' },
+          { label: 'Hawkeye', value: 12, location: 'Shield' },
+          { label: 'Doctor Strange', value: 13, location: 'Manhatten' },
+          { label: 'Wasp', value: 14, location: 'San Francisco' },
         ]
+        heros.forEach(function(hero) {
+          var option = document.createElement('bal-select-option')
+          option.setAttribute('value', hero.value)
+          option.setAttribute('label', hero.label)
+          option.innerHTML = '<b>' + hero.label + '</b></br><span>' + hero.location + '</span>'
+          selectTypeahead.appendChild(option)
+        })
+        selectTypeahead.addEventListener('balChange', function(ev){
+          console.log(ev)
+        })
       </script>
 
       <h3 class="title is-size-3">Remote</h3>
       <section>
         <bal-select id="bal-select-typeahead-remote" typeahead remote placeholder="start typing"></bal-select>
+        <p class="help" id="bal-select-typeahead-remote-help"></p>
       </section>
       <script>
         var selectTypeaheadRemote = document.getElementById('bal-select-typeahead-remote')
-        selectTypeaheadRemote.options = []
+        var selectTypeaheadRemoteHelp = document.getElementById('bal-select-typeahead-remote-help')
+        selectTypeaheadRemote.addEventListener('balChange', function (event) {
+          selectTypeaheadRemoteHelp.innerHTML = event.detail
+        })
         selectTypeaheadRemote.addEventListener('balInput', function (event) {
           var search = event.detail
           selectTypeaheadRemote.loading = true
           fetch('https://swapi.dev/api/people/?search=' + search)
             .then(res => res.json())
             .then(data => {
-              selectTypeaheadRemote.options = data.results.map((person, index) => ({
-                value: index,
-                text: person.name,
-              }))
+              console.log(selectTypeaheadRemote.querySelectorAll('bal-select-option'))
+              selectTypeaheadRemote.querySelectorAll('bal-select-option')
+                .forEach(function(element) {
+                  element.parentNode.removeChild(element)
+                })
+              data.results.forEach((person) => {
+                var option = document.createElement('bal-select-option')
+                option.setAttribute('value', person.url)
+                option.setAttribute('label', person.name)
+                option.innerHTML = person.name
+                selectTypeaheadRemote.querySelector('.dropdown-content').appendChild(option)
+              })
               selectTypeaheadRemote.loading = false
             })
         })

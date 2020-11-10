@@ -4,6 +4,7 @@
 
 :host {
   display: block;
+  font-family: $family-primary !important;
 
   a.dropdown-item,
   button.dropdown-item {

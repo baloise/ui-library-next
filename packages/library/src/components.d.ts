@@ -624,6 +624,9 @@ export namespace Components {
           * Sets the value to null and resets the value of the input.
          */
         "clear": () => Promise<void>;
+        /**
+          * Closes the dropdown
+         */
         "close": () => Promise<void>;
         /**
           * If `true` the component is diabled.
@@ -641,11 +644,10 @@ export namespace Components {
           * If `true` the component shows a loading spinner and sets the input to readonly.
          */
         "loading": boolean;
-        "open": () => Promise<void>;
         /**
-          * List of the options.
+          * Opens the dropdown
          */
-        "options": BalOptionValue<any>[];
+        "open": () => Promise<void>;
         /**
           * Defines the placeholder of the input element.
          */
@@ -658,8 +660,18 @@ export namespace Components {
           * Defines the height of the dropdown list.
          */
         "scrollable": number;
+        /**
+          * Selects an option
+         */
         "select": (option: BalOptionValue<any>) => Promise<void>;
+        /**
+          * Sets the focus on the input element
+         */
         "setFocus": () => Promise<void>;
+        /**
+          * *Internal* - Used to update option changes
+         */
+        "sync": () => Promise<void>;
         /**
           * If `true` the user can search by typing into the input field.
          */
@@ -667,7 +679,7 @@ export namespace Components {
         /**
           * Selected option value.
          */
-        "value": BalOptionValue<any>;
+        "value": string;
     }
     interface BalSelectOption {
         /**
@@ -683,13 +695,17 @@ export namespace Components {
          */
         "icon": string;
         /**
+          * Label will be shown in the input element when it got selected
+         */
+        "label": string;
+        /**
           * If `true` the option is selected
          */
         "selected": boolean;
         /**
           * The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element.
          */
-        "value": BalOptionValue<any>;
+        "value": string;
     }
     interface BalSpinner {
         /**
@@ -1723,13 +1739,9 @@ declare namespace LocalJSX {
          */
         "onBalBlur"?: (event: CustomEvent<FocusEvent>) => void;
         /**
-          * Emitted when the selection is cancelled.
-         */
-        "onBalCancel"?: (event: CustomEvent<void>) => void;
-        /**
           * Emitted when a option got selected.
          */
-        "onBalChange"?: (event: CustomEvent<BalOptionValue<any>>) => void;
+        "onBalChange"?: (event: CustomEvent<string>) => void;
         /**
           * Emitted when the input got clicked.
          */
@@ -1746,10 +1758,6 @@ declare namespace LocalJSX {
           * Emitted when the input has focus and key from the keyboard go hit.
          */
         "onBalKeyPress"?: (event: CustomEvent<KeyboardEvent>) => void;
-        /**
-          * List of the options.
-         */
-        "options"?: BalOptionValue<any>[];
         /**
           * Defines the placeholder of the input element.
          */
@@ -1769,7 +1777,7 @@ declare namespace LocalJSX {
         /**
           * Selected option value.
          */
-        "value"?: BalOptionValue<any>;
+        "value"?: string;
     }
     interface BalSelectOption {
         /**
@@ -1785,13 +1793,17 @@ declare namespace LocalJSX {
          */
         "icon"?: string;
         /**
+          * Label will be shown in the input element when it got selected
+         */
+        "label"?: string;
+        /**
           * If `true` the option is selected
          */
         "selected"?: boolean;
         /**
           * The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element.
          */
-        "value"?: BalOptionValue<any>;
+        "value"?: string;
     }
     interface BalSpinner {
         /**

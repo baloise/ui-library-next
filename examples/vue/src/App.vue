@@ -10,49 +10,69 @@
       remote
       typeahead
       placeholder="Start typing"
+      v-model="selectedOption"
       :loading="loading"
-      :options="options"
       @balInput="onSelectInput($event)"
-    ></BalSelect>
+    >
+      <BalSelectOption v-for="option in options" :key="option.value" :value="option.value" :label="option.label">
+        {{ option.label }}
+      </BalSelectOption>
+    </BalSelect>
+    <p>{{ selectedOption }}</p>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { BalInput, BalCheckbox, BalField, BalButton, BalSelect } from '@baloise/ui-library-next-vue'
-import { BalOptionValue } from '@baloise/ui-library-next/dist/types/components/bal-select-option/bal-select-option.type'
+import { BalInput, BalCheckbox, BalField, BalButton, BalSelect, BalSelectOption } from '@baloise/ui-library-next-vue'
+import { BalOptionValue } from '@baloise/ui-library-next'
+
+export const NewBalOptionValue = <T>(value: T, label: string, data?: any) => {
+  return {
+    value,
+    label,
+    data,
+  }
+}
 
 export default Vue.extend({
   name: 'App',
   data() {
-    const myValue = 'start value'
-    const error = 'Error Message'
-    const options: BalOptionValue<number>[] = []
+    const options: BalOptionValue<any>[] = []
+    const selectedOption = ''
     const loading = false
-    const checkbox = true
-    const counter = 1
-    return { myValue, error, checkbox, counter, options, loading }
+    // const myValue = 'start value'
+    // const error = 'Error Message'
+    // const checkbox = true
+    // const counter = 1
+    return { options, loading, selectedOption }
+  },
+  watch: {
+    selectedOption: function() {
+      console.log('selectedOption', this.selectedOption)
+    },
   },
   methods: {
-    validate: function() {
-      this.counter = this.counter++
-      this.error = this.error + this.counter
+    // validate: function() {
+    //   this.counter = this.counter++
+    //   this.error = this.error + this.counter
+    // },
+    onChange: function(event: any) {
+      console.log('change', event)
     },
     onSelectInput: function(searchTerm: string) {
-      console.log('onSelectInput', searchTerm)
       this.loading = true
       fetch('https://swapi.dev/api/people/?search=' + searchTerm)
         .then(res => res.json())
         .then(data => {
-          this.options = data.results.map((person: any, index: number) => ({
-            value: index,
-            text: person.name,
-          }))
+          this.options = data.results.map((person: any, index: number) =>
+            NewBalOptionValue(person.url, person.name, person),
+          )
           this.loading = false
         })
     },
   },
-  components: { BalInput, BalCheckbox, BalField, BalButton, BalSelect },
+  components: { BalInput, BalCheckbox, BalField, BalButton, BalSelect, BalSelectOption },
 })
 </script>
 

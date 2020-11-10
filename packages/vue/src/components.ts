@@ -588,7 +588,6 @@ export const BalSelect = /*@__PURE__*/ Vue.extend({
     placeholder: {} as PropOptions<Components.BalSelect['placeholder']>,
     scrollable: {} as PropOptions<Components.BalSelect['scrollable']>,
     value: {} as PropOptions<Components.BalSelect['value']>,
-    options: {} as PropOptions<Components.BalSelect['options']>,
   },
 
   model: {
@@ -602,8 +601,9 @@ export const BalSelect = /*@__PURE__*/ Vue.extend({
     select: createCommonMethod('select') as Components.BalSelect['select'],
     clear: createCommonMethod('clear') as Components.BalSelect['clear'],
     setFocus: createCommonMethod('setFocus') as Components.BalSelect['setFocus'],
+    sync: createCommonMethod('sync') as Components.BalSelect['sync'],
   },
-  render: createCommonRender('bal-select', ['balChange', 'balInput', 'balCancel', 'balBlur', 'balFocus', 'balClick', 'balKeyPress']),
+  render: createCommonRender('bal-select', ['balChange', 'balInput', 'balBlur', 'balFocus', 'balClick', 'balKeyPress']),
 });
 
 
@@ -611,6 +611,7 @@ export const BalSelectOption = /*@__PURE__*/ Vue.extend({
 
   props: {
     value: {} as PropOptions<Components.BalSelectOption['value']>,
+    label: {} as PropOptions<Components.BalSelectOption['label']>,
     hidden: {} as PropOptions<Components.BalSelectOption['hidden']>,
     icon: {} as PropOptions<Components.BalSelectOption['icon']>,
     focused: {} as PropOptions<Components.BalSelectOption['focused']>,

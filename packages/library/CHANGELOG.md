@@ -3,6 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.2](https://github.com/baloise/ui-library-next/compare/v1.14.1...v1.14.2) (2020-11-10)
+
+
+### Bug Fixes
+
+* **card-steps:** improve go back label position ([9e1e4e5](https://github.com/baloise/ui-library-next/commit/9e1e4e541e402229c755f956a1fffa9fa1ba9568))
+
+
+
+
+
+## [1.14.1](https://github.com/baloise/ui-library-next/compare/v1.14.0...v1.14.1) (2020-11-10)
+
+
+### Bug Fixes
+
+* **select:** fix parent catching ([ccfeed3](https://github.com/baloise/ui-library-next/commit/ccfeed33acab79286e78253fc3274a3df57d6844))
+
+
+
+
+
+# [1.14.0](https://github.com/baloise/ui-library-next/compare/v1.13.2...v1.14.0) (2020-11-09)
+
+
+### Features
+
+* **select:** back to the old way ([a93c06f](https://github.com/baloise/ui-library-next/commit/a93c06fcf53e11a746d14ed495bb4c9d30ca3f3e))
+
+
+
+
+
+## [1.13.2](https://github.com/baloise/ui-library-next/compare/v1.13.1...v1.13.2) (2020-11-09)
+
+
+### Bug Fixes
+
+* **vue:** fix select for composition api ([def0c31](https://github.com/baloise/ui-library-next/commit/def0c31102dd3bc1815fe16e53e072bc68bb62ed))
+
+
+
+
+
 ## [1.13.1](https://github.com/baloise/ui-library-next/compare/v1.13.0...v1.13.1) (2020-11-09)
 
 
