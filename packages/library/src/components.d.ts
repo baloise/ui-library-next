@@ -456,6 +456,9 @@ export namespace Components {
           * Baloise icon as a prefix
          */
         "icon": string;
+        /**
+          * Label will be shown in the input element when it got selected
+         */
         "label": string;
         /**
           * If `true` the option is selected
@@ -1072,6 +1075,9 @@ declare namespace LocalJSX {
           * Baloise icon as a prefix
          */
         "icon"?: string;
+        /**
+          * Label will be shown in the input element when it got selected
+         */
         "label"?: string;
         /**
           * If `true` the option is selected

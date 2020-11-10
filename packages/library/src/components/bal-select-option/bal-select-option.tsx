@@ -19,7 +19,7 @@ export class SelectOption {
   @Prop() value: string
 
   /**
-   *
+   * Label will be shown in the input element when it got selected
    */
   @Prop() label: string
 
