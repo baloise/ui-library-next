@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.2](https://github.com/baloise/ui-library-next/compare/v1.14.1...v1.14.2) (2020-11-10)
+
+
+### Bug Fixes
+
+* **card-steps:** improve go back label position ([9e1e4e5](https://github.com/baloise/ui-library-next/commit/9e1e4e541e402229c755f956a1fffa9fa1ba9568))
+
+
+
+
+
 ## [1.14.1](https://github.com/baloise/ui-library-next/compare/v1.14.0...v1.14.1) (2020-11-10)
 
 
