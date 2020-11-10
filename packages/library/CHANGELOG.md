@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.1](https://github.com/baloise/ui-library-next/compare/v1.14.0...v1.14.1) (2020-11-10)
+
+
+### Bug Fixes
+
+* **select:** fix parent catching ([ccfeed3](https://github.com/baloise/ui-library-next/commit/ccfeed33acab79286e78253fc3274a3df57d6844))
+
+
+
+
+
 # [1.14.0](https://github.com/baloise/ui-library-next/compare/v1.13.2...v1.14.0) (2020-11-09)
 
 
