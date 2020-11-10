@@ -9,6 +9,7 @@ import { BalOptionValue } from './bal-select-option.type'
 })
 export class SelectOption {
   private inputId = `bal-selopt-${selectOptionIds++}`
+  private parent!: HTMLBalSelectElement
 
   @Element() element!: HTMLElement
 
@@ -42,10 +43,6 @@ export class SelectOption {
    */
   @Prop() selected = false
 
-  get parent(): HTMLBalSelectElement {
-    return this.element.closest('bal-select')
-  }
-
   get option(): BalOptionValue<any> {
     return {
       value: this.value,
@@ -54,6 +51,7 @@ export class SelectOption {
   }
 
   connectedCallback() {
+    this.parent = this.element.closest('bal-select')
     this.parent.sync()
   }
 
