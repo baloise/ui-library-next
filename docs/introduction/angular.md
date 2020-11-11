@@ -5,8 +5,8 @@
 After creating a project with ng-cli install the following libraries.
 
 ```bash
-npm install @baloise/ui-library --save
-npm install @baloise/ui-library-angular --save
+npm install @baloise/ui-library-next --save
+npm install @baloise/ui-library-next-angular --save
 ```
 
 ## Add Module

@@ -5,8 +5,8 @@
 After creating a project with vue-cli or custom-made (usually Webpack) install the following libraries.
 
 ```bash
-npm install @baloise/ui-library --save
-npm install @baloise/ui-library-vue --save
+npm install @baloise/ui-library-next --save
+npm install @baloise/ui-library-next-vue --save
 ```
 
 ## Add Plugin

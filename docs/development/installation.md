@@ -39,8 +39,8 @@ Here is an example of the release type that will be done based on a commit messa
 To start building a new web component using Stencil, clone this repo to a new directory:
 
 ```bash
-git clone https://github.com/baloise/ui-library.git ui-library
-cd ui-library
+git clone https://github.com/baloise/ui-library-next.git ui-library-next
+cd ui-library-next
 ```
 
 and run:

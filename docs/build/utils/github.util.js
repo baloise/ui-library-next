@@ -2,7 +2,7 @@ const { NEWLINE } = require('../constants')
 
 const parseGithub = (component) => {
     const lines = []
-    const githubBaseUrl = `https://github.com/baloise/ui-library/blob/master/packages/library/src/components/${component.tag}`
+    const githubBaseUrl = `https://github.com/baloise/ui-library-next/blob/master/packages/library/src/components/${component.tag}`
     const editHtml = `[:memo: Edit this page on Github](${githubBaseUrl}/index.html)`
     const editExamples = `[:notebook: Improve or fix the examples on Github](${githubBaseUrl}/readme.md)`
     lines.push('')
