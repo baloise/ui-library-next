@@ -32,7 +32,8 @@
   },
   "dependencies": {
     "@stencil/core": "^2.0.1",
-    "bulma": "^0.9.0"
+    "bulma": "^0.9.0",
+    "filesize.js": "^2.0.0"
   },
   "license": "MIT",
   "devDependencies": {

@@ -279,6 +279,40 @@ export namespace Components {
     }
     interface BalDataValue {
     }
+    interface BalDatepicker {
+        /**
+          * If `true` the component is diabled.
+         */
+        "disabled": boolean;
+        /**
+          * If `true` the component uses the whole width.
+         */
+        "expanded": boolean;
+        /**
+          * Set this to `true` when the component is placed on a dark background.
+         */
+        "inverted": boolean;
+        /**
+          * If `true` the component uses the whole width.
+         */
+        "locale": 'en' | 'de' | 'fr' | 'it';
+        /**
+          * Latest year available for selection
+         */
+        "maxYearProp": number | undefined;
+        /**
+          * Earliest year available for selection
+         */
+        "minYearProp": number | undefined;
+        /**
+          * Defines the placeholder of the input element.
+         */
+        "placeholder": string;
+        /**
+          * Selected option value.
+         */
+        "value": any;
+    }
     interface BalDropdown {
         /**
           * Closes the dropdown menu.
@@ -896,6 +930,12 @@ declare global {
         prototype: HTMLBalDataValueElement;
         new (): HTMLBalDataValueElement;
     };
+    interface HTMLBalDatepickerElement extends Components.BalDatepicker, HTMLStencilElement {
+    }
+    var HTMLBalDatepickerElement: {
+        prototype: HTMLBalDatepickerElement;
+        new (): HTMLBalDatepickerElement;
+    };
     interface HTMLBalDropdownElement extends Components.BalDropdown, HTMLStencilElement {
     }
     var HTMLBalDropdownElement: {
@@ -1081,6 +1121,7 @@ declare global {
         "bal-data-item": HTMLBalDataItemElement;
         "bal-data-label": HTMLBalDataLabelElement;
         "bal-data-value": HTMLBalDataValueElement;
+        "bal-datepicker": HTMLBalDatepickerElement;
         "bal-dropdown": HTMLBalDropdownElement;
         "bal-field": HTMLBalFieldElement;
         "bal-file-upload": HTMLBalFileUploadElement;
@@ -1379,6 +1420,56 @@ declare namespace LocalJSX {
         "required"?: boolean;
     }
     interface BalDataValue {
+    }
+    interface BalDatepicker {
+        /**
+          * If `true` the component is diabled.
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true` the component uses the whole width.
+         */
+        "expanded"?: boolean;
+        /**
+          * Set this to `true` when the component is placed on a dark background.
+         */
+        "inverted"?: boolean;
+        /**
+          * If `true` the component uses the whole width.
+         */
+        "locale"?: 'en' | 'de' | 'fr' | 'it';
+        /**
+          * Latest year available for selection
+         */
+        "maxYearProp"?: number | undefined;
+        /**
+          * Earliest year available for selection
+         */
+        "minYearProp"?: number | undefined;
+        /**
+          * Emitted when the input loses focus.
+         */
+        "onBalBlur"?: (event: CustomEvent<FocusEvent>) => void;
+        /**
+          * Emitted when a option got selected.
+         */
+        "onBalChange"?: (event: CustomEvent<any>) => void;
+        /**
+          * Emitted when the input has focus.
+         */
+        "onBalFocus"?: (event: CustomEvent<FocusEvent>) => void;
+        /**
+          * Emitted when a keyboard input occurred.
+         */
+        "onBalInput"?: (event: CustomEvent<string>) => void;
+        /**
+          * Defines the placeholder of the input element.
+         */
+        "placeholder"?: string;
+        /**
+          * Selected option value.
+         */
+        "value"?: any;
     }
     interface BalDropdown {
         /**
@@ -1904,6 +1995,7 @@ declare namespace LocalJSX {
         "bal-data-item": BalDataItem;
         "bal-data-label": BalDataLabel;
         "bal-data-value": BalDataValue;
+        "bal-datepicker": BalDatepicker;
         "bal-dropdown": BalDropdown;
         "bal-field": BalField;
         "bal-file-upload": BalFileUpload;
@@ -1954,6 +2046,7 @@ declare module "@stencil/core" {
             "bal-data-item": LocalJSX.BalDataItem & JSXBase.HTMLAttributes<HTMLBalDataItemElement>;
             "bal-data-label": LocalJSX.BalDataLabel & JSXBase.HTMLAttributes<HTMLBalDataLabelElement>;
             "bal-data-value": LocalJSX.BalDataValue & JSXBase.HTMLAttributes<HTMLBalDataValueElement>;
+            "bal-datepicker": LocalJSX.BalDatepicker & JSXBase.HTMLAttributes<HTMLBalDatepickerElement>;
             "bal-dropdown": LocalJSX.BalDropdown & JSXBase.HTMLAttributes<HTMLBalDropdownElement>;
             "bal-field": LocalJSX.BalField & JSXBase.HTMLAttributes<HTMLBalFieldElement>;
             "bal-file-upload": LocalJSX.BalFileUpload & JSXBase.HTMLAttributes<HTMLBalFileUploadElement>;
