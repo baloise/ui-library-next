@@ -319,7 +319,7 @@ export namespace Components {
          */
         "size": 'small' | 'medium' | 'large' | '';
         /**
-          * If `true` the icon rotates like for a loading spinner
+          * If `true` the icon is rotated 180deg
          */
         "turn": boolean;
     }
@@ -923,7 +923,7 @@ declare namespace LocalJSX {
          */
         "size"?: 'small' | 'medium' | 'large' | '';
         /**
-          * If `true` the icon rotates like for a loading spinner
+          * If `true` the icon is rotated 180deg
          */
         "turn"?: boolean;
     }
@@ -1022,6 +1022,10 @@ declare namespace LocalJSX {
           * Emitted when the input loses focus.
          */
         "onBalBlur"?: (event: CustomEvent<FocusEvent>) => void;
+        /**
+          * Emitted when the user cancels the input.
+         */
+        "onBalCancel"?: (event: CustomEvent<KeyboardEvent>) => void;
         /**
           * Emitted when a option got selected.
          */
