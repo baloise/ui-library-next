@@ -1,5 +1,6 @@
-import { Component, Element, h, Host, Prop } from '@stencil/core'
+import { Component, Element, h, Host, Method, Prop } from '@stencil/core'
 import { BalOptionValue } from './bal-select-option.type'
+import { NewBalOptionValue } from './bal-select-option.util'
 
 @Component({
   tag: 'bal-select-option',
@@ -43,11 +44,13 @@ export class SelectOption {
    */
   @Prop() selected = false
 
+  @Method()
+  async getOption() {
+    return this.option
+  }
+
   get option(): BalOptionValue<any> {
-    return {
-      value: this.value,
-      label: this.label,
-    }
+    return NewBalOptionValue(this.value, this.label)
   }
 
   connectedCallback() {

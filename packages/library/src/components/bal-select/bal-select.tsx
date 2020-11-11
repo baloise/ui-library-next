@@ -15,7 +15,7 @@ export class Select {
   @Element() element!: HTMLElement
 
   @State() isDropdownOpen: boolean = false
-  @State() textToScrollTo: string = ''
+  @State() labelToScrollTo: string = ''
 
   /**
    * If `true` the filtering of the options is done outside of the component.
@@ -154,6 +154,10 @@ export class Select {
     this.updateOptionProps()
   }
 
+  private get childOptions(): HTMLBalSelectOptionElement[] {
+    return Array.from(this.element.querySelectorAll('bal-select-option'))
+  }
+
   private async onInputClick(event: MouseEvent) {
     if (this.disabled) {
       return undefined
@@ -205,27 +209,45 @@ export class Select {
   }
 
   private onKeyPress(event: KeyboardEvent) {
+    console.log(event)
     this.balKeyPress.emit(event)
-    if (!this.typeahead) {
-      this.textToScrollTo = this.textToScrollTo + event.key
-      clearTimeout(this.clearScrollToValue)
-      this.clearScrollToValue = setTimeout(() => {
-        this.scrollToText(this.textToScrollTo)
-        this.textToScrollTo = ''
-      }, 600)
+    if (!this.typeahead && event.key.length === 1) {
+      this.focusOptionByLabel(event.key)
+    }
+    if (event.key === 'Enter') {
+      this.selectFocused()
     }
   }
 
-  private async scrollToText(input: string) {
+  private async selectFocused() {
+    const focusedElement: HTMLBalSelectOptionElement = this.childOptions.find(o => o.focused)
+    if (focusedElement) {
+      const option = await focusedElement.getOption()
+      this.select(option)
+    }
+  }
+
+  private focusOptionByLabel(key: string) {
+    this.labelToScrollTo = this.labelToScrollTo + key
+    clearTimeout(this.clearScrollToValue)
+    this.clearScrollToValue = setTimeout(() => {
+      this.scrollToLabel(this.labelToScrollTo)
+      this.labelToScrollTo = ''
+    }, 600)
+  }
+
+  private async scrollToLabel(input: string) {
     const dropdownContentElement = await this.dropdownElement.getContentElement()
     const optionElement = this.childOptions.find(o => this.compareForFilter(o.label, input))
     if (optionElement) {
       dropdownContentElement.scrollTop = optionElement.offsetTop
+      this.focusOptionElement(optionElement)
     }
   }
 
-  private get childOptions(): HTMLBalSelectOptionElement[] {
-    return Array.from(this.element.querySelectorAll('bal-select-option'))
+  private focusOptionElement(optionElement: HTMLBalSelectOptionElement) {
+    this.childOptions.find(o => (o.focused = false))
+    optionElement.focused = true
   }
 
   render() {

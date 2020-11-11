@@ -448,6 +448,7 @@ export namespace Components {
           * If `true` the option is focused
          */
         "focused": boolean;
+        "getOption": () => Promise<BalOptionValue<any>>;
         /**
           * If `true` the option is hidden
          */
