@@ -33,7 +33,7 @@ export class Icon {
   @Prop() rotate = false
 
   /**
-   * If `true` the icon rotates like for a loading spinner
+   * If `true` the icon is rotated 180deg
    */
   @Prop() turn = false
 
