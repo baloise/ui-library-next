@@ -73,45 +73,33 @@ document.getElementById('bal-datepicker-filter-example').filter =  function (str
 
 ## Properties
 
-| Property        | Attribute         | Description                                                              | Type                        | Default                |
-| --------------- | ----------------- | ------------------------------------------------------------------------ | --------------------------- | ---------------------- |
-| `closeOnSelect` | `close-on-select` | Closes the datepicker dropdown after selection                           | `boolean`                   | `true`                 |
-| `disabled`      | `disabled`        | Disable the input                                                        | `boolean`                   | `false`                |
-| `filter`        | --                | Callback to determine which date in the datepicker should be selectable. | `(date: string) => boolean` | `(_) => true`          |
-| `formatLabel`   | --                | Callback to format or modify a changed value pefore display.             | `(date: string) => string`  | `(_) => _`             |
-| `inverted`      | `inverted`        | If `true` the datepicker can be used on blue background.                 | `boolean`                   | `false`                |
-| `language`      | `language`        | Language of the datepicker. Possible values are `de`, `fr`,`it` or `en`. | `string`                    | `"de"`                 |
-| `maxDate`       | `max-date`        | Latest date available for selection                                      | `string`                    | `""`                   |
-| `maxYear`       | `max-year`        | Latest year available for selection                                      | `string`                    | `""`                   |
-| `minDate`       | `min-date`        | Earliest date available for selection                                    | `string`                    | `""`                   |
-| `minYear`       | `min-year`        | Earliest year available for selection                                    | `string`                    | `""`                   |
-| `placeholder`   | `placeholder`     | Placeholder text to render if no date has been selected.                 | `string`                    | `"Click to select..."` |
-| `value`         | `value`           | The value of the datepicker with the format `dd.MM.yyyy`.                | `string`                    | `""`                   |
+| Property      | Attribute     | Description                                                           | Type                           | Default     |
+| ------------- | ------------- | --------------------------------------------------------------------- | ------------------------------ | ----------- |
+| `disabled`    | `disabled`    | If `true` the component is diabled.                                   | `boolean`                      | `false`     |
+| `expanded`    | `expanded`    | If `true` the component uses the whole width.                         | `boolean`                      | `false`     |
+| `inverted`    | `inverted`    | Set this to `true` when the component is placed on a dark background. | `boolean`                      | `false`     |
+| `locale`      | `locale`      | If `true` the component uses the whole width.                         | `"de" \| "en" \| "fr" \| "it"` | `'en'`      |
+| `maxYearProp` | `max-year`    | Latest year available for selection                                   | `number`                       | `undefined` |
+| `minYearProp` | `min-year`    | Earliest year available for selection                                 | `number`                       | `undefined` |
+| `placeholder` | `placeholder` | Defines the placeholder of the input element.                         | `string`                       | `''`        |
+| `value`       | --            | Selected option value.                                                | `Date`                         | `undefined` |
 
 
 ## Events
 
-| Event       | Description                                          | Type                  |
-| ----------- | ---------------------------------------------------- | --------------------- |
-| `balBlur`   | Emitted when the toggle loses focus.                 | `CustomEvent<void>`   |
-| `balChange` | Triggers when the value of the datepicker is changed | `CustomEvent<string>` |
+| Event       | Description                             | Type                      |
+| ----------- | --------------------------------------- | ------------------------- |
+| `balBlur`   | Emitted when the input loses focus.     | `CustomEvent<FocusEvent>` |
+| `balChange` | Emitted when a option got selected.     | `CustomEvent<any>`        |
+| `balFocus`  | Emitted when the input has focus.       | `CustomEvent<FocusEvent>` |
+| `balInput`  | Emitted when a keyboard input occurred. | `CustomEvent<string>`     |
 
 
 ## Methods
 
-### `close() => Promise<void>`
+### `select(date: Date) => Promise<void>`
 
-Close the datepicker dropdown
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-### `open() => Promise<void>`
-
-Open the datepicker dropdown
+Selects an option
 
 #### Returns
 
@@ -122,24 +110,16 @@ Type: `Promise<void>`
 
 ## Dependencies
 
-### Used by
-
- - [bal-datetimepicker](../datetimepicker)
-
 ### Depends on
 
-- [bal-dropdown](../dropdown)
-- [bal-icon](../icon)
+- [bal-dropdown](../bal-dropdown)
+- [bal-icon](../bal-icon)
 
 ### Graph
 ```mermaid
 graph TD;
   bal-datepicker --> bal-dropdown
   bal-datepicker --> bal-icon
-  bal-dropdown --> bal-icon
-  bal-dropdown --> bal-field
-  bal-field --> bal-icon
-  bal-datetimepicker --> bal-datepicker
   style bal-datepicker fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

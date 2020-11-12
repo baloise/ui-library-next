@@ -78,11 +78,13 @@ Type: `Promise<void>`
 
 ### Used by
 
+ - [bal-datepicker](../bal-datepicker)
  - [bal-select](../bal-select)
 
 ### Graph
 ```mermaid
 graph TD;
+  bal-datepicker --> bal-dropdown
   bal-select --> bal-dropdown
   style bal-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```

@@ -9,6 +9,14 @@
   position: relative;
 }
 
+.datepicker-trigger-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 38px;
+}
+
 .pagination {
   flex-wrap: nowrap;
 }
@@ -79,6 +87,7 @@ select {
 .datepicker-popup {
   padding: 26px 20px;
   width: 100%;
+  user-select: none;
 }
 
 .datepicker-table {
@@ -119,6 +128,10 @@ select {
       background-clip: padding-box;
       color: $blue-light-text;
       cursor: default;
+    }
+
+    &.is-disabled {
+      cursor: not-allowed;
     }
 
     &.is-selectable:hover {

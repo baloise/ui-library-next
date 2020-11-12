@@ -37,6 +37,7 @@ export interface BalOptionValue<T> {
 | Event         | Description                                                        | Type                         |
 | ------------- | ------------------------------------------------------------------ | ---------------------------- |
 | `balBlur`     | Emitted when the input loses focus.                                | `CustomEvent<FocusEvent>`    |
+| `balCancel`   | Emitted when the user cancels the input.                           | `CustomEvent<KeyboardEvent>` |
 | `balChange`   | Emitted when a option got selected.                                | `CustomEvent<string>`        |
 | `balClick`    | Emitted when the input got clicked.                                | `CustomEvent<MouseEvent>`    |
 | `balFocus`    | Emitted when the input has focus.                                  | `CustomEvent<FocusEvent>`    |

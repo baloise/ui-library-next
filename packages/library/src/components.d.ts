@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { BalCardStepOption } from "./components/bal-card-step/bal-card-step.type";
+import { BalDateCallback } from "./components/bal-datepicker/bal-datepicker.type";
 import { FileUploadRejectedFile } from "./components/bal-file-upload/bal-file-upload.type";
 import { BalOptionValue } from "./components/bal-select-option/bal-select-option.type";
 import { BalTabOption } from "./components/bal-tabs/bal-tab.type";
@@ -281,6 +282,10 @@ export namespace Components {
     }
     interface BalDatepicker {
         /**
+          * Closes the datepicker dropdown after selection
+         */
+        "closeOnSelect": boolean;
+        /**
           * If `true` the component is diabled.
          */
         "disabled": boolean;
@@ -288,6 +293,10 @@ export namespace Components {
           * If `true` the component uses the whole width.
          */
         "expanded": boolean;
+        /**
+          * Callback to determine which date in the datepicker should be selectable.
+         */
+        "filter": BalDateCallback;
         /**
           * Set this to `true` when the component is placed on a dark background.
          */
@@ -297,9 +306,17 @@ export namespace Components {
          */
         "locale": 'en' | 'de' | 'fr' | 'it';
         /**
+          * Latest date available for selection
+         */
+        "maxDate": Date;
+        /**
           * Latest year available for selection
          */
         "maxYearProp": number | undefined;
+        /**
+          * Earliest date available for selection
+         */
+        "minDate": Date;
         /**
           * Earliest year available for selection
          */
@@ -309,9 +326,17 @@ export namespace Components {
          */
         "placeholder": string;
         /**
+          * Selects an option
+         */
+        "select": (date: Date) => Promise<void>;
+        /**
+          * If `true` the datepicker only open on click of the icon
+         */
+        "triggerIcon": boolean;
+        /**
           * Selected option value.
          */
-        "value": any;
+        "value": Date;
     }
     interface BalDropdown {
         /**
@@ -1423,6 +1448,10 @@ declare namespace LocalJSX {
     }
     interface BalDatepicker {
         /**
+          * Closes the datepicker dropdown after selection
+         */
+        "closeOnSelect"?: boolean;
+        /**
           * If `true` the component is diabled.
          */
         "disabled"?: boolean;
@@ -1430,6 +1459,10 @@ declare namespace LocalJSX {
           * If `true` the component uses the whole width.
          */
         "expanded"?: boolean;
+        /**
+          * Callback to determine which date in the datepicker should be selectable.
+         */
+        "filter"?: BalDateCallback;
         /**
           * Set this to `true` when the component is placed on a dark background.
          */
@@ -1439,9 +1472,17 @@ declare namespace LocalJSX {
          */
         "locale"?: 'en' | 'de' | 'fr' | 'it';
         /**
+          * Latest date available for selection
+         */
+        "maxDate"?: Date;
+        /**
           * Latest year available for selection
          */
         "maxYearProp"?: number | undefined;
+        /**
+          * Earliest date available for selection
+         */
+        "minDate"?: Date;
         /**
           * Earliest year available for selection
          */
@@ -1467,9 +1508,13 @@ declare namespace LocalJSX {
          */
         "placeholder"?: string;
         /**
+          * If `true` the datepicker only open on click of the icon
+         */
+        "triggerIcon"?: boolean;
+        /**
           * Selected option value.
          */
-        "value"?: any;
+        "value"?: Date;
     }
     interface BalDropdown {
         /**

@@ -19,6 +19,19 @@
 | `value`    | `value`    | The value of the dropdown item. This value will be returned by the parent <bal-dropdown> element. | `string`  | `undefined` |
 
 
+## Methods
+
+### `getOption() => Promise<BalOptionValue<any>>`
+
+
+
+#### Returns
+
+Type: `Promise<BalOptionValue<any>>`
+
+
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

@@ -78,7 +78,7 @@ The proprocessing step for each SVG icon included: (done in Adobe Illustrator, b
 | `name`    | `name`     | The name of the icon without the bal-icon prefix.                           | `string`                                                                                                                              | `''`    |
 | `rotate`  | `rotate`   | If `true` the icon rotates like for a loading spinner                       | `boolean`                                                                                                                             | `false` |
 | `size`    | `size`     | Defines the size of the icon.                                               | `"" \| "large" \| "medium" \| "small"`                                                                                                | `''`    |
-| `turn`    | `turn`     | If `true` the icon rotates like for a loading spinner                       | `boolean`                                                                                                                             | `false` |
+| `turn`    | `turn`     | If `true` the icon is rotated 180deg                                        | `boolean`                                                                                                                             | `false` |
 
 
 ## Dependencies
@@ -88,6 +88,7 @@ The proprocessing step for each SVG icon included: (done in Adobe Illustrator, b
  - [bal-accordion](../bal-accordion)
  - [bal-button](../bal-button)
  - [bal-card-steps](../bal-card-steps)
+ - [bal-datepicker](../bal-datepicker)
  - [bal-field](../bal-field)
  - [bal-file-upload](../bal-file-upload)
  - [bal-pagination](../bal-pagination)
@@ -99,6 +100,7 @@ graph TD;
   bal-accordion --> bal-icon
   bal-button --> bal-icon
   bal-card-steps --> bal-icon
+  bal-datepicker --> bal-icon
   bal-field --> bal-icon
   bal-file-upload --> bal-icon
   bal-pagination --> bal-icon

@@ -12,8 +12,45 @@
     <div class="container">
       <h2 class="title is-size-2">Basic</h2>
       <section>
-        <bal-datepicker></bal-datepicker>
+        <bal-datepicker placeholder="DD.MM.YYYY" trigger-icon></bal-datepicker>
+        <bal-datepicker placeholder="DD.MM.YYYY"></bal-datepicker>
+        <bal-datepicker disabled id="datepicker-disabled"></bal-datepicker>
       </section>
+      <script>
+        var datepickerDisabled = document.getElementById('datepicker-disabled')
+        datepickerDisabled.value = new Date(1988, 7, 14)
+      </script>
+
+      <!-- <h2 class="title is-size-2">Inline</h2>
+      <section>
+        <bal-datepicker inline></bal-datepicker>
+      </section>
+
+      <h2 class="title is-size-2">Inverted & Expanded</h2>
+      <section>
+        <div class="has-background-info is-padded">
+          <bal-datepicker inverted expanded placeholder="DD.MM.YYYY"></bal-datepicker>
+        </div>
+      </section>
+
+      <h2 class="title is-size-2">i18n</h2>
+      <section>
+        <bal-datepicker placeholder="TT.MM.YYYY" locale="de"></bal-datepicker>
+      </section>
+
+      <h2 class="title is-size-2">Range & Filter</h2>
+      <section>
+        <bal-datepicker id="datepicker-range" placeholder="DD.MM.YYYY"></bal-datepicker>
+      </section>
+      <script>
+        var datepickerRange = document.getElementById('datepicker-range')
+        var today = new Date()
+        datepickerRange.minDate = new Date(today.getFullYear(), today.getMonth(), 1)
+        datepickerRange.maxDate = new Date(today.getFullYear(), today.getMonth() + 1, 0)
+        datepickerRange.filter = function (date) {
+          return date.getMonth() === today.getMonth()
+        }
+      </script> -->
     </div>
   </body>
 </html>

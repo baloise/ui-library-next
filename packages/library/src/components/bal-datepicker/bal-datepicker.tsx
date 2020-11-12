@@ -1,6 +1,20 @@
-import { Component, Host, h, Element, State, Prop, Event, EventEmitter } from '@stencil/core'
+import { Component, Host, h, Element, State, Prop, Event, EventEmitter, Method, Watch } from '@stencil/core'
 import { i18nDate } from './bal-datepicker.i18n'
-import { decreaseYear, now, year } from './bal-datepicker.util'
+import { BalCalendarCell, BalDateCallback } from './bal-datepicker.type'
+import {
+  decreaseYear,
+  isSameDay,
+  isSameMonth,
+  isSameWeek,
+  now,
+  year,
+  getFirstDayOfTheWeek,
+  day,
+  format,
+  month,
+  getLastDayOfMonth,
+  isInRange,
+} from './bal-datepicker.util'
 
 @Component({
   tag: 'bal-datepicker',
@@ -15,7 +29,7 @@ export class Datepicker {
   @Element() element!: HTMLElement
 
   @State() isDropdownOpen: boolean = false
-  @State() pointerMonth: number = 11
+  @State() pointerMonth: number = 10
   @State() pointerYear: number = 2020
   @State() pointerDay: number = 1
 
@@ -47,7 +61,27 @@ export class Datepicker {
   /**
    * Selected option value.
    */
-  @Prop({ mutable: true }) value: any
+  @Prop({ mutable: true }) value: Date
+
+  /**
+   * Latest date available for selection
+   */
+  @Prop() maxDate: Date
+
+  /**
+   * Earliest date available for selection
+   */
+  @Prop() minDate: Date
+
+  /**
+   * Closes the datepicker dropdown after selection
+   */
+  @Prop() closeOnSelect: boolean = true
+
+  /**
+   * If `true` the datepicker only open on click of the icon
+   */
+  @Prop() triggerIcon: boolean = false
 
   /**
    * Earliest year available for selection
@@ -58,6 +92,11 @@ export class Datepicker {
    * Latest year available for selection
    */
   @Prop({ attribute: 'max-year' }) maxYearProp: number | undefined = undefined
+
+  /**
+   * Callback to determine which date in the datepicker should be selectable.
+   */
+  @Prop() filter: BalDateCallback = _ => true
 
   /**
    * Emitted when a option got selected.
@@ -79,6 +118,36 @@ export class Datepicker {
    */
   @Event({ eventName: 'balFocus' }) balFocus!: EventEmitter<FocusEvent>
 
+  /**
+   * Selects an option
+   */
+  @Method()
+  async select(date: Date) {
+    this.value = new Date(date)
+    this.updateFromValue()
+    this.balChange.emit(this.value)
+    if (this.closeOnSelect) {
+      await this.dropdownElement?.toggle()
+    }
+  }
+
+  @Watch('value')
+  valueWatcher(newDate: Date, oldDate: Date) {
+    if (!isSameDay(newDate, oldDate)) {
+      this.updateFromValue()
+    }
+  }
+
+  componentWillLoad() {
+    if (this.value) {
+      setTimeout(() => this.updateFromValue(), 0)
+    }
+  }
+
+  get pointerDate(): Date {
+    return new Date(this.pointerYear, this.pointerMonth, this.pointerDay)
+  }
+
   get minYear() {
     return this.minYearProp ? this.minYearProp : decreaseYear(now(), 100)
   }
@@ -97,8 +166,48 @@ export class Datepicker {
     return translations
   }
 
-  private async onInputClick(event: MouseEvent) {
+  get firstDateOfBox(): Date {
+    const date = new Date(this.pointerYear, this.pointerMonth, 1)
+    return getFirstDayOfTheWeek(date)
+  }
+
+  get calendarGrid(): BalCalendarCell[][] {
+    let weekDatePointer = this.firstDateOfBox
+    let dayDatePointer = this.firstDateOfBox
+    let calendar = []
+    do {
+      let row = []
+      do {
+        row = [
+          ...row,
+          {
+            date: new Date(dayDatePointer),
+            dateString: format(dayDatePointer),
+            label: day(dayDatePointer).toString(),
+            isToday: isSameDay(dayDatePointer, now()),
+            isSelected: this.value && isSameDay(dayDatePointer, this.value),
+            isDisabled: !this.filter(dayDatePointer),
+            isOutdated:
+              this.pointerMonth !== dayDatePointer.getMonth() || !isInRange(dayDatePointer, this.minDate, this.maxDate),
+          } as BalCalendarCell,
+        ]
+        dayDatePointer.setDate(dayDatePointer.getDate() + 1)
+      } while (isSameWeek(dayDatePointer, weekDatePointer))
+      calendar = [...calendar, row]
+      weekDatePointer.setDate(weekDatePointer.getDate() + 7)
+    } while (isSameMonth(this.pointerDate, dayDatePointer))
+    return calendar
+  }
+
+  private async onIconClick(event: MouseEvent) {
     this.dropdownElement.toggle()
+    event.stopPropagation()
+  }
+
+  private async onInputClick(event: MouseEvent) {
+    if (!this.triggerIcon) {
+      this.dropdownElement.toggle()
+    }
     event.stopPropagation()
   }
 
@@ -109,9 +218,40 @@ export class Datepicker {
 
   private onInput(event: InputEvent) {
     const inputValue = (event.target as HTMLInputElement).value
+    this.parseAndSetDate(inputValue)
+
     this.balInput.emit(inputValue)
     event.stopPropagation()
-    console.log(this.inputElement)
+  }
+
+  private updateFromValue() {
+    this.inputElement.value = format(this.value)
+    this.pointerYear = year(this.value)
+    this.pointerMonth = month(this.value)
+    this.pointerDay = day(this.value)
+  }
+
+  private parseAndSetDate(inputValue: string, shouldFormat = false) {
+    if (inputValue.length >= 8) {
+      const parts = inputValue.split('.')
+      if (parts.length === 3) {
+        const year = parseInt(parts[2], 10)
+        const month = parseInt(parts[1], 10) - 1
+        if (parts[2].length === 4 && year >= 1900 && month < 12 && month >= 0) {
+          const day = parseInt(parts[0], 10)
+          const lastDayOfMonth = getLastDayOfMonth(year, month)
+          if (0 < day && day <= lastDayOfMonth) {
+            const d = new Date(year, month, day)
+            this.value = d
+            this.pointerMonth = month
+            this.pointerYear = year
+            if (shouldFormat) {
+              this.inputElement.value = format(d)
+            }
+          }
+        }
+      }
+    }
   }
 
   private previousMonth() {
@@ -148,6 +288,44 @@ export class Datepicker {
     this.pointerYear = parseInt(inputValue, 10)
   }
 
+  private onClickDateCell(cell: BalCalendarCell): void {
+    if (!cell.isDisabled) {
+      this.select(cell.date)
+    }
+  }
+
+  private onInputKeyDown(event: KeyboardEvent) {
+    const allowedKeys = [
+      '0',
+      '1',
+      '2',
+      '3',
+      '4',
+      '5',
+      '6',
+      '7',
+      '8',
+      '9',
+      '.',
+      'Backspace',
+      'Enter',
+      'ArrowLeft',
+      'Left',
+      'ArrowRight',
+      'Right',
+      'Tab',
+    ]
+    if (allowedKeys.indexOf(event.key) < 0) {
+      event.preventDefault()
+      event.stopPropagation()
+    }
+  }
+
+  private onInputBlur(event: FocusEvent) {
+    this.balBlur.emit(event)
+    this.parseAndSetDate(this.inputElement.value, true)
+  }
+
   render() {
     return (
       <Host role="datepicker">
@@ -171,20 +349,29 @@ export class Datepicker {
         <input
           class={{
             'input': true,
-            'clickable': true,
+            'clickable': !this.disabled && !this.triggerIcon,
             'is-inverted': this.inverted,
+            'is-disabled': this.disabled,
           }}
+          maxlength="10"
           autoComplete="off"
           disabled={this.disabled}
           placeholder={this.placeholder}
-          value={this.value?.text}
+          onKeyDown={e => this.onInputKeyDown(e)}
           onInput={e => this.onInput(e as any)}
           onClick={e => this.onInputClick(e)}
-          onBlur={e => this.balBlur.emit(e)}
+          onBlur={e => this.onInputBlur(e)}
           onFocus={e => this.balFocus.emit(e)}
           ref={el => (this.inputElement = el as HTMLInputElement)}
         />
-        <bal-icon size="medium" is-right color={this.inverted ? 'white' : 'blue'} name="date" />
+        <bal-icon
+          class="datepicker-trigger-icon clickable"
+          size="medium"
+          is-right
+          color={this.inverted ? 'white' : 'blue'}
+          name="date"
+          onClick={e => this.onIconClick(e)}
+        />
       </div>
     )
   }
@@ -193,7 +380,27 @@ export class Datepicker {
     return (
       <section class="datepicker-table">
         {this.renderWeekDayHeader()}
-        <div class="datepicker-body"></div>
+        <div class="datepicker-body">
+          {this.calendarGrid.map(row => (
+            <div class="datepicker-row">
+              {row.map(cell => (
+                <div
+                  data-date={cell.dateString}
+                  onClick={() => this.onClickDateCell(cell)}
+                  class={[
+                    'datepicker-cell',
+                    cell.isToday ? 'is-today' : '',
+                    cell.isSelected ? 'is-selected' : '',
+                    cell.isOutdated ? 'is-outdated' : '',
+                    cell.isDisabled ? 'is-disabled' : '',
+                    !cell.isOutdated && !cell.isDisabled ? 'is-selectable' : '',
+                  ].join(' ')}>
+                  {cell.label}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
       </section>
     )
   }

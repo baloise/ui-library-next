@@ -13,7 +13,7 @@ export interface I18n<I18nDate> {
 }
 
 export interface BalCalendarCell {
-  date: any
+  date: Date
   label: string
   dateString: string
   isToday: boolean
@@ -22,6 +22,4 @@ export interface BalCalendarCell {
   isOutdated: boolean
 }
 
-export type DateCallback = (date: string) => boolean
-
-export type FormatLabelCallback = (date: string) => string
+export type BalDateCallback = (date: Date) => boolean
