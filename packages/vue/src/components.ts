@@ -314,7 +314,7 @@ export const BalSelect = /*@__PURE__*/ Vue.extend({
     setFocus: createCommonMethod('setFocus') as Components.BalSelect['setFocus'],
     sync: createCommonMethod('sync') as Components.BalSelect['sync'],
   },
-  render: createCommonRender('bal-select', ['balChange', 'balInput', 'balBlur', 'balFocus', 'balClick', 'balKeyPress']),
+  render: createCommonRender('bal-select', ['balChange', 'balInput', 'balBlur', 'balFocus', 'balClick', 'balKeyPress', 'balCancel']),
 });
 
 
@@ -330,6 +330,9 @@ export const BalSelectOption = /*@__PURE__*/ Vue.extend({
   },
 
 
+  methods: {
+    getOption: createCommonMethod('getOption') as Components.BalSelectOption['getOption'],
+  },
   render: createCommonRender('bal-select-option', []),
 });
 
