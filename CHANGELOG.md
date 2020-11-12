@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/baloise/ui-library-next/compare/v1.14.2...v1.15.0) (2020-11-12)
+
+
+### Bug Fixes
+
+* **icon:** change class name because of magnolia ([2d4b735](https://github.com/baloise/ui-library-next/commit/2d4b73588539630348f6cbf6d5efbea127d94198))
+* **icon:** improve trun for google chrome ([55ad97a](https://github.com/baloise/ui-library-next/commit/55ad97a4de327dcc46204490d2bba0523cf47b68))
+
+
+### Features
+
+* **select:** add focus and enter key ([072624a](https://github.com/baloise/ui-library-next/commit/072624a9f3fbff0dbeaa2e457729fff59bfcbb05))
+* **select:** add keyboard navigation ([d682a28](https://github.com/baloise/ui-library-next/commit/d682a2838f8e17145f3f59241740ea609ae2c6bf))
+
+
+
+
+
 ## [1.14.2](https://github.com/baloise/ui-library-next/compare/v1.14.1...v1.14.2) (2020-11-10)
 
 
