@@ -742,7 +742,7 @@ export declare interface BalSelect extends Components.BalSelect {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['disabled', 'expanded', 'inverted', 'loading', 'placeholder', 'remote', 'scrollable', 'typeahead', 'value'],
-  outputs: ['balChange', 'balInput', 'balBlur', 'balFocus', 'balClick', 'balKeyPress']
+  outputs: ['balChange', 'balInput', 'balBlur', 'balFocus', 'balClick', 'balKeyPress', 'balCancel']
 })
 export class BalSelect {
   /** Emitted when a option got selected. */
@@ -757,18 +757,21 @@ export class BalSelect {
   balClick!: ISelect['balClick'];
   /** Emitted when the input has focus and key from the keyboard go hit. */
   balKeyPress!: ISelect['balKeyPress'];
+  /** Emitted when the user cancels the input. */
+  balCancel!: ISelect['balCancel'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balChange', 'balInput', 'balBlur', 'balFocus', 'balClick', 'balKeyPress']);
+    proxyOutputs(this, this.el, ['balChange', 'balInput', 'balBlur', 'balFocus', 'balClick', 'balKeyPress', 'balCancel']);
   }
 }
 
 
 export declare interface BalSelectOption extends Components.BalSelectOption {}
 @ProxyCmp({
-  inputs: ['focused', 'hidden', 'icon', 'label', 'selected', 'value']
+  inputs: ['focused', 'hidden', 'icon', 'label', 'selected', 'value'],
+  methods: ['getOption']
 })
 @Component({
   selector: 'bal-select-option',

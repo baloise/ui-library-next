@@ -61,7 +61,7 @@ export class Icon {
   }
 
   get iconCssClass() {
-    return `icon-${this.name}`
+    return `bal-icon-${this.name}`
   }
 
   render() {
