@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.1](https://github.com/baloise/ui-library-next/compare/v1.15.0...v1.15.1) (2020-11-13)
+
+
+### Bug Fixes
+
+* add utils and types ([f13fd98](https://github.com/baloise/ui-library-next/commit/f13fd98d8c2b3047b884c09d705b10f878a9401c))
+
+
+
+
+
 # [1.15.0](https://github.com/baloise/ui-library-next/compare/v1.14.2...v1.15.0) (2020-11-12)
 
 
