@@ -14,6 +14,8 @@
 | `active`   | `active`   | Tell's if the tab is active and the content is visible. | `boolean` | `false` |
 | `bubble`   | `bubble`   | If `true` a small red bubble is added to the tab.       | `boolean` | `false` |
 | `disabled` | `disabled` | If `true` the tab is disabled.                          | `boolean` | `false` |
+| `done`     | `done`     | If `true` the step is marked as done.                   | `boolean` | `false` |
+| `failed`   | `failed`   | If `true` the step is marked as failed.                 | `boolean` | `false` |
 | `label`    | `label`    | Label for the tab.                                      | `string`  | `''`    |
 | `value`    | `value`    | This is the key of the tab.                             | `string`  | `''`    |
 

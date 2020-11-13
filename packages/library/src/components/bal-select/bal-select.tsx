@@ -381,12 +381,12 @@ export class Select {
               ref={el => (this.inputElement = el as HTMLInputElement)}
             />
             <bal-icon
+              class={{ 'is-hidden': this.loading }}
               size="medium"
               is-right
               turn={!this.loading && !this.typeahead && this.isDropdownOpen}
-              rotate={this.loading}
               color={this.inverted ? 'white' : 'blue'}
-              name={this.loading ? 'refresh' : this.typeahead ? 'search' : 'caret-down'}
+              name={this.typeahead ? 'search' : 'caret-down'}
             />
           </div>
           <slot></slot>

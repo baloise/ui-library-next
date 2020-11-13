@@ -326,6 +326,10 @@ export namespace Components {
          */
         "placeholder": string;
         /**
+          * If `true` the use can only select a date.
+         */
+        "readonly": boolean;
+        /**
           * Selects an option
          */
         "select": (date: Date) => Promise<void>;
@@ -377,6 +381,10 @@ export namespace Components {
           * If `true` the field loses opacity
          */
         "disabled": boolean;
+        /**
+          * If `true` the component takes the whole width
+         */
+        "expanded": boolean;
         /**
           * Baloise icon for the left side of the input
          */
@@ -616,6 +624,12 @@ export namespace Components {
          */
         "logoHref": string;
     }
+    interface BalNotification {
+        /**
+          * Defines the color of the element
+         */
+        "type": '' | 'primary' | 'info' | 'success' | 'warning' | 'danger';
+    }
     interface BalPagination {
         /**
           * Disables component
@@ -791,6 +805,14 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
+          * If `true` the step is marked as done.
+         */
+        "done": boolean;
+        /**
+          * If `true` the step is marked as failed.
+         */
+        "failed": boolean;
+        /**
           * Options of the tab like label, value etc.
          */
         "getOptions": () => Promise<BalTabOption>;
@@ -817,7 +839,7 @@ export namespace Components {
          */
         "actionLabel": string;
         /**
-          * If `true` the the padding gets reduced.
+          * If `true` the padding gets reduced.
          */
         "dense": boolean;
         /**
@@ -1063,6 +1085,12 @@ declare global {
         prototype: HTMLBalNavbarElement;
         new (): HTMLBalNavbarElement;
     };
+    interface HTMLBalNotificationElement extends Components.BalNotification, HTMLStencilElement {
+    }
+    var HTMLBalNotificationElement: {
+        prototype: HTMLBalNotificationElement;
+        new (): HTMLBalNotificationElement;
+    };
     interface HTMLBalPaginationElement extends Components.BalPagination, HTMLStencilElement {
     }
     var HTMLBalPaginationElement: {
@@ -1164,6 +1192,7 @@ declare global {
         "bal-modal": HTMLBalModalElement;
         "bal-modal-actions": HTMLBalModalActionsElement;
         "bal-navbar": HTMLBalNavbarElement;
+        "bal-notification": HTMLBalNotificationElement;
         "bal-pagination": HTMLBalPaginationElement;
         "bal-radio": HTMLBalRadioElement;
         "bal-radio-group": HTMLBalRadioGroupElement;
@@ -1508,6 +1537,10 @@ declare namespace LocalJSX {
          */
         "placeholder"?: string;
         /**
+          * If `true` the use can only select a date.
+         */
+        "readonly"?: boolean;
+        /**
           * If `true` the datepicker only open on click of the icon
          */
         "triggerIcon"?: boolean;
@@ -1530,6 +1563,10 @@ declare namespace LocalJSX {
          */
         "onBalCollapse"?: (event: CustomEvent<boolean>) => void;
         /**
+          * Internal
+         */
+        "onBalDropdownPrepare"?: (event: CustomEvent<string>) => void;
+        /**
           * Limit the height of the dropdown content. Pass the amount of pixel.
          */
         "scrollable"?: number;
@@ -1539,6 +1576,10 @@ declare namespace LocalJSX {
           * If `true` the field loses opacity
          */
         "disabled"?: boolean;
+        /**
+          * If `true` the component takes the whole width
+         */
+        "expanded"?: boolean;
         /**
           * Baloise icon for the left side of the input
          */
@@ -1788,6 +1829,12 @@ declare namespace LocalJSX {
          */
         "logoHref"?: string;
     }
+    interface BalNotification {
+        /**
+          * Defines the color of the element
+         */
+        "type"?: '' | 'primary' | 'info' | 'success' | 'warning' | 'danger';
+    }
     interface BalPagination {
         /**
           * Disables component
@@ -1970,6 +2017,14 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * If `true` the step is marked as done.
+         */
+        "done"?: boolean;
+        /**
+          * If `true` the step is marked as failed.
+         */
+        "failed"?: boolean;
+        /**
           * Label for the tab.
          */
         "label"?: string;
@@ -1988,7 +2043,7 @@ declare namespace LocalJSX {
          */
         "actionLabel"?: string;
         /**
-          * If `true` the the padding gets reduced.
+          * If `true` the padding gets reduced.
          */
         "dense"?: boolean;
         /**
@@ -2058,6 +2113,7 @@ declare namespace LocalJSX {
         "bal-modal": BalModal;
         "bal-modal-actions": BalModalActions;
         "bal-navbar": BalNavbar;
+        "bal-notification": BalNotification;
         "bal-pagination": BalPagination;
         "bal-radio": BalRadio;
         "bal-radio-group": BalRadioGroup;
@@ -2109,6 +2165,7 @@ declare module "@stencil/core" {
             "bal-modal": LocalJSX.BalModal & JSXBase.HTMLAttributes<HTMLBalModalElement>;
             "bal-modal-actions": LocalJSX.BalModalActions & JSXBase.HTMLAttributes<HTMLBalModalActionsElement>;
             "bal-navbar": LocalJSX.BalNavbar & JSXBase.HTMLAttributes<HTMLBalNavbarElement>;
+            "bal-notification": LocalJSX.BalNotification & JSXBase.HTMLAttributes<HTMLBalNotificationElement>;
             "bal-pagination": LocalJSX.BalPagination & JSXBase.HTMLAttributes<HTMLBalPaginationElement>;
             "bal-radio": LocalJSX.BalRadio & JSXBase.HTMLAttributes<HTMLBalRadioElement>;
             "bal-radio-group": LocalJSX.BalRadioGroup & JSXBase.HTMLAttributes<HTMLBalRadioGroupElement>;

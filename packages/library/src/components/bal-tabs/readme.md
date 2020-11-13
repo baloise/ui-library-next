@@ -12,7 +12,7 @@ Simple responsive horizontal navigation tabs.
 | ------------- | -------------- | ------------------------------------------------- | ------------------- | -------- |
 | `action`      | `action`       | If `true` a acation button is added to the right  | `boolean`           | `false`  |
 | `actionLabel` | `action-label` | Label for the action button                       | `string`            | `''`     |
-| `dense`       | `dense`        | If `true` the the padding gets reduced.           | `boolean`           | `false`  |
+| `dense`       | `dense`        | If `true` the padding gets reduced.               | `boolean`           | `false`  |
 | `expanded`    | `expanded`     | If `true` the field expands over the whole width. | `boolean`           | `false`  |
 | `interface`   | `interface`    |                                                   | `"steps" \| "tabs"` | `'tabs'` |
 | `rounded`     | `rounded`      | If you want the rounded tab style.                | `boolean`           | `false`  |

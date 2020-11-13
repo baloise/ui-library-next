@@ -20,6 +20,11 @@ export class Field {
   @Prop() required: boolean = false
 
   /**
+   * If `true` the component takes the whole width
+   */
+  @Prop() expanded: boolean = false
+
+  /**
    * If `true` the field loses opacity
    */
   @Prop() disabled: boolean = false
@@ -65,7 +70,10 @@ export class Field {
 
   render() {
     return (
-      <Host>
+      <Host
+        class={{
+          'is-expanded': this.expanded,
+        }}>
         <div
           class={{
             'form': true,

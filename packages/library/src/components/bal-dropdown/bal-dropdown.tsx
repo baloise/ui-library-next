@@ -7,9 +7,12 @@ import { Component, h, Host, Listen, Method, Prop, Element, Event, EventEmitter 
   scoped: true,
 })
 export class Dropdown {
-  @Element() element!: HTMLElement
+  private dropdownId = `bal-dd-${DropdownIds++}`
+
   contentElement!: HTMLDivElement
   menuElement!: HTMLDivElement
+
+  @Element() element!: HTMLElement
 
   /**
    * Limit the height of the dropdown content. Pass the amount of pixel.
@@ -32,10 +35,31 @@ export class Dropdown {
   @Event({ eventName: 'balCollapse' }) balCollapse!: EventEmitter<boolean>
 
   /**
+   * Internal
+   */
+  @Event({ eventName: 'balDropdownPrepare' }) balDropdownPrepare!: EventEmitter<string>
+
+  @Listen('balDropdownPrepare', { target: 'body' })
+  handleDropdownPrepare(dropdownId: string) {
+    if (this.dropdownId !== dropdownId) {
+      this.close()
+    }
+  }
+
+  @Listen('keydown', { target: 'window' })
+  handleKeyUp(event: KeyboardEvent) {
+    if (this.isActive && (event.key === 'Escape' || event.key === 'Esc')) {
+      event.preventDefault()
+      this.close()
+    }
+  }
+
+  /**
    * Open the dropdown menu.
    */
   @Method()
   async open() {
+    this.balDropdownPrepare.emit(this.dropdownId)
     this.isActive = true
     this.balCollapse.emit(this.isActive)
   }
@@ -102,7 +126,7 @@ export class Dropdown {
 
   render() {
     return (
-      <Host>
+      <Host data-id={this.dropdownId}>
         <div
           class={{
             'dropdown': true,
@@ -129,3 +153,5 @@ export class Dropdown {
     )
   }
 }
+
+let DropdownIds = 0

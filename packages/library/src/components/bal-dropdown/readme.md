@@ -16,9 +16,10 @@
 
 ## Events
 
-| Event         | Description                                                                     | Type                   |
-| ------------- | ------------------------------------------------------------------------------- | ---------------------- |
-| `balCollapse` | Listen when the dropdown opens or closes. Returns the current `isActive` value. | `CustomEvent<boolean>` |
+| Event                | Description                                                                     | Type                   |
+| -------------------- | ------------------------------------------------------------------------------- | ---------------------- |
+| `balCollapse`        | Listen when the dropdown opens or closes. Returns the current `isActive` value. | `CustomEvent<boolean>` |
+| `balDropdownPrepare` | Internal                                                                        | `CustomEvent<string>`  |
 
 
 ## Methods

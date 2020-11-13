@@ -49,6 +49,11 @@ export class Datepicker {
   @Prop() inverted = false
 
   /**
+   * If `true` the use can only select a date.
+   */
+  @Prop() readonly = false
+
+  /**
    * If `true` the component is diabled.
    */
   @Prop() disabled = false
@@ -133,7 +138,7 @@ export class Datepicker {
 
   @Watch('value')
   valueWatcher(newDate: Date, oldDate: Date) {
-    if (!isSameDay(newDate, oldDate)) {
+    if (oldDate === undefined || !isSameDay(newDate, oldDate)) {
       this.updateFromValue()
     }
   }
@@ -314,6 +319,8 @@ export class Datepicker {
       'ArrowRight',
       'Right',
       'Tab',
+      'Esc',
+      'Escape',
     ]
     if (allowedKeys.indexOf(event.key) < 0) {
       event.preventDefault()
@@ -337,6 +344,9 @@ export class Datepicker {
           <div class="datepicker-popup">
             {this.renderHeader()}
             {this.renderBody()}
+            <div class="datepicker-footer">
+              <slot></slot>
+            </div>
           </div>
         </bal-dropdown>
       </Host>
@@ -356,6 +366,7 @@ export class Datepicker {
           maxlength="10"
           autoComplete="off"
           disabled={this.disabled}
+          readonly={this.readonly}
           placeholder={this.placeholder}
           onKeyDown={e => this.onInputKeyDown(e)}
           onInput={e => this.onInput(e as any)}

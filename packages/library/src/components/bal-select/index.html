@@ -107,11 +107,14 @@
 
       <h3 class="title is-size-3">Remote</h3>
       <section>
-        <bal-select id="bal-select-typeahead-remote" typeahead remote placeholder="start typing"></bal-select>
+        <bal-field id="bal-select-typeahead-remote-field" label="Star Wars Character" is-expanded>
+          <bal-select id="bal-select-typeahead-remote" typeahead remote placeholder="start typing" expanded></bal-select>
+        </bal-field>
         <p class="help" id="bal-select-typeahead-remote-help"></p>
       </section>
       <script>
         var selectTypeaheadRemote = document.getElementById('bal-select-typeahead-remote')
+        var selectTypeaheadRemoteField = document.getElementById('bal-select-typeahead-remote-field')
         var selectTypeaheadRemoteHelp = document.getElementById('bal-select-typeahead-remote-help')
         selectTypeaheadRemote.addEventListener('balChange', function (event) {
           selectTypeaheadRemoteHelp.innerHTML = event.detail
@@ -119,6 +122,7 @@
         selectTypeaheadRemote.addEventListener('balInput', function (event) {
           var search = event.detail
           selectTypeaheadRemote.loading = true
+          selectTypeaheadRemoteField.loading = true
           fetch('https://swapi.dev/api/people/?search=' + search)
             .then(res => res.json())
             .then(data => {
@@ -135,6 +139,7 @@
                 selectTypeaheadRemote.querySelector('.dropdown-content').appendChild(option)
               })
               selectTypeaheadRemote.loading = false
+              selectTypeaheadRemoteField.loading = false
             })
         })
       </script>

@@ -33,6 +33,16 @@ export class TabItem {
   @Prop() disabled: boolean = false
 
   /**
+   * If `true` the step is marked as done.
+   */
+  @Prop() done = false
+
+  /**
+   * If `true` the step is marked as failed.
+   */
+  @Prop() failed = false
+
+  /**
    * Tell's if the tab is active and the content is visible.
    */
   @Prop() active: boolean = false
@@ -47,6 +57,8 @@ export class TabItem {
   @Watch('bubble')
   @Watch('disabled')
   @Watch('label')
+  @Watch('done')
+  @Watch('failed')
   informParent() {
     this.parent.sync()
   }
@@ -73,6 +85,8 @@ export class TabItem {
       label: this.label,
       active: this.active,
       disabled: this.disabled,
+      done: this.done,
+      failed: this.failed,
       hasBubble: this.bubble,
     }
   }

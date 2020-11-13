@@ -3,5 +3,7 @@ export interface BalTabOption {
   label: string
   active: boolean
   disabled: boolean
+  done: boolean
+  failed: boolean
   hasBubble: boolean
 }

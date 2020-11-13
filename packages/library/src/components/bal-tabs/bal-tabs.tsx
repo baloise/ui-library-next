@@ -20,7 +20,7 @@ export class Tabs {
   @Prop() expanded = false
 
   /**
-   * If `true` the the padding gets reduced.
+   * If `true` the padding gets reduced.
    */
   @Prop() dense = false
 
@@ -95,7 +95,13 @@ export class Tabs {
         <div class={['tabs is-fullwidth'].join(' ')}>
           <ul>
             {this.tabsOptions.map((tab, index) => (
-              <li class={[tab.active ? 'is-active' : '', tab.disabled ? 'is-disabled' : ''].join(' ')}>
+              <li
+                class={{
+                  'is-active': tab.active,
+                  'is-disabled': tab.disabled,
+                  'is-done': tab.done,
+                  'is-failed': tab.failed,
+                }}>
                 <a onClick={() => this.onSelectTab(tab)}>
                   <span class="step-index">
                     <span>{index + 1}</span>

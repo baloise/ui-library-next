@@ -10,6 +10,7 @@ textarea.textarea {
   font-size: $size-4;
   outline: none;
   color: $text;
+  height: 2.2em;
 
   &:focus,
   &.is-focused {
@@ -36,8 +37,14 @@ textarea.textarea {
   }
 }
 
+.textarea::placeholder,
+.input::placeholder {
+  font-family: $family-primary !important;
+}
+
 .textarea.is-inverted::placeholder,
 .input.is-inverted::placeholder {
   color: $blue-light-text !important;
+  font-family: $family-primary !important;
   opacity: 1;
 }

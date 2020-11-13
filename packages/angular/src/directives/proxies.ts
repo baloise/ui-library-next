@@ -327,6 +327,36 @@ export class BalDataValue {
   }
 }
 
+import { Datepicker as IDatepicker } from '@baloise/ui-library-next/dist/types/components/bal-datepicker/bal-datepicker';
+export declare interface BalDatepicker extends Components.BalDatepicker {}
+@ProxyCmp({
+  inputs: ['closeOnSelect', 'disabled', 'expanded', 'filter', 'inverted', 'locale', 'maxDate', 'maxYearProp', 'minDate', 'minYearProp', 'placeholder', 'readonly', 'triggerIcon', 'value'],
+  methods: ['select']
+})
+@Component({
+  selector: 'bal-datepicker',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['closeOnSelect', 'disabled', 'expanded', 'filter', 'inverted', 'locale', 'maxDate', 'maxYearProp', 'minDate', 'minYearProp', 'placeholder', 'readonly', 'triggerIcon', 'value'],
+  outputs: ['balChange', 'balInput', 'balBlur', 'balFocus']
+})
+export class BalDatepicker {
+  /** Emitted when a option got selected. */
+  balChange!: IDatepicker['balChange'];
+  /** Emitted when a keyboard input occurred. */
+  balInput!: IDatepicker['balInput'];
+  /** Emitted when the input loses focus. */
+  balBlur!: IDatepicker['balBlur'];
+  /** Emitted when the input has focus. */
+  balFocus!: IDatepicker['balFocus'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['balChange', 'balInput', 'balBlur', 'balFocus']);
+  }
+}
+
 import { Dropdown as IDropdown } from '@baloise/ui-library-next/dist/types/components/bal-dropdown/bal-dropdown';
 export declare interface BalDropdown extends Components.BalDropdown {}
 @ProxyCmp({
@@ -338,29 +368,31 @@ export declare interface BalDropdown extends Components.BalDropdown {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   inputs: ['expanded', 'isActive', 'scrollable'],
-  outputs: ['balCollapse']
+  outputs: ['balCollapse', 'balDropdownPrepare']
 })
 export class BalDropdown {
   /** Listen when the dropdown opens or closes. Returns the current `isActive` value. */
   balCollapse!: IDropdown['balCollapse'];
+  /** Internal */
+  balDropdownPrepare!: IDropdown['balDropdownPrepare'];
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['balCollapse']);
+    proxyOutputs(this, this.el, ['balCollapse', 'balDropdownPrepare']);
   }
 }
 
 
 export declare interface BalField extends Components.BalField {}
 @ProxyCmp({
-  inputs: ['disabled', 'iconLeft', 'iconRight', 'inverted', 'label', 'loading', 'required', 'validationMessage']
+  inputs: ['disabled', 'expanded', 'iconLeft', 'iconRight', 'inverted', 'label', 'loading', 'required', 'validationMessage']
 })
 @Component({
   selector: 'bal-field',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['disabled', 'iconLeft', 'iconRight', 'inverted', 'label', 'loading', 'required', 'validationMessage']
+  inputs: ['disabled', 'expanded', 'iconLeft', 'iconRight', 'inverted', 'label', 'loading', 'required', 'validationMessage']
 })
 export class BalField {
   protected el: HTMLElement;
@@ -658,6 +690,25 @@ export class BalNavbar {
   }
 }
 
+
+export declare interface BalNotification extends Components.BalNotification {}
+@ProxyCmp({
+  inputs: ['type']
+})
+@Component({
+  selector: 'bal-notification',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['type']
+})
+export class BalNotification {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 import { Pagination as IPagination } from '@baloise/ui-library-next/dist/types/components/bal-pagination/bal-pagination';
 export declare interface BalPagination extends Components.BalPagination {}
 @ProxyCmp({
@@ -809,14 +860,14 @@ export class BalSpinner {
 
 export declare interface BalTabItem extends Components.BalTabItem {}
 @ProxyCmp({
-  inputs: ['active', 'bubble', 'disabled', 'label', 'value'],
+  inputs: ['active', 'bubble', 'disabled', 'done', 'failed', 'label', 'value'],
   methods: ['getOptions', 'setActive']
 })
 @Component({
   selector: 'bal-tab-item',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['active', 'bubble', 'disabled', 'label', 'value']
+  inputs: ['active', 'bubble', 'disabled', 'done', 'failed', 'label', 'value']
 })
 export class BalTabItem {
   protected el: HTMLElement;

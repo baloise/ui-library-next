@@ -58,19 +58,6 @@ export class CardSteps {
    */
   @Event({ eventName: 'balCardStepClick' }) balStepClick: EventEmitter<BalCardStepOption>
 
-  // @Listen('balChange')
-  // onStepChange(event: CustomEvent<BalCardStepOption>) {
-  //   event.preventDefault()
-  //   event.stopPropagation()
-  //   if (event.detail.active) {
-  //     if (this.showLabel) {
-  //       this.label = event.detail.label
-  //     } else {
-  //       this.label = ''
-  //     }
-  //   }
-  // }
-
   /**
    * Go to tab with the given value
    */

@@ -2,15 +2,28 @@
 @import 'node_modules/bulma/sass/elements/icon.sass';
 
 :host {
-  display: block;
+  display: inline-block;
+  position: relative;
+
+  &.is-expanded {
+    display: block;
+  }
 }
 
 .control.is-loading::after,
 .select.is-loading::after {
-  border-top-color: $cyan !important;
-  border-right-color: $cyan !important;
+  border-top-color: $blue !important;
+  border-right-color: $blue !important;
   border-left-color: transparent !important;
   border-bottom-color: transparent !important;
+}
+
+.form.is-inverted {
+  .control.is-loading::after,
+  .select.is-loading::after {
+    border-top-color: $white !important;
+    border-right-color: $white !important;
+  }
 }
 
 .form > .label {
@@ -37,6 +50,10 @@ p.help {
 .form {
   p.help {
     text-align: left;
+  }
+
+  &.is-expanded {
+    width: 100%;
   }
 
   &.is-disabled {

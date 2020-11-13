@@ -26,6 +26,7 @@ const customElementTags: string[] = [
  'bal-data-item',
  'bal-data-label',
  'bal-data-value',
+ 'bal-datepicker',
  'bal-dropdown',
  'bal-field',
  'bal-file-upload',
@@ -43,6 +44,7 @@ const customElementTags: string[] = [
  'bal-modal',
  'bal-modal-actions',
  'bal-navbar',
+ 'bal-notification',
  'bal-pagination',
  'bal-radio',
  'bal-radio-group',
@@ -290,6 +292,37 @@ export const BalDataValue = /*@__PURE__*/ Vue.extend({
 });
 
 
+export const BalDatepicker = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    locale: {} as PropOptions<Components.BalDatepicker['locale']>,
+    expanded: {} as PropOptions<Components.BalDatepicker['expanded']>,
+    inverted: {} as PropOptions<Components.BalDatepicker['inverted']>,
+    readonly: {} as PropOptions<Components.BalDatepicker['readonly']>,
+    disabled: {} as PropOptions<Components.BalDatepicker['disabled']>,
+    placeholder: {} as PropOptions<Components.BalDatepicker['placeholder']>,
+    value: {} as PropOptions<Components.BalDatepicker['value']>,
+    maxDate: {} as PropOptions<Components.BalDatepicker['maxDate']>,
+    minDate: {} as PropOptions<Components.BalDatepicker['minDate']>,
+    closeOnSelect: {} as PropOptions<Components.BalDatepicker['closeOnSelect']>,
+    triggerIcon: {} as PropOptions<Components.BalDatepicker['triggerIcon']>,
+    minYearProp: {} as PropOptions<Components.BalDatepicker['minYearProp']>,
+    maxYearProp: {} as PropOptions<Components.BalDatepicker['maxYearProp']>,
+    filter: {} as PropOptions<Components.BalDatepicker['filter']>,
+  },
+
+  model: {
+    prop: 'value',
+    event: 'balChange'
+  },
+
+  methods: {
+    select: createCommonMethod('select') as Components.BalDatepicker['select'],
+  },
+  render: createCommonRender('bal-datepicker', ['balChange', 'balInput', 'balBlur', 'balFocus']),
+});
+
+
 export const BalDropdown = /*@__PURE__*/ Vue.extend({
 
   props: {
@@ -310,7 +343,7 @@ export const BalDropdown = /*@__PURE__*/ Vue.extend({
     getMenuElement: createCommonMethod('getMenuElement') as Components.BalDropdown['getMenuElement'],
     getContentElement: createCommonMethod('getContentElement') as Components.BalDropdown['getContentElement'],
   },
-  render: createCommonRender('bal-dropdown', ['balCollapse']),
+  render: createCommonRender('bal-dropdown', ['balCollapse', 'balDropdownPrepare']),
 });
 
 
@@ -319,6 +352,7 @@ export const BalField = /*@__PURE__*/ Vue.extend({
   props: {
     label: {} as PropOptions<Components.BalField['label']>,
     required: {} as PropOptions<Components.BalField['required']>,
+    expanded: {} as PropOptions<Components.BalField['expanded']>,
     disabled: {} as PropOptions<Components.BalField['disabled']>,
     validationMessage: {} as PropOptions<Components.BalField['validationMessage']>,
     iconRight: {} as PropOptions<Components.BalField['iconRight']>,
@@ -524,6 +558,17 @@ export const BalNavbar = /*@__PURE__*/ Vue.extend({
 });
 
 
+export const BalNotification = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    type: {} as PropOptions<Components.BalNotification['type']>,
+  },
+
+
+  render: createCommonRender('bal-notification', []),
+});
+
+
 export const BalPagination = /*@__PURE__*/ Vue.extend({
 
   props: {
@@ -645,6 +690,8 @@ export const BalTabItem = /*@__PURE__*/ Vue.extend({
     label: {} as PropOptions<Components.BalTabItem['label']>,
     bubble: {} as PropOptions<Components.BalTabItem['bubble']>,
     disabled: {} as PropOptions<Components.BalTabItem['disabled']>,
+    done: {} as PropOptions<Components.BalTabItem['done']>,
+    failed: {} as PropOptions<Components.BalTabItem['failed']>,
     active: {} as PropOptions<Components.BalTabItem['active']>,
   },
 
