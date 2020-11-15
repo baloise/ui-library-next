@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/baloise/ui-library-next/compare/v1.15.1...v1.16.0) (2020-11-15)
+
+
+### Bug Fixes
+
+* fix two way bindings ([f91e9c4](https://github.com/baloise/ui-library-next/commit/f91e9c4814c4235f7f9ba5ea3a5b0e1adac0d1ec))
+* some minor fixes ([8c13c9e](https://github.com/baloise/ui-library-next/commit/8c13c9e48291016718c63ab14d633e74185ea5be))
+* **bal-select:** fix selected ([c578d96](https://github.com/baloise/ui-library-next/commit/c578d96d1de75b6dd5616155d18846a84a4aab9d))
+* **event:** improve event usage ([9c96382](https://github.com/baloise/ui-library-next/commit/9c96382335e1d8a720aa32dcf05e37059f7afbdb))
+
+
+### Features
+
+* add datepicker and notification ([93ad47b](https://github.com/baloise/ui-library-next/commit/93ad47b6023c8d5672f53d2b94648c4dec4dbe3e))
+* **accordion:** add new component ([08d0c3b](https://github.com/baloise/ui-library-next/commit/08d0c3b0b6f18bd1abd74576aba9ad26df241dfc))
+* **data:** add new component ([60e8675](https://github.com/baloise/ui-library-next/commit/60e867510f26ee1e525b343210a041e618b2e1f2))
+* **datepicker:** add filter, click, input change ([993fdfc](https://github.com/baloise/ui-library-next/commit/993fdfc2b4f97d465a8afdf7300d220f38fd31eb))
+* **datepicker:** add headers ([af756dd](https://github.com/baloise/ui-library-next/commit/af756dd35150c56094dbe71baf6b54790c2d6699))
+* **file-upload:** add new component ([32561e1](https://github.com/baloise/ui-library-next/commit/32561e10eff29eda603318dabfe48c336497e963))
+* **hint:** add new component ([1d4c551](https://github.com/baloise/ui-library-next/commit/1d4c551945811639384056dffd0dbc068e16ed89))
+* **list:** add new component ([8b445b4](https://github.com/baloise/ui-library-next/commit/8b445b4e96db98c7a3b72e4b248d1f973acd62aa))
+* **modal:** add new component ([03d06d0](https://github.com/baloise/ui-library-next/commit/03d06d0356ad6880b92dac9abe7bada067f44c5b))
+* **navbar:** add new component ([7159c24](https://github.com/baloise/ui-library-next/commit/7159c2412431d516355727a69eb64342e6d74087))
+* **pagination:** add new component ([224acf4](https://github.com/baloise/ui-library-next/commit/224acf439635355550503dccb8a9c31a40b488ec))
+* **steps:** add new component ([d2a21be](https://github.com/baloise/ui-library-next/commit/d2a21be41b186fe0855c8ac1730366bb3051942f))
+* **tabs:** add new component ([fa79d89](https://github.com/baloise/ui-library-next/commit/fa79d89c3fe6abefe4ffc3a923a4aaa1c191865d))
+* **tabs&steps:** combined components ([67a691a](https://github.com/baloise/ui-library-next/commit/67a691a2c24574681ee3e36ed3048f0f3d3d2453))
+* **tag:** add new component ([9bf653e](https://github.com/baloise/ui-library-next/commit/9bf653e19912867fa7f9d1737945b4b88836609b))
+* **toast:** add new component ([12d03c0](https://github.com/baloise/ui-library-next/commit/12d03c0ae3154f2925af94851910608ff512387d))
+
+
+
+
+
 ## [1.15.1](https://github.com/baloise/ui-library-next/compare/v1.15.0...v1.15.1) (2020-11-13)
 
 
