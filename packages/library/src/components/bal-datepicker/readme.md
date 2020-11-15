@@ -2,71 +2,7 @@
 
 An input with a simple dropdown for selecting a date.
 
-## Usage
 
-```html
-<bal-datepicker></bal-datepicker>
-```
-
-## Inverted style
-
-```html
-<div class="has-background-info is-padded">
-  <bal-datepicker inverted></bal-datepicker>
-</div>
-```
-
-### Set Date
-
-```html
-<bal-datepicker value="20.02.2020"></bal-datepicker>
-```
-
-### Date Range
-
-You can limit the date range with min-date and max-date props.
-
-<script type="text/javascript">
-    document.getElementById('bal-datepicker-range-example').addEventListener('balChange', event => { 
-        console.log('balChange on bal-datepicker-range-example', event) 
-    });
-    document.getElementById('bal-datepicker-range-example').addEventListener('balBlur', event => { 
-        console.log('balBlur on bal-datepicker-range-example', event) 
-    });
-    document.getElementById('bal-datepicker-filter-example').filter =  function (str) {
-      return parseInt(str.substring(0, 2)) == 5;
-    };
-</script>
-
-```html
-<bal-datepicker id="bal-datepicker-range-example" min-date="10.02.2020" max-date="22.02.2020" value="20.02.2020"></bal-datepicker>
-```
-
-### Filter
-
-```typescript
-document.getElementById('bal-datepicker-filter-example').filter =  function (str) {
-  return parseInt(str.substring(0, 2)) == 5;
-};
-```
-
-```html
-<bal-datepicker id="bal-datepicker-filter-example"></bal-datepicker>
-```
-
-### With content
-
-```html
-<bal-datepicker value="20.02.2020">
-  <p style="text-align: center;">Choose your arival date!</p>
-</bal-datepicker>
-```
-
-### Disabled
-
-```html
-<bal-datepicker disabled value="20.02.2020"></bal-datepicker>
-```
 
 <!-- Auto Generated Below -->
 

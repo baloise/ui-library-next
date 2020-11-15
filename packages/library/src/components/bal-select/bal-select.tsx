@@ -130,7 +130,7 @@ export class Select {
     this.value = option.value
     this.balChange.emit(this.value)
     this.inputElement.value = option?.label
-    await this.dropdownElement?.toggle()
+    await this.dropdownElement?.close()
     this.updateOptionProps()
   }
 

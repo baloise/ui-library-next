@@ -12,25 +12,21 @@
     <div class="container">
       <h2 class="title is-size-2">Basic</h2>
       <section>
-        <bal-select id="bal-select-year" placeholder="select a year"></bal-select>
+        <bal-select id="bal-select-year" placeholder="select a year">
+          <bal-select-option value="1995" label="1995">1995</bal-select-option>
+          <bal-select-option value="1996" label="1996">1996</bal-select-option>
+          <bal-select-option value="1997" label="1997">1997</bal-select-option>
+          <bal-select-option value="1998" label="1998">1998</bal-select-option>
+          <bal-select-option value="1999" label="1999">1999</bal-select-option>
+          <bal-select-option value="2000" label="2000">2000</bal-select-option>
+        </bal-select>
         <bal-select id="bal-select-year-disabled" disabled placeholder="disabled"></bal-select>
 
         <bal-button id="bal-select-year-clear">Clear</bal-button>
       </section>
       <script>
         var selectYear = document.getElementById('bal-select-year')
-        var selectYearDisabled = document.getElementById('bal-select-year-disabled')
         var buttonYear = document.getElementById('bal-select-year-clear')
-        for (var index = 1990; index < 2020; index++) {
-          var option = document.createElement('bal-select-option')
-          option.setAttribute('value', index)
-          option.setAttribute('label', index)
-          option.innerText = index
-          selectYear.appendChild(option)
-        }
-        selectYear.addEventListener('balChange', function (evt) {
-          selectYearDisabled.select(evt.detail)
-        })
         buttonYear.addEventListener('click', function () {
           selectYear.clear()
         })
@@ -39,19 +35,16 @@
       <h2 class="title is-size-2">Inverted & Expanded</h2>
       <section>
         <div class="has-background-blue is-padded">
-          <bal-select id="bal-select-year-inverted" inverted expanded placeholder="select a year"></bal-select>
-        </div>
+          <bal-select id="bal-select-year-inverted" inverted expanded placeholder="select a year">
+            <bal-select-option value="1995" label="1995">1995</bal-select-option>
+            <bal-select-option value="1996" label="1996">1996</bal-select-option>
+            <bal-select-option value="1997" label="1997">1997</bal-select-option>
+            <bal-select-option value="1998" label="1998">1998</bal-select-option>
+            <bal-select-option value="1999" label="1999">1999</bal-select-option>
+            <bal-select-option value="2000" label="2000">2000</bal-select-option>
+          </bal-select>
+        </div>  
       </section>
-      <script>
-        var selectYearInverted = document.getElementById('bal-select-year-inverted')
-        for (var index = 1990; index < 2020; index++) {
-          var option = document.createElement('bal-select-option')
-          option.setAttribute('value', index)
-          option.setAttribute('label', index)
-          option.innerText = index
-          selectYearInverted.appendChild(option)
-        }
-      </script>
 
       <h2 class="title is-size-2">Custom Option Style</h2>
       <section>
@@ -98,7 +91,7 @@
           option.setAttribute('value', hero.value)
           option.setAttribute('label', hero.label)
           option.innerHTML = '<b>' + hero.label + '</b></br><span>' + hero.location + '</span>'
-          selectTypeahead.appendChild(option)
+          selectTypeahead.querySelector('.dropdown-content').appendChild(option)
         })
         selectTypeahead.addEventListener('balChange', function(ev){
           console.log(ev)

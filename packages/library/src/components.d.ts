@@ -846,6 +846,9 @@ export namespace Components {
           * If `true` the field expands over the whole width.
          */
         "expanded": boolean;
+        /**
+          * Defines the layout of the tabs.
+         */
         "interface": 'tabs' | 'steps';
         /**
           * If you want the rounded tab style.
@@ -855,6 +858,9 @@ export namespace Components {
           * Go to tab with the given value
          */
         "select": (tab: BalTabOption) => Promise<void>;
+        /**
+          * *Internal* Rerenders the tabs with their given settings
+         */
         "sync": () => Promise<void>;
     }
     interface BalTag {
@@ -2050,6 +2056,9 @@ declare namespace LocalJSX {
           * If `true` the field expands over the whole width.
          */
         "expanded"?: boolean;
+        /**
+          * Defines the layout of the tabs.
+         */
         "interface"?: 'tabs' | 'steps';
         /**
           * Emitted when the action button has clicked

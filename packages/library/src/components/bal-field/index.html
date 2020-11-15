@@ -12,10 +12,10 @@
     <div class="container">
       <h2 class="title is-size-2">Basic</h2>
       <section>
-        <bal-field id="bal-field-1" label="Firstname" required>
+        <bal-field id="bal-field-1" label="Firstname" required expanded>
           <bal-input id="bal-input-1" name="firstName" placeholder="Enter your firstname"></bal-input>
         </bal-field>
-        <bal-field id="bal-field-1" label="Lastname" disabled>
+        <bal-field id="bal-field-1" label="Lastname" disabled expanded>
           <bal-input id="bal-input-1" disabled name="lastname" placeholder="Enter your lastname"></bal-input>
         </bal-field>
       </section>
@@ -23,10 +23,10 @@
       <h2 class="title is-size-2">Inverted</h2>
       <section>
         <div class="has-background-info is-padded">
-          <bal-field icon-left="account" label="Firstname" validation-message="Field is required" loading inverted>
+          <bal-field icon-left="account" label="Firstname" validation-message="Field is required" loading inverted expanded>
             <bal-input name="firstName" placeholder="Enter your firstname" inverted></bal-input>
           </bal-field>
-          <bal-field id="bal-field-1" label="Lastname" validation-message="Field is required" disabled inverted>
+          <bal-field id="bal-field-1" label="Lastname" validation-message="Field is required" disabled inverted expanded>
             <bal-input id="bal-input-1" disabled inverted name="lastname" placeholder="Enter your lastname"></bal-input>
           </bal-field>
         </div>
@@ -34,14 +34,14 @@
 
       <h2 class="title is-size-2">Icons</h2>
       <section>
-        <bal-field label="Firstname" icon-left="account" icon-right="check">
+        <bal-field label="Firstname" icon-left="account" icon-right="check" expanded>
           <bal-input name="firstName" placeholder="Enter your firstname"></bal-input>
         </bal-field>
       </section>
 
       <h2 class="title is-size-2">Validation Messages</h2>
       <section>
-        <bal-field id="bal-field-validation" label="Firstname" validation-message="">
+        <bal-field id="bal-field-validation" label="Firstname" validation-message="" expanded>
           <bal-input name="firstName" placeholder="Enter your firstname"></bal-input>
         </bal-field>
         <bal-button id="bal-button-validation">Update Validation Message</bal-button>

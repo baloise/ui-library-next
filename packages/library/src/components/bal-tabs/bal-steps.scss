@@ -62,7 +62,7 @@
         span.step-index {
           position: relative;
           background: $blue;
-          border-color: $blue;
+          border-color: $blue !important;
         }
 
         span.step-index::after {
@@ -88,6 +88,21 @@
         }
       }
 
+      &.is-active > a {
+        color: $blue;
+        padding-bottom: 0;
+
+        span.step-index {
+          border-color: $blue;
+        }
+      }
+
+      & > a:hover {
+        span.step-label {
+          color: $blue;
+        }
+      }
+
       &.is-failed {
         padding-bottom: 0;
 
@@ -98,7 +113,7 @@
         span.step-index {
           position: relative;
           background: $danger;
-          border-color: $danger;
+          border-color: $danger !important;
         }
 
         span.step-index::after {
@@ -116,20 +131,6 @@
           top: -2px;
           left: 10px;
           overflow: hidden;
-        }
-      }
-      &.is-active > a {
-        color: $blue;
-        padding-bottom: 0;
-
-        span.step-index {
-          border-color: $blue;
-        }
-      }
-
-      & > a:hover {
-        span.step-label {
-          color: $blue;
         }
       }
 

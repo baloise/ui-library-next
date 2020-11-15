@@ -12,6 +12,9 @@ export class Tabs {
 
   @State() tabsOptions: BalTabOption[] = []
 
+  /**
+   * Defines the layout of the tabs.
+   */
   @Prop() interface: 'tabs' | 'steps' = 'tabs'
 
   /**
@@ -59,6 +62,9 @@ export class Tabs {
     this.tabsDidChange.emit(tab)
   }
 
+  /**
+   * *Internal* Rerenders the tabs with their given settings
+   */
   @Method()
   async sync() {
     Promise.all(this.tabs.map(value => value.getOptions())).then(tabsOptions => {

@@ -14,7 +14,7 @@ Simple responsive horizontal navigation tabs.
 | `actionLabel` | `action-label` | Label for the action button                       | `string`            | `''`     |
 | `dense`       | `dense`        | If `true` the padding gets reduced.               | `boolean`           | `false`  |
 | `expanded`    | `expanded`     | If `true` the field expands over the whole width. | `boolean`           | `false`  |
-| `interface`   | `interface`    |                                                   | `"steps" \| "tabs"` | `'tabs'` |
+| `interface`   | `interface`    | Defines the layout of the tabs.                   | `"steps" \| "tabs"` | `'tabs'` |
 | `rounded`     | `rounded`      | If you want the rounded tab style.                | `boolean`           | `false`  |
 
 
@@ -40,7 +40,7 @@ Type: `Promise<void>`
 
 ### `sync() => Promise<void>`
 
-
+*Internal* Rerenders the tabs with their given settings
 
 #### Returns
 
