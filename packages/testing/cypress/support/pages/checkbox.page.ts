@@ -5,6 +5,6 @@ export class CheckboxPage {
   disabledCheckboxElement = CheckboxAccessor(dataTestSelector('checkbox-disabled'))
 
   open() {
-    cy.visit('/components/checkbox')
+    cy.visit('/components/bal-checkbox')
   }
 }

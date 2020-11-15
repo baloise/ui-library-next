@@ -9,7 +9,7 @@
     "bootstrap": "lerna bootstrap",
     "build": "npm run lib:build && npm run lib:vue:build && npm run lib:angular:build && npm run testing:build",
     "lint": "lerna run lint",
-    "test": "echo 'gugus'",
+    "test": "npm run testing:run",
     "publish": "lerna publish --yes --force-publish",
     "docs:publish": "npm run docs:install && npm run docs:build",
     "docs:install": "npm --prefix docs install",
