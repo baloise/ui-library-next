@@ -12,7 +12,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
         with:
-          fetch-depth: "0"
+          fetch-depth: '0'
 
       - name: Git Identity
         run: |
@@ -40,14 +40,20 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Lint
-        run: npm run lint
+      - uses: EndBug/add-and-commit@v5
+        with:
+          message: 'chore(): update build artifacts'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Git Status
-        run: git status
+      # - name: Lint
+      #   run: npm run lint
 
-      - name: Builded libaries are pushed
-        run: git diff-index --quiet HEAD --
+      # - name: Git Status
+      #   run: git status
+
+      # - name: Builded libaries are pushed
+      #   run: git diff-index --quiet HEAD --
 
       # - name: Publish to NPM
       #   run: "npm run publish"

@@ -15,16 +15,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Git Status
-        run: git status
-
-      - name: Builded libaries are pushed
-        run: git diff-index --quiet HEAD --
-
       - name: Lint
         run: npm run lint
 
       - name: Test
         run: npm run test
-        # uses: cypress-io/github-action@v2
-
