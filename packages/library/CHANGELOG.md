@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.5](https://github.com/baloise/ui-library-next/compare/v1.16.4...v1.16.5) (2020-11-16)
+
+
+### Bug Fixes
+
+* **select:** some minor fixes ([1864d83](https://github.com/baloise/ui-library-next/commit/1864d83a15a860d9755987432b8e50ddfb21764d))
+
+
+
+## [1.16.3](https://github.com/baloise/ui-library-next/compare/v1.16.2...v1.16.3) (2020-11-16)
+
+
+
+## [1.16.2](https://github.com/baloise/ui-library-next/compare/v1.16.1...v1.16.2) (2020-11-16)
+
+
+
+## 1.16.1 (2020-11-16)
+
+
+
+
+
 ## [1.16.4](https://github.com/baloise/ui-library-next/compare/v1.16.3...v1.16.4) (2020-11-16)
 
 **Note:** Version bump only for package @baloise/ui-library-next
