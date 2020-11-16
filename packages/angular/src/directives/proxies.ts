@@ -818,6 +818,55 @@ export class BalSelect {
   }
 }
 
+import { SelectButton as ISelectButton } from '@baloise/ui-library-next/dist/types/components/bal-select-button/bal-select-button';
+export declare interface BalSelectButton extends Components.BalSelectButton {}
+@ProxyCmp({
+  inputs: ['checked', 'disabled', 'inverted', 'label', 'name', 'value'],
+  methods: ['setFocus']
+})
+@Component({
+  selector: 'bal-select-button',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['checked', 'disabled', 'inverted', 'label', 'name', 'value'],
+  outputs: ['balFocus', 'balBlur']
+})
+export class BalSelectButton {
+  /** Emitted when the toggle has focus. */
+  balFocus!: ISelectButton['balFocus'];
+  /** Emitted when the toggle loses focus. */
+  balBlur!: ISelectButton['balBlur'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['balFocus', 'balBlur']);
+  }
+}
+
+import { SelectButtonGroup as ISelectButtonGroup } from '@baloise/ui-library-next/dist/types/components/bal-select-button-group/bal-select-button-group';
+export declare interface BalSelectButtonGroup extends Components.BalSelectButtonGroup {}
+@ProxyCmp({
+  inputs: ['inverted', 'value']
+})
+@Component({
+  selector: 'bal-select-button-group',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['inverted', 'value'],
+  outputs: ['balChange']
+})
+export class BalSelectButtonGroup {
+  /** Emitted when the checked property has changed. */
+  balChange!: ISelectButtonGroup['balChange'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['balChange']);
+  }
+}
+
 
 export declare interface BalSelectOption extends Components.BalSelectOption {}
 @ProxyCmp({
