@@ -1,10 +1,38 @@
 # Commands
 
-## Library
+## Global
 
-All the library (core, vue and angular) are prefixed with `lib:`
+### Install
+
+Installs all the npm dependencies and bootstrap the lerna project with the symlinks.
+
+```bash
+npm install
+```
 
 ### Build
+
+Builds all packages in the correct order.
+
+```bash
+npm run build
+```
+
+### Build
+
+Runs the the cypress e2e test against the example pages (bal-component/index.html) of the components.
+
+```bash
+npm run test
+```
+
+## Library
+
+All the library project commands starts with the prefix `lib:`
+
+### Build
+
+Builds the stencil components into web-components and updates the two proxie packages angular and vue.
 
 ```bash
 npm run lib:build
@@ -20,11 +48,9 @@ npm run lib:serve
 
 ## Testing
 
-To build the component for production.
-
 ### Serve
 
-This opens the Cypress Test Runner.
+This opens the Cypress Test Runner. Just start your library server with `npm run lib:serve` first.
 
 ```bash
 npm run testing:serve
