@@ -49,6 +49,8 @@ const customElementTags: string[] = [
  'bal-radio',
  'bal-radio-group',
  'bal-select',
+ 'bal-select-button',
+ 'bal-select-button-group',
  'bal-select-option',
  'bal-spinner',
  'bal-tab-item',
@@ -649,6 +651,41 @@ export const BalSelect = /*@__PURE__*/ Vue.extend({
     sync: createCommonMethod('sync') as Components.BalSelect['sync'],
   },
   render: createCommonRender('bal-select', ['balChange', 'balInput', 'balBlur', 'balFocus', 'balClick', 'balKeyPress', 'balCancel']),
+});
+
+
+export const BalSelectButton = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    name: {} as PropOptions<Components.BalSelectButton['name']>,
+    label: {} as PropOptions<Components.BalSelectButton['label']>,
+    value: {} as PropOptions<Components.BalSelectButton['value']>,
+    checked: {} as PropOptions<Components.BalSelectButton['checked']>,
+    disabled: {} as PropOptions<Components.BalSelectButton['disabled']>,
+    inverted: {} as PropOptions<Components.BalSelectButton['inverted']>,
+  },
+
+
+  methods: {
+    setFocus: createCommonMethod('setFocus') as Components.BalSelectButton['setFocus'],
+  },
+  render: createCommonRender('bal-select-button', ['balFocus', 'balBlur']),
+});
+
+
+export const BalSelectButtonGroup = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    inverted: {} as PropOptions<Components.BalSelectButtonGroup['inverted']>,
+    value: {} as PropOptions<Components.BalSelectButtonGroup['value']>,
+  },
+
+  model: {
+    prop: 'value',
+    event: 'balChange'
+  },
+
+  render: createCommonRender('bal-select-button-group', ['balChange']),
 });
 
 

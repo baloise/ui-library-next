@@ -666,6 +666,10 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
+          * Defines the layout of the radio button
+         */
+        "interface": 'radio' | 'select-button';
+        /**
           * If `true`, the control works on dark background.
          */
         "inverted": boolean;
@@ -687,6 +691,14 @@ export namespace Components {
         "value": string;
     }
     interface BalRadioGroup {
+        /**
+          * Defines the layout of the radio button
+         */
+        "interface": 'radio' | 'select-button';
+        /**
+          * If `true` the component can be used on dark background
+         */
+        "inverted": boolean;
         /**
           * The value of the control.
          */
@@ -1873,6 +1885,10 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * Defines the layout of the radio button
+         */
+        "interface"?: 'radio' | 'select-button';
+        /**
           * If `true`, the control works on dark background.
          */
         "inverted"?: boolean;
@@ -1898,6 +1914,14 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface BalRadioGroup {
+        /**
+          * Defines the layout of the radio button
+         */
+        "interface"?: 'radio' | 'select-button';
+        /**
+          * If `true` the component can be used on dark background
+         */
+        "inverted"?: boolean;
         /**
           * Emitted when the checked property has changed.
          */

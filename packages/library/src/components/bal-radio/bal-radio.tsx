@@ -18,6 +18,11 @@ export class Radio {
   @Prop() name: string = this.inputId
 
   /**
+   * Defines the layout of the radio button
+   */
+  @Prop() interface: 'radio' | 'select-button' = 'radio'
+
+  /**
    * The label of the control.
    */
   @Prop() label: string = ''
@@ -98,7 +103,8 @@ export class Radio {
     return (
       <Host
         class={{
-          'bal-radio': true,
+          'bal-radio': this.interface === 'radio',
+          'bal-select-button': this.interface === 'select-button',
           'is-inverted': this.inverted,
         }}>
         <input

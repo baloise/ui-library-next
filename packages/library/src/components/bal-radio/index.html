@@ -12,25 +12,57 @@
     <div class="container">
       <h2 class="title is-size-2">Basic</h2>
       <section>
-        <bal-radio-group id="radio-group-1">
-          <bal-radio id="radio-1" label="Label 1" name="radio-example" value="1" checked></bal-radio>
+        <bal-radio-group value="2" id="radio-example">
+          <bal-radio label="Label 1" name="radio-example" value="1"></bal-radio>
           <bal-radio label="Label 2" name="radio-example" value="2"></bal-radio>
           <bal-radio label="Label 3" name="radio-example" value="3"></bal-radio>
           <bal-radio label="Label Disabled" name="radio-example" value="4" disabled></bal-radio>
         </bal-radio-group>
-        <p class="help" id="radio-result-1"></p>
+        <p class="help" id="radio-example-result"></p>
+        <bal-button id="radio-example-action">Go to 3</bal-button>
       </section>
       <script>
-        var radioElement = document.getElementById('radio-1')
-        var radioGroupElement = document.getElementById('radio-group-1')
-        var radioResultElement = document.getElementById('radio-result-1')
-        radioGroupElement.addEventListener('balChange', function (event) {
-          radioResultElement.innerHTML = event.detail
+        var selectButtonGroup = document.getElementById('radio-example')
+        var selectButtonResult = document.getElementById('radio-example-result')
+        var selectButtonAction = document.getElementById('radio-example-action')
+        selectButtonGroup.addEventListener('balChange', function (event) {
+          selectButtonResult.innerHTML = event.detail
         })
-        setTimeout(function () {
-          radioElement.setFocus()
-        }, 100)
+        selectButtonAction.addEventListener('click', function () {
+          selectButtonGroup.value = 3
+        })
       </script>
+
+      <h2 class="title is-size-2">Inverted</h2>
+      <section>
+        <div class="has-background-blue is-padded">
+          <bal-radio-group value="3" inverted>
+            <bal-radio inverted label="Label 1" name="radio-example-inverted" value="1"></bal-radio>
+            <bal-radio inverted label="Label 2" name="radio-example-inverted" value="2"></bal-radio>
+            <bal-radio inverted label="Label 3" name="radio-example-inverted" value="3"></bal-radio>
+            <bal-radio inverted label="Label Disabled" name="radio-example-inverted" value="4" disabled></bal-radio>
+          </bal-radio-group>
+        </div>
+      </section>
+
+      <h2 class="title is-size-2">Select Button</h2>
+      <section>
+        <bal-radio-group value="1" interface="select-button">
+          <bal-radio label="Label 1" name="select-button-example" value="1"></bal-radio>
+          <bal-radio label="Label 2" name="select-button-example" value="2"></bal-radio>
+          <bal-radio label="Label Disabled" name="select-button-example" value="3" disabled></bal-radio>
+        </bal-radio-group>
+      </section>
+
+      <h3 class="title is-size-3">Inverted</h3>
+      <section>
+        <div class="has-background-blue is-padded">
+          <bal-radio-group value="yes" interface="select-button" inverted>
+            <bal-radio label="Yes" name="select-button-example-2" value="yes"></bal-radio>
+            <bal-radio label="No" name="select-button-example-2" value="no"></bal-radio>
+          </bal-radio-group>
+        </div>
+      </section>
     </div>
   </body>
 </html>
