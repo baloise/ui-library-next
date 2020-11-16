@@ -3,7 +3,7 @@ name: Continous
 on: [push]
 
 jobs:
-  main:
+  BuildAndTest:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
