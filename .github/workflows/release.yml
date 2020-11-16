@@ -46,18 +46,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # - name: Lint
-      #   run: npm run lint
-
-      # - name: Git Status
-      #   run: git status
-
-      # - name: Builded libaries are pushed
-      #   run: git diff-index --quiet HEAD --
-
-      # - name: Publish to NPM
-      #   run: "npm run publish"
-      #   env:
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish to NPM
+        run: 'npm run publish'
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
