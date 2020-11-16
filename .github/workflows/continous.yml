@@ -3,19 +3,7 @@ name: Continous
 on: [push]
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v1
-
-      - name: Clean install dependencies
-        run: npm ci
-
-      - name: Lint
-        run: npm run lint
-
-  build:
+  main:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -27,21 +15,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Git Status
-        run: git status
+      - name: Lint
+        run: npm run lint
 
-      - name: Builded libaries are pushed
-        run: git diff-index --quiet HEAD --
-
-  # test:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout Repository
-  #       uses: actions/checkout@v1
-
-  #     - name: Clean install dependencies
-  #       run: npm ci
-
-  #     - name: Test
-  #       run: npm run test
-
+      - name: Test
+        run: npm run test
