@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0](https://github.com/baloise/ui-library-next/compare/v1.16.6...v1.17.0) (2020-11-16)
+
+
+### Features
+
+* **radio:** add select-button interface ([56d186b](https://github.com/baloise/ui-library-next/commit/56d186ba2dc99d7434e6d4f95d83a7e9957b67dc))
+
+
+
+
+
 ## [1.16.6](https://github.com/baloise/ui-library-next/compare/v1.16.5...v1.16.6) (2020-11-16)
 
 **Note:** Version bump only for package @baloise/ui-library-next-angular
