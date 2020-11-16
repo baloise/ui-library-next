@@ -427,7 +427,7 @@ body.close .content {
     left: -300px;
     transition: transform 250ms ease-out;
   }
-  .content {
+  main section.content {
     left: 0;
     max-width: 100vw;
     position: static;
