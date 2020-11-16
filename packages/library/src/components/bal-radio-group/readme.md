@@ -11,9 +11,11 @@
 
 ## Properties
 
-| Property | Attribute | Description               | Type     | Default |
-| -------- | --------- | ------------------------- | -------- | ------- |
-| `value`  | `value`   | The value of the control. | `string` | `''`    |
+| Property    | Attribute   | Description                                            | Type                         | Default   |
+| ----------- | ----------- | ------------------------------------------------------ | ---------------------------- | --------- |
+| `interface` | `interface` | Defines the layout of the radio button                 | `"radio" \| "select-button"` | `'radio'` |
+| `inverted`  | `inverted`  | If `true` the component can be used on dark background | `boolean`                    | `false`   |
+| `value`     | `value`     | The value of the control.                              | `string`                     | `''`      |
 
 
 ## Events
