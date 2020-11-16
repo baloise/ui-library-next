@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.1](https://github.com/baloise/ui-library-next/compare/v1.16.0...v1.16.1) (2020-11-16)
+
+
+### Bug Fixes
+
+* **field:** adjust background color ([2b5776f](https://github.com/baloise/ui-library-next/commit/2b5776f5b03486d4d666b66cb4441788253f0d65))
+
+
+
+
+
 # [1.16.0](https://github.com/baloise/ui-library-next/compare/v1.15.1...v1.16.0) (2020-11-15)
 
 
