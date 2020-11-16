@@ -124,6 +124,11 @@ export class Dropdown {
     }
   }
 
+  get isUp(): boolean {
+    const box = this.element.getBoundingClientRect()
+    return window.innerHeight - box.top < window.innerHeight / 2
+  }
+
   render() {
     return (
       <Host data-id={this.dropdownId}>
@@ -132,6 +137,7 @@ export class Dropdown {
             'dropdown': true,
             'is-active': this.isActive,
             'is-expanded': this.expanded,
+            'is-up': this.isUp,
           }}>
           <div class="dropdown-trigger">
             <slot name="trigger" />

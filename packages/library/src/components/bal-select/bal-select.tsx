@@ -191,6 +191,7 @@ export class Select {
   private onInput(event: InputEvent) {
     const inputValue = (event.target as HTMLInputElement).value
     this.value = ''
+    this.focusIndex = 0
     this.balChange.emit(this.value)
     this.balInput.emit(inputValue)
     this.updateOptionProps()
@@ -302,7 +303,11 @@ export class Select {
       this.focusOptionByLabel(event.key)
     }
     if (isEnterKey(event)) {
-      this.selectFocused()
+      if (!this.isDropdownOpen) {
+        this.open()
+      } else {
+        this.selectFocused()
+      }
     }
   }
 

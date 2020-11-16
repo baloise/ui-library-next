@@ -66,10 +66,9 @@
 
       <h2 class="title is-size-2">Typeahead</h2>
       <section>
-        <bal-select id="bal-select-typeahead" typeahead placeholder="start typing"></bal-select>
+        <bal-select id="bal-select-typeahead-heros" typeahead placeholder="start typing"></bal-select>
       </section>
       <script>
-        var selectTypeahead = document.getElementById('bal-select-typeahead')
         var heros = [
           { label: 'Ant-Man', value: 1, location: 'San Francisco' },
           { label: 'Spider-Man', value: 2, location: 'Queens' },
@@ -86,16 +85,18 @@
           { label: 'Doctor Strange', value: 13, location: 'Manhatten' },
           { label: 'Wasp', value: 14, location: 'San Francisco' },
         ]
-        heros.forEach(function(hero) {
-          var option = document.createElement('bal-select-option')
-          option.setAttribute('value', hero.value)
-          option.setAttribute('label', hero.label)
-          option.innerHTML = '<b>' + hero.label + '</b></br><span>' + hero.location + '</span>'
-          selectTypeahead.querySelector('.dropdown-content').appendChild(option)
-        })
-        selectTypeahead.addEventListener('balChange', function(ev){
-          console.log(ev)
-        })
+        setTimeout(function(){
+          heros.forEach(function(hero) {
+            var option = document.createElement('bal-select-option')
+            option.setAttribute('value', hero.value)
+            option.setAttribute('label', hero.label)
+            option.innerHTML = '<b>' + hero.label + '</b></br><span>' + hero.location + '</span>'
+            document
+              .getElementById('bal-select-typeahead-heros')
+              .querySelector('.dropdown-content')
+              .appendChild(option)
+          })
+        }, 1000)
       </script>
 
       <h3 class="title is-size-3">Remote</h3>
