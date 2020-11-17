@@ -9,9 +9,11 @@ import autoprefixer from 'autoprefixer'
 export const config: Config = {
   namespace: 'ui-library-next',
   globalStyle: 'src/styles/ui-library.scss',
+  buildEs5: true,
   outputTargets: [
     {
       type: 'dist',
+      polyfills: true,
       dir: '../../docs/lib/dist',
       esmLoaderPath: '../loader',
     },

@@ -61,9 +61,11 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [
 export const config: Config = {
   namespace: 'ui-library-next',
   globalStyle: 'src/styles/ui-library.scss',
+  buildEs5: true,
   outputTargets: [
     {
       type: 'dist',
+      polyfills: true,
       esmLoaderPath: '../loader',
     },
     {
