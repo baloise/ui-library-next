@@ -47,5 +47,6 @@ d.BalAccordion,
   d.BalTabs,
   d.BalTag,
   d.BalText,
+  d.BalTimeinput,
   d.BalToast
 ];

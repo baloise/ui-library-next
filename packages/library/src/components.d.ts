@@ -883,6 +883,28 @@ export namespace Components {
     }
     interface BalText {
     }
+    interface BalTimeinput {
+        /**
+          * If `true` the button is disabled
+         */
+        "disabled": boolean;
+        /**
+          * If `true` the timeinput can be used on blue background.
+         */
+        "inverted": boolean;
+        /**
+          * Latest date available for selection
+         */
+        "maxTime": string;
+        /**
+          * Earliest date available for selection
+         */
+        "minTime": string;
+        /**
+          * The value of the datepicker with the format `hh:mm`.
+         */
+        "value": string;
+    }
     interface BalToast {
         /**
           * Closes this toast
@@ -1169,6 +1191,12 @@ declare global {
         prototype: HTMLBalTextElement;
         new (): HTMLBalTextElement;
     };
+    interface HTMLBalTimeinputElement extends Components.BalTimeinput, HTMLStencilElement {
+    }
+    var HTMLBalTimeinputElement: {
+        prototype: HTMLBalTimeinputElement;
+        new (): HTMLBalTimeinputElement;
+    };
     interface HTMLBalToastElement extends Components.BalToast, HTMLStencilElement {
     }
     var HTMLBalToastElement: {
@@ -1221,6 +1249,7 @@ declare global {
         "bal-tabs": HTMLBalTabsElement;
         "bal-tag": HTMLBalTagElement;
         "bal-text": HTMLBalTextElement;
+        "bal-timeinput": HTMLBalTimeinputElement;
         "bal-toast": HTMLBalToastElement;
     }
 }
@@ -2105,6 +2134,36 @@ declare namespace LocalJSX {
     }
     interface BalText {
     }
+    interface BalTimeinput {
+        /**
+          * If `true` the button is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true` the timeinput can be used on blue background.
+         */
+        "inverted"?: boolean;
+        /**
+          * Latest date available for selection
+         */
+        "maxTime"?: string;
+        /**
+          * Earliest date available for selection
+         */
+        "minTime"?: string;
+        /**
+          * Emitted when either the hour or minute input field loses focus.
+         */
+        "onBalBlur"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when either the hour or the minute input has changed. It will not be triggert if either hour or time input has never been set (i.e. "--" is selected).
+         */
+        "onBalChange"?: (event: CustomEvent<string>) => void;
+        /**
+          * The value of the datepicker with the format `hh:mm`.
+         */
+        "value"?: string;
+    }
     interface BalToast {
         /**
           * The theme type of the toast. Given by bulma our css framework.
@@ -2157,6 +2216,7 @@ declare namespace LocalJSX {
         "bal-tabs": BalTabs;
         "bal-tag": BalTag;
         "bal-text": BalText;
+        "bal-timeinput": BalTimeinput;
         "bal-toast": BalToast;
     }
 }
@@ -2209,6 +2269,7 @@ declare module "@stencil/core" {
             "bal-tabs": LocalJSX.BalTabs & JSXBase.HTMLAttributes<HTMLBalTabsElement>;
             "bal-tag": LocalJSX.BalTag & JSXBase.HTMLAttributes<HTMLBalTagElement>;
             "bal-text": LocalJSX.BalText & JSXBase.HTMLAttributes<HTMLBalTextElement>;
+            "bal-timeinput": LocalJSX.BalTimeinput & JSXBase.HTMLAttributes<HTMLBalTimeinputElement>;
             "bal-toast": LocalJSX.BalToast & JSXBase.HTMLAttributes<HTMLBalToastElement>;
         }
     }

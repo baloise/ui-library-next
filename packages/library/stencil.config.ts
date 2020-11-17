@@ -10,7 +10,7 @@ import { angularOutputTarget, ValueAccessorConfig } from 'hirsch-angular-output-
  */
 const vueComponentModels: ComponentModelConfig[] = [
   {
-    elements: ['bal-radio-group', 'bal-select', 'bal-datepicker'],
+    elements: ['bal-radio-group', 'bal-select', 'bal-datepicker', 'bal-timeinput'],
     event: 'balChange',
     targetAttr: 'value',
   },
@@ -36,7 +36,7 @@ const vueComponentModels: ComponentModelConfig[] = [
  */
 const angularValueAccessorBindings: ValueAccessorConfig[] = [
   {
-    elementSelectors: ['bal-radio-group', 'bal-select', 'bal-datepicker'],
+    elementSelectors: ['bal-radio-group', 'bal-select', 'bal-datepicker', 'bal-timeinput'],
     event: 'balChange',
     targetAttr: 'value',
     type: 'select',

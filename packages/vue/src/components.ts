@@ -55,6 +55,7 @@ const customElementTags: string[] = [
  'bal-tabs',
  'bal-tag',
  'bal-text',
+ 'bal-timeinput',
  'bal-toast',
 ];
 Vue.config.ignoredElements = [...Vue.config.ignoredElements, ...customElementTags];
@@ -743,6 +744,25 @@ export const BalText = /*@__PURE__*/ Vue.extend({
 
 
   render: createCommonRender('bal-text', []),
+});
+
+
+export const BalTimeinput = /*@__PURE__*/ Vue.extend({
+
+  props: {
+    disabled: {} as PropOptions<Components.BalTimeinput['disabled']>,
+    value: {} as PropOptions<Components.BalTimeinput['value']>,
+    maxTime: {} as PropOptions<Components.BalTimeinput['maxTime']>,
+    minTime: {} as PropOptions<Components.BalTimeinput['minTime']>,
+    inverted: {} as PropOptions<Components.BalTimeinput['inverted']>,
+  },
+
+  model: {
+    prop: 'value',
+    event: 'balChange'
+  },
+
+  render: createCommonRender('bal-timeinput', ['balChange', 'balBlur']),
 });
 
 

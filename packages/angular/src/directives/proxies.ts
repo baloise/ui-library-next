@@ -938,6 +938,32 @@ export class BalText {
   }
 }
 
+import { Timeinput as ITimeinput } from '@baloise/ui-library-next/dist/types/components/bal-timeinput/bal-timeinput';
+export declare interface BalTimeinput extends Components.BalTimeinput {}
+@ProxyCmp({
+  inputs: ['disabled', 'inverted', 'maxTime', 'minTime', 'value']
+})
+@Component({
+  selector: 'bal-timeinput',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  inputs: ['disabled', 'inverted', 'maxTime', 'minTime', 'value'],
+  outputs: ['balChange', 'balBlur']
+})
+export class BalTimeinput {
+  /** Emitted when either the hour or the minute input has changed.
+It will not be triggert if either hour or time input has never been set (i.e. "--" is selected). */
+  balChange!: ITimeinput['balTimeinputChange'];
+  /** Emitted when either the hour or minute input field loses focus. */
+  balBlur!: ITimeinput['balBlur'];
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['balChange', 'balBlur']);
+  }
+}
+
 
 export declare interface BalToast extends Components.BalToast {}
 @ProxyCmp({
