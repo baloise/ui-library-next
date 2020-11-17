@@ -17,7 +17,7 @@
     <!-- <link rel="stylesheet" href="/docs/assets/styles/styles.css" /> -->
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/vue.css" />
-    <link rel="stylesheet" href="lib/build/ui-library-next.css" />
+    <link rel="stylesheet" href="lib/dist/ui-library-next/ui-library-next.css" />
   </head>
 
   <body class="sticky">
@@ -43,6 +43,7 @@
         },
       }
     </script>
+    <script src="assets/js/polyfill.min.js"></script>
     <script src="assets/js/docsify.min.js"></script>
     <script src="assets/js/external-script.min.js"></script>
     <script src="assets/js/docsify-copy-code.min.js"></script>
@@ -52,11 +53,10 @@
     <script src="assets/js/docsify-pagination.min.js"></script>
     <script src="assets/js/snippet.plugin.js"></script>
 
-    <script type="module" src="lib/build/ui-library-next.esm.js"></script>
-    <script nomodule src="lib/build/ui-library-next.js"></script>
-
+    <script type="module" src="lib/dist/ui-library-next/ui-library-next.esm.js"></script>
+    <script nomodule src="lib/dist/ui-library-next/ui-library-next.js"></script>
     <script type="module">
-      import { balToastController } from './lib/build/index.esm.js'
+      import { balToastController } from './lib/dist/esm/index.js'
 
       window.balToastController = balToastController
     </script>

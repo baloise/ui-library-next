@@ -14,7 +14,7 @@ const newContent = [getSidebarStart(sidebarContent)]
 newContent.push(NEWLINE + '- **Components**' + NEWLINE)
 components.forEach(component => {
     if (component.parent === null) {
-        newContent.push(`  - [${component.tag}](lib/components/${component.tag}/readme)`)
+        newContent.push(`  - [${component.tag}](www/components/${component.tag}/readme)`)
     }
 })
 newContent.push(getSidebarEnd(sidebarContent))

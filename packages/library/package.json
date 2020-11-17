@@ -11,7 +11,7 @@
     "access": "public"
   },
   "main": "dist/index.cjs.js",
-  "module": "dist/custom-elements/index.js",
+  "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
   "es2017": "dist/esm/index.mjs",
   "types": "dist/types/index.d.ts",
@@ -24,10 +24,9 @@
     "loader/"
   ],
   "scripts": {
-    "build": "stencil build --docs --es5",
-    "build:docs": "stencil build --docs --es5 --config stencil.docs.config.ts",
-    "serve": "stencil build -docs --dev --watch --serve --docs-json www/components.json",
-    "serve:ie": "stencil build --es5 --dev --watch --serve",
+    "build": "stencil build --docs --es5 --prod",
+    "build:docs": "stencil build --docs --es5 --prod --config stencil.docs.config.ts",
+    "serve": "stencil build --docs --dev --watch --serve --docs-json www/components.json",
     "generate": "stencil generate"
   },
   "dependencies": {

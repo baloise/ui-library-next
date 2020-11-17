@@ -1,4 +1,4 @@
-const accessorsJson = require('../../lib/accessors.json')
+const accessorsJson = require('../../www/accessors.json')
 
 const accessors = new Map()
 

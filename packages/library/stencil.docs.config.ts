@@ -11,15 +11,20 @@ export const config: Config = {
   globalStyle: 'src/styles/ui-library.scss',
   outputTargets: [
     {
+      type: 'dist',
+      dir: '../../docs/lib/dist',
+      esmLoaderPath: '../loader',
+    },
+    {
       type: 'docs-readme',
     },
     {
       type: 'docs-json',
-      file: '../../docs/lib/components.json',
+      file: '../../docs/www/components.json',
     },
     {
       type: 'www',
-      dir: '../../docs/lib',
+      dir: '../../docs/www',
       serviceWorker: null, // disable service workers
       copy: [
         {

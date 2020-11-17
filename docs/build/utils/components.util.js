@@ -1,4 +1,4 @@
-const componentsJson = require("../../lib/components.json")
+const componentsJson = require("../../www/components.json")
 const { readFile } = require("../utils/file.util")
 const { NEWLINE, DOCS_CHILD_REGEX, DOCS_HEADING_REGEX } = require("../constants")
 
@@ -29,7 +29,7 @@ const addChildInformation = (component) => {
 }
 
 const addExamples = (component) => {
-    component.examples = readFile(`lib/components/${component.tag}/index.html`)
+    component.examples = readFile(`www/components/${component.tag}/index.html`)
     return component
 }
 
