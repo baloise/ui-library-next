@@ -27,7 +27,7 @@
     ]
   },
   "author": "",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "@angular/common": "~10.2.0",
     "@angular/core": "~10.2.0",

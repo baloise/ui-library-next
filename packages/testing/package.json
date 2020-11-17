@@ -27,7 +27,7 @@
     "tsc": "tsc -p tsconfig.build.json"
   },
   "author": "",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@types/chai": "^4.2.12",
     "@types/jquery": "^3.5.1",

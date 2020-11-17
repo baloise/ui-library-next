@@ -34,7 +34,7 @@
     "bulma": "^0.9.0",
     "filesize.js": "^2.0.0"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@stencil/postcss": "^1.0.1",
     "@stencil/sass": "^1.3.2",
