@@ -14,7 +14,6 @@ export const config: Config = {
     {
       type: 'dist',
       polyfills: true,
-      dir: '../../docs/lib/dist',
       esmLoaderPath: '../loader',
     },
     {

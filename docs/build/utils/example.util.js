@@ -56,7 +56,7 @@ const parseExamples = component => {
       const javascriptContent = babelCore.transform(scriptContent.join(NEWLINE + NEWLINE), {
         presets: ['@babel/preset-env'],
       })
-      content.push('<script type="text/javascript">' + javascriptContent + '</script>')
+      content.push('<script type="text/javascript">' + javascriptContent.code + '</script>')
       return [`## Examples`, '', ...content.filter(c => c !== null).filter(c => !c.startsWith(NEWLINE))].join(NEWLINE)
     }
   }

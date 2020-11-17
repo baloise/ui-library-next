@@ -8,10 +8,11 @@
   "license": "Apache-2.0",
   "main": "index.html",
   "scripts": {
-    "build": "npm run build:sidebar && npm run build:components",
+    "build": "npm run copy:lib && npm run build:sidebar && npm run build:components",
     "build:sidebar": "node ./build/sidebar.build.js",
     "build:components": "node ./build/components.build.js",
-    "serve": "http-server ./ --port 3000"
+    "serve": "http-server ./ --port 3000",
+    "copy:lib": "cpy ./ ../../../docs/lib/ --parents --cwd=../packages/library/dist"
   },
   "dependencies": {},
   "devDependencies": {
@@ -19,6 +20,7 @@
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "chalk": "^4.1.0",
+    "cpy-cli": "^3.1.1",
     "docsify": "^4.11.6",
     "glob": "^7.1.6",
     "http-server": "^0.12.3",
