@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.1](https://github.com/baloise/ui-library-next/compare/v1.18.0...v1.18.1) (2020-11-18)
+
+
+### Bug Fixes
+
+* **select:** fix a small glitch ([1443866](https://github.com/baloise/ui-library-next/commit/14438663f6f60c3d454e063a781702011928aac9))
+
+
+
+
+
 # [1.18.0](https://github.com/baloise/ui-library-next/compare/v1.17.2...v1.18.0) (2020-11-18)
 
 
