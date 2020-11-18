@@ -185,6 +185,7 @@ export class Select {
 
   private onDropdownChange(event: CustomEvent<boolean>) {
     this.isDropdownOpen = event.detail
+    this.updateOptionProps()
     event.stopPropagation()
   }
 
@@ -211,6 +212,8 @@ export class Select {
       if (!this.remote && this.typeahead) {
         const didMatch = this.compareForFilter(`${option.label}` || '', `${inputValue}`)
         option.setAttribute('hidden', `${!didMatch}`)
+      } else {
+        option.setAttribute('hidden', `${!this.isDropdownOpen}`)
       }
 
       const isSelected = !!this.value && this.value === option.value

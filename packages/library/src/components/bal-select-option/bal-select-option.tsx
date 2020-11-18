@@ -27,7 +27,7 @@ export class SelectOption {
   /**
    * If `true` the option is hidden
    */
-  @Prop() hidden = false
+  @Prop() hidden = true
 
   /**
    * Baloise icon as a prefix

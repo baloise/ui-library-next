@@ -12,7 +12,7 @@
 | Property   | Attribute  | Description                                                                                       | Type      | Default     |
 | ---------- | ---------- | ------------------------------------------------------------------------------------------------- | --------- | ----------- |
 | `focused`  | `focused`  | If `true` the option is focused                                                                   | `boolean` | `false`     |
-| `hidden`   | `hidden`   | If `true` the option is hidden                                                                    | `boolean` | `false`     |
+| `hidden`   | `hidden`   | If `true` the option is hidden                                                                    | `boolean` | `true`      |
 | `icon`     | `icon`     | Baloise icon as a prefix                                                                          | `string`  | `''`        |
 | `label`    | `label`    | Label will be shown in the input element when it got selected                                     | `string`  | `undefined` |
 | `selected` | `selected` | If `true` the option is selected                                                                  | `boolean` | `false`     |
