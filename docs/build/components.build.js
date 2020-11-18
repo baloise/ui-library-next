@@ -8,7 +8,7 @@ const { parseGithub } = require('./utils/github.util')
 const { NEWLINE } = require('./constants')
 
 const writeComponent = (tag, content) => {
-    const path = `lib/components/${tag}/readme.md`
+    const path = `www/components/${tag}/readme.md`
     const err = writeFile(path, content.join(NEWLINE))
     if (err === null) {
         printSuccess(path)
@@ -17,7 +17,7 @@ const writeComponent = (tag, content) => {
 
 const printListItem = (title, tag) => `
 <li>
-    <a href="#/lib/components/${tag}/readme?id=${title.toLowerCase()}">
+    <a href="#/www/components/${tag}/readme?id=${title.toLowerCase()}">
         ${title}
     </a>
 </li>

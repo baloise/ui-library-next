@@ -22,7 +22,7 @@
     "dist/"
   ],
   "author": "",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "@baloise/ui-library-next": "^1.17.1"
   },

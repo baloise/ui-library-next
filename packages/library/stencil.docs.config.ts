@@ -9,17 +9,23 @@ import autoprefixer from 'autoprefixer'
 export const config: Config = {
   namespace: 'ui-library-next',
   globalStyle: 'src/styles/ui-library.scss',
+  buildEs5: true,
   outputTargets: [
+    {
+      type: 'dist',
+      polyfills: true,
+      esmLoaderPath: '../loader',
+    },
     {
       type: 'docs-readme',
     },
     {
       type: 'docs-json',
-      file: '../../docs/lib/components.json',
+      file: '../../docs/www/components.json',
     },
     {
       type: 'www',
-      dir: '../../docs/lib',
+      dir: '../../docs/www',
       serviceWorker: null, // disable service workers
       copy: [
         {

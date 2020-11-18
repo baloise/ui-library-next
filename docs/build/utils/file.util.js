@@ -16,7 +16,7 @@ const readFile = (filepath, showError = true) => {
 const forEachComponent = (files, done) => files.forEach(f => done(f))
 
 const findComponents = (done) =>
-    glob('lib/components/**/readme.md', {}, (err, files) => err
+    glob('www/components/**/readme.md', {}, (err, files) => err
         ? printError('Could not find any components', err)
         : done(files))
 
