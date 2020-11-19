@@ -21,6 +21,7 @@
   }
 
   .card-steps-wrapper {
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -33,9 +34,15 @@
       flex-direction: row;
       align-items: center;
       padding-left: 20px;
+      top: 0;
+
+      a {
+        height: 30px;
+      }
 
       .nav-go-left {
         transform: rotate(180deg);
+        max-height: 30px;
       }
 
       .nav-go-left-label {
@@ -105,6 +112,7 @@
           width: 30px;
 
           span.step-index {
+            position: relative;
             background: $blue;
             border: 1px solid $blue;
             border-radius: 50%;
@@ -112,10 +120,6 @@
             height: 8px;
             width: 8px;
             opacity: 50%;
-          }
-
-          span.step-index > span {
-            margin-top: -2px;
           }
 
           span.step-label,
@@ -214,7 +218,8 @@
               background-repeat: no-repeat;
               background-size: 24px 24px;
               content: '';
-              top: 8px;
+              top: 5px;
+              left: 9px;
               width: 4px;
               height: 10px;
               border-bottom: 2px solid $white;
@@ -298,6 +303,7 @@
 
   @include tablet() {
     .tab-title {
+      top: 0;
       left: 60px;
       right: 60px;
     }
@@ -318,14 +324,11 @@
   }
 
   @include desktop() {
-    .tab-title {
-      top: 20px;
-    }
+
   }
 
   @include fullhd() {
     .tab-title {
-      top: 20px;
       left: 120px;
       right: 120px;
     }
