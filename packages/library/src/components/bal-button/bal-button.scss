@@ -17,10 +17,14 @@
     user-select: none;
     min-height: 50px;
 
-    &:active span,
-    &:active bal-text,
     &:focus span,
-    &:focus bal-text {
+    &:active span,
+    &:focus bal-text,
+    &:active bal-text,
+    &:focus bal-icon,
+    &:active bal-icon,
+    &:focus bal-spinner,
+    &:active bal-spinner {
       position: relative;
       top: 0;
       left: 0;
