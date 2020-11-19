@@ -17,6 +17,15 @@
     user-select: none;
     min-height: 50px;
 
+    &:active span,
+    &:active bal-text,
+    &:focus span,
+    &:focus bal-text {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+
     .icon-left,
     .icon-right {
       align-items: center;
