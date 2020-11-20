@@ -43,16 +43,11 @@
 }
 
 .bal-list-item {
-  position: relative;
+  position: static;
   display: flex;
-  flex: 1 1 100%;
-  align-items: center;
-  letter-spacing: normal;
-  min-height: 48px;
-  outline: none;
-  text-decoration: none;
+  flex-direction: row;
   transition: 0.2s ease-in-out;
-  cursor: pointer;
+  padding: 0;
 
   &:hover {
     padding: 0 8px;
@@ -63,8 +58,22 @@
   }
 }
 
+.bal-list-item-content,
 .bal-list-item-icon {
-  display: block;
+  position: static;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: hsla(0, 0%, 0%, 0.1);
+}
+
+.bal-list-item-content {
+  display: flex;
+  width: 100%;
+  min-height: 48px;
+}
+
+.bal-list-item-icon {
   align-self: flex-start;
   display: inline-flex;
   min-width: 24px;
@@ -82,14 +91,16 @@
 .bal-list-item-content {
   font-weight: $weight-normal;
   font-family: $family-primary;
-  align-self: center;
-  overflow: hidden;
 }
 
 .bal-list-item-title,
 .bal-list-item-subtitle {
+  position: static;
+  background: hsla(0, 0%, 0%, 0.1);
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0 1em;
   display: block;
-  flex: 1 1 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -102,10 +113,47 @@
   color: $blue-light-text;
 }
 
-.bal-list-item-content {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  flex: 1 1;
-  overflow: hidden;
-}
+// .bal-list-item {
+//   position: relative;
+//   display: flex;
+//   flex-direction: column;
+//   flex: 1 1 100%;
+//   align-items: center;
+//   letter-spacing: normal;
+//   min-height: 48px;
+//   max-width: 100%;
+//   outline: none;
+//   text-decoration: none;
+//   transition: 0.2s ease-in-out;
+//   cursor: pointer;
+// }
+
+// .bal-list-item-title,
+// .bal-list-item-subtitle,
+// .bal-list-item-content {
+//   align-self: center;
+//   overflow: hidden;
+//   flex: 1 1 100%;
+//   box-sizing: border-box;
+//   max-width: 100%;
+// }
+
+// .bal-list-item-title,
+// .bal-list-item-subtitle {
+//   display: block;
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+//   box-sizing: border-box;
+//   max-width: 100%;
+// }
+
+// .bal-list-item-content {
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   justify-content: center;
+//   flex-wrap: wrap;
+//   overflow: hidden;
+//   min-height: 48px;
+//   width: 100%;
+// }
