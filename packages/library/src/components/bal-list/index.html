@@ -131,21 +131,17 @@
 
       <h2 class="title is-size-2">With multiple columns</h2>
       <section>
-        <div class="columns">
-          <div class="column">a</div>
-          <div class="column">b</div>
-          <div class="column">c</div>
-        </div>
-
         <bal-list border class="box is-padded">
           <bal-list-item>
             <bal-list-item-content>
-              <div class="columns">
-                <div class="column">
-                  <bal-list-item-title>14.02.2020</bal-list-item-title>
-                </div>
-                <div class="column">
-                  <bal-list-item-title>Link A</bal-list-item-title>
+              <div style="display: block; width: 100%">
+                <div class="columns">
+                  <div class="column" style="max-width: 140px">
+                    <bal-list-item-title>14.02.2020</bal-list-item-title>
+                  </div>
+                  <div class="column">
+                    <bal-list-item-title>Link A</bal-list-item-title>
+                  </div>
                 </div>
               </div>
             </bal-list-item-content>
@@ -156,12 +152,14 @@
 
           <bal-list-item>
             <bal-list-item-content>
-              <div class="columns">
-                <div class="column">
-                  <bal-list-item-title>03.04.2020</bal-list-item-title>
-                </div>
-                <div class="column">
-                  <bal-list-item-title>Link B</bal-list-item-title>
+              <div style="display: block; width: 100%">
+                <div class="columns">
+                  <div class="column" style="max-width: 140px">
+                    <bal-list-item-title>03.04.2020</bal-list-item-title>
+                  </div>
+                  <div class="column">
+                    <bal-list-item-title>Link B</bal-list-item-title>
+                  </div>
                 </div>
               </div>
             </bal-list-item-content>

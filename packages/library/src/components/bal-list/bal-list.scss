@@ -64,7 +64,6 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  background: hsla(0, 0%, 0%, 0.1);
 }
 
 .bal-list-item-content {
@@ -96,7 +95,6 @@
 .bal-list-item-title,
 .bal-list-item-subtitle {
   position: static;
-  background: hsla(0, 0%, 0%, 0.1);
   box-sizing: border-box;
   max-width: 100%;
   padding: 0 1em;
