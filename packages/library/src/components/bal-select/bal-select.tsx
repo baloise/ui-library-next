@@ -193,8 +193,6 @@ export class Select {
     const inputValue = (event.target as HTMLInputElement).value
     this.value = ''
     this.focusIndex = 0
-    this.balChange.emit(this.value)
-    this.balInput.emit(inputValue)
     this.updateOptionProps()
 
     if (this.typeahead && inputValue.length === 0) {
@@ -203,6 +201,10 @@ export class Select {
     if (this.typeahead && inputValue.length > 0) {
       this.dropdownElement.open()
     }
+    event.preventDefault()
+    event.stopPropagation()
+    this.balChange.emit(this.value)
+    this.balInput.emit(inputValue)
   }
 
   private async updateOptionProps() {
