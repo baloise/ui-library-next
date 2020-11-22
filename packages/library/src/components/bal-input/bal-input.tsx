@@ -28,6 +28,11 @@ export class Input {
   @Prop() placeholder = ''
 
   /**
+   * The tabindex of the control.
+   */
+  @Prop() balTabindex: number = 0
+
+  /**
    * Defines the max length of the value.
    */
   @Prop() maxLength: number | undefined = undefined
@@ -143,6 +148,7 @@ export class Input {
           placeholder={this.placeholder}
           name={this.name}
           value={this.value}
+          tabindex={this.balTabindex}
           disabled={this.disabled}
           readonly={this.readonly}
           pattern={this.numberKeyboard ? '[0-9]*' : ''}

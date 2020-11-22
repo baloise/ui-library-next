@@ -1,4 +1,4 @@
-import { Component, h, Host, Element, Prop, State, Method, EventEmitter, Event } from '@stencil/core'
+import { Component, h, Host, Element, Prop, State, Method, EventEmitter, Event, Listen } from '@stencil/core'
 import { isEnterKey, isEscapeKey, isArrowDownKey, isArrowUpKey } from '../../utils/key.util'
 import { BalOptionValue } from '../bal-select-option/bal-select-option.type'
 
@@ -10,6 +10,7 @@ import { BalOptionValue } from '../bal-select-option/bal-select-option.type'
 })
 export class Select {
   private inputElement!: HTMLInputElement
+  private inputFilterElement!: HTMLInputElement
   private dropdownElement!: HTMLBalDropdownElement
   private clearScrollToValue: NodeJS.Timeout
 
@@ -20,9 +21,19 @@ export class Select {
   @State() focusIndex: number = 0
 
   /**
+   * If `true` multiple option can be selected
+   */
+  @Prop() multiple = false
+
+  /**
    * If `true` the filtering of the options is done outside of the component.
    */
-  @Prop() remote = false
+  @Prop() noFilter = false
+
+  /**
+   * The tabindex of the control.
+   */
+  @Prop() balTabindex: number = 0
 
   /**
    * If `true` the component uses the whole width.
@@ -55,6 +66,11 @@ export class Select {
   @Prop() placeholder = ''
 
   /**
+   * Defines the placeholder of the input filter element.
+   */
+  @Prop() filterPlaceholder = ''
+
+  /**
    * Defines the height of the dropdown list.
    */
   @Prop() scrollable: number = 250
@@ -62,12 +78,12 @@ export class Select {
   /**
    * Selected option value.
    */
-  @Prop({ mutable: true }) value: string = ''
+  @Prop({ mutable: true }) value: string[] = []
 
   /**
    * Emitted when a option got selected.
    */
-  @Event({ eventName: 'balChange' }) balChange!: EventEmitter<string>
+  @Event({ eventName: 'balChange' }) balChange!: EventEmitter<string[]>
 
   /**
    * Emitted when a keyboard input occurred.
@@ -127,10 +143,26 @@ export class Select {
   @Method()
   async select(option: BalOptionValue<any>) {
     this.focusIndex = this.childOptions.findIndex(el => el.value === option.value)
-    this.value = option.value
+    if (this.multiple) {
+      if (this.value.includes(option.value)) {
+        for (var i = 0; i < this.value.length; i++) {
+          if (this.value[i] === option.value) {
+            this.value.splice(i, 1)
+          }
+        }
+      } else {
+        this.value = [...this.value, option.value]
+      }
+      this.inputElement.value = this.childOptions
+        .filter(option => this.value.includes(option.value))
+        .map(option => option.label)
+        .join(', ')
+    } else {
+      this.value = [option.value]
+      this.inputElement.value = option?.label
+      await this.dropdownElement?.close()
+    }
     this.balChange.emit(this.value)
-    this.inputElement.value = option?.label
-    await this.dropdownElement?.close()
     this.updateOptionProps()
   }
 
@@ -139,7 +171,7 @@ export class Select {
    */
   @Method()
   async clear() {
-    this.value = ''
+    this.value = []
     this.inputElement.value = ''
     this.focusIndex = 0
     this.clearFocus()
@@ -164,6 +196,14 @@ export class Select {
     this.updateOptionProps()
   }
 
+  @Listen('keydown', { target: 'window' })
+  keyDownHandler(event: KeyboardEvent) {
+    if (this.isDropdownOpen && (isArrowDownKey(event) || isArrowUpKey(event))) {
+      event.stopPropagation()
+      event.preventDefault()
+    }
+  }
+
   private get childOptions(): HTMLBalSelectOptionElement[] {
     return Array.from(this.element.querySelectorAll('bal-select-option'))
   }
@@ -178,8 +218,12 @@ export class Select {
     }
 
     this.balClick.emit(event)
-    if (!this.typeahead) {
+    if (!this.typeahead || this.multiple) {
       await this.dropdownElement?.toggle()
+    }
+
+    if (this.typeahead && this.multiple && this.isDropdownOpen) {
+      setTimeout(() => this.inputFilterElement.focus(), 100)
     }
   }
 
@@ -191,11 +235,11 @@ export class Select {
 
   private onInput(event: InputEvent) {
     const inputValue = (event.target as HTMLInputElement).value
-    this.value = ''
+    this.value = []
     this.focusIndex = 0
     this.updateOptionProps()
 
-    if (this.typeahead && inputValue.length === 0) {
+    if (this.typeahead && !this.multiple && inputValue.length === 0) {
       this.dropdownElement.close()
     }
     if (this.typeahead && inputValue.length > 0) {
@@ -207,18 +251,45 @@ export class Select {
     this.balInput.emit(inputValue)
   }
 
+  private onKeyUp(event: KeyboardEvent) {
+    if (isEscapeKey(event)) {
+      this.cancel()
+    }
+    if (this.hasChildren) {
+      if (this.isDropdownOpen && (isArrowDownKey(event) || isArrowUpKey(event))) {
+        event.preventDefault()
+        event.stopPropagation()
+        this.navigateWithArrowKey(event)
+      }
+    }
+  }
+
+  private onKeyPress(event: KeyboardEvent) {
+    this.balKeyPress.emit(event)
+    if (!this.typeahead && event.key.length === 1) {
+      this.focusOptionByLabel(event.key)
+    }
+    if (isEnterKey(event)) {
+      if (!this.isDropdownOpen) {
+        this.open()
+      } else {
+        this.selectFocused()
+      }
+    }
+  }
+
   private async updateOptionProps() {
-    const inputValue = this.inputElement.value
+    const inputValue = this.multiple && this.typeahead ? this.inputFilterElement.value : this.inputElement.value
     this.clearFocus()
     this.childOptions.forEach((option, index) => {
-      if (!this.remote && this.typeahead) {
+      if (!this.noFilter && this.typeahead) {
         const didMatch = this.compareForFilter(`${option.label}` || '', `${inputValue}`)
         option.setAttribute('hidden', `${!didMatch}`)
       } else {
         option.setAttribute('hidden', `${!this.isDropdownOpen}`)
       }
 
-      const isSelected = !!this.value && this.value === option.value
+      const isSelected = !!this.value && this.value.includes(option.value)
       option.setAttribute('selected', `${isSelected}`)
 
       const isFocused = this.focusIndex === index
@@ -260,18 +331,6 @@ export class Select {
     return text.startsWith(input)
   }
 
-  private onKeyUp(event: KeyboardEvent) {
-    if (isEscapeKey(event)) {
-      this.cancel()
-    }
-    if (this.hasChildren) {
-      if (this.isDropdownOpen && (isArrowDownKey(event) || isArrowUpKey(event))) {
-        event.preventDefault()
-        this.navigateWithArrowKey(event)
-      }
-    }
-  }
-
   private navigateWithArrowKey(event: KeyboardEvent) {
     const indexOfFocusedElement = this.childOptions.findIndex(el => el.focused)
     if (indexOfFocusedElement < 0) {
@@ -289,31 +348,41 @@ export class Select {
     this.childOptions.forEach(el => (el.focused = false))
   }
 
+  private nextOptionIndex(index: number, lastIndex: number) {
+    if (index >= lastIndex) {
+      return lastIndex
+    }
+    const nextOption = this.childOptions[index]
+    if (nextOption.hidden) {
+      return this.nextOptionIndex(index + 1, lastIndex)
+    } else {
+      return index
+    }
+  }
+
+  private previousOptionIndex(index: number) {
+    if (index <= 0) {
+      return 0
+    }
+    const previousOption = this.childOptions[index]
+    if (previousOption.hidden) {
+      return this.previousOptionIndex(index - 1)
+    } else {
+      return index
+    }
+  }
+
   private navigateOneOptionDown(indexOfFocusedElement: number) {
     const lastIndex = this.childOptions.length - 1
-    const nextIndex = indexOfFocusedElement + 1
+    const nextIndex = this.nextOptionIndex(indexOfFocusedElement + 1, lastIndex)
     this.focusIndex = nextIndex <= lastIndex ? nextIndex : indexOfFocusedElement
     this.updateOptionProps()
   }
 
   private navigateOneOptionUp(indexOfFocusedElement: number) {
-    const nextIndex = indexOfFocusedElement - 1
+    const nextIndex = this.previousOptionIndex(indexOfFocusedElement - 1)
     this.focusIndex = nextIndex >= 0 ? nextIndex : indexOfFocusedElement
     this.updateOptionProps()
-  }
-
-  private onKeyPress(event: KeyboardEvent) {
-    this.balKeyPress.emit(event)
-    if (!this.typeahead && event.key.length === 1) {
-      this.focusOptionByLabel(event.key)
-    }
-    if (isEnterKey(event)) {
-      if (!this.isDropdownOpen) {
-        this.open()
-      } else {
-        this.selectFocused()
-      }
-    }
   }
 
   private async cancel() {
@@ -371,37 +440,81 @@ export class Select {
           scrollable={this.scrollable}
           onBalCollapse={e => this.onDropdownChange(e)}
           ref={el => (this.dropdownElement = el as HTMLBalDropdownElement)}>
-          <div class="control has-icons-right" slot="trigger">
-            <input
-              class={{
-                'input': true,
-                'clickable': true,
-                'is-inverted': this.inverted,
-              }}
-              readonly={!this.typeahead}
-              autoComplete="off"
-              disabled={this.disabled}
-              placeholder={this.placeholder}
-              onInput={e => this.onInput(e as any)}
-              onClick={e => this.onInputClick(e)}
-              onKeyPress={e => this.onKeyPress(e)}
-              onKeyUp={e => this.onKeyUp(e)}
-              onBlur={e => this.balBlur.emit(e)}
-              onFocus={e => this.balFocus.emit(e)}
-              ref={el => (this.inputElement = el as HTMLInputElement)}
-            />
-            <bal-icon
-              class={{ 'is-hidden': this.loading }}
-              size="medium"
-              is-right
-              turn={!this.loading && !this.typeahead && this.isDropdownOpen}
-              color={this.inverted ? 'white' : 'blue'}
-              name={this.typeahead ? 'search' : 'caret-down'}
-            />
-          </div>
+          {this.renderControl()}
+          {this.renderFilter()}
           <slot></slot>
         </bal-dropdown>
       </Host>
+    )
+  }
+
+  renderControl() {
+    return (
+      <div class="control has-icons-right" slot="trigger">
+        {this.renderInput()}
+        <bal-icon
+          class={{ 'is-hidden': this.loading }}
+          size="medium"
+          is-right
+          turn={!this.loading && !this.typeahead && this.isDropdownOpen}
+          color={this.inverted ? 'white' : 'blue'}
+          name={this.typeahead && !this.multiple ? 'search' : 'caret-down'}
+        />
+      </div>
+    )
+  }
+
+  renderInput() {
+    return (
+      <input
+        class={{
+          'input': true,
+          'clickable': true,
+          'is-inverted': this.inverted,
+        }}
+        readonly={!(this.typeahead && !this.multiple)}
+        autoComplete="off"
+        disabled={this.disabled}
+        placeholder={this.placeholder}
+        tabindex={this.balTabindex}
+        onInput={e => this.onInput(e as any)}
+        onClick={e => this.onInputClick(e)}
+        onKeyPress={e => this.onKeyPress(e)}
+        onKeyUp={e => this.onKeyUp(e)}
+        onBlur={e => this.balBlur.emit(e)}
+        onFocus={e => this.balFocus.emit(e)}
+        ref={el => (this.inputElement = el as HTMLInputElement)}
+      />
+    )
+  }
+
+  renderFilter() {
+    if (!this.multiple || !this.typeahead) {
+      return ''
+    }
+
+    return (
+      <div class="multiple-typeahead control has-icons-right">
+        <input
+          class="input"
+          autoComplete="off"
+          placeholder={this.filterPlaceholder}
+          onInput={e => this.onInput(e as any)}
+          onKeyPress={e => this.onKeyPress(e)}
+          onKeyUp={e => this.onKeyUp(e)}
+          onBlur={e => this.balBlur.emit(e)}
+          onFocus={e => this.balFocus.emit(e)}
+          ref={el => (this.inputFilterElement = el as HTMLInputElement)}
+        />
+        <bal-icon
+          class={{ 'is-hidden': this.loading }}
+          size="medium"
+          is-right
+          turn={!this.loading && !this.typeahead && this.isDropdownOpen}
+          color="blue"
+          name="search"
+        />
+      </div>
     )
   }
 }

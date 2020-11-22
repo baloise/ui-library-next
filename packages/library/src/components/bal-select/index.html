@@ -33,80 +33,104 @@
         })
       </script>
 
-      <h2 class="title is-size-2">Inverted & Expanded</h2>
+      <h3 class="title is-size-3">Styling</h3>
       <section>
         <div class="has-background-blue is-padded">
-          <bal-select id="bal-select-year-inverted" inverted expanded placeholder="select a year">
-            <bal-select-option value="1995" label="1995">1995</bal-select-option>
-            <bal-select-option value="1996" label="1996">1996</bal-select-option>
-            <bal-select-option value="1997" label="1997">1997</bal-select-option>
-            <bal-select-option value="1998" label="1998">1998</bal-select-option>
-            <bal-select-option value="1999" label="1999">1999</bal-select-option>
-            <bal-select-option value="2000" label="2000">2000</bal-select-option>
+          <bal-select inverted expanded placeholder="select a hero">
+            <bal-select-option value="1" label="Ant-Man">
+              <b style="display: block">Ant-Man</b>
+              <span>San Francisco</span>
+            </bal-select-option>
+            <bal-select-option value="2" label="Spider-Man">
+              <b style="display: block">The amating Spider-Man The amating Spider-Man The amating Spider-Man</b>
+              <span>Queens</span>
+            </bal-select-option>
+            <bal-select-option value="3" label="Iron Man">
+              <b style="display: block">Iron Man</b>
+              <span>Malibu</span>
+            </bal-select-option>
+            <bal-select-option value="4" label="Black Panter">
+              <b style="display: block">Black Panter</b>
+              <span>Wakanda</span>
+            </bal-select-option>
           </bal-select>
-        </div>  
+        </div>
       </section>
 
-      <h2 class="title is-size-2">Custom Option Style</h2>
+      <h2 class="title is-size-2">Multi-Select</h2>
       <section>
-        <bal-select id="bal-select-custom" placeholder="select a hero">
-          <bal-select-option value="1" label="Ant-Man">
-            <b>Ant-Man</b></br>
+        <bal-select multiple placeholder="select a hero">
+          <bal-select-option checkbox value="1" label="Ant-Man">
+            <b style="display: block">Ant-Man</b>
             <span>San Francisco</span>
           </bal-select-option>
-          <bal-select-option value="2" label="Spider-Man">
-            <b>The amating Spider-Man The amating Spider-Man The amating Spider-Man</b></br>
+          <bal-select-option checkbox value="2" label="Spider-Man">
+            <b style="display: block">The amating Spider-Man The amating Spider-Man The amating Spider-Man</b>
             <span>Queens</span>
           </bal-select-option>
-          <bal-select-option value="3" label="Iron-Man">
-            <b>Iron-Man</b></br>
+          <bal-select-option checkbox value="3" label="Iron Man">
+            <b style="display: block">Iron Man</b>
             <span>Malibu</span>
+          </bal-select-option>
+          <bal-select-option checkbox value="4" label="Black Panter">
+            <b style="display: block">Black Panter</b>
+            <span>Wakanda</span>
           </bal-select-option>
         </bal-select>
       </section>
 
       <h2 class="title is-size-2">Typeahead</h2>
+      <h3 class="title is-size-3">Single</h3>
       <section>
-        <bal-select id="bal-select-typeahead-heros" typeahead placeholder="start typing"></bal-select>
+        <bal-select typeahead placeholder="select a hero">
+          <bal-select-option value="1" label="Ant-Man">
+            <b style="display: block">Ant-Man</b>
+            <span>San Francisco</span>
+          </bal-select-option>
+          <bal-select-option value="2" label="Spider-Man">
+            <b style="display: block">The amating Spider-Man The amating Spider-Man The amating Spider-Man</b>
+            <span>Queens</span>
+          </bal-select-option>
+          <bal-select-option value="3" label="Iron Man">
+            <b style="display: block">Iron Man</b>
+            <span>Malibu</span>
+          </bal-select-option>
+          <bal-select-option value="4" label="Black Panter">
+            <b style="display: block">Black Panter</b>
+            <span>Wakanda</span>
+          </bal-select-option>
+        </bal-select>
       </section>
-      <script>
-        var heros = [
-          { label: 'Ant-Man', value: 1, location: 'San Francisco' },
-          { label: 'Spider-Man', value: 2, location: 'Queens' },
-          { label: 'Iron Man', value: 3, location: 'Malibu' },
-          { label: 'Black Panter', value: 4, location: 'Wakanda' },
-          { label: 'Black Widow', value: 5, location: 'Russia' },
-          { label: 'Captain America', value: 6, location: 'Brooklyn' },
-          { label: 'Captain Marvel', value: 7, location: 'Somewhere' },
-          { label: 'Vision', value: 8, location: 'Scotland' },
-          { label: 'Falcon', value: 9, location: 'Washington' },
-          { label: 'Thor', value: 10, location: 'Asgard' },
-          { label: 'Hulk', value: 11, location: 'Hidden' },
-          { label: 'Hawkeye', value: 12, location: 'Shield' },
-          { label: 'Doctor Strange', value: 13, location: 'Manhatten' },
-          { label: 'Wasp', value: 14, location: 'San Francisco' },
-        ]
-        setTimeout(function(){
-          heros.forEach(function(hero) {
-            var option = document.createElement('bal-select-option')
-            option.setAttribute('value', hero.value)
-            option.setAttribute('label', hero.label)
-            option.innerHTML = '<b>' + hero.label + '</b></br><span>' + hero.location + '</span>'
-            document
-              .getElementById('bal-select-typeahead-heros')
-              .querySelector('.dropdown-content')
-              .appendChild(option)
-          })
-        }, 1000)
-      </script>
 
-      <h3 class="title is-size-3">Remote</h3>
+      <h3 class="title is-size-3">Multiple</h3>
+      <section>
+        <bal-select typeahead multiple placeholder="select a hero" filter-placeholder="search your hero">
+          <bal-select-option checkbox value="1" label="Ant-Man">
+            <b style="display: block">Ant-Man</b>
+            <span>San Francisco</span>
+          </bal-select-option>
+          <bal-select-option checkbox value="2" label="Spider-Man">
+            <b style="display: block">The amating Spider-Man The amating Spider-Man The amating Spider-Man</b>
+            <span>Queens</span>
+          </bal-select-option>
+          <bal-select-option checkbox value="3" label="Iron Man">
+            <b style="display: block">Iron Man</b>
+            <span>Malibu</span>
+          </bal-select-option>
+          <bal-select-option checkbox value="4" label="Black Panter">
+            <b style="display: block">Black Panter</b>
+            <span>Wakanda</span>
+          </bal-select-option>
+        </bal-select>
+      </section>
+
+      <h3 class="title is-size-3">No Filter</h3>
       <section>
         <bal-field id="bal-select-typeahead-remote-field" label="Star Wars Character" is-expanded>
           <bal-select
             id="bal-select-typeahead-remote"
             typeahead
-            remote
+            no-filter
             placeholder="start typing"
             expanded
           ></bal-select>

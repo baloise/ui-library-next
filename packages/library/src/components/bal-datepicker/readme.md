@@ -11,6 +11,7 @@ An input with a simple dropdown for selecting a date.
 
 | Property        | Attribute         | Description                                                              | Type                           | Default     |
 | --------------- | ----------------- | ------------------------------------------------------------------------ | ------------------------------ | ----------- |
+| `balTabindex`   | `bal-tabindex`    | The tabindex of the control.                                             | `number`                       | `0`         |
 | `closeOnSelect` | `close-on-select` | Closes the datepicker dropdown after selection                           | `boolean`                      | `true`      |
 | `disabled`      | `disabled`        | If `true` the component is diabled.                                      | `boolean`                      | `false`     |
 | `expanded`      | `expanded`        | If `true` the component uses the whole width.                            | `boolean`                      | `false`     |

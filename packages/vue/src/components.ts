@@ -233,6 +233,7 @@ export const BalCheckbox = /*@__PURE__*/ Vue.extend({
   props: {
     name: {} as PropOptions<Components.BalCheckbox['name']>,
     label: {} as PropOptions<Components.BalCheckbox['label']>,
+    balTabindex: {} as PropOptions<Components.BalCheckbox['balTabindex']>,
     value: {} as PropOptions<Components.BalCheckbox['value']>,
     checked: {} as PropOptions<Components.BalCheckbox['checked']>,
     disabled: {} as PropOptions<Components.BalCheckbox['disabled']>,
@@ -297,6 +298,7 @@ export const BalDatepicker = /*@__PURE__*/ Vue.extend({
 
   props: {
     locale: {} as PropOptions<Components.BalDatepicker['locale']>,
+    balTabindex: {} as PropOptions<Components.BalDatepicker['balTabindex']>,
     expanded: {} as PropOptions<Components.BalDatepicker['expanded']>,
     inverted: {} as PropOptions<Components.BalDatepicker['inverted']>,
     readonly: {} as PropOptions<Components.BalDatepicker['readonly']>,
@@ -440,6 +442,7 @@ export const BalInput = /*@__PURE__*/ Vue.extend({
     name: {} as PropOptions<Components.BalInput['name']>,
     type: {} as PropOptions<Components.BalInput['type']>,
     placeholder: {} as PropOptions<Components.BalInput['placeholder']>,
+    balTabindex: {} as PropOptions<Components.BalInput['balTabindex']>,
     maxLength: {} as PropOptions<Components.BalInput['maxLength']>,
     minLength: {} as PropOptions<Components.BalInput['minLength']>,
     inverted: {} as PropOptions<Components.BalInput['inverted']>,
@@ -593,6 +596,7 @@ export const BalRadio = /*@__PURE__*/ Vue.extend({
   props: {
     name: {} as PropOptions<Components.BalRadio['name']>,
     interface: {} as PropOptions<Components.BalRadio['interface']>,
+    balTabindex: {} as PropOptions<Components.BalRadio['balTabindex']>,
     label: {} as PropOptions<Components.BalRadio['label']>,
     value: {} as PropOptions<Components.BalRadio['value']>,
     checked: {} as PropOptions<Components.BalRadio['checked']>,
@@ -628,13 +632,16 @@ export const BalRadioGroup = /*@__PURE__*/ Vue.extend({
 export const BalSelect = /*@__PURE__*/ Vue.extend({
 
   props: {
-    remote: {} as PropOptions<Components.BalSelect['remote']>,
+    multiple: {} as PropOptions<Components.BalSelect['multiple']>,
+    noFilter: {} as PropOptions<Components.BalSelect['noFilter']>,
+    balTabindex: {} as PropOptions<Components.BalSelect['balTabindex']>,
     expanded: {} as PropOptions<Components.BalSelect['expanded']>,
     inverted: {} as PropOptions<Components.BalSelect['inverted']>,
     disabled: {} as PropOptions<Components.BalSelect['disabled']>,
     typeahead: {} as PropOptions<Components.BalSelect['typeahead']>,
     loading: {} as PropOptions<Components.BalSelect['loading']>,
     placeholder: {} as PropOptions<Components.BalSelect['placeholder']>,
+    filterPlaceholder: {} as PropOptions<Components.BalSelect['filterPlaceholder']>,
     scrollable: {} as PropOptions<Components.BalSelect['scrollable']>,
     value: {} as PropOptions<Components.BalSelect['value']>,
   },
@@ -665,6 +672,7 @@ export const BalSelectOption = /*@__PURE__*/ Vue.extend({
     icon: {} as PropOptions<Components.BalSelectOption['icon']>,
     focused: {} as PropOptions<Components.BalSelectOption['focused']>,
     selected: {} as PropOptions<Components.BalSelectOption['selected']>,
+    checkbox: {} as PropOptions<Components.BalSelectOption['checkbox']>,
   },
 
 

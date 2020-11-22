@@ -228,6 +228,10 @@ export namespace Components {
     }
     interface BalCheckbox {
         /**
+          * The tabindex of the control.
+         */
+        "balTabindex": number;
+        /**
           * If `true`, the checkbox is selected.
          */
         "checked": boolean;
@@ -281,6 +285,10 @@ export namespace Components {
     interface BalDataValue {
     }
     interface BalDatepicker {
+        /**
+          * The tabindex of the control.
+         */
+        "balTabindex": number;
         /**
           * Closes the datepicker dropdown after selection
          */
@@ -516,6 +524,10 @@ export namespace Components {
          */
         "autoComplete": boolean;
         /**
+          * The tabindex of the control.
+         */
+        "balTabindex": number;
+        /**
           * If `true` the input gets a clickable cursor style
          */
         "clickable": boolean;
@@ -658,6 +670,10 @@ export namespace Components {
     }
     interface BalRadio {
         /**
+          * The tabindex of the control.
+         */
+        "balTabindex": number;
+        /**
           * If `true`, the radio is selected.
          */
         "checked": boolean;
@@ -706,6 +722,10 @@ export namespace Components {
     }
     interface BalSelect {
         /**
+          * The tabindex of the control.
+         */
+        "balTabindex": number;
+        /**
           * Sets the value to null and resets the value of the input.
          */
         "clear": () => Promise<void>;
@@ -722,6 +742,10 @@ export namespace Components {
          */
         "expanded": boolean;
         /**
+          * Defines the placeholder of the input filter element.
+         */
+        "filterPlaceholder": string;
+        /**
           * Set this to `true` when the component is placed on a dark background.
          */
         "inverted": boolean;
@@ -730,6 +754,14 @@ export namespace Components {
          */
         "loading": boolean;
         /**
+          * If `true` multiple option can be selected
+         */
+        "multiple": boolean;
+        /**
+          * If `true` the filtering of the options is done outside of the component.
+         */
+        "noFilter": boolean;
+        /**
           * Opens the dropdown
          */
         "open": () => Promise<void>;
@@ -737,10 +769,6 @@ export namespace Components {
           * Defines the placeholder of the input element.
          */
         "placeholder": string;
-        /**
-          * If `true` the filtering of the options is done outside of the component.
-         */
-        "remote": boolean;
         /**
           * Defines the height of the dropdown list.
          */
@@ -764,9 +792,13 @@ export namespace Components {
         /**
           * Selected option value.
          */
-        "value": string;
+        "value": string[];
     }
     interface BalSelectOption {
+        /**
+          * If `true` the option has a checkbox
+         */
+        "checkbox": boolean;
         /**
           * If `true` the option is focused
          */
@@ -1462,6 +1494,10 @@ declare namespace LocalJSX {
     }
     interface BalCheckbox {
         /**
+          * The tabindex of the control.
+         */
+        "balTabindex"?: number;
+        /**
           * If `true`, the checkbox is selected.
          */
         "checked"?: boolean;
@@ -1523,6 +1559,10 @@ declare namespace LocalJSX {
     interface BalDataValue {
     }
     interface BalDatepicker {
+        /**
+          * The tabindex of the control.
+         */
+        "balTabindex"?: number;
         /**
           * Closes the datepicker dropdown after selection
          */
@@ -1754,6 +1794,10 @@ declare namespace LocalJSX {
          */
         "autoComplete"?: boolean;
         /**
+          * The tabindex of the control.
+         */
+        "balTabindex"?: number;
+        /**
           * If `true` the input gets a clickable cursor style
          */
         "clickable"?: boolean;
@@ -1906,6 +1950,10 @@ declare namespace LocalJSX {
     }
     interface BalRadio {
         /**
+          * The tabindex of the control.
+         */
+        "balTabindex"?: number;
+        /**
           * If `true`, the radio is selected.
          */
         "checked"?: boolean;
@@ -1962,6 +2010,10 @@ declare namespace LocalJSX {
     }
     interface BalSelect {
         /**
+          * The tabindex of the control.
+         */
+        "balTabindex"?: number;
+        /**
           * If `true` the component is diabled.
          */
         "disabled"?: boolean;
@@ -1970,6 +2022,10 @@ declare namespace LocalJSX {
          */
         "expanded"?: boolean;
         /**
+          * Defines the placeholder of the input filter element.
+         */
+        "filterPlaceholder"?: string;
+        /**
           * Set this to `true` when the component is placed on a dark background.
          */
         "inverted"?: boolean;
@@ -1977,6 +2033,14 @@ declare namespace LocalJSX {
           * If `true` the component shows a loading spinner and sets the input to readonly.
          */
         "loading"?: boolean;
+        /**
+          * If `true` multiple option can be selected
+         */
+        "multiple"?: boolean;
+        /**
+          * If `true` the filtering of the options is done outside of the component.
+         */
+        "noFilter"?: boolean;
         /**
           * Emitted when the input loses focus.
          */
@@ -1988,7 +2052,7 @@ declare namespace LocalJSX {
         /**
           * Emitted when a option got selected.
          */
-        "onBalChange"?: (event: CustomEvent<string>) => void;
+        "onBalChange"?: (event: CustomEvent<string[]>) => void;
         /**
           * Emitted when the input got clicked.
          */
@@ -2010,10 +2074,6 @@ declare namespace LocalJSX {
          */
         "placeholder"?: string;
         /**
-          * If `true` the filtering of the options is done outside of the component.
-         */
-        "remote"?: boolean;
-        /**
           * Defines the height of the dropdown list.
          */
         "scrollable"?: number;
@@ -2024,9 +2084,13 @@ declare namespace LocalJSX {
         /**
           * Selected option value.
          */
-        "value"?: string;
+        "value"?: string[];
     }
     interface BalSelectOption {
+        /**
+          * If `true` the option has a checkbox
+         */
+        "checkbox"?: boolean;
         /**
           * If `true` the option is focused
          */

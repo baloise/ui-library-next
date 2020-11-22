@@ -22,6 +22,11 @@ export class Radio {
    */
   @Prop() interface: 'radio' | 'select-button' = 'radio'
 
+    /**
+   * The tabindex of the control.
+   */
+  @Prop() balTabindex: number = 0
+
   /**
    * The label of the control.
    */
@@ -112,6 +117,7 @@ export class Radio {
           role="radio"
           id={inputId}
           name={this.name}
+          tabindex={this.balTabindex}
           value={this.value}
           aria-label={label}
           disabled={this.disabled}

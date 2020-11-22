@@ -39,6 +39,11 @@ export class Datepicker {
   @Prop() locale: 'en' | 'de' | 'fr' | 'it' = 'en'
 
   /**
+   * The tabindex of the control.
+   */
+  @Prop() balTabindex: number = 0
+
+  /**
    * If `true` the component uses the whole width.
    */
   @Prop() expanded = false
@@ -368,6 +373,7 @@ export class Datepicker {
           disabled={this.disabled}
           readonly={this.readonly}
           placeholder={this.placeholder}
+          tabindex={this.balTabindex}
           onKeyDown={e => this.onInputKeyDown(e)}
           onInput={e => this.onInput(e as any)}
           onClick={e => this.onInputClick(e)}

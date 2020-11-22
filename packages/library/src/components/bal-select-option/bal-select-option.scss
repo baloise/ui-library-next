@@ -19,49 +19,16 @@
       border: 0;
     }
 
-    &.has-icon {
-      bal-text.title,
-      span.title {
-        margin-left: 32px;
-      }
-    }
-
-    &.has-checkbox {
-      bal-text.title,
-      span.title {
-        margin-left: 35px;
-      }
-    }
-
-    &.has-icon.has-checkbox {
-      span.icon {
-        margin-left: 25px;
-      }
-
-      bal-text.title,
-      span.title {
-        margin-left: 75px;
-      }
-    }
-
-    &.has-checkbox {
-      div.bal-checkbox {
-        position: absolute;
-        top: 8px;
-        padding: 0;
-      }
-    }
-
-    .icon {
-      justify-content: center;
+    .select-option__content {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
       align-items: center;
-      position: relative;
-      max-width: 32px;
-      flex: 1 1;
+    }
 
-      bal-icon {
-        position: absolute;
-        top: -4px;
+    &.has-checkbox {
+      span.checkbox {
+        width: 35px;
       }
     }
 
@@ -74,8 +41,7 @@
       font-size: $size-small;
     }
 
-    bal-text.title,
-    span.title {
+    span.label {
       font-weight: $weight-normal;
       font-size: $size-small;
     }
@@ -88,8 +54,7 @@
     &.is-selected {
       background: $dropdown-item-hover-background-color;
 
-      bal-text.title,
-      span.title {
+      span.label {
         font-weight: $weight-bold;
       }
     }
