@@ -46,7 +46,7 @@ Just import the bal-components and use it in your templates.
 
 <script lang="ts">
 import Vue from 'vue'
-import { BalCheckbox } from '@baloise/ui-library-vue'
+import { BalCheckbox } from '@baloise/ui-library-next-vue'
 
 export default Vue.extend({
   name: 'App',

@@ -29,22 +29,22 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
-    "@angular/common": "~10.2.0",
-    "@angular/core": "~10.2.0",
-    "@angular/forms": "~10.2.0",
     "@baloise/ui-library-next": "^1.19.0",
+    "@baloise/ui-library-next-vue": "^1.19.0",
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
     "@angular/common": "~10.2.0",
     "@angular/core": "~10.2.0",
-    "@angular/forms": "~10.2.0",
-    "@baloise/ui-library-next": "^0.3.2"
+    "@angular/forms": "~10.2.0"
   },
   "gitHead": "722ef389df9b49212894042493cb203eb8fd8f09",
   "devDependencies": {
+    "@angular/common": "^10.2.0",
     "@angular/compiler": "~10.2.0",
     "@angular/compiler-cli": "~10.2.0",
+    "@angular/core": "^10.2.0",
+    "@angular/forms": "^10.2.0",
     "ng-packagr": "^10.1.2",
     "rimraf": "^3.0.2",
     "typescript": "^4.0.5"
