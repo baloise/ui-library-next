@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.1](https://github.com/baloise/ui-library-next/compare/v1.19.0...v1.19.1) (2020-11-24)
+
+
+### Bug Fixes
+
+* **angular:** add angular as a peer dependencies ([6b93f7a](https://github.com/baloise/ui-library-next/commit/6b93f7a8bba5ee29f35f72422df945686cf38c45))
+
+
+
+
+
 # [1.19.0](https://github.com/baloise/ui-library-next/compare/v1.18.1...v1.19.0) (2020-11-24)
 
 
