@@ -10,6 +10,7 @@
 | Property         | Attribute         | Description                                                                                          | Type      | Default        |
 | ---------------- | ----------------- | ---------------------------------------------------------------------------------------------------- | --------- | -------------- |
 | `autoComplete`   | `auto-complete`   | The autocomplete attribute specifies whether or not an input field should have autocomplete enabled. | `boolean` | `false`        |
+| `balTabindex`    | `bal-tabindex`    | The tabindex of the control.                                                                         | `number`  | `0`            |
 | `clickable`      | `clickable`       | If `true` the input gets a clickable cursor style                                                    | `boolean` | `false`        |
 | `disabled`       | `disabled`        | If `true` the input is disabled                                                                      | `boolean` | `false`        |
 | `inverted`       | `inverted`        | If `true` this component can be placed on dark background                                            | `boolean` | `false`        |

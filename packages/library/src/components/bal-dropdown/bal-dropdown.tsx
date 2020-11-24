@@ -1,4 +1,4 @@
-import { Component, h, Host, Listen, Method, Prop, Element, Event, EventEmitter } from '@stencil/core'
+import { Component, h, Host, Listen, Method, Prop, Element, Event, EventEmitter, State } from '@stencil/core'
 
 @Component({
   tag: 'bal-dropdown',
@@ -13,6 +13,8 @@ export class Dropdown {
   menuElement!: HTMLDivElement
 
   @Element() element!: HTMLElement
+
+  @State() isDropDownContentUp = false
 
   /**
    * Limit the height of the dropdown content. Pass the amount of pixel.
@@ -109,7 +111,18 @@ export class Dropdown {
   async clickOnOutside(event: UIEvent) {
     if (!this.element.contains(event.target as any) && this.isActive) {
       await this.toggle()
+      this.calcIsDropDownContentUp()
     }
+  }
+
+  @Listen('resize', { target: 'window' })
+  async resizeHandler() {
+    this.calcIsDropDownContentUp()
+  }
+
+  @Listen('scroll', { target: 'window' })
+  async scrollHandler() {
+    this.calcIsDropDownContentUp()
   }
 
   get contentStyle() {
@@ -124,9 +137,14 @@ export class Dropdown {
     }
   }
 
-  get isUp(): boolean {
+  private calcIsDropDownContentUp() {
     const box = this.element.getBoundingClientRect()
-    return window.innerHeight - box.top < window.innerHeight / 2
+    const clientHeight = this.contentElement?.clientHeight || 250
+    this.isDropDownContentUp = window.innerHeight < box.bottom + clientHeight + 50
+  }
+
+  componentWillRender() {
+    this.calcIsDropDownContentUp()
   }
 
   render() {
@@ -137,7 +155,7 @@ export class Dropdown {
             'dropdown': true,
             'is-active': this.isActive,
             'is-expanded': this.expanded,
-            'is-up': this.isUp,
+            'is-up': this.isDropDownContentUp,
           }}>
           <div class="dropdown-trigger">
             <slot name="trigger" />
