@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.19.0](https://github.com/baloise/ui-library-next/compare/v1.18.1...v1.19.0) (2020-11-24)
+
+
+### Features
+
+* **select:** add multi-select ([187fc01](https://github.com/baloise/ui-library-next/commit/187fc01f2e12f59ea24a29f3868c08dcf0f49b0d))
+
+
+
+
+
 ## [1.18.1](https://github.com/baloise/ui-library-next/compare/v1.18.0...v1.18.1) (2020-11-18)
 
 **Note:** Version bump only for package @baloise/ui-library-next-vue
