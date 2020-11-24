@@ -8,7 +8,8 @@
       "conventionalCommits": true,
       "ignoreChanges": [
         "docs/**",
-        "examples/**"
+        "examples/**",
+        "packages/examples/**"
       ],
       "message": "chore(): release"
     },

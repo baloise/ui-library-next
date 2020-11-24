@@ -24,7 +24,8 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
-    "@baloise/ui-library-next": "^1.19.0"
+    "@baloise/ui-library-next": "^1.19.0",
+    "@baloise/ui-library-next-angular": "^1.19.0"
   },
   "devDependencies": {
     "typescript": "^4.0.2",
