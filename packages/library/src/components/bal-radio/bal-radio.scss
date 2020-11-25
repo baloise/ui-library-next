@@ -145,7 +145,7 @@
     input:disabled:checked ~ label {
       border-color: $blue;
       background: $blue;
-      opacity: 50%;
+      opacity: 0.5;
       color: white;
 
       &:hover {
@@ -176,7 +176,7 @@
       input:disabled:checked ~ label {
         border-color: $blue;
         background: $white;
-        opacity: 50%;
+        opacity: 0.5;
         color: $blue;
 
         &:hover {

@@ -59,12 +59,12 @@
       .left-side {
         .nav-go-left-label {
           color: white;
-          opacity: 50%;
+          opacity: 0.5;
         }
       }
 
       .nav-go-left {
-        opacity: 50%;
+        opacity: 0.5;
       }
     }
 
@@ -111,7 +111,7 @@
             display: flex;
             height: 8px;
             width: 8px;
-            opacity: 50%;
+            opacity: 0.5;
           }
 
           span.step-index > span {
@@ -126,12 +126,12 @@
 
         &.is-done > a span.step-index {
           background: $blue;
-          opacity: 100%;
+          opacity: 1;
         }
 
         &.is-active > a span.step-index {
           background: transparent;
-          opacity: 100%;
+          opacity: 1;
         }
 
         &.is-disabled > a,
@@ -151,12 +151,12 @@
 
           &.is-done > a span.step-index {
             background: $white;
-            opacity: 100%;
+            opacity: 1;
           }
 
           &.is-active > a span.step-index {
             background: transparent;
-            opacity: 100%;
+            opacity: 1;
           }
 
           &.is-done > a span.step-index {
@@ -231,7 +231,7 @@
 
           &.is-active > a span.step-index {
             background: transparent;
-            opacity: 100%;
+            opacity: 1;
 
             span {
               display: flex;
