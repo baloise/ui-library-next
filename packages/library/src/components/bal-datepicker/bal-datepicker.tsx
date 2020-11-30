@@ -14,6 +14,7 @@ import {
   month,
   getLastDayOfMonth,
   isInRange,
+  isValidDate,
 } from './bal-datepicker.util'
 
 @Component({
@@ -235,10 +236,12 @@ export class Datepicker {
   }
 
   private updateFromValue() {
-    this.inputElement.value = format(this.value)
-    this.pointerYear = year(this.value)
-    this.pointerMonth = month(this.value)
-    this.pointerDay = day(this.value)
+    if (this.value && isValidDate(this.value)) {
+      this.inputElement.value = format(this.value)
+      this.pointerYear = year(this.value)
+      this.pointerMonth = month(this.value)
+      this.pointerDay = day(this.value)
+    }
   }
 
   private parseAndSetDate(inputValue: string, shouldFormat = false) {

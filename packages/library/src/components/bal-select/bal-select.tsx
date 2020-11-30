@@ -1,4 +1,4 @@
-import { Component, h, Host, Element, Prop, State, Method, EventEmitter, Event, Listen } from '@stencil/core'
+import { Component, h, Host, Element, Prop, State, Method, EventEmitter, Event, Listen, Watch } from '@stencil/core'
 import { isEnterKey, isEscapeKey, isArrowDownKey, isArrowUpKey } from '../../utils/key.util'
 import { BalOptionValue } from '../bal-select-option/bal-select-option.type'
 
@@ -204,6 +204,15 @@ export class Select {
     }
   }
 
+  componentWillLoad() {
+    this.updateOptionProps()
+  }
+
+  @Watch('value')
+  valueWatcher() {
+    this.updateOptionProps()
+  }
+
   private get childOptions(): HTMLBalSelectOptionElement[] {
     return Array.from(this.element.querySelectorAll('bal-select-option'))
   }
@@ -278,8 +287,16 @@ export class Select {
     }
   }
 
+  get inputElementValue () {
+    return this.inputElement ? this.inputElement.value : ''
+  }
+
+  get inputFilterElementValue () {
+    return this.inputFilterElement ? this.inputFilterElement.value : ''
+  }
+
   private async updateOptionProps() {
-    const inputValue = this.multiple && this.typeahead ? this.inputFilterElement.value : this.inputElement.value
+    const inputValue = this.multiple && this.typeahead ? this.inputFilterElementValue : this.inputElementValue
     this.clearFocus()
     this.childOptions.forEach((option, index) => {
       if (!this.noFilter && this.typeahead) {
@@ -300,7 +317,7 @@ export class Select {
 
   private async moveFocus() {
     const focusedElement = this.childOptions.find(el => el.focused)
-    if (focusedElement) {
+    if (focusedElement && this.dropdownElement) {
       const dropdownContentElement = await this.dropdownElement.getContentElement()
 
       // up

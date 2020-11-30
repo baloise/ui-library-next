@@ -1,5 +1,6 @@
 export const now = (): Date => new Date()
 
+export const isValidDate = (value: any) => value instanceof Date && value.getTime()
 export const year = (date: Date): number => date.getFullYear()
 export const month = (date: Date): number => date.getMonth()
 export const day = (date: Date): number => date.getDate()
