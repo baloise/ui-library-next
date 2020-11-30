@@ -144,7 +144,7 @@ export class Datepicker {
 
   @Watch('value')
   valueWatcher(newDate: Date, oldDate: Date) {
-    if (oldDate === undefined || !isSameDay(newDate, oldDate)) {
+    if (oldDate === undefined || (isValidDate(newDate) && isValidDate(oldDate) && !isSameDay(newDate, oldDate))) {
       this.updateFromValue()
     }
   }
@@ -329,6 +329,8 @@ export class Datepicker {
       'Tab',
       'Esc',
       'Escape',
+      'Del',
+      'Delete',
     ]
     if (allowedKeys.indexOf(event.key) < 0) {
       event.preventDefault()
