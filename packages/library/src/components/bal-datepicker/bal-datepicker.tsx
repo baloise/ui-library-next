@@ -145,6 +145,9 @@ export class Datepicker {
   @Watch('value')
   valueWatcher(newDate: Date, oldDate: Date) {
     console.log('valueWatcher', typeof newDate, newDate.getFullYear)
+    newDate = this.parseValue(newDate)
+    oldDate = this.parseValue(oldDate)
+    this.value = this.parseValue(this.value)
     if (oldDate === undefined || (isValidDate(newDate) && isValidDate(oldDate) && !isSameDay(newDate, oldDate))) {
       this.updateFromValue()
     }
@@ -152,7 +155,20 @@ export class Datepicker {
 
   componentWillLoad() {
     if (this.value) {
+      this.value = this.parseValue(this.value)
       setTimeout(() => this.updateFromValue(), 0)
+    }
+  }
+
+  parseValue(value: Date | string | undefined): Date {
+    if (value === undefined) {
+      return undefined
+    } else {
+      if (typeof value === 'object') {
+        return value
+      } else {
+        return new Date(value)
+      }
     }
   }
 
