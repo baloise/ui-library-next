@@ -2,7 +2,7 @@
   "packages": [
     "packages/*"
   ],
-  "version": "1.19.11-alpha.5",
+  "version": "1.19.11-alpha.6",
   "command": {
     "publish": {
       "conventionalCommits": false,
