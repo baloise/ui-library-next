@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.3](https://github.com/baloise/ui-library-next/compare/v1.19.2...v1.19.3) (2020-11-30)
+
+
+### Bug Fixes
+
+* solve v-model issues with the datepicker and the select component ([0bf0117](https://github.com/baloise/ui-library-next/commit/0bf011783a1194fe240b301b5c5cd2814e3856bc))
+
+
+
+
+
 ## [1.19.2](https://github.com/baloise/ui-library-next/compare/v1.19.1...v1.19.2) (2020-11-26)
 
 
