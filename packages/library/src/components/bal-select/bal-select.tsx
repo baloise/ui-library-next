@@ -205,14 +205,26 @@ export class Select {
   }
 
   componentWillLoad() {
-    console.log('componentWillLoad', this.value, typeof this.value)
+    this.value = this.parseValue(this.value)
     this.updateOptionProps()
   }
 
   @Watch('value')
   valueWatcher() {
-    console.log('valueWatcher', this.value, typeof this.value)
+    this.value = this.parseValue(this.value)
     this.updateOptionProps()
+  }
+
+  parseValue(value: string | string[] | undefined): string[] {
+    if (value === undefined) {
+      return []
+    } else {
+      if (typeof value === 'string') {
+        return value.split(',')
+      } else {
+        return value
+      }
+    }
   }
 
   private get childOptions(): HTMLBalSelectOptionElement[] {
@@ -289,11 +301,11 @@ export class Select {
     }
   }
 
-  get inputElementValue () {
+  get inputElementValue() {
     return this.inputElement ? this.inputElement.value : ''
   }
 
-  get inputFilterElementValue () {
+  get inputFilterElementValue() {
     return this.inputFilterElement ? this.inputFilterElement.value : ''
   }
 
