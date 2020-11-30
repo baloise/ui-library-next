@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.2](https://github.com/baloise/ui-library-next/compare/v1.19.1...v1.19.2) (2020-11-26)
+
+
+### Bug Fixes
+
+* adjust opacity for firefox ([e2462c3](https://github.com/baloise/ui-library-next/commit/e2462c34b0bbf3cd3117999a3bbe2a47f0897f64))
+
+
+
+# 1.19.0 (2020-11-24)
+
+
+
+
+
 ## [1.19.1](https://github.com/baloise/ui-library-next/compare/v1.19.0...v1.19.1) (2020-11-24)
 
 
