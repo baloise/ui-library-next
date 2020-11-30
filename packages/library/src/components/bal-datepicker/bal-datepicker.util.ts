@@ -37,9 +37,6 @@ export const getLastDayOfMonth = (year: number, month: number): number => {
 }
 
 export const getFirstDayOfTheWeek = (date: Date): Date => {
-  if (!isValidDate(date)) {
-    return date
-  }
   const weekdayDiff = [6, 0, 1, 2, 3, 4, 5]
   const d = new Date(date)
   d.setDate(d.getDate() - weekdayDiff[d.getDay()])
@@ -47,32 +44,17 @@ export const getFirstDayOfTheWeek = (date: Date): Date => {
 }
 
 export const isSameYear = (a: Date, b: Date): boolean => {
-  if (!isValidDate(a) || !isValidDate(b)) {
-    return false
-  }
-  console.log('isSameYear', typeof a, typeof b)
-  console.log('isSameYear', a.getFullYear, b.getFullYear)
-  console.log('isSameYear', a.getFullYear(), b.getFullYear())
   return a.getFullYear() === b.getFullYear()
 }
 
 export const isSameMonth = (a: Date, b: Date): boolean => {
-  if (!isValidDate(a) || !isValidDate(b)) {
-    return false
-  }
   return isSameYear(a, b) && a.getMonth() === b.getMonth()
 }
 
 export const isSameDay = (a: Date, b: Date): boolean => {
-  if (!isValidDate(a) || !isValidDate(b)) {
-    return false
-  }
   return isSameMonth(a, b) && a.getDate() === b.getDate()
 }
 
 export const isSameWeek = (a: Date, b: Date): boolean => {
-  if (!isValidDate(a) || !isValidDate(b)) {
-    return false
-  }
   return isSameDay(getFirstDayOfTheWeek(a), getFirstDayOfTheWeek(b))
 }

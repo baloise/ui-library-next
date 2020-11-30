@@ -144,7 +144,6 @@ export class Datepicker {
 
   @Watch('value')
   valueWatcher(newDate: Date, oldDate: Date) {
-    console.log('valueWatcher', typeof newDate, newDate.getFullYear)
     newDate = this.parseValue(newDate)
     oldDate = this.parseValue(oldDate)
     this.value = this.parseValue(this.value)
@@ -206,7 +205,6 @@ export class Datepicker {
     do {
       let row = []
       do {
-        console.log('calendarGrid', dayDatePointer, this.value)
         row = [
           ...row,
           {
@@ -254,7 +252,6 @@ export class Datepicker {
   }
 
   private updateFromValue() {
-    console.log('updateFromValue', this.value)
     if (this.value && isValidDate(this.value)) {
       this.inputElement.value = format(this.value)
       this.pointerYear = year(this.value)

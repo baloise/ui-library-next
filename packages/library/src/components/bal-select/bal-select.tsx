@@ -205,11 +205,13 @@ export class Select {
   }
 
   componentWillLoad() {
+    console.log('componentWillLoad', this.value, typeof this.value)
     this.updateOptionProps()
   }
 
   @Watch('value')
   valueWatcher() {
+    console.log('valueWatcher', this.value, typeof this.value)
     this.updateOptionProps()
   }
 
