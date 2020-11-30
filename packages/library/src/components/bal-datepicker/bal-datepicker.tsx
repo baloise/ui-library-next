@@ -189,6 +189,7 @@ export class Datepicker {
     do {
       let row = []
       do {
+        console.log('calendarGrid', dayDatePointer, this.value)
         row = [
           ...row,
           {
@@ -236,6 +237,7 @@ export class Datepicker {
   }
 
   private updateFromValue() {
+    console.log('updateFromValue', this.value)
     if (this.value && isValidDate(this.value)) {
       this.inputElement.value = format(this.value)
       this.pointerYear = year(this.value)
