@@ -50,7 +50,7 @@ export const isSameYear = (a: Date, b: Date): boolean => {
   if (!isValidDate(a) || !isValidDate(b)) {
     return false
   }
-  console.log('isSameYear', a, b)
+  console.log('isSameYear', typeof a, typeof b)
   console.log('isSameYear', a.getFullYear, b.getFullYear)
   console.log('isSameYear', a.getFullYear(), b.getFullYear())
   return a.getFullYear() === b.getFullYear()

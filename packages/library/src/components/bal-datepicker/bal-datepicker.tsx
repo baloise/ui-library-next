@@ -144,6 +144,7 @@ export class Datepicker {
 
   @Watch('value')
   valueWatcher(newDate: Date, oldDate: Date) {
+    console.log('valueWatcher', typeof newDate, newDate.getFullYear)
     if (oldDate === undefined || (isValidDate(newDate) && isValidDate(oldDate) && !isSameDay(newDate, oldDate))) {
       this.updateFromValue()
     }
