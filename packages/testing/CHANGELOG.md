@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.11-alpha.10](https://github.com/baloise/ui-library-next/compare/v1.19.11-alpha.9...v1.19.11-alpha.10) (2020-12-01)
+
+**Note:** Version bump only for package @baloise/ui-library-next-testing
+
+
+
+
+
 ## [1.19.11-alpha.9](https://github.com/baloise/ui-library-next/compare/v1.19.11-alpha.8...v1.19.11-alpha.9) (2020-12-01)
 
 **Note:** Version bump only for package @baloise/ui-library-next-testing
