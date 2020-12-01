@@ -19,20 +19,20 @@ export interface BalOptionValue<T> {
 
 ## Properties
 
-| Property            | Attribute            | Description                                                                     | Type       | Default |
-| ------------------- | -------------------- | ------------------------------------------------------------------------------- | ---------- | ------- |
-| `balTabindex`       | `bal-tabindex`       | The tabindex of the control.                                                    | `number`   | `0`     |
-| `disabled`          | `disabled`           | If `true` the component is diabled.                                             | `boolean`  | `false` |
-| `expanded`          | `expanded`           | If `true` the component uses the whole width.                                   | `boolean`  | `false` |
-| `filterPlaceholder` | `filter-placeholder` | Defines the placeholder of the input filter element.                            | `string`   | `''`    |
-| `inverted`          | `inverted`           | Set this to `true` when the component is placed on a dark background.           | `boolean`  | `false` |
-| `loading`           | `loading`            | If `true` the component shows a loading spinner and sets the input to readonly. | `boolean`  | `false` |
-| `multiple`          | `multiple`           | If `true` multiple option can be selected                                       | `boolean`  | `false` |
-| `noFilter`          | `no-filter`          | If `true` the filtering of the options is done outside of the component.        | `boolean`  | `false` |
-| `placeholder`       | `placeholder`        | Defines the placeholder of the input element.                                   | `string`   | `''`    |
-| `scrollable`        | `scrollable`         | Defines the height of the dropdown list.                                        | `number`   | `250`   |
-| `typeahead`         | `typeahead`          | If `true` the user can search by typing into the input field.                   | `boolean`  | `false` |
-| `value`             | --                   | Selected option value.                                                          | `string[]` | `[]`    |
+| Property            | Attribute            | Description                                                                       | Type       | Default |
+| ------------------- | -------------------- | --------------------------------------------------------------------------------- | ---------- | ------- |
+| `balTabindex`       | `bal-tabindex`       | The tabindex of the control.                                                      | `number`   | `0`     |
+| `disabled`          | `disabled`           | If `true` the component is diabled.                                               | `boolean`  | `false` |
+| `expanded`          | `expanded`           | If `true` the component uses the whole width.                                     | `boolean`  | `false` |
+| `filterPlaceholder` | `filter-placeholder` | Defines the placeholder of the input filter element.                              | `string`   | `''`    |
+| `inverted`          | `inverted`           | Set this to `true` when the component is placed on a dark background.             | `boolean`  | `false` |
+| `loading`           | `loading`            | If `true` the component shows a loading spinner and sets the input to readonly.   | `boolean`  | `false` |
+| `multiple`          | `multiple`           | If `true` multiple option can be selected                                         | `boolean`  | `false` |
+| `noFilter`          | `no-filter`          | If `true` the filtering of the options is done outside of the component.          | `boolean`  | `false` |
+| `placeholder`       | `placeholder`        | Defines the placeholder of the input element.                                     | `string`   | `''`    |
+| `scrollable`        | `scrollable`         | Defines the height of the dropdown list.                                          | `number`   | `250`   |
+| `typeahead`         | `typeahead`          | If `true` the user can search by typing into the input field.                     | `boolean`  | `false` |
+| `value`             | --                   | Selected option values. Could also be passed as a string, which gets transformed. | `string[]` | `[]`    |
 
 
 ## Events

@@ -76,7 +76,7 @@ export class Select {
   @Prop() scrollable: number = 250
 
   /**
-   * Selected option value.
+   * Selected option values. Could also be passed as a string, which gets transformed.
    */
   @Prop({ mutable: true }) value: string[] = []
 

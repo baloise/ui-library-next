@@ -70,7 +70,7 @@ export class Datepicker {
   @Prop() placeholder = ''
 
   /**
-   * Selected option value.
+   * Selected date. Could also be passed as a string, which gets transformed to js date object.
    */
   @Prop({ mutable: true }) value: Date
 

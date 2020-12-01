@@ -346,7 +346,7 @@ export namespace Components {
          */
         "triggerIcon": boolean;
         /**
-          * Selected option value.
+          * Selected date. Could also be passed as a string, which gets transformed to js date object.
          */
         "value": Date;
     }
@@ -790,7 +790,7 @@ export namespace Components {
          */
         "typeahead": boolean;
         /**
-          * Selected option value.
+          * Selected option values. Could also be passed as a string, which gets transformed.
          */
         "value": string[];
     }
@@ -1632,7 +1632,7 @@ declare namespace LocalJSX {
          */
         "triggerIcon"?: boolean;
         /**
-          * Selected option value.
+          * Selected date. Could also be passed as a string, which gets transformed to js date object.
          */
         "value"?: Date;
     }
@@ -2082,7 +2082,7 @@ declare namespace LocalJSX {
          */
         "typeahead"?: boolean;
         /**
-          * Selected option value.
+          * Selected option values. Could also be passed as a string, which gets transformed.
          */
         "value"?: string[];
     }
