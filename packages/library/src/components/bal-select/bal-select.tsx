@@ -205,7 +205,9 @@ export class Select {
   }
 
   componentWillLoad() {
-    this.updateValue()
+    if (this.value) {
+      setTimeout(() => this.updateValue(), 0)
+    }
   }
 
   @Watch('value')
