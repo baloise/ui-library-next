@@ -15,7 +15,7 @@ import { BalSelect, BalSelectOption } from '@baloise/ui-library-next-vue'
 
 export default Vue.extend({
   data: () => {
-    const value = ['1', '2']
+    const value = ['1']
     return { value }
   },
   watch: {

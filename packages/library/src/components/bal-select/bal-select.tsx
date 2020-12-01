@@ -205,14 +205,21 @@ export class Select {
   }
 
   componentWillLoad() {
-    this.value = this.parseValue(this.value)
-    this.updateOptionProps()
+    this.updateValue()
   }
 
   @Watch('value')
   valueWatcher() {
+    this.updateValue()
+  }
+
+  updateValue() {
     this.value = this.parseValue(this.value)
     this.updateOptionProps()
+    this.inputElement.value = this.childOptions
+      .filter(option => this.value.includes(option.value))
+      .map(option => option.label)
+      .join(', ')
   }
 
   parseValue(value: string | string[] | undefined): string[] {
