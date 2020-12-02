@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bal-components',
-  templateUrl: './bal-components.component.html',
-  styleUrls: ['./bal-components.component.scss']
+  templateUrl: './bal-components.component.html'
 })
 export class BalComponentsComponent implements OnInit {
   routes = [];
