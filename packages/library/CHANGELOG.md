@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.20.0](https://github.com/baloise/ui-library-next/compare/v1.19.13...v1.20.0) (2020-12-02)
+
+
+### Features
+
+* **field:** update disable, expanded and inverted handling ([caa669e](https://github.com/baloise/ui-library-next/commit/caa669ebe739a5cf894f103f206efec81a413ad2))
+
+
+
+## 1.19.12 (2020-12-01)
+
+
+
+
+
 ## [1.19.13](https://github.com/baloise/ui-library-next/compare/v1.19.12...v1.19.13) (2020-12-02)
 
 **Note:** Version bump only for package @baloise/ui-library-next
