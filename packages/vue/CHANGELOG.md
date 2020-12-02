@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.13](https://github.com/baloise/ui-library-next/compare/v1.19.12...v1.19.13) (2020-12-02)
+
+**Note:** Version bump only for package @baloise/ui-library-next-vue
+
+
+
+
+
 ## [1.19.12](https://github.com/baloise/ui-library-next/compare/v1.19.11...v1.19.12) (2020-12-01)
 
 **Note:** Version bump only for package @baloise/ui-library-next-vue
