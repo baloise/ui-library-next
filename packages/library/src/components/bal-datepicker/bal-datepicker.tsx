@@ -364,6 +364,7 @@ export class Datepicker {
       <Host role="datepicker">
         <bal-dropdown
           expanded={this.expanded}
+          fixedContentWidth={true}
           onBalCollapse={e => this.onDropdownChange(e)}
           ref={el => (this.dropdownElement = el as HTMLBalDropdownElement)}>
           {this.renderInput()}

@@ -360,6 +360,10 @@ export namespace Components {
          */
         "expanded": boolean;
         /**
+          * If `true` the dropdown content has a fixed width
+         */
+        "fixedContentWidth": boolean;
+        /**
           * Returns the `HTMLDivElement` of the content element
          */
         "getContentElement": () => Promise<HTMLDivElement>;
@@ -1641,6 +1645,10 @@ declare namespace LocalJSX {
           * If `true` the field spans over the whole width.
          */
         "expanded"?: boolean;
+        /**
+          * If `true` the dropdown content has a fixed width
+         */
+        "fixedContentWidth"?: boolean;
         /**
           * If `true` the dropdown content is open.
          */

@@ -27,6 +27,11 @@ export class Dropdown {
   @Prop() expanded: boolean = false
 
   /**
+   * If `true` the dropdown content has a fixed width
+   */
+  @Prop() fixedContentWidth: boolean = false
+
+  /**
    * If `true` the dropdown content is open.
    */
   @Prop({ mutable: true, reflect: true }) isActive = false
@@ -154,6 +159,7 @@ export class Dropdown {
           class={{
             'dropdown': true,
             'is-active': this.isActive,
+            'has-fixed-content-width': this.fixedContentWidth,
             'is-expanded': this.expanded,
             'is-up': this.isDropDownContentUp,
           }}>

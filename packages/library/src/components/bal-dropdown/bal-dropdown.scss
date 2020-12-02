@@ -12,7 +12,9 @@
       .dropdown-trigger {
         width: 100%;
       }
+    }
 
+    &.is-expanded:not(.has-fixed-content-width) {
       .dropdown-menu {
         min-width: 100%;
       }

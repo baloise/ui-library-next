@@ -360,14 +360,14 @@ export class BalDatepicker {
 import { Dropdown as IDropdown } from '@baloise/ui-library-next/dist/types/components/bal-dropdown/bal-dropdown';
 export declare interface BalDropdown extends Components.BalDropdown {}
 @ProxyCmp({
-  inputs: ['expanded', 'isActive', 'scrollable'],
+  inputs: ['expanded', 'fixedContentWidth', 'isActive', 'scrollable'],
   methods: ['open', 'close', 'toggle', 'getMenuElement', 'getContentElement']
 })
 @Component({
   selector: 'bal-dropdown',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['expanded', 'isActive', 'scrollable'],
+  inputs: ['expanded', 'fixedContentWidth', 'isActive', 'scrollable'],
   outputs: ['balCollapse', 'balDropdownPrepare']
 })
 export class BalDropdown {
