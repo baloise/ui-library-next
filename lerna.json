@@ -1,16 +1,10 @@
 {
-  "packages": [
-    "packages/*"
-  ],
+  "packages": ["packages/*"],
   "version": "1.19.13",
   "command": {
     "publish": {
       "conventionalCommits": true,
-      "ignoreChanges": [
-        "docs/**",
-        "examples/**",
-        "packages/examples/**"
-      ],
+      "ignoreChanges": ["docs/**", "examples/**"],
       "message": "chore(): release"
     },
     "version": {
