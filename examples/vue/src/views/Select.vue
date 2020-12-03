@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { BalSelect, BalSelectOption, BalField } from '@baloise/ui-library-next-vue'
+import { BalSelect, BalSelectOption } from '@baloise/ui-library-next-vue'
 
 export default Vue.extend({
   data: () => {
@@ -21,8 +21,8 @@ export default Vue.extend({
     return { value }
   },
   methods: {
-    valueChanged: val => {
-      console.log(val)
+    valueChanged: function(val: any) {
+      this.value = val
     },
   },
   watch: {
@@ -33,7 +33,6 @@ export default Vue.extend({
   components: {
     BalSelect,
     BalSelectOption,
-    BalField,
   },
 })
 </script>

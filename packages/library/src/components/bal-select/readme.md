@@ -2,8 +2,6 @@
 
 Select fields components are used for collecting user provided information from a list of options.
 
-> Two-way binding with `v-model` or `ng-model` is available.
-
 ## Option interface
 
 ```typescript
