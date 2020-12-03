@@ -72,7 +72,6 @@ export class Field {
       control.inverted = this.inverted
       control.expanded = this.expanded
     })
-    console.log('controls', controls)
   }
 
   get buildIconLeftTemplate() {
