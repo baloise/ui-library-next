@@ -204,37 +204,37 @@ export class Select {
     }
   }
 
-  componentWillLoad() {
-    if (this.value) {
-      setTimeout(() => this.updateValue(), 0)
-    }
-  }
+  // componentWillLoad() {
+  //   if (this.value) {
+  //     setTimeout(() => this.updateValue(), 0)
+  //   }
+  // }
 
-  @Watch('value')
-  valueWatcher() {
-    this.updateValue()
-  }
+  // @Watch('value')
+  // valueWatcher() {
+  //   this.updateValue()
+  // }
 
-  updateValue() {
-    this.value = this.parseValue(this.value)
-    this.updateOptionProps()
-    this.inputElement.value = this.childOptions
-      .filter(option => this.value.includes(option.value))
-      .map(option => option.label)
-      .join(', ')
-  }
+  // updateValue() {
+  //   this.value = this.parseValue(this.value)
+  //   this.updateOptionProps()
+  //   this.inputElement.value = this.childOptions
+  //     .filter(option => this.value.includes(option.value))
+  //     .map(option => option.label)
+  //     .join(', ')
+  // }
 
-  parseValue(value: string | string[] | undefined): string[] {
-    if (value === undefined) {
-      return []
-    } else {
-      if (typeof value === 'string') {
-        return value.split(',')
-      } else {
-        return value
-      }
-    }
-  }
+  // parseValue(value: string | string[] | undefined): string[] {
+  //   if (value === undefined) {
+  //     return []
+  //   } else {
+  //     if (typeof value === 'string') {
+  //       return value.split(',')
+  //     } else {
+  //       return value
+  //     }
+  //   }
+  // }
 
   private get childOptions(): HTMLBalSelectOptionElement[] {
     return Array.from(this.element.querySelectorAll('bal-select-option'))
