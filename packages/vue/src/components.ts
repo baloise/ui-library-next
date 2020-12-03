@@ -647,10 +647,6 @@ export const BalSelect = /*@__PURE__*/ Vue.extend({
     value: {} as PropOptions<Components.BalSelect['value']>,
   },
 
-  model: {
-    prop: 'value',
-    event: 'balChange'
-  },
 
   methods: {
     open: createCommonMethod('open') as Components.BalSelect['open'],
