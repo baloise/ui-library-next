@@ -1,6 +1,6 @@
 {
   "name": "@baloise/ui-library-next",
-  "version": "1.20.2",
+  "version": "1.20.3",
   "description": "The UI-Libary is an open source project for styling awesome web applications that follow the Baloise corporate styling guidelines.",
   "repository": {
     "type": "git",
@@ -30,8 +30,8 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@baloise/ui-library-next-angular": "^1.20.2",
-    "@baloise/ui-library-next-vue": "^1.20.2",
+    "@baloise/ui-library-next-angular": "^1.20.3",
+    "@baloise/ui-library-next-vue": "^1.20.3",
     "@stencil/core": "^2.0.1",
     "bulma": "^0.9.0",
     "filesize.js": "^2.0.0"
