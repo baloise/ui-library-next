@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.20.2-alpha.3](https://github.com/baloise/ui-library-next/compare/v1.20.2-alpha.2...v1.20.2-alpha.3) (2020-12-03)
+
+
+### Bug Fixes
+
+* **select:** try to fix vue integration ([f854eb5](https://github.com/baloise/ui-library-next/commit/f854eb57d0b205623dfbbbc61407f6145111336e))
+* **select:** try to fix vue integration ([76cec26](https://github.com/baloise/ui-library-next/commit/76cec26ea39fdf87c400bf2955cc36931ea70774))
+
+
+
+
+
 ## [1.20.1](https://github.com/baloise/ui-library-next/compare/v1.20.0...v1.20.1) (2020-12-03)
 
 
