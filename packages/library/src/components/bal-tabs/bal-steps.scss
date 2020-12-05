@@ -37,12 +37,18 @@
           line-height: 28px;
           justify-content: center;
           font-size: $size-5;
+          position: relative;
 
           span {
-            margin-top: -2px;
             font-weight: $weight-bold;
             font-family: $title-family;
             color: $text-strong;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            margin-top: -14px;
+            text-align: center;
           }
         }
 
@@ -74,6 +80,8 @@
           background-size: 24px 24px;
           content: '';
           top: 5px;
+          left: 50%;
+          margin-left: -3px;
           width: 5px;
           height: 12px;
           border-bottom: 2px solid $white;
@@ -128,8 +136,10 @@
           font-weight: 700;
           font-size: $size-3;
           content: '!';
-          top: -2px;
-          left: 10px;
+          top: 50%;
+          left: 50%;
+          margin-top: -14px;
+          margin-left: -3px;
           overflow: hidden;
         }
       }
