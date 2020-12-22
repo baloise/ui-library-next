@@ -1,3 +1,8 @@
+
+<h1>Project is finished, please use again <a href="https://github.com/baloise/ui-library">UI-Library 2.0.0</a></h1>
+
+---
+
 <a href="https://ui-library-next.vercel.app" target="blank">
     <img src="https://raw.githubusercontent.com/baloise/ui-library-next/master/docs/assets/images/banner.svg?sanitize=true" width="500" alt="Baloise UI-Library" />
 </a>
