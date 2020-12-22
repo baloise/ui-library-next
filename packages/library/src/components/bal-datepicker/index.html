@@ -12,17 +12,11 @@
     <div class="container">
       <h2 class="title is-size-2">Basic</h2>
       <p>In this example the user can only select a date. For that use the property `readonly`.</p>
-      <section id="datepicker-section-1">
-        <!-- <bal-datepicker readonly></bal-datepicker> -->
+      <section>
+        <bal-datepicker readonly></bal-datepicker>
       </section>
-      <script>
-        var datepickerSection = document.getElementById('datepicker-section-1')
-        var datepicker = document.createElement('bal-datepicker')
-        datepicker.value = new Date(1988, 7, 15)
-        datepickerSection.appendChild(datepicker)
-      </script>
 
-      <!-- <h2 class="title is-size-2">Disabled</h2>
+      <h2 class="title is-size-2">Disabled</h2>
       <section>
         <bal-datepicker readonly disabled id="datepicker-disabled"></bal-datepicker>
       </section>
@@ -71,7 +65,7 @@
         datepickerRange.filter = function (date) {
           return date.getMonth() === today.getMonth()
         }
-      </script> -->
+      </script>
     </div>
   </body>
 </html>
