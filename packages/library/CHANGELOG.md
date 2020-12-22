@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.20.4](https://github.com/baloise/ui-library-next/compare/v1.20.3...v1.20.4) (2020-12-22)
+
+
+### Bug Fixes
+
+* **list:** solve ie11 issues ([549f12a](https://github.com/baloise/ui-library-next/commit/549f12a6c510544f82396199b7ad386b2be666ea))
+* **tab:** ie style issues ([c7d0e41](https://github.com/baloise/ui-library-next/commit/c7d0e416d820c0023024bdf1de0256677a085422))
+* some ie fixes ([064d1db](https://github.com/baloise/ui-library-next/commit/064d1db3df480b403aa1f5082dc5cd6a64acfdf4))
+* some ie style issues ([3a04d04](https://github.com/baloise/ui-library-next/commit/3a04d04401f62a35bacc60eb14c039d330ff918d))
+* **accordion:** adjust label position ([3cb0bee](https://github.com/baloise/ui-library-next/commit/3cb0bee57b556ccd1f6b39528a90cac65442cdfe))
+* **button:** ie fix ([b03102f](https://github.com/baloise/ui-library-next/commit/b03102f346bf7dc629993c26ad56ed67532aa33b))
+* **button:** ie fix ([cd3c698](https://github.com/baloise/ui-library-next/commit/cd3c698156df2d34d25d7837fe47fe99623d13da))
+
+
+
+## 1.18.1 (2020-11-18)
+
+
+
+
+
 ## [1.20.3](https://github.com/baloise/ui-library-next/compare/v1.20.2...v1.20.3) (2020-12-03)
 
 **Note:** Version bump only for package @baloise/ui-library-next
