@@ -2,6 +2,7 @@
 
 :host {
   display: inline-block;
+  position: relative;
 }
 
 .bal-hint-icon {
@@ -20,7 +21,9 @@
     font-weight: $weight-bold;
     font-family: $family-primary;
     font-size: 15px;
-    margin-top: -1px;
+    position: absolute;
+    top: 0;
+    left: 8px;
   }
 
   &:hover {
@@ -31,7 +34,6 @@
 .bal-hint-content {
   position: fixed;
   top: 0;
-  bottom: 0;
   left: 0;
   right: 0;
   z-index: 100;

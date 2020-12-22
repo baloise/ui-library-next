@@ -43,16 +43,11 @@
 }
 
 .bal-list-item {
-  position: relative;
+  position: static;
   display: flex;
-  flex: 1 1 100%;
-  align-items: center;
-  letter-spacing: normal;
-  min-height: 48px;
-  outline: none;
-  text-decoration: none;
+  flex-direction: row;
   transition: 0.2s ease-in-out;
-  cursor: pointer;
+  padding: 0;
 
   &:hover {
     padding: 0 8px;
@@ -63,8 +58,21 @@
   }
 }
 
+.bal-list-item-content,
 .bal-list-item-icon {
-  display: block;
+  position: static;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.bal-list-item-content {
+  display: flex;
+  width: 100%;
+  min-height: 48px;
+}
+
+.bal-list-item-icon {
   align-self: flex-start;
   display: inline-flex;
   min-width: 24px;
@@ -82,14 +90,15 @@
 .bal-list-item-content {
   font-weight: $weight-normal;
   font-family: $family-primary;
-  align-self: center;
-  overflow: hidden;
 }
 
 .bal-list-item-title,
 .bal-list-item-subtitle {
+  position: static;
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0 1em;
   display: block;
-  flex: 1 1 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -100,12 +109,4 @@
 
 .bal-list-item-subtitle {
   color: $blue-light-text;
-}
-
-.bal-list-item-content {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  flex: 1 1;
-  overflow: hidden;
 }
