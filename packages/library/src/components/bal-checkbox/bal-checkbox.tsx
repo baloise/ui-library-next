@@ -23,6 +23,11 @@ export class Checkbox {
   @Prop() label: string = ''
 
   /**
+   * The tabindex of the control.
+   */
+  @Prop() balTabindex: number = 0
+
+  /**
    * The value of the control.
    */
   @Prop() value: string = 'on'
@@ -100,6 +105,7 @@ export class Checkbox {
           name={this.name}
           value={this.value}
           checked={this.checked}
+          tabindex={this.balTabindex}
           aria-checked={this.checked ? 'true' : 'false'}
           aria-label={label}
           disabled={this.disabled}

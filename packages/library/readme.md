@@ -23,3 +23,4 @@ The [documentation](https://ui-library-next.vercel.app) is published on now.sh, 
 | [UI Library Vue](https://ui-library-next.vercel.app/#/introduction/vue)       | [![npm version](https://badge.fury.io/js/%40baloise%2Fui-library-next-vue.svg)](https://badge.fury.io/js/%40baloise%2Fui-library-next-vue)         | Vue component library based on the the core library.       |
 | [UI Library Angular](https://ui-library-next.vercel.app/#/introduction/angular) | [![npm version](https://badge.fury.io/js/%40baloise%2Fui-library-next-angular.svg)](https://badge.fury.io/js/%40baloise%2Fui-library-next-angular) | Angular component library based on the the core library.   |
 | [UI Library Testing](https://ui-library-next.vercel.app/#/testing/installation)                | [![npm version](https://badge.fury.io/js/%40baloise%2Fui-library-next-testing.svg)](https://badge.fury.io/js/%40baloise%2Fui-library-next-testing) | Testing library with accessors for each component.         |
+

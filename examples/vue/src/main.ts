@@ -1,17 +1,16 @@
-import 'babel-polyfill'
-
-import '@baloise/ui-library-next/dist/ui-library-next/ui-library-next.css'
-
 import Vue from 'vue'
-import VueComposition from '@vue/composition-api'
 import App from './App.vue'
+import router from './router'
 import { BalUiLibraryPlugin } from '@baloise/ui-library-next-vue'
+import '@baloise/ui-library-next/dist/ui-library-next/ui-library-next.css'
 
 Vue.config.productionTip = false
 
-Vue.use(BalUiLibraryPlugin)
-Vue.use(VueComposition)
+Vue.use(BalUiLibraryPlugin, {
+  defineCustomElements: true,
+})
 
 new Vue({
+  router,
   render: h => h(App),
 }).$mount('#app')

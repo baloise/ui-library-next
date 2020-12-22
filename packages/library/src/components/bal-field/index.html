@@ -23,10 +23,24 @@
       <h2 class="title is-size-2">Inverted</h2>
       <section>
         <div class="has-background-info is-padded">
-          <bal-field icon-left="account" label="Firstname" validation-message="Field is required" loading inverted expanded>
+          <bal-field
+            icon-left="account"
+            label="Firstname"
+            validation-message="Field is required"
+            loading
+            inverted
+            expanded
+          >
             <bal-input name="firstName" placeholder="Enter your firstname" inverted></bal-input>
           </bal-field>
-          <bal-field id="bal-field-1" label="Lastname" validation-message="Field is required" disabled inverted expanded>
+          <bal-field
+            id="bal-field-1"
+            label="Lastname"
+            validation-message="Field is required"
+            disabled
+            inverted
+            expanded
+          >
             <bal-input id="bal-input-1" disabled inverted name="lastname" placeholder="Enter your lastname"></bal-input>
           </bal-field>
         </div>
@@ -55,6 +69,65 @@
           inputValidation.setAttribute('validation-message', 'Generated validation message number:' + counter)
         })
       </script>
+
+      <h2 class="title is-size-2">Form</h2>
+      <section>
+        <bal-field disabled label="Firstname" icon-left="account" icon-right="check" expanded>
+          <bal-input name="firstName" placeholder="Enter your firstname"></bal-input>
+        </bal-field>
+
+        <bal-field disabled label="Firstname" expanded>
+          <bal-datepicker name="firstName" placeholder="Enter your firstname"></bal-datepicker>
+        </bal-field>
+
+        <bal-field disabled label="Year" expanded>
+          <bal-select id="bal-select-year" placeholder="select a year">
+            <bal-select-option value="1995" label="1995">1995</bal-select-option>
+            <bal-select-option value="1996" label="1996">1996</bal-select-option>
+            <bal-select-option value="1997" label="1997">1997</bal-select-option>
+            <bal-select-option value="1998" label="1998">1998</bal-select-option>
+            <bal-select-option value="1999" label="1999">1999</bal-select-option>
+            <bal-select-option value="2000" label="2000">2000</bal-select-option>
+          </bal-select>
+        </bal-field>
+
+        <div class="has-background-info is-padded">
+          <bal-field inverted label="Firstname" icon-left="account" icon-right="check" expanded>
+            <bal-input name="firstName" placeholder="Enter your firstname"></bal-input>
+          </bal-field>
+          <bal-field disabled inverted label="Firstname" icon-left="account" icon-right="check" expanded>
+            <bal-input name="firstName" placeholder="Enter your firstname"></bal-input>
+          </bal-field>
+
+          <bal-field inverted label="Firstname" expanded>
+            <bal-datepicker name="firstName" placeholder="Enter your firstname"></bal-datepicker>
+          </bal-field>
+          <bal-field disabled inverted label="Firstname" expanded>
+            <bal-datepicker name="firstName" placeholder="Enter your firstname"></bal-datepicker>
+          </bal-field>
+
+          <bal-field inverted label="Year" expanded>
+            <bal-select id="bal-select-year" placeholder="select a year">
+              <bal-select-option value="1995" label="1995">1995</bal-select-option>
+              <bal-select-option value="1996" label="1996">1996</bal-select-option>
+              <bal-select-option value="1997" label="1997">1997</bal-select-option>
+              <bal-select-option value="1998" label="1998">1998</bal-select-option>
+              <bal-select-option value="1999" label="1999">1999</bal-select-option>
+              <bal-select-option value="2000" label="2000">2000</bal-select-option>
+            </bal-select>
+          </bal-field>
+          <bal-field disabled inverted label="Year" expanded>
+            <bal-select id="bal-select-year" placeholder="select a year">
+              <bal-select-option value="1995" label="1995">1995</bal-select-option>
+              <bal-select-option value="1996" label="1996">1996</bal-select-option>
+              <bal-select-option value="1997" label="1997">1997</bal-select-option>
+              <bal-select-option value="1998" label="1998">1998</bal-select-option>
+              <bal-select-option value="1999" label="1999">1999</bal-select-option>
+              <bal-select-option value="2000" label="2000">2000</bal-select-option>
+            </bal-select>
+          </bal-field>
+        </div>
+      </section>
     </div>
   </body>
 </html>

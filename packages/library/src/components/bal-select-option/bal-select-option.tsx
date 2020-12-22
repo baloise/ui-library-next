@@ -44,6 +44,11 @@ export class SelectOption {
    */
   @Prop() selected = false
 
+  /**
+   * If `true` the option has a checkbox
+   */
+  @Prop() checkbox = false
+
   @Method()
   async getOption() {
     return this.option
@@ -76,9 +81,17 @@ export class SelectOption {
             this.hidden ? 'is-hidden' : '',
             this.focused ? 'is-focused' : '',
             this.icon ? 'has-icon' : '',
+            this.checkbox ? 'has-checkbox' : '',
           ].join(' ')}
           tabIndex={-1}>
-          <slot />
+          <div class="select-option__content">
+            <span class="checkbox" style={{ display: this.checkbox ? 'flex' : 'none' }}>
+              <bal-checkbox checked={this.selected} tabindex={-1}></bal-checkbox>
+            </span>
+            <span class="label">
+              <slot />
+            </span>
+          </div>
         </button>
       </Host>
     )

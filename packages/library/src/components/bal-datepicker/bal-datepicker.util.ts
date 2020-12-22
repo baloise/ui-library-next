@@ -1,5 +1,7 @@
 export const now = (): Date => new Date()
 
+export const isValidDate = (value: any): boolean => new Date(value).toString() !== 'Invalid Date'
+
 export const year = (date: Date): number => date.getFullYear()
 export const month = (date: Date): number => date.getMonth()
 export const day = (date: Date): number => date.getDate()
@@ -20,12 +22,18 @@ export const format = (date: Date): string => {
     var s = `0${value}`
     return s.substr(s.length - 2)
   }
+  if (!isValidDate(date)) {
+    return ''
+  }
   return `${pad(day(date))}.${pad(month(date) + 1)}.${year(date)}`
 }
 
 export const getLastDayOfMonth = (year: number, month: number): number => {
-  const d = new Date(year, month + 1, 0)
-  return d.getDate()
+  const date = new Date(year, month + 1, 0)
+  if (!isValidDate(date)) {
+    return 0
+  }
+  return date.getDate()
 }
 
 export const getFirstDayOfTheWeek = (date: Date): Date => {

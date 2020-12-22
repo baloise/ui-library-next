@@ -14,6 +14,7 @@ import {
   month,
   getLastDayOfMonth,
   isInRange,
+  isValidDate,
 } from './bal-datepicker.util'
 
 @Component({
@@ -37,6 +38,11 @@ export class Datepicker {
    * If `true` the component uses the whole width.
    */
   @Prop() locale: 'en' | 'de' | 'fr' | 'it' = 'en'
+
+  /**
+   * The tabindex of the control.
+   */
+  @Prop() balTabindex: number = 0
 
   /**
    * If `true` the component uses the whole width.
@@ -64,7 +70,7 @@ export class Datepicker {
   @Prop() placeholder = ''
 
   /**
-   * Selected option value.
+   * Selected date. Could also be passed as a string, which gets transformed to js date object.
    */
   @Prop({ mutable: true }) value: Date
 
@@ -138,14 +144,30 @@ export class Datepicker {
 
   @Watch('value')
   valueWatcher(newDate: Date, oldDate: Date) {
-    if (oldDate === undefined || !isSameDay(newDate, oldDate)) {
+    newDate = this.parseValue(newDate)
+    oldDate = this.parseValue(oldDate)
+    this.value = this.parseValue(this.value)
+    if (oldDate === undefined || (isValidDate(newDate) && isValidDate(oldDate) && !isSameDay(newDate, oldDate))) {
       this.updateFromValue()
     }
   }
 
   componentWillLoad() {
     if (this.value) {
+      this.value = this.parseValue(this.value)
       setTimeout(() => this.updateFromValue(), 0)
+    }
+  }
+
+  parseValue(value: Date | string | undefined): Date {
+    if (value === undefined) {
+      return undefined
+    } else {
+      if (typeof value === 'object') {
+        return value
+      } else {
+        return new Date(value)
+      }
     }
   }
 
@@ -230,10 +252,12 @@ export class Datepicker {
   }
 
   private updateFromValue() {
-    this.inputElement.value = format(this.value)
-    this.pointerYear = year(this.value)
-    this.pointerMonth = month(this.value)
-    this.pointerDay = day(this.value)
+    if (this.value && isValidDate(this.value)) {
+      this.inputElement.value = format(this.value)
+      this.pointerYear = year(this.value)
+      this.pointerMonth = month(this.value)
+      this.pointerDay = day(this.value)
+    }
   }
 
   private parseAndSetDate(inputValue: string, shouldFormat = false) {
@@ -321,6 +345,8 @@ export class Datepicker {
       'Tab',
       'Esc',
       'Escape',
+      'Del',
+      'Delete',
     ]
     if (allowedKeys.indexOf(event.key) < 0) {
       event.preventDefault()
@@ -338,6 +364,7 @@ export class Datepicker {
       <Host role="datepicker">
         <bal-dropdown
           expanded={this.expanded}
+          fixedContentWidth={true}
           onBalCollapse={e => this.onDropdownChange(e)}
           ref={el => (this.dropdownElement = el as HTMLBalDropdownElement)}>
           {this.renderInput()}
@@ -368,6 +395,7 @@ export class Datepicker {
           disabled={this.disabled}
           readonly={this.readonly}
           placeholder={this.placeholder}
+          tabindex={this.balTabindex}
           onKeyDown={e => this.onInputKeyDown(e)}
           onInput={e => this.onInput(e as any)}
           onClick={e => this.onInputClick(e)}

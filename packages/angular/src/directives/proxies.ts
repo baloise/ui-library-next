@@ -229,14 +229,14 @@ export class BalCardTitle {
 import { Checkbox as ICheckbox } from '@baloise/ui-library-next/dist/types/components/bal-checkbox/bal-checkbox';
 export declare interface BalCheckbox extends Components.BalCheckbox {}
 @ProxyCmp({
-  inputs: ['checked', 'disabled', 'inverted', 'label', 'name', 'value'],
+  inputs: ['balTabindex', 'checked', 'disabled', 'inverted', 'label', 'name', 'value'],
   methods: ['setFocus']
 })
 @Component({
   selector: 'bal-checkbox',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['checked', 'disabled', 'inverted', 'label', 'name', 'value'],
+  inputs: ['balTabindex', 'checked', 'disabled', 'inverted', 'label', 'name', 'value'],
   outputs: ['balChange', 'balFocus', 'balBlur']
 })
 export class BalCheckbox {
@@ -330,14 +330,14 @@ export class BalDataValue {
 import { Datepicker as IDatepicker } from '@baloise/ui-library-next/dist/types/components/bal-datepicker/bal-datepicker';
 export declare interface BalDatepicker extends Components.BalDatepicker {}
 @ProxyCmp({
-  inputs: ['closeOnSelect', 'disabled', 'expanded', 'filter', 'inverted', 'locale', 'maxDate', 'maxYearProp', 'minDate', 'minYearProp', 'placeholder', 'readonly', 'triggerIcon', 'value'],
+  inputs: ['balTabindex', 'closeOnSelect', 'disabled', 'expanded', 'filter', 'inverted', 'locale', 'maxDate', 'maxYearProp', 'minDate', 'minYearProp', 'placeholder', 'readonly', 'triggerIcon', 'value'],
   methods: ['select']
 })
 @Component({
   selector: 'bal-datepicker',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['closeOnSelect', 'disabled', 'expanded', 'filter', 'inverted', 'locale', 'maxDate', 'maxYearProp', 'minDate', 'minYearProp', 'placeholder', 'readonly', 'triggerIcon', 'value'],
+  inputs: ['balTabindex', 'closeOnSelect', 'disabled', 'expanded', 'filter', 'inverted', 'locale', 'maxDate', 'maxYearProp', 'minDate', 'minYearProp', 'placeholder', 'readonly', 'triggerIcon', 'value'],
   outputs: ['balChange', 'balInput', 'balBlur', 'balFocus']
 })
 export class BalDatepicker {
@@ -360,14 +360,14 @@ export class BalDatepicker {
 import { Dropdown as IDropdown } from '@baloise/ui-library-next/dist/types/components/bal-dropdown/bal-dropdown';
 export declare interface BalDropdown extends Components.BalDropdown {}
 @ProxyCmp({
-  inputs: ['expanded', 'isActive', 'scrollable'],
+  inputs: ['expanded', 'fixedContentWidth', 'isActive', 'scrollable'],
   methods: ['open', 'close', 'toggle', 'getMenuElement', 'getContentElement']
 })
 @Component({
   selector: 'bal-dropdown',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['expanded', 'isActive', 'scrollable'],
+  inputs: ['expanded', 'fixedContentWidth', 'isActive', 'scrollable'],
   outputs: ['balCollapse', 'balDropdownPrepare']
 })
 export class BalDropdown {
@@ -501,14 +501,14 @@ export class BalIcon {
 import { Input as IInput } from '@baloise/ui-library-next/dist/types/components/bal-input/bal-input';
 export declare interface BalInput extends Components.BalInput {}
 @ProxyCmp({
-  inputs: ['autoComplete', 'clickable', 'disabled', 'inverted', 'maxLength', 'minLength', 'name', 'numberKeyboard', 'onlyNumbers', 'placeholder', 'readonly', 'type', 'value'],
+  inputs: ['autoComplete', 'balTabindex', 'clickable', 'disabled', 'inverted', 'maxLength', 'minLength', 'name', 'numberKeyboard', 'onlyNumbers', 'placeholder', 'readonly', 'type', 'value'],
   methods: ['setFocus']
 })
 @Component({
   selector: 'bal-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['autoComplete', 'clickable', 'disabled', 'inverted', 'maxLength', 'minLength', 'name', 'numberKeyboard', 'onlyNumbers', 'placeholder', 'readonly', 'type', 'value'],
+  inputs: ['autoComplete', 'balTabindex', 'clickable', 'disabled', 'inverted', 'maxLength', 'minLength', 'name', 'numberKeyboard', 'onlyNumbers', 'placeholder', 'readonly', 'type', 'value'],
   outputs: ['balInput', 'balBlur', 'balClick', 'balKeyPress', 'balFocus']
 })
 export class BalInput {
@@ -736,14 +736,14 @@ export class BalPagination {
 import { Radio as IRadio } from '@baloise/ui-library-next/dist/types/components/bal-radio/bal-radio';
 export declare interface BalRadio extends Components.BalRadio {}
 @ProxyCmp({
-  inputs: ['checked', 'disabled', 'interface', 'inverted', 'label', 'name', 'value'],
+  inputs: ['balTabindex', 'checked', 'disabled', 'interface', 'inverted', 'label', 'name', 'value'],
   methods: ['setFocus']
 })
 @Component({
   selector: 'bal-radio',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['checked', 'disabled', 'interface', 'inverted', 'label', 'name', 'value'],
+  inputs: ['balTabindex', 'checked', 'disabled', 'interface', 'inverted', 'label', 'name', 'value'],
   outputs: ['balFocus', 'balBlur']
 })
 export class BalRadio {
@@ -785,14 +785,14 @@ export class BalRadioGroup {
 import { Select as ISelect } from '@baloise/ui-library-next/dist/types/components/bal-select/bal-select';
 export declare interface BalSelect extends Components.BalSelect {}
 @ProxyCmp({
-  inputs: ['disabled', 'expanded', 'inverted', 'loading', 'placeholder', 'remote', 'scrollable', 'typeahead', 'value'],
+  inputs: ['balTabindex', 'disabled', 'expanded', 'filterPlaceholder', 'inverted', 'loading', 'multiple', 'noFilter', 'placeholder', 'scrollable', 'typeahead', 'value'],
   methods: ['open', 'close', 'select', 'clear', 'setFocus', 'sync']
 })
 @Component({
   selector: 'bal-select',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['disabled', 'expanded', 'inverted', 'loading', 'placeholder', 'remote', 'scrollable', 'typeahead', 'value'],
+  inputs: ['balTabindex', 'disabled', 'expanded', 'filterPlaceholder', 'inverted', 'loading', 'multiple', 'noFilter', 'placeholder', 'scrollable', 'typeahead', 'value'],
   outputs: ['balChange', 'balInput', 'balBlur', 'balFocus', 'balClick', 'balKeyPress', 'balCancel']
 })
 export class BalSelect {
@@ -821,14 +821,14 @@ export class BalSelect {
 
 export declare interface BalSelectOption extends Components.BalSelectOption {}
 @ProxyCmp({
-  inputs: ['focused', 'hidden', 'icon', 'label', 'selected', 'value'],
+  inputs: ['checkbox', 'focused', 'hidden', 'icon', 'label', 'selected', 'value'],
   methods: ['getOption']
 })
 @Component({
   selector: 'bal-select-option',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
-  inputs: ['focused', 'hidden', 'icon', 'label', 'selected', 'value']
+  inputs: ['checkbox', 'focused', 'hidden', 'icon', 'label', 'selected', 'value']
 })
 export class BalSelectOption {
   protected el: HTMLElement;

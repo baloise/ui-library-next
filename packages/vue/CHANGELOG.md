@@ -3,6 +3,147 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.20.3](https://github.com/baloise/ui-library-next/compare/v1.20.2...v1.20.3) (2020-12-03)
+
+**Note:** Version bump only for package @baloise/ui-library-next-vue
+
+
+
+
+
+## [1.20.2-alpha.3](https://github.com/baloise/ui-library-next/compare/v1.20.2-alpha.2...v1.20.2-alpha.3) (2020-12-03)
+
+**Note:** Version bump only for package @baloise/ui-library-next-vue
+
+
+
+
+
+## [1.20.1](https://github.com/baloise/ui-library-next/compare/v1.20.0...v1.20.1) (2020-12-03)
+
+**Note:** Version bump only for package @baloise/ui-library-next-vue
+
+
+
+
+
+# [1.20.0](https://github.com/baloise/ui-library-next/compare/v1.19.13...v1.20.0) (2020-12-02)
+
+
+### Features
+
+* **field:** update disable, expanded and inverted handling ([caa669e](https://github.com/baloise/ui-library-next/commit/caa669ebe739a5cf894f103f206efec81a413ad2))
+
+
+
+## 1.19.12 (2020-12-01)
+
+
+
+
+
+## [1.19.13](https://github.com/baloise/ui-library-next/compare/v1.19.12...v1.19.13) (2020-12-02)
+
+**Note:** Version bump only for package @baloise/ui-library-next-vue
+
+
+
+
+
+## [1.19.12](https://github.com/baloise/ui-library-next/compare/v1.19.11...v1.19.12) (2020-12-01)
+
+**Note:** Version bump only for package @baloise/ui-library-next-vue
+
+
+
+
+
+## [1.19.11-alpha.10](https://github.com/baloise/ui-library-next/compare/v1.19.11-alpha.9...v1.19.11-alpha.10) (2020-12-01)
+
+**Note:** Version bump only for package @baloise/ui-library-next-vue
+
+
+
+
+
+## [1.19.11-alpha.9](https://github.com/baloise/ui-library-next/compare/v1.19.11-alpha.8...v1.19.11-alpha.9) (2020-12-01)
+
+**Note:** Version bump only for package @baloise/ui-library-next-vue
+
+
+
+
+
+## [1.19.7](https://github.com/baloise/ui-library-next/compare/v1.19.6...v1.19.7) (2020-11-30)
+
+**Note:** Version bump only for package @baloise/ui-library-next-vue
+
+
+
+
+
+## [1.19.6](https://github.com/baloise/ui-library-next/compare/v1.19.5...v1.19.6) (2020-11-30)
+
+**Note:** Version bump only for package @baloise/ui-library-next-vue
+
+
+
+
+
+## [1.19.5](https://github.com/baloise/ui-library-next/compare/v1.19.4...v1.19.5) (2020-11-30)
+
+**Note:** Version bump only for package @baloise/ui-library-next-vue
+
+
+
+
+
+## [1.19.4](https://github.com/baloise/ui-library-next/compare/v1.19.3...v1.19.4) (2020-11-30)
+
+**Note:** Version bump only for package @baloise/ui-library-next-vue
+
+
+
+
+
+## [1.19.3](https://github.com/baloise/ui-library-next/compare/v1.19.2...v1.19.3) (2020-11-30)
+
+**Note:** Version bump only for package @baloise/ui-library-next-vue
+
+
+
+
+
+## [1.19.2](https://github.com/baloise/ui-library-next/compare/v1.19.1...v1.19.2) (2020-11-26)
+
+**Note:** Version bump only for package @baloise/ui-library-next-vue
+
+
+
+
+
+## [1.19.1](https://github.com/baloise/ui-library-next/compare/v1.19.0...v1.19.1) (2020-11-24)
+
+
+### Bug Fixes
+
+* **angular:** add angular as a peer dependencies ([6b93f7a](https://github.com/baloise/ui-library-next/commit/6b93f7a8bba5ee29f35f72422df945686cf38c45))
+
+
+
+
+
+# [1.19.0](https://github.com/baloise/ui-library-next/compare/v1.18.1...v1.19.0) (2020-11-24)
+
+
+### Features
+
+* **select:** add multi-select ([187fc01](https://github.com/baloise/ui-library-next/commit/187fc01f2e12f59ea24a29f3868c08dcf0f49b0d))
+
+
+
+
+
 ## [1.18.1](https://github.com/baloise/ui-library-next/compare/v1.18.0...v1.18.1) (2020-11-18)
 
 **Note:** Version bump only for package @baloise/ui-library-next-vue

@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, Element } from '@stencil/core'
+import { Component, h, Host, Prop, Element, Watch } from '@stencil/core'
 
 @Component({
   tag: 'bal-field',
@@ -53,6 +53,26 @@ export class Field {
    * If `true` a loading spinner is visible at the end of the input
    */
   @Prop() loading: boolean = false
+
+  @Watch('inverted')
+  @Watch('disabled')
+  @Watch('expanded')
+  watchHandler() {
+    this.updateChildControl()
+  }
+
+  componentWillLoad() {
+    this.updateChildControl()
+  }
+
+  updateChildControl() {
+    const controls = this.element.querySelectorAll('bal-input, bal-select, bal-datepicker')
+    controls.forEach((control: any) => {
+      control.disabled = this.disabled
+      control.inverted = this.inverted
+      control.expanded = this.expanded
+    })
+  }
 
   get buildIconLeftTemplate() {
     if (this.iconLeft) {
